@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Souvenir Pernikahan — main.js
  * JavaScript vanilla untuk: navbar, dropdown, mobile menu, accordion, filter katalog
  */
@@ -193,15 +193,67 @@
   }
 
   /* ============================================================
-     ACTIVE NAV LINK (based on current path)
+     ACTIVE NAV LINK (Robust Path Normalization)
      ============================================================ */
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.gs-navbar__link, .gs-navbar__mobile-link').forEach(function (link) {
-    const href = link.getAttribute('href');
-    if (href && (href === currentPath || href.endsWith(currentPath))) {
-      link.classList.add('active');
+  function normalizeNavPath(rawPath) {
+    if (!rawPath) return '/';
+    let p = rawPath.replace(/\\/g, '/');
+    try {
+      const u = new URL(p, window.location.href);
+      p = u.pathname;
+    } catch (e) {}
+    p = p.replace(/\/index\.html$/i, '/').replace(/\/+$/, '');
+    return p || '/';
+  }
+
+  const currentNorm = normalizeNavPath(window.location.pathname);
+  const isBlogSection = currentNorm === '/blog' || currentNorm.startsWith('/blog/');
+  const isPaketSection = currentNorm === '/paket' || currentNorm.startsWith('/paket/');
+
+  // Remove existing active states first
+  const allNavLinks = document.querySelectorAll(
+    '.gs-navbar__link, .gs-navbar__mobile-link, .gs-dropdown__item, .gs-dropdown__toggle'
+  );
+  allNavLinks.forEach(function (el) {
+    el.classList.remove('active');
+    if (el.hasAttribute('aria-current')) {
+      el.removeAttribute('aria-current');
     }
   });
+
+  allNavLinks.forEach(function (link) {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('javascript:')) return;
+
+    const linkNorm = normalizeNavPath(link.pathname || href);
+
+    let isActive = false;
+
+    if (currentNorm === '/') {
+      // Only home matches home
+      if (linkNorm === '/') isActive = true;
+    } else if (isBlogSection) {
+      if (linkNorm === '/blog' || linkNorm === currentNorm) isActive = true;
+    } else if (isPaketSection) {
+      if (linkNorm === currentNorm) isActive = true;
+      if (linkNorm === '/paket' && currentNorm === '/paket') isActive = true;
+    } else {
+      if (linkNorm === currentNorm) isActive = true;
+    }
+
+    if (isActive) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+
+  // Highlight parent dropdown button if on any paket page
+  if (isPaketSection) {
+    const paketToggle = document.getElementById('gs-dropdown-paket-btn');
+    if (paketToggle) paketToggle.classList.add('active');
+    const mobilePaketToggle = document.querySelector('.gs-navbar__mobile-submenu-toggle[aria-controls="gs-mobile-paket"]');
+    if (mobilePaketToggle) mobilePaketToggle.classList.add('active');
+  }
 
   /* ============================================================
      PACKAGE GALLERY THUMBNAILS (detail paket)
@@ -264,7 +316,16 @@
     const modalWaBtn = modalOverlay.querySelector('#gs-modal-wa-btn');
 
     function openModal(data) {
-      if (modalImg)   { modalImg.src = data.image; modalImg.alt = data.title; }
+      if (modalImg) {
+        if (data.image) {
+          modalImg.src = data.image;
+          modalImg.alt = data.title || '';
+          modalImg.style.display = 'block';
+        } else {
+          modalImg.removeAttribute('src');
+          modalImg.style.display = 'none';
+        }
+      }
       if (modalBadge) modalBadge.textContent = data.badge || '';
       if (modalTitle) modalTitle.textContent = data.title || '';
       if (modalDesc)  modalDesc.textContent  = data.desc  || '';
