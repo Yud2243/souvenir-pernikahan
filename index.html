@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -15,9 +15,9 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
   <!-- Canonical & Alternate Hreflang -->
-  <link rel="canonical" href="https://souvenir-pernikahan.vercel.app//" />
-  <link rel="alternate" hreflang="id-ID" href="https://souvenir-pernikahan.vercel.app//" />
-  <link rel="alternate" hreflang="x-default" href="https://souvenir-pernikahan.vercel.app//" />
+  <link rel="canonical" href="https://souvenir-pernikahan.vercel.app/" />
+  <link rel="alternate" hreflang="id-ID" href="https://souvenir-pernikahan.vercel.app/" />
+  <link rel="alternate" hreflang="x-default" href="https://souvenir-pernikahan.vercel.app/" />
 
   <!-- GEO & Local Engine Optimization (GEO) -->
   <meta name="geo.region" content="ID-JK" />
@@ -29,35 +29,33 @@
   <meta property="og:site_name" content="Souvenir Pernikahan" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="id_ID" />
-  <meta property="og:url" content="https://souvenir-pernikahan.vercel.app//" />
+  <meta property="og:url" content="https://souvenir-pernikahan.vercel.app/" />
   <meta property="og:title" content="Souvenir Pernikahan Elegan &amp; Custom | Pesan via WhatsApp" />
   <meta property="og:description"
     content="Pilihan souvenir pernikahan eksklusif, cinderamata ramah lingkungan, dan merchandise custom perusahaan. Konsultasi desain gratis." />
-  <meta property="og:image" content="https://souvenir-pernikahan.vercel.app//assets/images/hero-souvenir.webp" />
+  <meta property="og:image" content="https://souvenir-pernikahan.vercel.app/assets/images/hero-souvenir.webp" />
   <meta property="og:image:secure_url"
-    content="https://souvenir-pernikahan.vercel.app//assets/images/hero-souvenir.webp" />
+    content="https://souvenir-pernikahan.vercel.app/assets/images/hero-souvenir.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Koleksi souvenir pernikahan elegan dan kemasan custom eksklusif" />
-  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:type" content="image/webp" />
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://souvenir-pernikahan.vercel.app//" />
+  <meta name="twitter:url" content="https://souvenir-pernikahan.vercel.app/" />
   <meta name="twitter:title" content="Souvenir Pernikahan Elegan &amp; Custom | Pesan via WhatsApp" />
   <meta name="twitter:description"
     content="Pilihan souvenir pernikahan eksklusif dan merchandise custom perusahaan. Konsultasi cepat via WhatsApp." />
-  <meta name="twitter:image" content="https://souvenir-pernikahan.vercel.app//assets/images/hero-souvenir.webp" />
+  <meta name="twitter:image" content="https://souvenir-pernikahan.vercel.app/assets/images/hero-souvenir.webp" />
   <meta name="twitter:image:alt" content="Koleksi souvenir pernikahan elegan dan kemasan custom eksklusif" />
 
   <!-- Preload Hero LCP Image -->
   <link rel="preload" as="image" href="assets/images/hero-souvenir.webp" type="image/webp" fetchpriority="high" />
 
-  <!-- Fonts (Non-blocking) -->
+  <!-- Fonts (Non-blocking, swap untuk mengurangi FOIT) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap"
     media="print" onload="this.media='all'" />
@@ -66,6 +64,25 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" />
   </noscript>
 
+  <!-- Critical CSS inline untuk mempercepat FCP & Speed Index -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background-color:#fdfefb;color:#18261b;line-height:1.7;-webkit-font-smoothing:antialiased}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    :root{--gs-green-50:#f3f9f1;--gs-green-100:#e5f1df;--gs-green-700:#3f7044;--gs-green-900:#23472d;--gs-cream:#fdfefb;--gs-white:#fff;--gs-text:#18261b;--gs-muted:#38483b;--gs-border:#cfdecb;--gs-radius-sm:.5rem;--gs-radius-md:1rem;--gs-radius-pill:999px;--gs-container:1360px;--gs-shadow-nav:0 4px 24px rgba(35,71,45,.07);--gs-transition:250ms cubic-bezier(.16,1,.3,1)}
+    .gs-skip-link{position:absolute;top:-100%;left:1rem;z-index:2000;background:var(--gs-green-900);color:#fff;padding:.75rem 1.25rem;border-radius:.5rem;font-weight:600}
+    .gs-skip-link:focus{top:1rem}
+    .gs-container{max-width:var(--gs-container);margin-inline:auto;padding-inline:clamp(1.5rem,4vw,3rem)}
+    .gs-navbar{position:sticky;top:0;z-index:1000;background-color:rgba(255,253,248,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gs-border);box-shadow:var(--gs-shadow-nav)}
+    .gs-navbar__inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:1.25rem;padding:.35rem 0}
+    .gs-navbar__logo{display:inline-flex;align-items:center;gap:.75rem;flex-shrink:0}
+    .gs-navbar__logo-img{height:60px;width:auto;max-width:190px;object-fit:contain;display:block;mix-blend-mode:multiply}
+    .gs-navbar__brand-text{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:700;color:var(--gs-green-900);white-space:nowrap}
+    .gs-hero{padding-block:clamp(4rem,8vw,7rem)}
+    .gs-hero__title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.25rem);color:var(--gs-green-900);line-height:1.15;font-weight:700}
+  </style>
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/style.min.css" />
 
@@ -260,6 +277,8 @@
 </head>
 
 <body>
+  <!-- Skip Link -->
+  <a class="gs-skip-link" href="#main-content">Lewati ke konten utama</a>
 
   <!-- ===== NAVBAR ===== -->
   <header>
@@ -274,22 +293,22 @@
           </a>
 
           <!-- Desktop Navigation -->
-          <div class="gs-navbar__nav" role="menubar">
-            <a href="index.html" class="gs-navbar__link active" role="menuitem">Beranda</a>
-            <a href="tentang.html" class="gs-navbar__link" role="menuitem">Tentang</a>
+          <nav class="gs-navbar__nav" aria-label="Navigasi desktop">
+            <a href="index.html" class="gs-navbar__link active" aria-current="page">Beranda</a>
+            <a href="tentang.html" class="gs-navbar__link">Tentang</a>
 
             <!-- Dropdown Paket -->
-            <div class="gs-dropdown" role="none">
+            <div class="gs-dropdown">
               <button class="gs-dropdown__toggle" aria-haspopup="true" aria-expanded="false"
-                aria-controls="gs-dropdown-paket" id="gs-dropdown-paket-btn" role="menuitem">
+                aria-controls="gs-dropdown-paket" id="gs-dropdown-paket-btn">
                 Paket
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" aria-hidden="true">
                   <path d="M4 6l4 4 4-4" />
                 </svg>
               </button>
-              <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
-                <a href="paket/index.html" class="gs-dropdown__item" role="menuitem">
+              <div class="gs-dropdown__menu" id="gs-dropdown-paket" aria-labelledby="gs-dropdown-paket-btn">
+                <a href="paket/index.html" class="gs-dropdown__item">
                   <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path
                       d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
@@ -297,7 +316,7 @@
                   Semua Paket
                 </a>
                 <div class="gs-dropdown__divider" role="separator"></div>
-                <a href="paket/souvenir-pernikahan.html" class="gs-dropdown__item" role="menuitem">
+                <a href="paket/souvenir-pernikahan.html" class="gs-dropdown__item">
                   <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd"
                       d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
@@ -305,7 +324,7 @@
                   </svg>
                   Souvenir Pernikahan
                 </a>
-                <a href="paket/souvenir-perusahaan.html" class="gs-dropdown__item" role="menuitem">
+                <a href="paket/souvenir-perusahaan.html" class="gs-dropdown__item">
                   <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd"
                       d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
@@ -316,9 +335,9 @@
               </div>
             </div>
 
-            <a href="portofolio.html" class="gs-navbar__link" role="menuitem">Portofolio</a>
-            <a href="blog/index.html" class="gs-navbar__link" role="menuitem">Blog</a>
-          </div>
+            <a href="portofolio.html" class="gs-navbar__link">Portofolio</a>
+            <a href="blog/index.html" class="gs-navbar__link">Blog</a>
+          </nav>
 
           <!-- CTA Desktop -->
           <div class="gs-navbar__cta">
@@ -343,9 +362,9 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="gs-navbar__mobile-menu" id="gs-mobile-menu" role="menu" aria-label="Menu navigasi mobile">
-          <a href="index.html" class="gs-navbar__mobile-link" role="menuitem">Beranda</a>
-          <a href="tentang.html" class="gs-navbar__mobile-link" role="menuitem">Tentang</a>
+        <nav class="gs-navbar__mobile-menu" id="gs-mobile-menu" aria-label="Menu navigasi mobile" aria-hidden="true">
+          <a href="index.html" class="gs-navbar__mobile-link" aria-current="page">Beranda</a>
+          <a href="tentang.html" class="gs-navbar__mobile-link">Tentang</a>
 
           <button class="gs-navbar__mobile-submenu-toggle" aria-expanded="false" aria-controls="gs-mobile-paket">
             Paket
@@ -354,16 +373,16 @@
               <path d="M4 6l4 4 4-4" />
             </svg>
           </button>
-          <div class="gs-navbar__mobile-submenu" id="gs-mobile-paket" role="menu">
-            <a href="paket/index.html" class="gs-navbar__mobile-link" role="menuitem">Semua Paket</a>
-            <a href="paket/souvenir-pernikahan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir
+          <div class="gs-navbar__mobile-submenu" id="gs-mobile-paket">
+            <a href="paket/index.html" class="gs-navbar__mobile-link">Semua Paket</a>
+            <a href="paket/souvenir-pernikahan.html" class="gs-navbar__mobile-link">Souvenir
               Pernikahan</a>
-            <a href="paket/souvenir-perusahaan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir
+            <a href="paket/souvenir-perusahaan.html" class="gs-navbar__mobile-link">Souvenir
               Perusahaan</a>
           </div>
 
-          <a href="portofolio.html" class="gs-navbar__mobile-link" role="menuitem">Portofolio</a>
-          <a href="blog/index.html" class="gs-navbar__mobile-link" role="menuitem">Blog</a>
+          <a href="portofolio.html" class="gs-navbar__mobile-link">Portofolio</a>
+          <a href="blog/index.html" class="gs-navbar__mobile-link">Blog</a>
 
           <div class="gs-navbar__mobile-cta">
             <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan."
@@ -381,7 +400,7 @@
     </nav>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- ===== HERO ===== -->
     <section class="gs-hero" aria-labelledby="gs-hero-title">
@@ -939,23 +958,23 @@
           <!-- Testimoni 1 -->
           <article class="gs-testimonial-card">
             <div class="gs-testimonial-stars" aria-label="Rating 5 dari 5 bintang">
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
@@ -975,23 +994,23 @@
           <!-- Testimoni 2 -->
           <article class="gs-testimonial-card">
             <div class="gs-testimonial-stars" aria-label="Rating 5 dari 5 bintang">
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
@@ -1011,23 +1030,23 @@
           <!-- Testimoni 3 -->
           <article class="gs-testimonial-card">
             <div class="gs-testimonial-stars" aria-label="Rating 5 dari 5 bintang">
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <svg viewBox="0 0 20 20">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
                 <path
                   d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
@@ -1386,15 +1405,16 @@
   </footer>
 
   <!-- Floating WhatsApp -->
-  <div class="gs-whatsapp-float" aria-label="Hubungi via WhatsApp">
+  <aside class="gs-whatsapp-float" aria-label="Tombol WhatsApp mengambang">
     <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan."
-      class="gs-whatsapp-float__btn" target="_blank" rel="noopener noreferrer" aria-label="Chat via WhatsApp">
+      class="gs-whatsapp-float__btn" target="_blank" rel="noopener noreferrer"
+      aria-label="Konsultasi souvenir pernikahan via WhatsApp (membuka tab baru)">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path
           d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
       </svg>
     </a>
-  </div>
+  </aside>
 
   <!-- PRODUCT DETAIL MODAL -->
   <div class="gs-modal-overlay" id="gs-product-modal" role="dialog" aria-modal="true" aria-labelledby="gs-modal-title">
@@ -1418,7 +1438,7 @@
             dengan kami untuk mendapatkan penawaran terbaik.</p>
           <div class="gs-modal__actions">
             <a id="gs-modal-wa-btn" href="#" class="gs-button gs-button--whatsapp" target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer" aria-label="Konsultasi produk ini via WhatsApp (membuka tab baru)">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;">
                 <path
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />

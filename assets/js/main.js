@@ -17,6 +17,7 @@
       hamburger.setAttribute('aria-expanded', String(isOpen));
       hamburger.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
       mobileMenu.classList.toggle('is-open', isOpen);
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
     }
 
     hamburger.addEventListener('click', function () {
