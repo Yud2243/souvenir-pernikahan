@@ -77,6 +77,19 @@
       menu.classList.toggle('is-open');
     });
 
+    dropdown.addEventListener('mouseenter', function () {
+      if (window.innerWidth >= 992) {
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    dropdown.addEventListener('mouseleave', function () {
+      if (window.innerWidth >= 992) {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.remove('is-open');
+      }
+    });
+
     // Keyboard navigation
     toggle.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown') {
@@ -89,6 +102,10 @@
     });
 
     menu.querySelectorAll('.gs-dropdown__item').forEach(function (item, idx, items) {
+      item.addEventListener('click', function () {
+        closeAllDropdowns();
+      });
+
       item.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowDown') {
           e.preventDefault();
@@ -160,36 +177,126 @@
   /* ============================================================
      FILTER TABS (katalog / portofolio)
      ============================================================ */
-  const filterTabs = document.querySelectorAll('.gs-filter-tab');
-  if (filterTabs.length) {
-    filterTabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        const filter = this.dataset.filter;
+  /* ============================================================
+     KATALOG FILTER & LIHAT SELENGKAPNYA (paket/index.html)
+     ============================================================ */
+  const paketGrid = document.getElementById('gs-paket-grid');
+  const paketFilterTabs = document.querySelectorAll('.gs-filter-tabs .gs-filter-tab');
+  const loadMoreBtn = document.getElementById('gs-load-more-btn');
+  const loadMoreWrap = document.getElementById('gs-load-more-wrap');
 
-        // Update active tab
-        filterTabs.forEach(function (t) { t.classList.remove('active'); });
-        this.classList.add('active');
+  if (paketGrid && paketFilterTabs.length) {
+    const INITIAL_LIMIT = 6;
+    let isExpanded = false;
+    let currentFilter = 'semua';
 
-        // Show/hide cards
-        const cards = document.querySelectorAll('[data-category]');
-        let visibleCount = 0;
-        cards.forEach(function (card) {
-          const cat = card.dataset.category;
-          if (filter === 'semua' || cat === filter) {
-            card.style.display = '';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
+    function updatePaketDisplay() {
+      const cards = paketGrid.querySelectorAll('.gs-card[data-category]');
+      let matchingCards = [];
 
-        // Empty state
-        const emptyState = document.getElementById('gs-empty-state');
-        if (emptyState) {
-          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      cards.forEach(function (card) {
+        const cat = card.dataset.category;
+        if (currentFilter === 'semua' || cat === currentFilter) {
+          matchingCards.push(card);
+        } else {
+          card.style.display = 'none';
         }
       });
+
+      if (currentFilter === 'semua') {
+        if (!isExpanded && matchingCards.length > INITIAL_LIMIT) {
+          matchingCards.forEach(function (card, index) {
+            if (index < INITIAL_LIMIT) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+          if (loadMoreWrap && loadMoreBtn) {
+            loadMoreWrap.style.display = 'block';
+            loadMoreBtn.innerHTML = `Lihat Selengkapnya (${matchingCards.length - INITIAL_LIMIT} Produk Lainnya) <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+          }
+        } else {
+          matchingCards.forEach(function (card) {
+            card.style.display = '';
+          });
+          if (loadMoreWrap && loadMoreBtn) {
+            if (matchingCards.length > INITIAL_LIMIT) {
+              loadMoreWrap.style.display = 'block';
+              loadMoreBtn.innerHTML = `Tampilkan Lebih Sedikit <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+            } else {
+              loadMoreWrap.style.display = 'none';
+            }
+          }
+        }
+      } else {
+        // Kategori spesifik (Pernikahan / Perusahaan)
+        matchingCards.forEach(function (card) {
+          card.style.display = '';
+        });
+        if (loadMoreWrap) {
+          loadMoreWrap.style.display = 'none';
+        }
+      }
+
+      // Empty state
+      const emptyState = document.getElementById('gs-empty-state');
+      if (emptyState) {
+        emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
+      }
+    }
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function () {
+        isExpanded = !isExpanded;
+        updatePaketDisplay();
+        if (!isExpanded && paketGrid) {
+          paketGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
+
+    paketFilterTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        currentFilter = this.dataset.filter;
+        isExpanded = false;
+
+        paketFilterTabs.forEach(function (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-pressed', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-pressed', 'true');
+
+        updatePaketDisplay();
+      });
     });
+
+    updatePaketDisplay();
+  } else {
+    // Fallback filter tabs untuk portofolio atau halaman lain
+    const otherFilterTabs = document.querySelectorAll('.gs-filter-tab');
+    if (otherFilterTabs.length) {
+      otherFilterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const filter = this.dataset.filter;
+          otherFilterTabs.forEach(function (t) { t.classList.remove('active'); });
+          this.classList.add('active');
+
+          const cards = document.querySelectorAll('[data-category]');
+          let visibleCount = 0;
+          cards.forEach(function (card) {
+            const cat = card.dataset.category;
+            if (filter === 'semua' || cat === filter) {
+              card.style.display = '';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
   }
 
   /* ============================================================
@@ -202,13 +309,13 @@
       const u = new URL(p, window.location.href);
       p = u.pathname;
     } catch (e) {}
-    p = p.replace(/\/index\.html$/i, '/').replace(/\/+$/, '');
+    p = p.toLowerCase().replace(/\/index\.html$/i, '/').replace(/\/+$/, '');
     return p || '/';
   }
 
   const currentNorm = normalizeNavPath(window.location.pathname);
-  const isBlogSection = currentNorm === '/blog' || currentNorm.startsWith('/blog/');
-  const isPaketSection = currentNorm === '/paket' || currentNorm.startsWith('/paket/');
+  const isBlogSection = currentNorm.endsWith('/blog') || currentNorm.includes('/blog/');
+  const isPaketSection = currentNorm.endsWith('/paket') || currentNorm.includes('/paket/');
 
   // Remove existing active states first
   const allNavLinks = document.querySelectorAll(
@@ -229,14 +336,17 @@
 
     let isActive = false;
 
-    if (currentNorm === '/') {
-      // Only home matches home
-      if (linkNorm === '/') isActive = true;
+    if (currentNorm === '/' || currentNorm.endsWith('/souvenirkeuda') || currentNorm.endsWith('/souvenirkeuda/')) {
+      if (linkNorm === '/' || linkNorm.endsWith('/souvenirkeuda') || linkNorm.endsWith('/index.html')) isActive = true;
     } else if (isBlogSection) {
-      if (linkNorm === '/blog' || linkNorm === currentNorm) isActive = true;
+      if (linkNorm === currentNorm || (linkNorm.endsWith('/blog') && (currentNorm.endsWith('/blog') || currentNorm.includes('/blog/index')))) {
+        isActive = true;
+      }
     } else if (isPaketSection) {
       if (linkNorm === currentNorm) isActive = true;
-      if (linkNorm === '/paket' && currentNorm === '/paket') isActive = true;
+      if (linkNorm.endsWith('/paket') && (currentNorm.endsWith('/paket') || currentNorm.includes('/paket/index'))) {
+        isActive = true;
+      }
     } else {
       if (linkNorm === currentNorm) isActive = true;
     }
@@ -510,5 +620,109 @@
       });
     });
   }
+
+  /* ============================================================
+     ANIMATED CONTENT — Scroll Reveal (React Bits inspired)
+     Watches [data-gs-animate] elements and adds .is-visible
+     when they enter the viewport via IntersectionObserver.
+     ============================================================ */
+  if ('IntersectionObserver' in window) {
+    var animateObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          animateObserver.unobserve(entry.target); // animate once
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('[data-gs-animate]').forEach(function (el) {
+      animateObserver.observe(el);
+    });
+  } else {
+    // Fallback: show all immediately if observer not supported
+    document.querySelectorAll('[data-gs-animate]').forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  }
+
+  /* ============================================================
+     AUTO SCROLL KE ATAS (Back to Top Floating Button)
+     ============================================================ */
+  let backToTopBtn = document.getElementById('gs-back-to-top');
+  if (!backToTopBtn) {
+    backToTopBtn = document.createElement('button');
+    backToTopBtn.id = 'gs-back-to-top';
+    backToTopBtn.className = 'gs-back-to-top';
+    backToTopBtn.setAttribute('type', 'button');
+    backToTopBtn.setAttribute('aria-label', 'Kembali ke atas');
+    backToTopBtn.innerHTML = '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>';
+    document.body.appendChild(backToTopBtn);
+  }
+
+  function handleScrollTopVisibility() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('is-visible');
+    } else {
+      backToTopBtn.classList.remove('is-visible');
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollTopVisibility, { passive: true });
+  handleScrollTopVisibility();
+
+  backToTopBtn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  /* ============================================================
+     MOBILE VIEW SWITCHER (Grid vs Slide Mode)
+     ============================================================ */
+  const viewSwitchBtns = document.querySelectorAll('.gs-view-switch__btn');
+  viewSwitchBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const mode = this.dataset.viewMode;
+      const targetGridId = this.dataset.targetGrid;
+      const parentWrap = this.closest('.gs-view-switch-wrap');
+
+      let grid = null;
+      if (targetGridId) {
+        grid = document.getElementById(targetGridId);
+      } else if (parentWrap) {
+        const nextSec = parentWrap.nextElementSibling;
+        grid = nextSec ? (nextSec.matches('.gs-grid-3') ? nextSec : nextSec.querySelector('.gs-grid-3')) : null;
+      }
+      if (!grid) {
+        grid = document.querySelector('.gs-grid-3');
+      }
+      if (!grid) return;
+
+      const parentSwitch = this.closest('.gs-view-switch');
+      if (parentSwitch) {
+        parentSwitch.querySelectorAll('.gs-view-switch__btn').forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+      }
+      this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
+
+      const slideHint = parentWrap ? parentWrap.querySelector('.gs-slide-hint') : null;
+
+      if (mode === 'slide') {
+        grid.classList.add('is-slide-mode');
+        if (slideHint) slideHint.style.display = 'inline-flex';
+      } else {
+        grid.classList.remove('is-slide-mode');
+        if (slideHint) slideHint.style.display = 'none';
+      }
+    });
+  });
 
 })();

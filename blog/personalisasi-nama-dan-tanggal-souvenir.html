@@ -232,30 +232,25 @@
                   <path d="M4 6l4 4 4-4" />
                 </svg>
               </button>
-              <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
+                            <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
                 <a href="../paket/index.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
                     fill="currentColor" aria-hidden="true">
                     <path
                       d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
                   </svg>Semua Paket</a>
                 <div class="gs-dropdown__divider" role="separator"></div>
-                <a href="../paket/souvenir-pernikahan.html" class="gs-dropdown__item" role="menuitem"><svg
-                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <a href="../paket/souvenir-pernikahan.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
+                    fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd"
                       d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                       clip-rule="evenodd" />
                   </svg>Souvenir Pernikahan</a>
-                <a href="../paket/souvenir-custom.html" class="gs-dropdown__item" role="menuitem"><svg
-                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path
-                      d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                  </svg>Souvenir Custom</a>
-                <a href="../paket/souvenir-perusahaan.html" class="gs-dropdown__item" role="menuitem"><svg
-                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <a href="../paket/souvenir-perusahaan.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
+                    fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd"
                       d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
                       clip-rule="evenodd" />
-                  </svg>Souvenir Perusahaan</a>
+                  </svg>Souvenir Perusahaan &amp; Acara</a>
               </div>
             </div>
             <a href="../portofolio.html" class="gs-navbar__link" role="menuitem">Portofolio</a>
@@ -284,7 +279,6 @@
             <a href="../paket/index.html" class="gs-navbar__mobile-link" role="menuitem">Semua Paket</a>
             <a href="../paket/souvenir-pernikahan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir
               Pernikahan</a>
-            <a href="../paket/souvenir-custom.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir Custom</a>
             <a href="../paket/souvenir-perusahaan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir
               Perusahaan</a>
           </div>
@@ -319,7 +313,7 @@
           </nav>
 
           <!-- Header -->
-          <header class="gs-article__header">
+          <header class="gs-article__header" data-gs-animate>
             <div class="gs-article__badge-wrap">
               <span class="gs-article__category">Personalisasi Desain</span>
               <span class="gs-badge"
@@ -365,7 +359,7 @@
           </header>
 
           <!-- Cover Image (Tepat Setelah Header) -->
-          <div class="gs-article__cover">
+          <div class="gs-article__cover" data-gs-animate="slide">
             <img src="../assets/images/souvenir-tumbler-custom.webp"
               alt="Personalisasi laser engraving minimalis pada botol tumbler souvenir pernikahan" width="1200"
               height="630" loading="eager" />
@@ -376,7 +370,7 @@
           </div>
 
           <!-- TOC (Tepat Setelah Gambar Utama) -->
-          <nav class="gs-article__toc" aria-label="Daftar Isi Artikel">
+          <nav data-gs-animate class="gs-article__toc" aria-label="Daftar Isi Artikel">
             <button type="button" class="gs-article__toc-toggle" aria-expanded="true" aria-controls="toc-list-body">
               <span class="gs-article__toc-label">
                 <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -415,7 +409,7 @@
 
             <!-- Key Takeaway Box -->
             <aside class="gs-article__key-takeaway" aria-labelledby="takeaway-custom">
-              <div class="gs-article__key-takeaway-head" id="takeaway-custom">
+              <div data-gs-animate class="gs-article__key-takeaway-head" id="takeaway-custom">
                 <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd"
                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
@@ -446,7 +440,7 @@
               Sebaliknya, jika tumbler tersebut memiliki grafir laser inisial monogram berukuran 2 cm di bagian bawah,
               barang tersebut akan terlihat seperti cinderamata butik eksklusif yang bangga dibawa ke mana pun. Inilah
               esensi dari <em>subtle personalization</em> yang selalu kami terapkan di <a
-                href="../paket/souvenir-custom.html">layanan souvenir custom Souvenir Pernikahan</a>.
+                href="../paket/index.html">layanan souvenir custom Souvenir Pernikahan</a>.
             </p>
 
             <h2 id="ragam-metode">2. Ragam Metode Personalisasi pada Souvenir</h2>
@@ -699,7 +693,7 @@
                   Sebelum Produksi</div>
               </div>
               <div class="gs-article__product-rec-action">
-                <a href="../paket/souvenir-custom.html" class="gs-button gs-button--primary gs-button--sm">Lihat Paket
+                <a href="../paket/index.html" class="gs-button gs-button--primary gs-button--sm">Lihat Paket
                   Custom</a>
               </div>
             </div>
@@ -711,7 +705,7 @@
             <h2 class="gs-article__related-title" id="related-title-cust">Artikel Panduan Terkait</h2>
             <div class="gs-article__related-grid">
 
-              <article class="gs-blog-card">
+              <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
                   <img src="../assets/images/hero-souvenir.webp" alt="Panduan memilih souvenir pernikahan"
                     loading="lazy" />
@@ -733,7 +727,7 @@
                 </div>
               </article>
 
-              <article class="gs-blog-card">
+              <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
                   <img src="../assets/images/craft-packaging.webp" alt="Ide kemasan souvenir pernikahan elegan"
                     loading="lazy" />
@@ -805,7 +799,6 @@
           <ul class="gs-footer__links">
             <li><a href="../paket/index.html" class="gs-footer__link">Semua Paket</a></li>
             <li><a href="../paket/souvenir-pernikahan.html" class="gs-footer__link">Souvenir Pernikahan</a></li>
-            <li><a href="../paket/souvenir-custom.html" class="gs-footer__link">Souvenir Custom</a></li>
             <li><a href="../paket/souvenir-perusahaan.html" class="gs-footer__link">Souvenir Perusahaan</a></li>
           </ul>
         </div>
@@ -874,3 +867,7 @@
 </body>
 
 </html>
+
+
+
+

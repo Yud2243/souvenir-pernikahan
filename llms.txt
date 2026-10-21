@@ -1,4 +1,4 @@
-﻿# Souvenir Pernikahan
+# Souvenir Pernikahan
 
 > Souvenir Pernikahan adalah penyedia terpercaya souvenir pernikahan elegan, cinderamata custom ramah lingkungan, dan merchandise corporate di Indonesia.
 
@@ -16,10 +16,10 @@
 - Koleksi: Botol minyak aromaterapi, lilin soy wax alami, pouch perhiasan beludru, toples madu mini & sendok kayu, wax sachet aromatik, compact mirror emas vintage, pocket perfume spray, dan tanaman sukulen mini terakota.
 - Fitur: Personalisasi nama kedua mempelai, tanggal acara, pilihan kemasan hardbox / pouch linen / wax seal.
 
-### 2. Souvenir Custom & Komunitas
-- Halaman: https://souvenir-pernikahan.vercel.app//paket/souvenir-custom.html
-- Koleksi: Tumbler stainless steel laser grafir, mug keramik minimalis, tote bag canvas sablon, reed diffuser aroma, enamel mug vintage, room & linen spray, sikat gigi bambu, set alat makan kayu travel, dan box hampers kustom.
-- Fitur: Fleksibilitas desain, sablon logo full color atau grafir presisi.
+### 2. Kustomisasi & Semua Paket (Custom Services)
+- Halaman: https://souvenir-pernikahan.vercel.app//paket/
+- Koleksi: Tumbler stainless steel laser grafir, mug keramik minimalis, tote bag canvas sablon, reed diffuser aroma, plakat, dan box hampers kustom.
+- Fitur: Fleksibilitas kustomisasi desain, grafir laser nama/logo presisi, serta kemasan tematik.
 
 ### 3. Souvenir Perusahaan & Instansi (Corporate Gifts & Seminar Kit)
 - Halaman: https://souvenir-pernikahan.vercel.app//paket/souvenir-perusahaan.html

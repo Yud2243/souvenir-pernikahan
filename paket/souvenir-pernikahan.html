@@ -223,17 +223,12 @@
                       d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
                       clip-rule="evenodd" />
                   </svg>Souvenir Pernikahan</a>
-                <a href="souvenir-custom.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
-                    fill="currentColor" aria-hidden="true">
-                    <path
-                      d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                  </svg>Souvenir Custom</a>
                 <a href="souvenir-perusahaan.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
                     fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd"
                       d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
                       clip-rule="evenodd" />
-                  </svg>Souvenir Perusahaan</a>
+                  </svg>Souvenir Perusahaan &amp; Acara</a>
               </div>
             </div>
             <a href="../portofolio.html" class="gs-navbar__link" role="menuitem">Portofolio</a>
@@ -268,7 +263,6 @@
           <div class="gs-navbar__mobile-submenu" id="gs-mobile-paket" role="menu">
             <a href="index.html" class="gs-navbar__mobile-link" role="menuitem">Semua Paket</a>
             <a href="souvenir-pernikahan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir Pernikahan</a>
-            <a href="souvenir-custom.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir Custom</a>
             <a href="souvenir-perusahaan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir Perusahaan</a>
           </div>
           <a href="../portofolio.html" class="gs-navbar__mobile-link" role="menuitem">Portofolio</a>
@@ -382,11 +376,30 @@
           <p>Pilih model yang paling sesuai dengan tema resepsi dan preferensi Anda.</p>
         </div>
 
-        <div class="gs-grid-3">
+        <!-- View Switcher (visible only on mobile) -->
+        <div class="gs-view-switch-wrap" aria-label="Tampilan produk">
+          <div class="gs-view-switch" role="group" aria-label="Pilih tampilan">
+            <button class="gs-view-switch__btn active" data-view-mode="grid" data-target-grid="gs-pernikahan-grid" aria-pressed="true" type="button">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM13 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z" /></svg>
+              Grid
+            </button>
+            <button class="gs-view-switch__btn" data-view-mode="slide" data-target-grid="gs-pernikahan-grid" aria-pressed="false" type="button">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
+              Slide
+            </button>
+          </div>
+          <span class="gs-slide-hint" aria-live="polite" style="display:none;">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="width:13px;height:13px;"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+            Geser ke samping untuk melihat lebih banyak
+          </span>
+        </div>
+
+        <div class="gs-grid-3" id="gs-pernikahan-grid" data-gs-stagger>
 
           <!-- Card 1 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/souvenir-botol-minyak.webp"
-            data-product-badge="Aromaterapi" data-product-title="Botol Minyak Aromaterapi"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/souvenir-botol-minyak.webp" data-product-badge="Aromaterapi"
+            data-product-title="Botol Minyak Aromaterapi"
             data-product-desc="Botol kaca dengan aroma essential oil menenangkan. Dilengkapi hangtag cetak foil emas nama mempelai dan box mika premium."
             data-product-features='["Botol kaca 30ml berkualitas","Label foil emas nama mempelai","Aroma: mawar, lavender, jasmine","Box mika premium","Min. order: hubungi kami"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Paket Botol Minyak Aromaterapi Pernikahan.">
@@ -419,8 +432,9 @@
           </article>
 
           <!-- Card 2 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/souvenir-lilin-aroma.webp"
-            data-product-badge="Soy Candle" data-product-title="Lilin Aromaterapi Natural"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/souvenir-lilin-aroma.webp" data-product-badge="Soy Candle"
+            data-product-title="Lilin Aromaterapi Natural"
             data-product-desc="Lilin dari 100% soy wax alami dengan wadah gerabah / kaca minimalis. Menghadirkan aroma wangi bunga yang lembut dan mewah."
             data-product-features='["100% soy wax premium","Wadah keramik atau kaca","Aroma: floral, vanilla, sandalwood","Burning time ±30 jam","Label custom nama mempelai"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Lilin Aromaterapi Natural Pernikahan.">
@@ -452,8 +466,9 @@
           </article>
 
           <!-- Card 3 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/souvenir-tote-bag.webp"
-            data-product-badge="Eco Kanvas" data-product-title="Tote Bag Kanvas Pernikahan"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/souvenir-tote-bag.webp" data-product-badge="Eco Kanvas"
+            data-product-title="Tote Bag Kanvas Pernikahan"
             data-product-desc="Tote bag kanvas katun tebal dengan sablon monogram nama pengantin yang minimalis. Praktis, dapat dicuci, dan tahan lama."
             data-product-features='["Kanvas katun 12oz tebal","Sablon monogram nama mempelai","Ukuran 35x40cm","Handle tali katun kuat","Ramah lingkungan & bisa dicuci"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Tote Bag Kanvas Pernikahan.">
@@ -485,8 +500,9 @@
           </article>
 
           <!-- Card 4 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/artisan-soap-souvenir.webp"
-            data-product-badge="Natural Soap" data-product-title="Sabun Artisan Hand-Made"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/artisan-soap-souvenir.webp" data-product-badge="Natural Soap"
+            data-product-title="Sabun Artisan Hand-Made"
             data-product-desc="Sabun batang buatan tangan dari bahan alami shea butter, minyak kelapa, dan pewarna tanaman. Kemasan kraft dengan pita satin dan kartu ucapan."
             data-product-features='["Shea butter & minyak kelapa extra virgin","Bebas SLS & paraben","Pilihan aroma: rose, jasmine, lemon","Kemasan kraft eksklusif","Berat ±100g/batang"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Sabun Artisan Hand-Made untuk souvenir pernikahan.">
@@ -518,8 +534,8 @@
           </article>
 
           <!-- Card 5 -->
-          <article class="gs-card" data-product data-product-image="" data-product-badge="Spa & Relaksasi"
-            data-product-title="Garam Mandi Aromaterapi"
+          <article data-gs-animate class="gs-card" data-product data-product-image=""
+            data-product-badge="Spa & Relaksasi" data-product-title="Garam Mandi Aromaterapi"
             data-product-desc="Campuran garam himalaya, bunga kering, dan essential oil yang menenangkan. Dikemas dalam toples kaca bening dengan tutup kayu dan label custom."
             data-product-features='["Garam himalaya murni","Campuran bunga kering asli","Essential oil pilihan","Toples kaca bening ±200g","Label & tutup kayu custom"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Garam Mandi Aromaterapi untuk souvenir pernikahan.">
@@ -561,8 +577,9 @@
           </article>
 
           <!-- Card 6 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/velvet-pouch-souvenir.webp"
-            data-product-badge="Pouch Eksklusif" data-product-title="Velvet Pouch Premium"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/velvet-pouch-souvenir.webp" data-product-badge="Pouch Eksklusif"
+            data-product-title="Velvet Pouch Premium"
             data-product-desc="Kantong beludru mewah dengan bordir nama mempelai dan tanggal pernikahan. Cocok sebagai pembungkus cincin, perhiasan, atau isi souvenir lainnya."
             data-product-features='["Bahan velvet berkualitas tinggi","Bordir nama & tanggal pernikahan","Pilihan warna: sage green, dusty rose, navy, ivory","Drawstring sutra","Ukuran S, M, L tersedia"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Velvet Pouch Premium untuk souvenir pernikahan.">
@@ -594,8 +611,9 @@
           </article>
 
           <!-- Card 7 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/honey-souvenir.webp"
-            data-product-badge="Natural Honey" data-product-title="Madu Hutan Premium"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/honey-souvenir.webp" data-product-badge="Natural Honey"
+            data-product-title="Madu Hutan Premium"
             data-product-desc="Madu hutan murni tanpa bahan tambahan dalam botol kaca unik dengan label cetak nama mempelai. Manis dan berkesan untuk para tamu."
             data-product-features='["Madu hutan asli 100% murni","Botol kaca 100ml unik","Label cetak custom mempelai","Tutup kayu natural","Sertifikat keaslian madu"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Madu Hutan Premium untuk souvenir pernikahan.">
@@ -627,7 +645,7 @@
           </article>
 
           <!-- Card 8 -->
-          <article class="gs-card" data-product data-product-image="" data-product-badge="Wax Sachet"
+          <article data-gs-animate class="gs-card" data-product data-product-image="" data-product-badge="Wax Sachet"
             data-product-title="Wax Sachet Pewangi Lemari"
             data-product-desc="Sachet lilin berhias bunga kering dan herbal untuk pengharum lemari dan laci. Aroma tahan lama hingga 6 bulan, tampilan elegan dan unik."
             data-product-features='["Lilin soy wax natural","Hiasan bunga kering asli","Aroma tahan ±6 bulan","Pilihan bentuk: oval, lingkaran, hati","Tali rami & tag custom"]'
@@ -670,8 +688,9 @@
           </article>
 
           <!-- Card 9 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/silk-scrunchie-souvenir.webp"
-            data-product-badge="Fashion Aksesori" data-product-title="Silk Scrunchie Set"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/silk-scrunchie-souvenir.webp" data-product-badge="Fashion Aksesori"
+            data-product-title="Silk Scrunchie Set"
             data-product-desc="Set ikat rambut sutra satin mewah dalam pilihan warna pastel. Dikemas cantik dalam pouch organza dengan kartu ucapan nama mempelai. Disukai semua usia."
             data-product-features='["Bahan satin sutra premium","Set isi 2 scrunchie per paket","Pilihan warna: pastel & netral","Pouch organza transparan","Kartu ucapan custom"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Silk Scrunchie Set untuk souvenir pernikahan.">
@@ -703,8 +722,9 @@
           </article>
 
           <!-- Card 10 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/compact-mirror-souvenir.webp"
-            data-product-badge="Aksesori Cantik" data-product-title="Vintage Gold Compact Mirror"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/compact-mirror-souvenir.webp" data-product-badge="Aksesori Cantik"
+            data-product-title="Vintage Gold Compact Mirror"
             data-product-desc="Cermin saku lipat dua sisi bernuansa emas klasik dengan ukiran vintage mewah. Hadiah favorit tamu wanita yang cantik, fungsional, dan tahan lama."
             data-product-features='["Material metal alloy warna emas vintage","Cermin 2 sisi (normal & pembesar 2x)","Diameter 7 cm praktis dibawa bepergian","Dilengkapi pouch beludru / box berpita","Bisa grafir inisial nama mempelai"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Vintage Gold Compact Mirror untuk pernikahan.">
@@ -738,8 +758,9 @@
           </article>
 
           <!-- Card 11 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/perfume-bottle-souvenir.webp"
-            data-product-badge="Fragrance Luxury" data-product-title="Pocket Perfume Atomizer"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/perfume-bottle-souvenir.webp" data-product-badge="Fragrance Luxury"
+            data-product-title="Pocket Perfume Atomizer"
             data-product-desc="Botol parfum travel size isi ulang dengan tabung kaca dan casing aluminium elegan berukir nama. Aroma wewangian mewah yang siap dibawa ke mana saja."
             data-product-features='["Kapasitas 10ml travel spray","Casing aluminium anti pecah & bocor","Pilihan aroma: Floral Blossom, Fresh Citrus, Vanilla Musk","Custom label foil emas atau grafir nama","Kemasan box mika berpita satin"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Pocket Perfume Atomizer untuk pernikahan.">
@@ -772,8 +793,9 @@
           </article>
 
           <!-- Card 12 -->
-          <article class="gs-card" data-product data-product-image="../assets/images/succulent-souvenir.webp"
-            data-product-badge="Eco Living" data-product-title="Mini Succulent Eco Favor"
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/succulent-souvenir.webp" data-product-badge="Eco Living"
+            data-product-title="Mini Succulent Eco Favor"
             data-product-desc="Tanaman sukulen hidup pilihan dalam pot gerabah mini dengan hiasan batu alam dan tag ucapan rustic. Simbol kasih yang terus bertumbuh dan asri."
             data-product-features='["Tanaman sukulen segar & sehat pilihan","Pot terakota mini diameter 6 cm","Bebatuan kerikil hias & tanah bernutrisi","Kartu ucapan tancap berdesain rustic","Kemasan jinjing craft berlubang aman"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Mini Succulent Eco Favor untuk pernikahan.">
@@ -805,6 +827,214 @@
             </div>
           </article>
 
+          <!-- Card 13 -->
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/tea-tin-souvenir.webp" data-product-badge="Botanical Tea"
+            data-product-title="Paket Tea Tin Artisan Wedding"
+            data-product-desc="Kaleng teh kedap udara berlabel custom inisial nama mempelai dan tanggal pernikahan, berisi artisan tea blend pilihan yang harum dan menenangkan."
+            data-product-features='["Kaleng teh kedap udara food-grade eksklusif","Pilihan artisan tea: Chamomile, Earl Grey, Jasmine Green Tea","Label stiker foil emas / custom monogram pernikahan","Pita satin & hangtag ucapan terima kasih","Kesan souvenir unik, sehat, dan berkesan"]'
+            data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Paket Tea Tin Artisan Wedding.">
+            <div class="gs-card__image">
+              <img src="../assets/images/tea-tin-souvenir.webp" alt="Paket Tea Tin Artisan Wedding"
+                style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="gs-card__body">
+              <span class="gs-card__badge">Botanical Tea</span>
+              <h3 class="gs-card__title">Paket Tea Tin Artisan Wedding</h3>
+              <p class="gs-card__desc">Kaleng teh berdesain elegan dengan kustom label identitas kedua mempelai, berisi
+                artisan tea berkhasiat aromatik.</p>
+              <p class="gs-card__price-note">Harga sesuai kuantitas &mdash; hubungi kami</p>
+              <div class="gs-card__actions">
+                <button class="gs-card__btn-detail" data-modal-trigger
+                  aria-label="Lihat detail Paket Tea Tin Artisan Wedding">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Lihat Detail
+                </button>
+                <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20dengan%20Paket%20Tea%20Tin%20Artisan%20Wedding."
+                  class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer">Minta
+                  Penawaran</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 14 -->
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/glass-tumbler-souvenir.webp" data-product-badge="Eco Living"
+            data-product-title="Glass Tumbler Tutup Bambu Grafir"
+            data-product-desc="Tumbler kaca borosilikat tahan panas dan dingin dengan tutup kayu bambu alami berukir laser nama kedua mempelai. Cinderamata elegan dan ramah lingkungan."
+            data-product-features='["Kaca borosilikat tebal & BPA Free tahan suhu","Tutup kayu bambu alami dengan grafir laser nama mempelai","Kapasitas 450ml - 550ml praktis dibawa","Dilengkapi sleeve pelindung estetik","Kemasan hardbox silinder kraft berpita"]'
+            data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Glass Tumbler Tutup Bambu Grafir untuk pernikahan.">
+            <div class="gs-card__image">
+              <img src="../assets/images/glass-tumbler-souvenir.webp" alt="Glass Tumbler Tutup Bambu Grafir Pernikahan"
+                style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="gs-card__body">
+              <span class="gs-card__badge">Eco Living</span>
+              <h3 class="gs-card__title">Glass Tumbler Tutup Bambu</h3>
+              <p class="gs-card__desc">Tumbler kaca bening higienis dengan tutup bambu grafir monogram mempelai. Pilihan
+                suvenir estetik dan fungsional harian.</p>
+              <p class="gs-card__price-note">Harga sesuai kuantitas &mdash; hubungi kami</p>
+              <div class="gs-card__actions">
+                <button class="gs-card__btn-detail" data-modal-trigger
+                  aria-label="Lihat detail Glass Tumbler Tutup Bambu">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Lihat Detail
+                </button>
+                <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20dengan%20Glass%20Tumbler%20Tutup%20Bambu."
+                  class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer">Minta
+                  Penawaran</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 15 -->
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/tea-infuser-souvenir.webp" data-product-badge="Tea Lovers"
+            data-product-title="Tea Infuser Set &amp; Herbal Blend"
+            data-product-desc="Saringan teh stainless steel anti karat dengan gagang ergonomis dalam kotak kado estetik, lengkap dengan sampel teh herbal untuk relaksasi para tamu."
+            data-product-features='["Saringan teh stainless steel food grade 304","Desain minimalis modern mudah dibersihkan","Box craft rustic dengan pita satin & wax seal","Bonus kantong sampel artisan tea organik","Hadiah pernikahan mindful dan bermanfaat"]'
+            data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Tea Infuser Set untuk souvenir pernikahan.">
+            <div class="gs-card__image">
+              <img src="../assets/images/tea-infuser-souvenir.webp" alt="Tea Infuser Set & Herbal Blend"
+                style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="gs-card__body">
+              <span class="gs-card__badge">Tea Lovers</span>
+              <h3 class="gs-card__title">Tea Infuser Set &amp; Herbal</h3>
+              <p class="gs-card__desc">Saringan teh stainless premium dalam kemasan gift box cantik. Hadiah bertema
+                hangat dan relaksasi untuk kerabat tersayang.</p>
+              <p class="gs-card__price-note">Harga sesuai kuantitas &mdash; hubungi kami</p>
+              <div class="gs-card__actions">
+                <button class="gs-card__btn-detail" data-modal-trigger aria-label="Lihat detail Tea Infuser Set">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Lihat Detail
+                </button>
+                <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20dengan%20Tea%20Infuser%20Set."
+                  class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer">Minta
+                  Penawaran</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 16 -->
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/linen-handkerchief-souvenir.webp" data-product-badge="Personal Touch"
+            data-product-title="Saputangan Linen Bordir Inisial"
+            data-product-desc="Saputangan berbahan kain linen katun premium dengan bordir monogram inisial mempelai yang anggun. Cinderamata klasik nan sentimental yang tak lekang oleh waktu."
+            data-product-features='["100% serat linen katun alami yang lembut & sejuk","Bordir komputer inisial nama mempelai presisi","Kemasan amplop kalkir dengan lilin segel wax seal","Pilihan warna: Sage Green, Dusty Pink, Ivory, Sand","Ukuran 35x35 cm dengan tepian rapi"]'
+            data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Saputangan Linen Bordir Inisial untuk pernikahan.">
+            <div class="gs-card__image">
+              <img src="../assets/images/linen-handkerchief-souvenir.webp" alt="Saputangan Linen Bordir Inisial"
+                style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="gs-card__body">
+              <span class="gs-card__badge">Personal Touch</span>
+              <h3 class="gs-card__title">Saputangan Linen Bordir</h3>
+              <p class="gs-card__desc">Saputangan bahan linen halus berhias bordir nama mempelai yang presisi. Sentuhan
+                vintage nan anggun untuk para tamu kehormatan.</p>
+              <p class="gs-card__price-note">Harga sesuai kuantitas &mdash; hubungi kami</p>
+              <div class="gs-card__actions">
+                <button class="gs-card__btn-detail" data-modal-trigger
+                  aria-label="Lihat detail Saputangan Linen Bordir">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Lihat Detail
+                </button>
+                <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20dengan%20Saputangan%20Linen%20Bordir."
+                  class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer">Minta
+                  Penawaran</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 17 -->
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/brass-bookmark-souvenir.webp" data-product-badge="Vintage Brass"
+            data-product-title="Brass Bookmark Grafir Inisial"
+            data-product-desc="Pembatas buku berbahan kuningan solid anti karat dengan ukiran motif filigree dan grafir laser tanggal pernikahan. Suvenir berkelas yang abadi untuk para pencinta buku."
+            data-product-features='["Material plat kuningan asli (brass) awet puluhan tahun","Pemotongan presisi dengan ukiran detail vintage","Tali rumbai silk sutra warna senada tema pesta","Dikemas dalam sleeve hardcover berpita gold","Bisa grafir nama dan tanggal janji suci"]'
+            data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Brass Bookmark Grafir Inisial untuk pernikahan.">
+            <div class="gs-card__image">
+              <img src="../assets/images/brass-bookmark-souvenir.webp" alt="Brass Bookmark Grafir Inisial"
+                style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="gs-card__body">
+              <span class="gs-card__badge">Vintage Brass</span>
+              <h3 class="gs-card__title">Brass Bookmark Inisial</h3>
+              <p class="gs-card__desc">Bookmark kuningan solid berdesain eksklusif dengan ukiran inisial nama mempelai.
+                Suvenir abadi yang berkesan mendalam bagi sahabat.</p>
+              <p class="gs-card__price-note">Harga sesuai kuantitas &mdash; hubungi kami</p>
+              <div class="gs-card__actions">
+                <button class="gs-card__btn-detail" data-modal-trigger aria-label="Lihat detail Brass Bookmark Inisial">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Lihat Detail
+                </button>
+                <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20dengan%20Brass%20Bookmark%20Inisial."
+                  class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer">Minta
+                  Penawaran</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 18 -->
+          <article data-gs-animate class="gs-card" data-product
+            data-product-image="../assets/images/candle-souvenir.webp" data-product-badge="Soy Wax Aroma"
+            data-product-title="Aromatherapy Candle Tin Gold"
+            data-product-desc="Lilin aromaterapi soy wax alami dalam wadah kaleng gold matte dengan label monogram eksklusif. Menyebarkan keharuman relaksasi yang manis ke setiap sudut ruangan tamu."
+            data-product-features='["100% natural soy wax bebas jelaga hitam","Wadah kaleng seamless matte nuansa gold/sage mewah","Pilihan aroma: French Lavender, English Pear, White Jasmine","Burning time hingga 25 jam wangi tahan lama","Kemasan box mika berpita satin elegan"]'
+            data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Aromatherapy Candle Tin Gold untuk souvenir pernikahan.">
+            <div class="gs-card__image">
+              <img src="../assets/images/candle-souvenir.webp" alt="Aromatherapy Candle Tin Gold"
+                style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="gs-card__body">
+              <span class="gs-card__badge">Soy Wax Aroma</span>
+              <h3 class="gs-card__title">Aromatherapy Candle Tin</h3>
+              <p class="gs-card__desc">Lilin wangi kaleng emas mewah dengan monogram pernikahan. Menghadirkan suasana
+                hangat dan relaksasi di rumah kerabat tamu undangan.</p>
+              <p class="gs-card__price-note">Harga sesuai kuantitas &mdash; hubungi kami</p>
+              <div class="gs-card__actions">
+                <button class="gs-card__btn-detail" data-modal-trigger
+                  aria-label="Lihat detail Aromatherapy Candle Tin">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fill-rule="evenodd"
+                      d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Lihat Detail
+                </button>
+                <a href="https://wa.me/6285810025485?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20dengan%20Aromatherapy%20Candle%20Tin."
+                  class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer">Minta
+                  Penawaran</a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -812,7 +1042,7 @@
     <!-- FAQ SECTION SPESIFIK PAKET PERNIKAHAN -->
     <section class="gs-section gs-section--alt" aria-labelledby="gs-faq-wedding-title">
       <div class="gs-container">
-        <div class="gs-section-heading">
+        <div class="gs-section-heading" data-gs-animate>
           <span class="gs-eyebrow">Tanya Jawab</span>
           <h2 id="gs-faq-wedding-title">Pertanyaan Seputar Souvenir Pernikahan</h2>
           <p>Hal yang sering ditanyakan calon mempelai sebelum menentukan pilihan.</p>
@@ -929,7 +1159,6 @@
           <ul class="gs-footer__links">
             <li><a href="../paket/index.html" class="gs-footer__link">Semua Paket</a></li>
             <li><a href="../paket/souvenir-pernikahan.html" class="gs-footer__link">Souvenir Pernikahan</a></li>
-            <li><a href="../paket/souvenir-custom.html" class="gs-footer__link">Souvenir Custom</a></li>
             <li><a href="../paket/souvenir-perusahaan.html" class="gs-footer__link">Souvenir Perusahaan</a></li>
           </ul>
         </div>

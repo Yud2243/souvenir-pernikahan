@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Souvenir Pernikahan — Sitemap XML
   CATATAN: Ganti "https://souvenir-pernikahan.vercel.app/" dengan domain produksi yang valid setelah website diunggah ke hosting publik.
@@ -24,12 +24,6 @@
   </url>
   <url>
     <loc>https://souvenir-pernikahan.vercel.app//paket/souvenir-pernikahan.html</loc>
-    <lastmod>2026-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://souvenir-pernikahan.vercel.app//paket/souvenir-custom.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>

@@ -257,14 +257,25 @@
                   stroke-linejoin="round" aria-hidden="true">
                   <path d="M4 6l4 4 4-4" />
                 </svg></button>
-              <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
-                <a href="../paket/index.html" class="gs-dropdown__item" role="menuitem">Semua Paket</a>
-                <div class="gs-dropdown__divider"></div>
-                <a href="../paket/souvenir-pernikahan.html" class="gs-dropdown__item" role="menuitem">Souvenir
-                  Pernikahan</a>
-                <a href="../paket/souvenir-custom.html" class="gs-dropdown__item" role="menuitem">Souvenir Custom</a>
-                <a href="../paket/souvenir-perusahaan.html" class="gs-dropdown__item" role="menuitem">Souvenir
-                  Perusahaan</a>
+                            <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
+                <a href="../paket/index.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
+                    fill="currentColor" aria-hidden="true">
+                    <path
+                      d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
+                  </svg>Semua Paket</a>
+                <div class="gs-dropdown__divider" role="separator"></div>
+                <a href="../paket/souvenir-pernikahan.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
+                    fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                      clip-rule="evenodd" />
+                  </svg>Souvenir Pernikahan</a>
+                <a href="../paket/souvenir-perusahaan.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
+                    fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                      clip-rule="evenodd" />
+                  </svg>Souvenir Perusahaan &amp; Acara</a>
               </div>
             </div>
             <a href="../portofolio.html" class="gs-navbar__link" role="menuitem">Portofolio</a>
@@ -294,7 +305,6 @@
             <a href="../paket/index.html" class="gs-navbar__mobile-link" role="menuitem">Semua Paket</a>
             <a href="../paket/souvenir-pernikahan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir
               Pernikahan</a>
-            <a href="../paket/souvenir-custom.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir Custom</a>
             <a href="../paket/souvenir-perusahaan.html" class="gs-navbar__mobile-link" role="menuitem">Souvenir
               Perusahaan</a>
           </div>
@@ -361,10 +371,10 @@
           <span id="gs-blog-count">Menampilkan 6 artikel</span>
         </div>
 
-        <div class="gs-grid-3">
+        <div class="gs-grid-3" data-gs-stagger>
 
           <!-- Artikel 1 -->
-          <article class="gs-blog-card gs-blog-card-item" data-category="panduan">
+          <article data-gs-animate class="gs-blog-card gs-blog-card-item" data-category="panduan">
             <div class="gs-blog-card__image">
               <img src="../assets/images/hero-souvenir.webp"
                 alt="Panduan memilih souvenir pernikahan elegan Souvenir Pernikahan" loading="lazy" />
@@ -391,7 +401,7 @@
           </article>
 
           <!-- Artikel 2 -->
-          <article class="gs-blog-card gs-blog-card-item" data-category="tips">
+          <article data-gs-animate class="gs-blog-card gs-blog-card-item" data-category="tips">
             <div class="gs-blog-card__image">
               <img src="../assets/images/souvenir-botol-minyak.webp"
                 alt="Cara praktis menghitung jumlah souvenir pernikahan" loading="lazy" />
@@ -417,7 +427,7 @@
           </article>
 
           <!-- Artikel 3 -->
-          <article class="gs-blog-card gs-blog-card-item" data-category="inspirasi">
+          <article data-gs-animate class="gs-blog-card gs-blog-card-item" data-category="inspirasi">
             <div class="gs-blog-card__image">
               <img src="../assets/images/craft-packaging.webp"
                 alt="Ide kemasan souvenir pernikahan craft box rustic dan pita satin" loading="lazy" />
@@ -443,7 +453,7 @@
           </article>
 
           <!-- Artikel 4 -->
-          <article class="gs-blog-card gs-blog-card-item" data-category="panduan">
+          <article data-gs-animate class="gs-blog-card gs-blog-card-item" data-category="panduan">
             <div class="gs-blog-card__image">
               <img src="../assets/images/souvenir-tumbler-custom.webp"
                 alt="Personalisasi nama dan tanggal souvenir pernikahan elegan" loading="lazy" />
@@ -469,7 +479,7 @@
           </article>
 
           <!-- Artikel 5 -->
-          <article class="gs-blog-card gs-blog-card-item" data-category="checklist">
+          <article data-gs-animate class="gs-blog-card gs-blog-card-item" data-category="checklist">
             <div class="gs-blog-card__image">
               <img src="../assets/images/hero-wedding.webp" alt="Checklist pemesanan souvenir pernikahan bebas stres"
                 loading="lazy" />
@@ -496,7 +506,7 @@
           </article>
 
           <!-- Artikel 6 -->
-          <article class="gs-blog-card gs-blog-card-item" data-category="acara-perusahaan">
+          <article data-gs-animate class="gs-blog-card gs-blog-card-item" data-category="acara-perusahaan">
             <div class="gs-blog-card__image">
               <img src="../assets/images/souvenir-plakat-akrilik.webp"
                 alt="Panduan souvenir event seminar dan gathering kantor" loading="lazy" />
@@ -604,7 +614,6 @@
           <ul class="gs-footer__links">
             <li><a href="../paket/index.html" class="gs-footer__link">Semua Paket</a></li>
             <li><a href="../paket/souvenir-pernikahan.html" class="gs-footer__link">Souvenir Pernikahan</a></li>
-            <li><a href="../paket/souvenir-custom.html" class="gs-footer__link">Souvenir Custom</a></li>
             <li><a href="../paket/souvenir-perusahaan.html" class="gs-footer__link">Souvenir Perusahaan</a></li>
           </ul>
         </div>
@@ -670,3 +679,7 @@
 </body>
 
 </html>
+
+
+
+
