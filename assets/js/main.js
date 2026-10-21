@@ -13,33 +13,35 @@
   const mobileMenu = document.getElementById('gs-mobile-menu');
 
   if (hamburger && mobileMenu) {
+    function setMobileMenu(isOpen) {
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+      mobileMenu.classList.toggle('is-open', isOpen);
+    }
+
     hamburger.addEventListener('click', function () {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      mobileMenu.classList.toggle('is-open');
+      const isOpen = this.getAttribute('aria-expanded') === 'true';
+      setMobileMenu(!isOpen);
     });
 
     // Close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
-        hamburger.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.remove('is-open');
+        setMobileMenu(false);
       }
     });
 
     // Close when clicking outside
     document.addEventListener('click', function (e) {
       if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-        hamburger.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.remove('is-open');
+        setMobileMenu(false);
       }
     });
 
     // Close when a nav link is clicked
     mobileMenu.querySelectorAll('.gs-navbar__mobile-link').forEach(function (link) {
       link.addEventListener('click', function () {
-        hamburger.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.remove('is-open');
+        setMobileMenu(false);
       });
     });
   }
@@ -424,15 +426,19 @@
     const modalDesc  = modalOverlay.querySelector('#gs-modal-desc');
     const modalFeats = modalOverlay.querySelector('#gs-modal-features');
     const modalWaBtn = modalOverlay.querySelector('#gs-modal-wa-btn');
+    let lastFocusedTrigger = null;
 
-    function openModal(data) {
+    function openModal(data, triggerBtn) {
+      lastFocusedTrigger = triggerBtn || document.activeElement;
+
       if (modalImg) {
         if (data.image) {
           modalImg.src = data.image;
-          modalImg.alt = data.title || '';
+          modalImg.alt = data.title ? 'Foto produk ' + data.title : 'Foto produk souvenir';
           modalImg.style.display = 'block';
         } else {
           modalImg.removeAttribute('src');
+          modalImg.alt = '';
           modalImg.style.display = 'none';
         }
       }
@@ -452,19 +458,57 @@
       }
       modalOverlay.classList.add('is-open');
       document.body.style.overflow = 'hidden';
+
+      // Move focus into dialog
+      setTimeout(function () {
+        if (modalClose) modalClose.focus();
+      }, 50);
     }
 
     function closeModal() {
       modalOverlay.classList.remove('is-open');
       document.body.style.overflow = '';
+
+      // Return focus to trigger button
+      if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+        lastFocusedTrigger.focus();
+      }
     }
 
     if (modalClose) modalClose.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', function (e) {
       if (e.target === modalOverlay) closeModal();
     });
+
+    // Close on Escape & trap focus inside modal
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) closeModal();
+      if (!modalOverlay.classList.contains('is-open')) return;
+
+      if (e.key === 'Escape') {
+        closeModal();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        const focusables = modalOverlay.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     });
 
     // Bind trigger buttons
@@ -480,7 +524,7 @@
           desc:     card.dataset.productDesc    || '',
           features: JSON.parse(card.dataset.productFeatures || '[]'),
           waText:   card.dataset.productWa      || 'Halo Green\u2019s Souvenir, saya ingin konsultasi produk.'
-        });
+        }, this);
       });
     });
   }

@@ -3,7 +3,6 @@
    Prefix kelas: gs-
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ============================================================
    1. DESIGN TOKENS
@@ -3487,6 +3486,7 @@ p {
     margin-bottom: 0.45rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -4004,5 +4004,347 @@ p {
     transform: none;
     filter: none;
     transition: none;
+  }
+}
+
+/* ============================================================
+   PATCH: Aksesibilitas & Performa Mobile
+   ============================================================ */
+
+/* ---------- A. Dasar ---------- */
+html {
+  font-size: 100%; /* hormati ukuran font pilihan pengguna (bukan 16px kaku) */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+a,
+button {
+  touch-action: manipulation; /* hilangkan delay tap 300ms */
+  -webkit-tap-highlight-color: rgba(35, 71, 45, 0.15);
+}
+
+/* ---------- B. Skip link & fokus ---------- */
+.gs-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 2000;
+  background: var(--gs-green-900);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--gs-radius-sm);
+  font-weight: 600;
+}
+
+.gs-skip-link:focus {
+  top: 1rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gs-green-700);
+  outline-offset: 3px;
+}
+
+.gs-footer :focus-visible,
+.gs-cta-section :focus-visible {
+  outline-color: #ffffff;
+}
+
+/* ---------- C. Kontras warna (WCAG AA) ---------- */
+.gs-button--whatsapp {
+  background-color: #167c45;
+  border-color: #167c45;
+  color: #ffffff;
+  text-shadow: none;
+}
+
+.gs-button--whatsapp:hover {
+  background-color: #0f6637;
+  border-color: #0f6637;
+  box-shadow: 0 8px 24px rgba(15, 102, 55, 0.35);
+}
+
+.gs-cta-section .gs-button--whatsapp {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #0f5c28;
+}
+
+.gs-cta-section .gs-button--whatsapp:hover {
+  background-color: #e6ffe6;
+  border-color: #e6ffe6;
+  color: #0a3d1a;
+}
+
+.gs-footer {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.gs-footer__desc,
+.gs-footer__location-item,
+.gs-footer__link,
+.gs-footer__contact-link {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.gs-footer__bottom,
+.gs-footer__bottom-link {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Tanda kutip dekoratif tidak dibacakan screen reader */
+.gs-testimonial-card::before {
+  content: '“';
+  content: '“' / '';
+}
+
+/* ---------- D. Performa: animasi, transisi, rendering ---------- */
+/* Tanpa JS konten tetap terlihat */
+html:not(.js) [data-gs-animate] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+[data-gs-animate] {
+  will-change: auto;
+}
+
+/* Hindari transition: all */
+.gs-button,
+.gs-filter-tab,
+.gs-view-switch__btn,
+.gs-button--load-more {
+  transition:
+    background-color var(--gs-transition),
+    color var(--gs-transition),
+    border-color var(--gs-transition),
+    transform var(--gs-transition),
+    box-shadow var(--gs-transition);
+}
+
+/* Render section di bawah layar hanya saat mendekati viewport */
+.gs-section,
+.gs-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
+}
+
+/* ---------- E. Touch target minimal 44px (perangkat sentuh) ---------- */
+@media (pointer: coarse) {
+
+  .gs-button,
+  .gs-button--sm,
+  .gs-card__btn-detail,
+  .gs-filter-tab,
+  .gs-view-switch__btn,
+  .gs-accordion__trigger {
+    min-height: 44px;
+  }
+
+  .gs-modal__close {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Hindari efek hover "menempel" di layar sentuh + caption portofolio selalu terlihat */
+@media (hover: none) {
+
+  .gs-card:hover,
+  .gs-blog-card:hover,
+  .gs-feature-item:hover,
+  .gs-testimonial-card:hover,
+  .gs-portfolio-card:hover {
+    transform: none;
+  }
+
+  .gs-card:hover .gs-card__image img,
+  .gs-blog-card:hover .gs-blog-card__image img,
+  .gs-portfolio-card:hover img {
+    transform: none;
+  }
+
+  .gs-portfolio-card {
+    cursor: default;
+  }
+
+  .gs-portfolio-card__overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(22, 45, 29, 0.9) 0%, transparent 65%);
+  }
+}
+
+/* ---------- F. Mobile & tablet (<= 991px) ---------- */
+@media (max-width: 991px) {
+
+  /* Hapus blur/backdrop-filter (mahal di GPU HP) */
+  .gs-navbar {
+    background-color: #fffdf8;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .gs-hero__eyebrow,
+  .gs-section-heading .gs-eyebrow,
+  .gs-hero__image-badge,
+  .gs-breadcrumb,
+  .gs-page-hero .gs-breadcrumb,
+  .gs-portfolio-card__overlay,
+  .gs-cta-section .gs-eyebrow {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .gs-modal-overlay {
+    background: rgba(22, 40, 27, 0.86);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Matikan animasi tak berujung */
+  .gs-hero__image-badge,
+  .gs-hero__eyebrow span {
+    animation: none;
+  }
+
+  .gs-whatsapp-float__btn::before {
+    display: none;
+    animation: none;
+  }
+
+  /* Scroll reveal lebih ringan: tanpa blur & tanpa stagger */
+  [data-gs-animate] {
+    filter: none;
+    transform: translateY(14px);
+    transition-duration: 0.4s;
+  }
+
+  [data-gs-stagger]>[data-gs-animate] {
+    transition-delay: 0s !important;
+  }
+
+  /* Bayangan lebih ringan */
+  .gs-card,
+  .gs-blog-card,
+  .gs-feature-item,
+  .gs-testimonial-card,
+  .gs-portfolio-card {
+    box-shadow: var(--gs-shadow-sm);
+  }
+
+  /* Gambar hero mengikuti rasio asli (4:3): lebih kecil, headline lebih cepat terlihat */
+  .gs-hero__image-frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Menu mobile: tidak terpotong di layar pendek, target sentuh lebih besar */
+  .gs-navbar__mobile-menu {
+    max-height: calc(100vh - 76px);
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .gs-navbar__mobile-link,
+  .gs-navbar__mobile-submenu-toggle {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .gs-footer__link {
+    display: inline-block;
+    padding-block: 0.65rem;
+  }
+
+  .gs-footer__contact-link {
+    min-height: 44px;
+  }
+
+  .gs-footer__bottom-link {
+    display: inline-block;
+    padding-block: 0.75rem;
+  }
+
+  /* Safe-area (notch / gesture bar) */
+  .gs-whatsapp-float {
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+    right: max(1.25rem, env(safe-area-inset-right));
+  }
+
+  .gs-back-to-top {
+    bottom: calc(5.25rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---------- G. Ukuran teks terbaca di HP (<= 767px) ---------- */
+@media (max-width: 767px) {
+
+  .gs-hero__eyebrow,
+  .gs-section-heading .gs-eyebrow {
+    font-size: 0.8125rem;
+  }
+
+  .gs-card__badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .gs-card__title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .gs-card__desc {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .gs-card__price-note {
+    font-size: 0.8125rem;
+    line-height: 1.35;
+  }
+
+  .gs-card__actions .gs-button,
+  .gs-card__actions .gs-card__btn-detail {
+    font-size: 0.8125rem;
+    min-height: 44px;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .gs-hero__stat-label,
+  .gs-hero__image-badge-text span,
+  .gs-blog-card__meta,
+  .gs-testimonial-event {
+    font-size: 0.8125rem;
+  }
+
+  .gs-blog-card__excerpt {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .gs-button {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* Layar sangat sempit: 1 kolom agar teks & tombol tidak sesak */
+@media (max-width: 359px) {
+
+  #gs-paket-grid:not(.is-slide-mode),
+  .gs-section .gs-grid-3:not(.is-slide-mode) {
+    grid-template-columns: 1fr;
   }
 }
