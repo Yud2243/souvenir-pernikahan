@@ -1899,17 +1899,17 @@ p {
   line-height: 1.5;
 }
 
-/* Paragraf Lead di awal isi konten */
+/* Paragraf Lead di awal isi konten (teks biasa tanpa bingkai) */
 .gs-article__lead {
-  font-size: clamp(1.05rem, 1.8vw, 1.18rem);
-  color: #15271a;
-  line-height: 1.82;
-  margin-bottom: 1.75rem;
-  font-weight: 450;
-  border-left: 3.5px solid #2d6b38;
-  padding: 0.6rem 1.15rem;
-  background: #f7faf5;
-  border-radius: 0 var(--gs-radius-sm) var(--gs-radius-sm) 0;
+  font-size: 1.05rem;
+  color: #18261b;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+  font-weight: normal;
+  border: none;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 /* Key Takeaways / Intisari Jawaban (AEO Callout) */

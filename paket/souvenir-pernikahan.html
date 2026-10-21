@@ -38,7 +38,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Koleksi Souvenir Pernikahan Souvenir Pernikahan" />
-  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:type" content="image/webp" />
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -70,7 +70,41 @@
         "name": "Souvenir Pernikahan",
         "url": "https://souvenirpernikahan.com/",
         "logo": "https://souvenirpernikahan.com/assets/images/hero-souvenir.webp",
-        "telephone": "+6285810025485"
+        "image": "https://souvenirpernikahan.com/assets/images/hero-souvenir.webp",
+        "telephone": "+6285810025485",
+        "priceRange": "Rp 15.000 - Rp 500.000",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Contoh Alamat No. 123",
+          "addressLocality": "Jakarta",
+          "addressRegion": "DKI Jakarta",
+          "postalCode": "12345",
+          "addressCountry": "ID"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -6.2088,
+          "longitude": 106.8456
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Indonesia"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+6285810025485",
+          "contactType": "customer service",
+          "areaServed": "ID",
+          "availableLanguage": ["Indonesian"]
+        }
       },
       {
         "@type": "ItemPage",
@@ -85,6 +119,9 @@
         "speakable": {
           "@type": "SpeakableSpecification",
           "cssSelector": [".gs-page-hero__title", ".gs-page-hero__desc"]
+        },
+        "mainEntity": {
+          "@id": "https://souvenirpernikahan.com/paket/souvenir-pernikahan.html#faq"
         }
       },
       {
@@ -153,7 +190,7 @@
     <nav class="gs-navbar" aria-label="Navigasi utama">
       <div class="gs-container">
         <div class="gs-navbar__inner">
-          <a href="../index.html" class="gs-navbar__logo" aria-label="Souvenir Pernikahan â€” Beranda">
+          <a href="../index.html" class="gs-navbar__logo" aria-label="Souvenir Pernikahan — Beranda">
             <img src="../assets/profile/Logo Navbar.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img"
               width="180" height="60" />
             <span class="gs-navbar__brand-text">Souvenir Pernikahan</span>
@@ -383,7 +420,7 @@
           <article class="gs-card" data-product data-product-image="../assets/images/souvenir-lilin-aroma.webp"
             data-product-badge="Soy Candle" data-product-title="Lilin Aromaterapi Natural"
             data-product-desc="Lilin dari 100% soy wax alami dengan wadah gerabah / kaca minimalis. Menghadirkan aroma wangi bunga yang lembut dan mewah."
-            data-product-features='["100% soy wax premium","Wadah keramik atau kaca","Aroma: floral, vanilla, sandalwood","Burning time Â±30 jam","Label custom nama mempelai"]'
+            data-product-features='["100% soy wax premium","Wadah keramik atau kaca","Aroma: floral, vanilla, sandalwood","Burning time ±30 jam","Label custom nama mempelai"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Lilin Aromaterapi Natural Pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/souvenir-lilin-aroma.webp" alt="Lilin Aromaterapi Natural Pernikahan"
@@ -449,7 +486,7 @@
           <article class="gs-card" data-product data-product-image="../assets/images/artisan-soap-souvenir.webp"
             data-product-badge="Natural Soap" data-product-title="Sabun Artisan Hand-Made"
             data-product-desc="Sabun batang buatan tangan dari bahan alami shea butter, minyak kelapa, dan pewarna tanaman. Kemasan kraft dengan pita satin dan kartu ucapan."
-            data-product-features='["Shea butter & minyak kelapa extra virgin","Bebas SLS & paraben","Pilihan aroma: rose, jasmine, lemon","Kemasan kraft eksklusif","Berat Â±100g/batang"]'
+            data-product-features='["Shea butter & minyak kelapa extra virgin","Bebas SLS & paraben","Pilihan aroma: rose, jasmine, lemon","Kemasan kraft eksklusif","Berat ±100g/batang"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Sabun Artisan Hand-Made untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/artisan-soap-souvenir.webp" alt="Sabun Artisan Hand-Made Pernikahan"
@@ -482,7 +519,7 @@
           <article class="gs-card" data-product data-product-image="" data-product-badge="Spa & Relaksasi"
             data-product-title="Garam Mandi Aromaterapi"
             data-product-desc="Campuran garam himalaya, bunga kering, dan essential oil yang menenangkan. Dikemas dalam toples kaca bening dengan tutup kayu dan label custom."
-            data-product-features='["Garam himalaya murni","Campuran bunga kering asli","Essential oil pilihan","Toples kaca bening Â±200g","Label & tutup kayu custom"]'
+            data-product-features='["Garam himalaya murni","Campuran bunga kering asli","Essential oil pilihan","Toples kaca bening ±200g","Label & tutup kayu custom"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Garam Mandi Aromaterapi untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <div class="gs-card__image-placeholder" aria-label="Foto produk sedang disiapkan"
@@ -591,7 +628,7 @@
           <article class="gs-card" data-product data-product-image="" data-product-badge="Wax Sachet"
             data-product-title="Wax Sachet Pewangi Lemari"
             data-product-desc="Sachet lilin berhias bunga kering dan herbal untuk pengharum lemari dan laci. Aroma tahan lama hingga 6 bulan, tampilan elegan dan unik."
-            data-product-features='["Lilin soy wax natural","Hiasan bunga kering asli","Aroma tahan Â±6 bulan","Pilihan bentuk: oval, lingkaran, hati","Tali rami & tag custom"]'
+            data-product-features='["Lilin soy wax natural","Hiasan bunga kering asli","Aroma tahan ±6 bulan","Pilihan bentuk: oval, lingkaran, hati","Tali rami & tag custom"]'
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Wax Sachet untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <div class="gs-card__image-placeholder" aria-label="Foto produk sedang disiapkan"
