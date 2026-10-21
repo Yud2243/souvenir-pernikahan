@@ -1,95 +1,95 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Souvenir Pernikahan — Sitemap XML
-  CATATAN: Ganti "https://souvenirpernikahan.com" dengan domain produksi yang valid setelah website diunggah ke hosting publik.
+  CATATAN: Ganti "https://souvenir-pernikahan.vercel.app/" dengan domain produksi yang valid setelah website diunggah ke hosting publik.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://souvenirpernikahan.com/</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/tentang.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//tentang.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/paket/</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//paket/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/paket/souvenir-pernikahan.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//paket/souvenir-pernikahan.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/paket/souvenir-custom.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//paket/souvenir-custom.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/paket/souvenir-perusahaan.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//paket/souvenir-perusahaan.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/portofolio.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//portofolio.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/panduan-memilih-souvenir-pernikahan.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/panduan-memilih-souvenir-pernikahan.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/cara-menghitung-jumlah-souvenir.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/cara-menghitung-jumlah-souvenir.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/ide-kemasan-souvenir-pernikahan.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/ide-kemasan-souvenir-pernikahan.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/personalisasi-nama-dan-tanggal-souvenir.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/personalisasi-nama-dan-tanggal-souvenir.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/checklist-pemesanan-souvenir-pernikahan.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/checklist-pemesanan-souvenir-pernikahan.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/blog/panduan-souvenir-perusahaan.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//blog/panduan-souvenir-perusahaan.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://souvenirpernikahan.com/kebijakan-privasi.html</loc>
+    <loc>https://souvenir-pernikahan.vercel.app//kebijakan-privasi.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

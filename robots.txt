@@ -25,4 +25,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://souvenirpernikahan.com/sitemap.xml
+Sitemap: https://souvenir-pernikahan.vercel.app//sitemap.xml
