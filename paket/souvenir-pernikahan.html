@@ -52,15 +52,20 @@
   <meta name="twitter:image" content="https://souvenir-pernikahan.vercel.app//assets/images/hero-wedding.webp" />
   <meta name="twitter:image:alt" content="Koleksi Souvenir Pernikahan Souvenir Pernikahan" />
 
-  <!-- Fonts -->
+  <!-- Preload Hero LCP Image -->
+  <link rel="preload" as="image" href="../assets/images/hero-wedding.webp" type="image/webp" fetchpriority="high" />
+
+  <!-- Fonts (Non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+  </noscript>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.min.css" />
 
   <!-- Schema JSON-LD (2026-2027 ItemPage, BreadcrumbList, OfferCatalog & FAQPage) -->
   <script type="application/ld+json">
@@ -194,8 +199,7 @@
       <div class="gs-container">
         <div class="gs-navbar__inner">
           <a href="../index.html" class="gs-navbar__logo" aria-label="Souvenir Pernikahan — Beranda">
-            <img src="../assets/profile/Logo Navbar.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img"
-              width="180" height="60" />
+            <img src="../assets/profile/Logo Navbar.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img" width="140" height="46" fetchpriority="high" decoding="async" />
             <span class="gs-navbar__brand-text">Souvenir Pernikahan</span>
           </a>
           <div class="gs-navbar__nav" role="menubar">
@@ -307,23 +311,22 @@
           <!-- Interactive Gallery -->
           <div class="gs-paket-gallery" aria-label="Galeri foto souvenir pernikahan">
             <div class="gs-paket-gallery__main" role="region" aria-label="Foto utama souvenir">
-              <img src="../assets/images/hero-wedding.webp"
-                alt="Foto utama paket souvenir pernikahan elegan dan gift box" />
+              <img src="../assets/images/hero-wedding.webp" alt="Foto utama paket souvenir pernikahan elegan dan gift box" width="960" height="535" fetchpriority="high" decoding="async" />
             </div>
             <div class="gs-paket-gallery__thumbs" role="group" aria-label="Pilihan tampilan foto">
               <div class="gs-paket-gallery__thumb active" tabindex="0" role="button"
                 aria-label="Tampilan 1: Gift box dan botol souvenir">
-                <img src="../assets/images/hero-wedding.webp" alt="Gift box dan botol souvenir pernikahan" />
+                <img src="../assets/images/hero-wedding.webp" alt="Gift box dan botol souvenir pernikahan" / width="68" height="68" loading="lazy" decoding="async">
               </div>
               <div class="gs-paket-gallery__thumb" tabindex="0" role="button"
                 aria-label="Tampilan 2: Botol minyak aromaterapi kustom">
                 <img src="../assets/images/souvenir-botol-minyak.webp"
-                  alt="Botol minyak aromaterapi dengan foil label" />
+                  alt="Botol minyak aromaterapi dengan foil label" / width="68" height="68" loading="lazy" decoding="async">
               </div>
               <div class="gs-paket-gallery__thumb" tabindex="0" role="button"
                 aria-label="Tampilan 3: Lilin aromaterapi keramik">
                 <img src="../assets/images/souvenir-lilin-aroma.webp"
-                  alt="Lilin aromaterapi natural dalam jar keramik" />
+                  alt="Lilin aromaterapi natural dalam jar keramik" / width="68" height="68" loading="lazy" decoding="async">
               </div>
             </div>
           </div>
@@ -405,7 +408,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Paket Botol Minyak Aromaterapi Pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/souvenir-botol-minyak.webp" alt="Botol Minyak Aromaterapi Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Aromaterapi</span>
@@ -440,7 +443,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Lilin Aromaterapi Natural Pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/souvenir-lilin-aroma.webp" alt="Lilin Aromaterapi Natural Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Soy Candle</span>
@@ -474,7 +477,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Tote Bag Kanvas Pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/souvenir-tote-bag.webp" alt="Tote Bag Kanvas Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Eco Kanvas</span>
@@ -508,7 +511,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Sabun Artisan Hand-Made untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/artisan-soap-souvenir.webp" alt="Sabun Artisan Hand-Made Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Natural Soap</span>
@@ -585,7 +588,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Velvet Pouch Premium untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/velvet-pouch-souvenir.webp" alt="Velvet Pouch Premium Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Pouch Eksklusif</span>
@@ -619,7 +622,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Madu Hutan Premium untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/honey-souvenir.webp" alt="Madu Hutan Premium Souvenir Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Natural Honey</span>
@@ -696,7 +699,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Silk Scrunchie Set untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/silk-scrunchie-souvenir.webp" alt="Silk Scrunchie Set Souvenir Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Fashion Aksesori</span>
@@ -731,7 +734,7 @@
             <div class="gs-card__image">
               <img src="../assets/images/compact-mirror-souvenir.webp"
                 alt="Vintage Gold Compact Mirror Souvenir Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Aksesori Cantik</span>
@@ -766,7 +769,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Pocket Perfume Atomizer untuk pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/perfume-bottle-souvenir.webp" alt="Pocket Perfume Atomizer Souvenir Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Fragrance Luxury</span>
@@ -801,7 +804,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Mini Succulent Eco Favor untuk pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/succulent-souvenir.webp" alt="Mini Succulent Eco Favor Souvenir Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Eco Living</span>
@@ -836,7 +839,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Paket Tea Tin Artisan Wedding.">
             <div class="gs-card__image">
               <img src="../assets/images/tea-tin-souvenir.webp" alt="Paket Tea Tin Artisan Wedding"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Botanical Tea</span>
@@ -871,7 +874,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Glass Tumbler Tutup Bambu Grafir untuk pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/glass-tumbler-souvenir.webp" alt="Glass Tumbler Tutup Bambu Grafir Pernikahan"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Eco Living</span>
@@ -906,7 +909,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Tea Infuser Set untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/tea-infuser-souvenir.webp" alt="Tea Infuser Set & Herbal Blend"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Tea Lovers</span>
@@ -940,7 +943,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Saputangan Linen Bordir Inisial untuk pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/linen-handkerchief-souvenir.webp" alt="Saputangan Linen Bordir Inisial"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Personal Touch</span>
@@ -975,7 +978,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Brass Bookmark Grafir Inisial untuk pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/brass-bookmark-souvenir.webp" alt="Brass Bookmark Grafir Inisial"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Vintage Brass</span>
@@ -1009,7 +1012,7 @@
             data-product-wa="Halo Souvenir Pernikahan, saya tertarik dengan Aromatherapy Candle Tin Gold untuk souvenir pernikahan.">
             <div class="gs-card__image">
               <img src="../assets/images/candle-souvenir.webp" alt="Aromatherapy Candle Tin Gold"
-                style="width:100%;height:100%;object-fit:cover;" />
+                style="width:100%;height:100%;object-fit:cover;" / loading="lazy" decoding="async" width="400" height="300" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Soy Wax Aroma</span>
@@ -1125,8 +1128,7 @@
         <!-- Brand -->
         <div>
           <a href="../index.html" class="gs-footer__brand-name" aria-label="Green's Souvenir — Beranda">
-            <div class="gs-footer__brand-logo" aria-hidden="true"><img src="../assets/profile/Logo Footer.webp"
-                alt="Green's Souvenir" width="56" height="56" loading="lazy" /></div>
+            <div class="gs-footer__brand-logo" aria-hidden="true"><img src="../assets/profile/Logo Footer.webp" alt="Logo Souvenir Pernikahan Footer" width="140" height="46" loading="lazy" decoding="async" /></div>
             <span>Green's Souvenir</span>
           </a>
           <p class="gs-footer__desc">
@@ -1258,7 +1260,7 @@
     </div>
   </div>
 
-  <script src="../assets/js/main.js"></script>
+  <script defer src="../assets/js/main.min.js"></script>
 </body>
 
 </html>
