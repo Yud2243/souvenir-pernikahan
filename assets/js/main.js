@@ -598,18 +598,23 @@
   /* ============================================================
      BLOG LISTING: SEARCH & CATEGORY FILTER
      ============================================================ */
-  const blogSearchInput = document.getElementById('gs-blog-search-input');
-  const blogFilterTabs  = document.querySelectorAll('.gs-blog-filter-tab');
-  const blogCards       = document.querySelectorAll('.gs-blog-card-item');
-  const blogEmptyState  = document.getElementById('gs-blog-empty-state');
-  const blogCountEl     = document.getElementById('gs-blog-count');
+  const blogSearchInput  = document.getElementById('gs-blog-search-input');
+  const blogFilterTabs   = document.querySelectorAll('.gs-blog-filter-tab');
+  const blogCards        = document.querySelectorAll('.gs-blog-card-item');
+  const blogEmptyState   = document.getElementById('gs-blog-empty-state');
+  const blogCountEl      = document.getElementById('gs-blog-count');
+  const blogLoadMoreBtn  = document.getElementById('gs-blog-load-more-btn');
+  const blogLoadMoreWrap = document.getElementById('gs-blog-load-more-wrap');
 
   if (blogCards.length && (blogSearchInput || blogFilterTabs.length)) {
     let currentCategory = 'semua';
     let searchQuery = '';
+    let mobileExpanded = false;
+    const mobileMedia = window.matchMedia('(max-width: 767px)');
 
     function filterBlogCards() {
-      let visibleCount = 0;
+      const isMobile = mobileMedia.matches;
+      let matchCount = 0;
       const q = searchQuery.toLowerCase().trim();
 
       blogCards.forEach(function (card) {
@@ -621,24 +626,43 @@
         const matchesSearch = !q || title.includes(q) || excerpt.includes(q) || cat.includes(q);
 
         if (matchesCat && matchesSearch) {
-          card.style.display = '';
-          visibleCount++;
+          matchCount++;
+          if (isMobile && !mobileExpanded && matchCount > 3) {
+            card.style.display = 'none';
+          } else {
+            card.style.display = '';
+          }
         } else {
           card.style.display = 'none';
         }
       });
 
       if (blogEmptyState) {
-        blogEmptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        blogEmptyState.style.display = matchCount === 0 ? 'block' : 'none';
       }
       if (blogCountEl) {
-        blogCountEl.textContent = 'Menampilkan ' + visibleCount + ' artikel';
+        blogCountEl.textContent = 'Menampilkan ' + matchCount + ' artikel';
       }
+      if (blogLoadMoreWrap) {
+        if (isMobile && !mobileExpanded && matchCount > 3) {
+          blogLoadMoreWrap.style.display = 'block';
+        } else {
+          blogLoadMoreWrap.style.display = 'none';
+        }
+      }
+    }
+
+    if (blogLoadMoreBtn) {
+      blogLoadMoreBtn.addEventListener('click', function () {
+        mobileExpanded = true;
+        filterBlogCards();
+      });
     }
 
     if (blogSearchInput) {
       blogSearchInput.addEventListener('input', function () {
         searchQuery = this.value;
+        mobileExpanded = false;
         filterBlogCards();
       });
     }
@@ -648,9 +672,17 @@
         blogFilterTabs.forEach(function (t) { t.classList.remove('active'); });
         this.classList.add('active');
         currentCategory = (this.dataset.filter || 'semua').toLowerCase();
+        mobileExpanded = false;
         filterBlogCards();
       });
     });
+
+    if (mobileMedia && typeof mobileMedia.addEventListener === 'function') {
+      mobileMedia.addEventListener('change', filterBlogCards);
+    }
+
+    // Run initial filter
+    filterBlogCards();
   }
 
   /* ============================================================
