@@ -14,8 +14,11 @@
   --gs-green-200: #cfe5c4;
   --gs-green-300: #b5d7a6;
   --gs-green-500: #78a96b;
+  --gs-green-600: #2d6a35;
   --gs-green-700: #3f7044;
+  --gs-green-800: #1e4f26;
   --gs-green-900: #23472d;
+  --gs-green-950: #0f2d18;
 
   /* Neutrals with High Contrast WCAG AAA */
   --gs-cream: #fdfefb;
@@ -2216,9 +2219,9 @@ p {
   font-size: 0.95rem;
   font-weight: 700;
   border-radius: var(--gs-radius-pill);
-  background-color: #ffffff;
-  color: var(--gs-green-900);
-  border: 1.5px solid var(--gs-green-600);
+  background-color: #ffffff !important;
+  color: #1b4332 !important;
+  border: 2px solid #2d6a35 !important;
   box-shadow: 0 4px 14px rgba(35, 71, 45, 0.08);
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
@@ -2226,42 +2229,40 @@ p {
   text-decoration: none;
   -webkit-appearance: none;
   appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.gs-button--load-more:hover {
-  background-color: var(--gs-green-800);
-  color: #ffffff !important;
-  border-color: var(--gs-green-800);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(35, 71, 45, 0.18);
-}
+/* Hanya terapkan efek hover hijau gelap di desktop (mouse) agar tidak menempel di mobile touch */
+@media (hover: hover) and (pointer: fine) {
+  .gs-button--load-more:hover {
+    background-color: #23472d !important;
+    color: #ffffff !important;
+    border-color: #23472d !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(35, 71, 45, 0.18);
+  }
 
-.gs-button--load-more:hover svg {
-  color: #ffffff !important;
-  fill: currentColor;
+  .gs-button--load-more:hover svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+  }
 }
 
 .gs-button--load-more:focus,
 .gs-button--load-more:focus-visible {
-  outline: 3px solid var(--gs-green-600);
+  outline: 3px solid #2d6a35;
   outline-offset: 3px;
-  background-color: #ffffff;
-  color: var(--gs-green-900) !important;
-  border-color: var(--gs-green-700);
+  background-color: #ffffff !important;
+  color: #1b4332 !important;
+  border-color: #2d6a35 !important;
   box-shadow: 0 4px 14px rgba(35, 71, 45, 0.15);
 }
 
-.gs-button--load-more:focus:hover {
-  background-color: var(--gs-green-800);
-  color: #ffffff !important;
-  border-color: var(--gs-green-800);
-}
-
 .gs-button--load-more:active {
-  background-color: var(--gs-green-100);
-  color: var(--gs-green-950) !important;
-  border-color: var(--gs-green-700);
-  transform: translateY(0);
+  background-color: #e5f1df !important;
+  color: #112718 !important;
+  border-color: #2d6a35 !important;
+  transform: translateY(1px);
 }
 
 .gs-button--load-more svg {
@@ -2269,6 +2270,7 @@ p {
   height: 18px;
   flex-shrink: 0;
   fill: currentColor;
+  color: inherit;
   transition: transform var(--gs-transition);
 }
 
