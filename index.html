@@ -51,7 +51,7 @@
   <meta name="twitter:image:alt" content="Koleksi souvenir pernikahan elegan dan kemasan custom eksklusif" />
 
   <!-- Preload Hero LCP Image -->
-  <link rel="preload" as="image" href="assets/images/hero-souvenir.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/hero-souvenir.webp" imagesrcset="assets/images/hero-souvenir-640.webp 640w, assets/images/hero-souvenir.webp 800w" imagesizes="(max-width: 991px) calc(100vw - 3rem), 506px" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts (Non-blocking, swap untuk mengurangi FOIT) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -68,7 +68,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background-color:#fdfefb;color:#18261b;line-height:1.7;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter','Inter Fallback',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background-color:#fdfefb;color:#18261b;line-height:1.7;-webkit-font-smoothing:antialiased}
     img{max-width:100%;height:auto;display:block}
     a{text-decoration:none;color:inherit}
     :root{--gs-green-50:#f3f9f1;--gs-green-100:#e5f1df;--gs-green-700:#3f7044;--gs-green-900:#23472d;--gs-cream:#fdfefb;--gs-white:#fff;--gs-text:#18261b;--gs-muted:#38483b;--gs-border:#cfdecb;--gs-radius-sm:.5rem;--gs-radius-md:1rem;--gs-radius-pill:999px;--gs-container:1360px;--gs-shadow-nav:0 4px 24px rgba(35,71,45,.07);--gs-transition:250ms cubic-bezier(.16,1,.3,1)}
@@ -287,8 +287,8 @@
         <div class="gs-navbar__inner">
           <!-- Logo -->
           <a href="index.html" class="gs-navbar__logo" aria-label="Souvenir Pernikahan — Beranda">
-            <img src="assets/profile/Logo Navbar.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img"
-              width="140" height="46" fetchpriority="high" decoding="async" />
+            <img src="assets/profile/logo-navbar-120.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img"
+              width="60" height="60" decoding="async" />
             <span class="gs-navbar__brand-text">Souvenir Pernikahan</span>
           </a>
 
@@ -461,7 +461,7 @@
             <div class="gs-hero__image-frame">
               <img src="assets/images/hero-souvenir.webp"
                 alt="Set paket souvenir pernikahan eksklusif Souvenir Pernikahan bernuansa sage green dan cream"
-                width="800" height="597" fetchpriority="high" decoding="async" />
+                width="800" height="597" fetchpriority="high" decoding="async" srcset="assets/images/hero-souvenir-640.webp 640w, assets/images/hero-souvenir.webp 800w" sizes="(max-width: 991px) calc(100vw - 3rem), 506px" />
             </div>
             <div class="gs-hero__image-badge" aria-label="Tersedia konsultasi gratis">
               <div class="gs-hero__image-badge-icon" aria-hidden="true">
@@ -493,8 +493,8 @@
           <!-- Card Souvenir Pernikahan -->
           <article data-gs-animate class="gs-card">
             <div class="gs-card__image">
-              <img src="assets/images/hero-wedding.webp" alt="Souvenir pernikahan kemasan hardbox mewah dan pita satin"
-                loading="lazy" width="400" height="300" decoding="async" />
+              <img src="assets/images/hero-wedding-640.webp" alt="Souvenir pernikahan kemasan hardbox mewah dan pita satin"
+                loading="lazy" width="400" height="300" decoding="async" srcset="assets/images/hero-wedding-400.webp 400w, assets/images/hero-wedding-640.webp 640w" sizes="(max-width: 575px) calc(50vw - 2rem), 400px" />
             </div>
             <div class="gs-card__body">
               <span class="gs-card__badge">Terlaris</span>
@@ -896,9 +896,9 @@
         <div class="gs-grid-4" data-gs-stagger>
           <div class="gs-portfolio-card" tabindex="0" role="img"
             aria-label="Souvenir pernikahan tema hijau — kemasan eksklusif">
-            <img src="assets/images/hero-souvenir.webp"
+            <img src="assets/images/hero-souvenir-sq-597.webp"
               alt="Souvenir pernikahan tema hijau sage elegan dengan lilin aromaterapi dan botol minyak" loading="lazy"
-              width="400" height="400" />
+              width="400" height="400" srcset="assets/images/hero-souvenir-sq-400.webp 400w, assets/images/hero-souvenir-sq-597.webp 597w" sizes="(max-width: 767px) calc(100vw - 3rem), 294px" />
             <div class="gs-portfolio-card__overlay">
               <div class="gs-portfolio-card__caption">
                 <strong>Souvenir Pernikahan</strong>
@@ -957,28 +957,6 @@
 
           <!-- Testimoni 1 -->
           <article class="gs-testimonial-card">
-            <div class="gs-testimonial-stars" aria-label="Rating 5 dari 5 bintang">
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            </div>
             <p class="gs-testimonial-quote">"Botol aromaterapi dan soy candle sage green-nya bener-bener dipuji semua
               tamu undangan kami. Kemasannya sangat rapi, wangi tahan lama, dan Adminnya sangat responsif saat
               diajak diskusi personalisasi lewat WhatsApp."</p>
@@ -993,28 +971,6 @@
 
           <!-- Testimoni 2 -->
           <article class="gs-testimonial-card">
-            <div class="gs-testimonial-stars" aria-label="Rating 5 dari 5 bintang">
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            </div>
             <p class="gs-testimonial-quote">"Pesan 350 set executive seminar kit untuk acara RUPS &amp; Gala Akhir
               Tahun. Detail grafir logo perusahaan sangat presisi, hardbox magnetiknya kokoh dan mewah. Pengiriman tepat
               waktu tanpa ada yang cacat satu pun."</p>
@@ -1029,28 +985,6 @@
 
           <!-- Testimoni 3 -->
           <article class="gs-testimonial-card">
-            <div class="gs-testimonial-stars" aria-label="Rating 5 dari 5 bintang">
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <svg viewBox="0 0 20 20" aria-hidden="true">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-            </div>
             <p class="gs-testimonial-quote">"Kami pilih tumbler grafir inisial dan tote bag kanvas ramah lingkungan.
               Hasilnya estetik banget dan bermanfaat nyata untuk tamu. Harganya jujur, transparan, dan tidak ada biaya
               tersembunyi."</p>
@@ -1081,8 +1015,8 @@
           <!-- Artikel 1 -->
           <article class="gs-blog-card">
             <div class="gs-blog-card__image">
-              <img src="assets/images/hero-souvenir.webp" alt="Panduan memilih souvenir pernikahan elegan"
-                loading="lazy" width="400" height="240" />
+              <img src="assets/images/hero-souvenir-169-640.webp" alt="Panduan memilih souvenir pernikahan elegan"
+                loading="lazy" width="400" height="225" srcset="assets/images/hero-souvenir-169-400.webp 400w, assets/images/hero-souvenir-169-640.webp 640w" sizes="(max-width: 575px) calc(50vw - 2rem), 400px" />
             </div>
             <div class="gs-blog-card__body">
               <div class="gs-blog-card__meta">
@@ -1315,8 +1249,8 @@
         <!-- Brand -->
         <div>
           <a href="index.html" class="gs-footer__brand-name" aria-label="Green's Souvenir — Beranda">
-            <div class="gs-footer__brand-logo" aria-hidden="true"><img src="assets/profile/Logo Footer.webp"
-                alt="Logo Souvenir Pernikahan Footer" width="140" height="46" loading="lazy" decoding="async" /></div>
+            <div class="gs-footer__brand-logo" aria-hidden="true"><img src="assets/profile/logo-footer-108.webp"
+                alt="Logo Souvenir Pernikahan Footer" width="54" height="54" loading="lazy" decoding="async" /></div>
             <span>Green's Souvenir</span>
           </a>
           <p class="gs-footer__desc">

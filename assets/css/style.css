@@ -43,7 +43,7 @@
   --gs-section-space: clamp(3.5rem, 7vw, 6.5rem);
 
   /* Typography */
-  --gs-font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --gs-font-body: 'Inter', 'Inter Fallback', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --gs-font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
 
   /* Transitions */
@@ -4347,4 +4347,21 @@ html:not(.js) [data-gs-animate] {
   .gs-section .gs-grid-3:not(.is-slide-mode) {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ---------- F. PageSpeed: kontras copyright footer + fallback font (kurangi CLS) ---------- */
+/* <p> copyright mewarisi warna teks gelap global (rasio 1.5:1 di atas hijau tua) -> ikuti warna footer */
+.gs-footer__bottom p {
+  color: inherit;
+}
+
+/* Fallback dengan metrik mirip Inter agar pergantian font web tidak menggeser layout */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Liberation Sans'), local('Helvetica');
+  size-adjust: 107.4%;
+  ascent-override: 90.2%;
+  descent-override: 22.48%;
+  line-gap-override: 0%;
 }
