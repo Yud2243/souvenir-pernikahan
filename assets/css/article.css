@@ -1,4 +1,5 @@
-   21. ARTICLE & BLOG COMPONENTS
+/* ============================================================
+   ARTICLE & BLOG COMPONENTS
    ============================================================ */
 .gs-article {
   max-width: 820px;
@@ -934,9 +935,7 @@
   margin-bottom: 1rem;
 }
 
-/* ============================================================
-
-/* WhatsApp button inside dark CTA banner — high contrast gold variant */
+/* WhatsApp button inside dark CTA banner — high contrast variant */
 .gs-article__cta .gs-button--whatsapp {
   background-color: #ffffff;
   color: #0f5c28;
