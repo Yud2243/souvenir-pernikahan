@@ -5280,4 +5280,29 @@ html:not(.js) [data-gs-animate] {
     background: #113321 !important;
     transform: scale(0.98) !important;
   }
+
+  .gs-home-blog-more {
+    margin-top: 1.25rem !important;
+  }
+
+  .gs-home-blog-more .gs-button {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 9999px !important;
+    padding: 0.85rem 1.5rem !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    gap: 0.5rem !important;
+    background: #17422b !important;
+    color: #ffffff !important;
+    border-color: #17422b !important;
+    box-shadow: 0 4px 14px rgba(23, 66, 43, 0.22) !important;
+  }
+
+  .gs-home-blog-more .gs-button:active {
+    background: #113321 !important;
+    transform: scale(0.98) !important;
+  }
 }
