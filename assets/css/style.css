@@ -532,6 +532,7 @@ p {
 }
 
 @media (min-width: 992px) {
+
   .gs-dropdown:hover .gs-dropdown__menu,
   .gs-dropdown:focus-within .gs-dropdown__menu {
     opacity: 1;
@@ -1923,6 +1924,7 @@ p {
     width: 42px;
     height: 42px;
   }
+
   .gs-back-to-top svg {
     width: 19px;
     height: 19px;
@@ -1999,8 +2001,17 @@ p {
 }
 
 @keyframes gs-pulse-hint {
-  0%, 100% { opacity: 0.7; transform: translateX(0); }
-  50% { opacity: 1; transform: translateX(3px); }
+
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(3px);
+  }
 }
 
 /* Slide Mode Track */
@@ -3581,6 +3592,7 @@ p {
 }
 
 @media (max-width: 350px) {
+
   #gs-paket-grid:not(.is-slide-mode),
   .gs-section .gs-grid-3:not(.is-slide-mode) {
     grid-template-columns: 1fr;
@@ -3984,18 +3996,53 @@ p {
 }
 
 /* Stagger delays for children of a stagger container */
-[data-gs-stagger] > [data-gs-animate]:nth-child(1)  { transition-delay: 0.00s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(2)  { transition-delay: 0.08s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(3)  { transition-delay: 0.16s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(4)  { transition-delay: 0.24s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(5)  { transition-delay: 0.32s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(6)  { transition-delay: 0.40s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(7)  { transition-delay: 0.48s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(8)  { transition-delay: 0.56s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(9)  { transition-delay: 0.64s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(10) { transition-delay: 0.72s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(11) { transition-delay: 0.80s; }
-[data-gs-stagger] > [data-gs-animate]:nth-child(12) { transition-delay: 0.88s; }
+[data-gs-stagger]>[data-gs-animate]:nth-child(1) {
+  transition-delay: 0.00s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(6) {
+  transition-delay: 0.40s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(7) {
+  transition-delay: 0.48s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(8) {
+  transition-delay: 0.56s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(9) {
+  transition-delay: 0.64s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(10) {
+  transition-delay: 0.72s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(11) {
+  transition-delay: 0.80s;
+}
+
+[data-gs-stagger]>[data-gs-animate]:nth-child(12) {
+  transition-delay: 0.88s;
+}
 
 /* Respect user's motion preference */
 @media (prefers-reduced-motion: reduce) {
@@ -4013,14 +4060,16 @@ p {
 
 /* ---------- A. Dasar ---------- */
 html {
-  font-size: 100%; /* hormati ukuran font pilihan pengguna (bukan 16px kaku) */
+  font-size: 100%;
+  /* hormati ukuran font pilihan pengguna (bukan 16px kaku) */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 a,
 button {
-  touch-action: manipulation; /* hilangkan delay tap 300ms */
+  touch-action: manipulation;
+  /* hilangkan delay tap 300ms */
   -webkit-tap-highlight-color: rgba(35, 71, 45, 0.15);
 }
 
@@ -4385,4 +4434,584 @@ html:not(.js) [data-gs-animate] {
   ascent-override: 96.4%;
   descent-override: 22.4%;
   line-gap-override: 0%;
+}
+
+/* ============================================================
+   MOBILE SLIDER — Produk Unggulan & Artikel (Beranda)
+   <= 767px: kartu berjajar ke samping dan digeser (scroll-snap).
+   >= 768px: tetap grid biasa.
+   ============================================================ */
+.gs-slider-hint {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .gs-slider-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0 0 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--gs-muted);
+  }
+
+  .gs-slider-hint svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .gs-section .gs-grid-3.gs-grid-3--slider:not(.is-slide-mode) {
+    --gs-slider-gutter: clamp(1.5rem, 4vw, 3rem);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.9rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* keluar dari padding container supaya kartu bisa digeser sampai tepi layar */
+    margin-inline: calc(-1 * var(--gs-slider-gutter));
+    padding: 0.5rem 0 1.25rem var(--gs-slider-gutter);
+    scroll-padding-inline-start: var(--gs-slider-gutter);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gs-grid-3--slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ruang di ujung kanan (padding-end tidak konsisten di semua browser) */
+  .gs-grid-3--slider::after {
+    content: "";
+    flex: 0 0 calc(var(--gs-slider-gutter) - 0.9rem);
+  }
+
+  .gs-section .gs-grid-3.gs-grid-3--slider:not(.is-slide-mode)>* {
+    flex: 0 0 min(74vw, 280px);
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+}
+
+/* ============================================================
+   12. RESTORED CORE COMPONENTS (ACCORDION, WHY US, TESTIMONIAL)
+   ============================================================ */
+.gs-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.gs-accordion__item {
+  background-color: var(--gs-white);
+  border: 1px solid var(--gs-border);
+  border-radius: var(--gs-radius-md);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(35, 71, 45, 0.04);
+  transition: border-color var(--gs-transition), box-shadow var(--gs-transition);
+}
+
+.gs-accordion__item:hover {
+  box-shadow: 0 4px 14px rgba(35, 71, 45, 0.08);
+}
+
+.gs-accordion__trigger {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.6rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--gs-green-900);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--gs-font-body);
+  transition: background-color var(--gs-transition), color var(--gs-transition);
+}
+
+.gs-accordion__trigger:hover {
+  background-color: var(--gs-green-50);
+  color: var(--gs-green-700);
+}
+
+.gs-accordion__trigger:focus-visible {
+  outline: 3px solid var(--gs-green-500);
+  outline-offset: -3px;
+}
+
+.gs-accordion__icon {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  background-color: var(--gs-green-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--gs-transition), transform var(--gs-transition);
+}
+
+.gs-accordion__icon svg {
+  width: 12px;
+  height: 12px;
+  color: var(--gs-green-700);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gs-accordion__trigger[aria-expanded="true"] .gs-accordion__icon {
+  background-color: var(--gs-green-700);
+}
+
+.gs-accordion__trigger[aria-expanded="true"] .gs-accordion__icon svg {
+  color: var(--gs-white);
+  transform: rotate(180deg);
+}
+
+.gs-accordion__panel {
+  display: none;
+  padding: 0 1.6rem 1.35rem;
+  font-size: 0.92rem;
+  color: var(--gs-muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--gs-border);
+}
+
+.gs-accordion__panel.is-open {
+  display: block;
+}
+
+/* Feature Grid (Why Us) */
+.gs-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.75rem;
+}
+
+.gs-feature-item {
+  text-align: center;
+  padding: 2.25rem 1.75rem;
+  border-radius: var(--gs-radius-lg);
+  background-color: var(--gs-white);
+  border: 1px solid var(--gs-border);
+  box-shadow: var(--gs-shadow-card);
+  transition: transform var(--gs-transition), box-shadow var(--gs-transition), border-color var(--gs-transition);
+}
+
+.gs-feature-item:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--gs-shadow-hover);
+  border-color: var(--gs-green-300);
+}
+
+.gs-feature-item__icon {
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, var(--gs-green-100), var(--gs-green-200));
+  border-radius: var(--gs-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.35rem;
+  transition: transform var(--gs-transition-bounce), box-shadow var(--gs-transition);
+}
+
+.gs-feature-item:hover .gs-feature-item__icon {
+  transform: scale(1.1) rotate(4deg);
+  box-shadow: 0 10px 24px rgba(63, 112, 68, 0.2);
+}
+
+.gs-feature-item__icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--gs-green-700);
+}
+
+.gs-feature-item h3 {
+  font-size: 1.05rem;
+  color: var(--gs-green-900);
+  margin-bottom: 0.5rem;
+}
+
+.gs-feature-item p {
+  font-size: 0.87rem;
+  color: var(--gs-muted);
+  line-height: 1.65;
+}
+
+/* Testimonial Grid */
+.gs-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.gs-testimonial-card {
+  background: var(--gs-white);
+  border: 1px solid var(--gs-border);
+  border-radius: var(--gs-radius-lg);
+  padding: 2.25rem 2rem;
+  box-shadow: var(--gs-shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--gs-transition), box-shadow var(--gs-transition), border-color var(--gs-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.gs-testimonial-card::before {
+  content: '“';
+  position: absolute;
+  top: 0.25rem;
+  right: 1.25rem;
+  font-family: var(--gs-font-heading);
+  font-size: 6.5rem;
+  line-height: 1;
+  color: var(--gs-green-100);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.gs-testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--gs-shadow-hover);
+  border-color: var(--gs-green-300);
+}
+
+.gs-testimonial-stars {
+  display: flex;
+  gap: 3px;
+  color: #f59e0b;
+  margin-top: 0.5rem;
+}
+
+.gs-testimonial-stars svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.gs-testimonial-quote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--gs-text);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.gs-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-top: 1px solid var(--gs-border);
+  padding-top: 1rem;
+}
+
+.gs-testimonial-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gs-green-100), var(--gs-green-300));
+  color: var(--gs-green-800);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gs-testimonial-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--gs-green-900);
+  margin-bottom: 0.15rem;
+}
+
+.gs-testimonial-event {
+  font-size: 0.8rem;
+  color: var(--gs-muted);
+}
+
+/* ============================================================
+   13. WIREFRAME MOBILE ADAPTATIONS (Green's Souvenir Wireframe)
+   Desktop (>= 768px): remains untouched grid.
+   Mobile (<= 767px): slider, 2x2 Why Us, accordion & help box.
+   ============================================================ */
+
+/* Navbar scrolled class */
+.gs-navbar.is-scrolled {
+  box-shadow: 0 4px 24px rgba(35, 71, 45, 0.14);
+}
+
+/* Slider defaults for desktop (hidden arrows & dots) */
+.gs-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.gs-slider-arrow {
+  display: none;
+}
+
+.gs-slider-dots {
+  display: none;
+}
+
+/* FAQ Help Box */
+.gs-faq-help-box {
+  background: #f1f7f2;
+  border: 1px solid #cce0d2;
+  border-radius: var(--gs-radius-lg);
+  padding: 1.25rem 1.5rem;
+  max-width: 760px;
+  margin: 1.75rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.gs-faq-help-box__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.gs-faq-help-box__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #e2ede5;
+  color: #23472d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gs-faq-help-box__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.gs-faq-help-box__text strong {
+  display: block;
+  font-size: 0.98rem;
+  color: #17351f;
+  margin-bottom: 0.2rem;
+}
+
+.gs-faq-help-box__text p {
+  font-size: 0.85rem;
+  color: var(--gs-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.gs-button--full {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Contact Cards (Hubungi Admin) */
+.gs-contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 520px;
+  margin: 1.5rem auto 1.75rem;
+}
+
+.gs-contact-card-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e1ebe3;
+  border-radius: var(--gs-radius-md);
+  box-shadow: 0 2px 8px rgba(35, 71, 45, 0.04);
+  text-align: left;
+}
+
+.gs-contact-card-item__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #eef5f0;
+  color: #23472d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.gs-contact-card-item__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.gs-contact-card-item__info strong {
+  display: block;
+  font-size: 0.92rem;
+  color: #17351f;
+  margin-bottom: 0.15rem;
+}
+
+.gs-contact-card-item__info span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--gs-muted);
+}
+
+/* MOBILE SPECIFIC RULES (max-width: 767px) */
+@media (max-width: 767px) {
+  /* 1. Koleksi Produk & Testimoni Horizontal Slider */
+  .gs-product-slider,
+  .gs-testi-slider {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 1rem;
+    padding: 0.5rem 1rem 1rem !important;
+    margin-inline: -1rem;
+  }
+
+  .gs-product-slider::-webkit-scrollbar,
+  .gs-testi-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gs-product-slider > .gs-card,
+  .gs-testi-slider > .gs-testimonial-card {
+    flex: 0 0 calc(100vw - 4.5rem) !important;
+    max-width: 360px !important;
+    min-width: 260px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  /* Slider Arrows */
+  .gs-slider-arrow {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #cfded4;
+    color: #17351f;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .gs-slider-arrow:active {
+    transform: translateY(-50%) scale(0.92);
+    background: #eef5f0;
+  }
+
+  .gs-slider-arrow--prev {
+    left: -0.5rem;
+  }
+
+  .gs-slider-arrow--next {
+    right: -0.5rem;
+  }
+
+  .gs-slider-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Slider Pagination Dots */
+  .gs-slider-dots {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0.75rem auto 0;
+    padding: 4px;
+  }
+
+  .gs-slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cfded4;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gs-slider-dot.is-active {
+    width: 22px;
+    border-radius: 10px;
+    background: #23472d;
+  }
+
+  /* 2. Why Us 2x2 Grid */
+  .gs-feature-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .gs-feature-item {
+    padding: 1.25rem 0.75rem !important;
+    border-radius: var(--gs-radius-md) !important;
+    text-align: center;
+  }
+
+  .gs-feature-item__icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 auto 0.75rem !important;
+    border-radius: 10px !important;
+  }
+
+  .gs-feature-item__icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .gs-feature-item h3 {
+    font-size: 0.92rem !important;
+    font-weight: 700;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .gs-feature-item p {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* 3. Hubungi Admin Button & Container */
+  .gs-cta-section {
+    padding: 2.5rem 1.25rem !important;
+  }
 }

@@ -401,19 +401,6 @@
   const yearEl = document.getElementById('gs-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ============================================================
-     SCROLL-BASED NAVBAR SHADOW
-     ============================================================ */
-  const navbar = document.querySelector('.gs-navbar');
-  if (navbar) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 10) {
-        navbar.style.boxShadow = '0 4px 24px rgba(35, 71, 45, 0.12)';
-      } else {
-        navbar.style.boxShadow = '';
-      }
-    }, { passive: true });
-  }
 
   /* ============================================================
      PRODUCT DETAIL MODAL
@@ -695,8 +682,10 @@
   }
 
   /* ============================================================
-     AUTO SCROLL KE ATAS (Back to Top Floating Button)
+     OPTIMIZED SCROLL HANDLER (Navbar Shadow & Back-to-Top Button)
+     Batched via requestAnimationFrame to eliminate Forced Reflow
      ============================================================ */
+  const navbar = document.querySelector('.gs-navbar');
   let backToTopBtn = document.getElementById('gs-back-to-top');
   if (!backToTopBtn) {
     backToTopBtn = document.createElement('button');
@@ -708,23 +697,134 @@
     document.body.appendChild(backToTopBtn);
   }
 
-  function handleScrollTopVisibility() {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('is-visible');
-    } else {
-      backToTopBtn.classList.remove('is-visible');
-    }
-  }
-
-  window.addEventListener('scroll', handleScrollTopVisibility, { passive: true });
-  handleScrollTopVisibility();
-
   backToTopBtn.addEventListener('click', function () {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
   });
+
+  let scrollTicking = false;
+  function updateScrollState() {
+    scrollTicking = false;
+    const y = window.scrollY || window.pageYOffset || 0;
+    if (navbar) {
+      if (y > 10) {
+        navbar.classList.add('is-scrolled');
+      } else {
+        navbar.classList.remove('is-scrolled');
+      }
+    }
+    if (backToTopBtn) {
+      if (y > 300) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(updateScrollState);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // Defer initial scroll state check via rAF to avoid synchronous forced reflow on initial page load
+  window.requestAnimationFrame(updateScrollState);
+
+  /* ============================================================
+     HORIZONTAL SLIDERS (Mobile Wireframe: Produk & Testimoni)
+     ============================================================ */
+  function setupHorizontalSlider(wrapperId, trackId, dotsId) {
+    const wrapper = document.getElementById(wrapperId);
+    if (!wrapper) return;
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const prevBtn = wrapper.querySelector('.gs-slider-arrow--prev');
+    const nextBtn = wrapper.querySelector('.gs-slider-arrow--next');
+    const dotsContainer = document.getElementById(dotsId);
+
+    const cards = Array.from(track.children).filter(function (child) {
+      return !child.classList.contains('gs-slider-arrow') && !child.classList.contains('gs-slider-hint');
+    });
+
+    if (cards.length === 0) return;
+
+    // Build pagination dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      cards.forEach(function (_, idx) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'gs-slider-dot' + (idx === 0 ? ' is-active' : '');
+        dot.setAttribute('aria-label', 'Slide ' + (idx + 1));
+        dot.addEventListener('click', function () {
+          cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function getCardStep() {
+      if (cards[0]) {
+        const rect = cards[0].getBoundingClientRect();
+        return rect.width + 16;
+      }
+      return 300;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        track.scrollBy({ left: -getCardStep(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        track.scrollBy({ left: getCardStep(), behavior: 'smooth' });
+      });
+    }
+
+    let sliderTicking = false;
+    track.addEventListener('scroll', function () {
+      if (sliderTicking) return;
+      sliderTicking = true;
+      window.requestAnimationFrame(function () {
+        sliderTicking = false;
+        if (!dotsContainer) return;
+        const trackRect = track.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+
+        let closestIdx = 0;
+        let minDiff = Infinity;
+        cards.forEach(function (card, idx) {
+          const r = card.getBoundingClientRect();
+          const cardCenter = r.left + r.width / 2;
+          const diff = Math.abs(cardCenter - trackCenter);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIdx = idx;
+          }
+        });
+
+        const dots = dotsContainer.querySelectorAll('.gs-slider-dot');
+        dots.forEach(function (dot, idx) {
+          if (idx === closestIdx) {
+            dot.classList.add('is-active');
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.classList.remove('is-active');
+            dot.removeAttribute('aria-current');
+          }
+        });
+      });
+    }, { passive: true });
+  }
+
+  setupHorizontalSlider('gs-home-product-slider', 'gs-home-product-track', 'gs-home-product-dots');
+  setupHorizontalSlider('gs-home-testi-slider', 'gs-home-testi-track', 'gs-home-testi-dots');
 
   /* ============================================================
      MOBILE VIEW SWITCHER (Grid vs Slide Mode)
