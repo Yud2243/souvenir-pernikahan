@@ -206,6 +206,22 @@
         }
       });
 
+      const isSlideMode = paketGrid.classList.contains('is-slide-mode');
+
+      if (isSlideMode) {
+        matchingCards.forEach(function (card) {
+          card.style.display = '';
+        });
+        if (loadMoreWrap) {
+          loadMoreWrap.style.display = 'none';
+        }
+        const emptyState = document.getElementById('gs-empty-state');
+        if (emptyState) {
+          emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
+        }
+        return;
+      }
+
       if (currentFilter === 'semua') {
         if (!isExpanded && matchingCards.length > INITIAL_LIMIT) {
           matchingCards.forEach(function (card, index) {
@@ -248,6 +264,8 @@
         emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
       }
     }
+
+    paketGrid.updateDisplay = updatePaketDisplay;
 
     if (loadMoreBtn) {
       loadMoreBtn.addEventListener('click', function () {
@@ -898,6 +916,10 @@
       } else {
         grid.classList.remove('is-slide-mode');
         if (slideHint) slideHint.style.display = 'none';
+      }
+
+      if (typeof grid.updateDisplay === 'function') {
+        grid.updateDisplay();
       }
     });
   });
