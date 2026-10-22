@@ -1756,11 +1756,11 @@ p {
 }
 
 .gs-footer__heading {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gs-white);
+  color: #ffffff !important;
   margin-bottom: 1.1rem;
   font-family: var(--gs-font-body);
 }
@@ -1773,12 +1773,12 @@ p {
 
 .gs-footer__link {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: #e2ebe4;
   transition: color var(--gs-transition), padding-left var(--gs-transition);
 }
 
 .gs-footer__link:hover {
-  color: var(--gs-green-300);
+  color: #a7f3d0;
   padding-left: 0.4rem;
 }
 
@@ -1787,8 +1787,8 @@ p {
   align-items: center;
   justify-content: space-between;
   padding-block: 1.5rem;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.825rem;
+  color: #d1ded4;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
@@ -1799,12 +1799,14 @@ p {
 }
 
 .gs-footer__bottom-link {
-  color: rgba(255, 255, 255, 0.4);
+  color: #d1ded4 !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   transition: color var(--gs-transition);
 }
 
 .gs-footer__bottom-link:hover {
-  color: var(--gs-green-300);
+  color: #ffffff !important;
 }
 
 /* ============================================================
@@ -4400,19 +4402,29 @@ main:focus {
 }
 
 .gs-footer {
-  color: rgba(255, 255, 255, 0.85);
+  color: #f1f7f2;
 }
 
 .gs-footer__desc,
 .gs-footer__location-item,
 .gs-footer__link,
 .gs-footer__contact-link {
-  color: rgba(255, 255, 255, 0.82);
+  color: #e2ebe4;
+}
+
+.gs-footer__contact-link span {
+  color: #e2ebe4 !important;
+}
+
+.gs-footer__heading {
+  color: #ffffff !important;
 }
 
 .gs-footer__bottom,
+.gs-footer__bottom p,
+.gs-footer__bottom span,
 .gs-footer__bottom-link {
-  color: rgba(255, 255, 255, 0.78);
+  color: #d1ded4 !important;
 }
 
 /* Tanda kutip dekoratif tidak dibacakan screen reader */
@@ -5246,29 +5258,50 @@ a.gs-contact-card-item:hover .gs-contact-card-item__icon {
     height: 18px;
   }
 
-  /* Slider Pagination Dots */
+  /* Slider Pagination Dots (Target sentuh minimal untuk aksesibilitas WCAG / Lighthouse) */
   .gs-slider-dots {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    margin: 0.75rem auto 0;
+    gap: 4px;
+    margin: 0.85rem auto 0;
     padding: 4px;
   }
 
   .gs-slider-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #cfded4;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
     padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .gs-slider-dot::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #a8c4b0;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .gs-slider-dot.is-active {
-    width: 22px;
+  .gs-slider-dot:focus-visible {
+    outline: 2px solid #23472d;
+    outline-offset: 2px;
+  }
+
+  .gs-slider-dot.is-active::after {
+    width: 24px;
     border-radius: 10px;
     background: #23472d;
   }
