@@ -399,8 +399,8 @@
   }
 
   const currentNorm = normalizeNavPath(window.location.pathname);
-  const isBlogSection = currentNorm.endsWith('/blog') || currentNorm.includes('/blog/');
-  const isPaketSection = currentNorm.endsWith('/paket') || currentNorm.includes('/paket/');
+  const isBlogSection = currentNorm.endsWith('/blog') || currentNorm.endsWith('/blog.html') || currentNorm.includes('/blog/');
+  const isPaketSection = currentNorm.endsWith('/paket') || currentNorm.endsWith('/paket.html') || currentNorm.includes('/paket/');
 
   // Remove existing active states first
   const allNavLinks = document.querySelectorAll(
@@ -424,12 +424,15 @@
     if (currentNorm === '/' || currentNorm.endsWith('/souvenirkeuda') || currentNorm.endsWith('/souvenirkeuda/')) {
       if (linkNorm === '/' || linkNorm.endsWith('/souvenirkeuda') || linkNorm.endsWith('/index.html')) isActive = true;
     } else if (isBlogSection) {
-      if (linkNorm === currentNorm || (linkNorm.endsWith('/blog') && (currentNorm.endsWith('/blog') || currentNorm.includes('/blog/index')))) {
+      if (linkNorm === currentNorm ||
+          ((linkNorm.endsWith('/blog') || linkNorm.endsWith('/blog.html')) &&
+           (currentNorm.endsWith('/blog') || currentNorm.endsWith('/blog.html') || currentNorm.includes('/blog/')))) {
         isActive = true;
       }
     } else if (isPaketSection) {
-      if (linkNorm === currentNorm) isActive = true;
-      if (linkNorm.endsWith('/paket') && (currentNorm.endsWith('/paket') || currentNorm.includes('/paket/index'))) {
+      if (linkNorm === currentNorm ||
+          ((linkNorm.endsWith('/paket') || linkNorm.endsWith('/paket.html')) &&
+           (currentNorm.endsWith('/paket') || currentNorm.endsWith('/paket.html') || currentNorm.includes('/paket/')))) {
         isActive = true;
       }
     } else {
