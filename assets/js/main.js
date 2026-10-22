@@ -181,143 +181,216 @@
      FILTER TABS (katalog / portofolio)
      ============================================================ */
   /* ============================================================
-     KATALOG FILTER & LIHAT SELENGKAPNYA (paket/index.html)
+     KATALOG PRODUK: FILTER, GRID / SLIDE, & LOAD MORE
+     (Semua Paket, Paket Pernikahan, Paket Perusahaan)
      ============================================================ */
-  const paketGrid = document.getElementById('gs-paket-grid');
-  const paketFilterTabs = document.querySelectorAll('.gs-filter-tabs .gs-filter-tab');
-  const loadMoreBtn = document.getElementById('gs-load-more-btn');
-  const loadMoreWrap = document.getElementById('gs-load-more-wrap');
+  const mobileMedia = window.matchMedia('(max-width: 767px)');
+  const STEP_MOBILE = 4;
+  const INITIAL_DESKTOP = 6;
 
-  if (paketGrid && paketFilterTabs.length) {
-    const INITIAL_LIMIT = 6;
-    let isExpanded = false;
+  function initCatalogGrid(grid) {
+    if (!grid) return;
+
+    const section = grid.closest('section') || grid.parentElement;
+    const filterTabs = section ? section.querySelectorAll('.gs-filter-tabs .gs-filter-tab') : [];
+    const loadMoreWrap = section ? (section.querySelector('#gs-load-more-wrap') || section.querySelector('.gs-catalog-more-wrap')) : null;
+    const loadMoreBtn = loadMoreWrap ? (loadMoreWrap.querySelector('#gs-load-more-btn') || loadMoreWrap.querySelector('button')) : null;
+    const emptyState = section ? (section.querySelector('#gs-empty-state') || section.querySelector('.gs-empty-state')) : null;
+
     let currentFilter = 'semua';
+    let visibleCountMobile = STEP_MOBILE; // 4, 8, 12, ...
+    let isExpandedDesktop = false;
 
-    function updatePaketDisplay() {
-      const cards = paketGrid.querySelectorAll('.gs-card[data-category]');
+    function updateDisplay() {
+      const isMobile = mobileMedia.matches;
+      const isSlideMode = grid.classList.contains('is-slide-mode');
+      const cards = Array.from(grid.querySelectorAll('.gs-card'));
+
+      // Filter cards by category
       let matchingCards = [];
-
       cards.forEach(function (card) {
         const cat = card.dataset.category;
-        if (currentFilter === 'semua' || cat === currentFilter) {
+        if (!cat || currentFilter === 'semua' || cat === currentFilter) {
           matchingCards.push(card);
         } else {
           card.style.display = 'none';
         }
       });
 
-      const isSlideMode = paketGrid.classList.contains('is-slide-mode');
+      const total = matchingCards.length;
 
-      if (isSlideMode) {
+      // 1. SLIDE MODE (khusus mobile saat mode slide aktif):
+      if (isMobile && isSlideMode) {
         matchingCards.forEach(function (card) {
           card.style.display = '';
         });
         if (loadMoreWrap) {
           loadMoreWrap.style.display = 'none';
         }
-        const emptyState = document.getElementById('gs-empty-state');
         if (emptyState) {
-          emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
+          emptyState.style.display = total === 0 ? 'block' : 'none';
         }
         return;
       }
 
-      if (currentFilter === 'semua') {
-        if (!isExpanded && matchingCards.length > INITIAL_LIMIT) {
-          matchingCards.forEach(function (card, index) {
-            if (index < INITIAL_LIMIT) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-          if (loadMoreWrap && loadMoreBtn) {
-            loadMoreWrap.style.display = 'block';
-            loadMoreBtn.innerHTML = `Lihat Selengkapnya (${matchingCards.length - INITIAL_LIMIT} Produk Lainnya) <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
-          }
-        } else {
-          matchingCards.forEach(function (card) {
+      // 2. MOBILE GRID MODE:
+      if (isMobile) {
+        matchingCards.forEach(function (card, index) {
+          if (index < visibleCountMobile) {
             card.style.display = '';
-          });
-          if (loadMoreWrap && loadMoreBtn) {
-            if (matchingCards.length > INITIAL_LIMIT) {
-              loadMoreWrap.style.display = 'block';
-              loadMoreBtn.innerHTML = `Tampilkan Lebih Sedikit <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
-            } else {
-              loadMoreWrap.style.display = 'none';
-            }
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (loadMoreWrap && loadMoreBtn) {
+          if (total <= STEP_MOBILE) {
+            loadMoreWrap.style.display = 'none';
+          } else if (visibleCountMobile < total) {
+            // Masih ada produk yang belum tampil -> tombol "Lihat Selengkapnya"
+            const remaining = total - visibleCountMobile;
+            loadMoreWrap.style.display = 'block';
+            loadMoreBtn.setAttribute('data-action', 'more');
+            loadMoreBtn.innerHTML = `Lihat Selengkapnya (${Math.min(remaining, STEP_MOBILE)} Produk Lagi) <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+          } else {
+            // Semua produk sudah tampil -> ubah tombol menjadi "Tutup"
+            loadMoreWrap.style.display = 'block';
+            loadMoreBtn.setAttribute('data-action', 'close');
+            loadMoreBtn.innerHTML = `Tutup <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
           }
         }
-      } else {
-        // Kategori spesifik (Pernikahan / Perusahaan)
-        matchingCards.forEach(function (card) {
-          card.style.display = '';
-        });
-        if (loadMoreWrap) {
-          loadMoreWrap.style.display = 'none';
+
+        if (emptyState) {
+          emptyState.style.display = total === 0 ? 'block' : 'none';
         }
+        return;
       }
 
-      // Empty state
-      const emptyState = document.getElementById('gs-empty-state');
+      // 3. DESKTOP MODE (tetap seperti semula tanpa mengganggu tampilan desktop):
+      if (grid.id === 'gs-paket-grid') {
+        if (currentFilter === 'semua') {
+          if (!isExpandedDesktop && total > INITIAL_DESKTOP) {
+            matchingCards.forEach(function (card, index) {
+              card.style.display = index < INITIAL_DESKTOP ? '' : 'none';
+            });
+            if (loadMoreWrap && loadMoreBtn) {
+              loadMoreWrap.style.display = 'block';
+              loadMoreBtn.setAttribute('data-action', 'desktop-expand');
+              loadMoreBtn.innerHTML = `Lihat Selengkapnya (${total - INITIAL_DESKTOP} Produk Lainnya) <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+            }
+          } else {
+            matchingCards.forEach(function (card) { card.style.display = ''; });
+            if (loadMoreWrap && loadMoreBtn) {
+              if (total > INITIAL_DESKTOP) {
+                loadMoreWrap.style.display = 'block';
+                loadMoreBtn.setAttribute('data-action', 'desktop-collapse');
+                loadMoreBtn.innerHTML = `Tampilkan Lebih Sedikit <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+              } else {
+                loadMoreWrap.style.display = 'none';
+              }
+            }
+          }
+        } else {
+          matchingCards.forEach(function (card) { card.style.display = ''; });
+          if (loadMoreWrap) loadMoreWrap.style.display = 'none';
+        }
+      } else {
+        // Pada halaman Paket Pernikahan & Paket Perusahaan di desktop: tampilkan semua produk utuh
+        matchingCards.forEach(function (card) { card.style.display = ''; });
+        if (loadMoreWrap) loadMoreWrap.style.display = 'none';
+      }
+
       if (emptyState) {
-        emptyState.style.display = matchingCards.length === 0 ? 'block' : 'none';
+        emptyState.style.display = total === 0 ? 'block' : 'none';
       }
     }
 
-    paketGrid.updateDisplay = updatePaketDisplay;
-
     if (loadMoreBtn) {
       loadMoreBtn.addEventListener('click', function () {
-        isExpanded = !isExpanded;
-        updatePaketDisplay();
-        if (!isExpanded && paketGrid) {
-          paketGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const isMobile = mobileMedia.matches;
+        if (isMobile) {
+          const action = loadMoreBtn.getAttribute('data-action');
+          if (action === 'close') {
+            visibleCountMobile = STEP_MOBILE;
+            updateDisplay();
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            visibleCountMobile += STEP_MOBILE;
+            updateDisplay();
+          }
+        } else {
+          isExpandedDesktop = !isExpandedDesktop;
+          updateDisplay();
+          if (!isExpandedDesktop) {
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }
       });
     }
 
-    paketFilterTabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        currentFilter = this.dataset.filter;
-        isExpanded = false;
+    if (filterTabs.length) {
+      filterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          currentFilter = this.dataset.filter || 'semua';
+          visibleCountMobile = STEP_MOBILE;
+          isExpandedDesktop = false;
 
-        paketFilterTabs.forEach(function (t) {
+          filterTabs.forEach(function (t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-pressed', 'false');
+          });
+          this.classList.add('active');
+          this.setAttribute('aria-pressed', 'true');
+
+          updateDisplay();
+        });
+      });
+    }
+
+    grid.updateDisplay = updateDisplay;
+
+    if (mobileMedia && typeof mobileMedia.addEventListener === 'function') {
+      mobileMedia.addEventListener('change', function () {
+        visibleCountMobile = STEP_MOBILE;
+        isExpandedDesktop = false;
+        updateDisplay();
+      });
+    }
+
+    updateDisplay();
+  }
+
+  // Inisialisasi ketiga grid katalog paket
+  ['gs-paket-grid', 'gs-pernikahan-grid', 'gs-perusahaan-grid'].forEach(function (id) {
+    const grid = document.getElementById(id);
+    if (grid) initCatalogGrid(grid);
+  });
+
+  // Filter tabs untuk Portofolio
+  const portfolioGrid = document.querySelector('.gs-portfolio-grid');
+  if (portfolioGrid) {
+    const pTabs = document.querySelectorAll('.gs-filter-tabs .gs-filter-tab');
+    pTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        const filter = this.dataset.filter || 'semua';
+        pTabs.forEach(function (t) {
           t.classList.remove('active');
           t.setAttribute('aria-pressed', 'false');
         });
         this.classList.add('active');
         this.setAttribute('aria-pressed', 'true');
 
-        updatePaketDisplay();
-      });
-    });
-
-    updatePaketDisplay();
-  } else {
-    // Fallback filter tabs untuk portofolio atau halaman lain
-    const otherFilterTabs = document.querySelectorAll('.gs-filter-tab');
-    if (otherFilterTabs.length) {
-      otherFilterTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          const filter = this.dataset.filter;
-          otherFilterTabs.forEach(function (t) { t.classList.remove('active'); });
-          this.classList.add('active');
-
-          const cards = document.querySelectorAll('[data-category]');
-          let visibleCount = 0;
-          cards.forEach(function (card) {
-            const cat = card.dataset.category;
-            if (filter === 'semua' || cat === filter) {
-              card.style.display = '';
-              visibleCount++;
-            } else {
-              card.style.display = 'none';
-            }
-          });
+        const items = portfolioGrid.querySelectorAll('.gs-portfolio-card');
+        items.forEach(function (item) {
+          const cat = item.dataset.category;
+          if (filter === 'semua' || cat === filter) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
         });
       });
-    }
+    });
   }
 
   /* ============================================================
