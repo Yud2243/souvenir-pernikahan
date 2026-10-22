@@ -2160,14 +2160,6 @@ p {
   display: none !important;
 }
 
-@media (min-width: 768px) {
-  /* Di Desktop, tombol load more di halaman pernikahan & perusahaan disembunyikan agar semua produk tampil utuh */
-  #gs-pernikahan-grid ~ #gs-load-more-wrap,
-  #gs-perusahaan-grid ~ #gs-load-more-wrap {
-    display: none !important;
-  }
-}
-
 /* ============================================================
    18. FILTER TABS
    ============================================================ */
@@ -2222,28 +2214,61 @@ p {
   gap: 0.6rem;
   padding: 0.85rem 2.25rem;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--gs-radius-pill);
-  background-color: var(--gs-white);
-  color: var(--gs-green-800);
+  background-color: #ffffff;
+  color: var(--gs-green-900);
   border: 1.5px solid var(--gs-green-600);
   box-shadow: 0 4px 14px rgba(35, 71, 45, 0.08);
   cursor: pointer;
-  transition: all var(--gs-transition);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   font-family: var(--gs-font-body);
+  text-decoration: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .gs-button--load-more:hover {
   background-color: var(--gs-green-800);
-  color: var(--gs-white);
+  color: #ffffff !important;
   border-color: var(--gs-green-800);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(35, 71, 45, 0.18);
 }
 
+.gs-button--load-more:hover svg {
+  color: #ffffff !important;
+  fill: currentColor;
+}
+
+.gs-button--load-more:focus,
+.gs-button--load-more:focus-visible {
+  outline: 3px solid var(--gs-green-600);
+  outline-offset: 3px;
+  background-color: #ffffff;
+  color: var(--gs-green-900) !important;
+  border-color: var(--gs-green-700);
+  box-shadow: 0 4px 14px rgba(35, 71, 45, 0.15);
+}
+
+.gs-button--load-more:focus:hover {
+  background-color: var(--gs-green-800);
+  color: #ffffff !important;
+  border-color: var(--gs-green-800);
+}
+
+.gs-button--load-more:active {
+  background-color: var(--gs-green-100);
+  color: var(--gs-green-950) !important;
+  border-color: var(--gs-green-700);
+  transform: translateY(0);
+}
+
 .gs-button--load-more svg {
   width: 18px;
   height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
   transition: transform var(--gs-transition);
 }
 
@@ -5357,9 +5382,15 @@ a.gs-contact-card-item:hover .gs-contact-card-item__icon {
     border: none !important;
     font-size: 0.85rem !important;
     font-weight: 500 !important;
-    padding: 0.48rem 1.2rem !important;
+    padding: 0.55rem 1.25rem !important;
+    min-height: 42px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     border-radius: 9999px !important;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition: all 0.2s ease !important;
   }
 
@@ -5381,7 +5412,7 @@ a.gs-contact-card-item:hover .gs-contact-card-item__icon {
   }
 
   .gs-blog-card {
-    display: flex !important;
+    display: flex;
     flex-direction: column !important;
     align-items: stretch !important;
     padding: 0 !important;
@@ -5393,6 +5424,11 @@ a.gs-contact-card-item:hover .gs-contact-card-item__icon {
     position: relative !important;
     gap: 0 !important;
     transform: none !important;
+  }
+
+  .gs-blog-card.is-hidden,
+  .gs-blog-card[hidden] {
+    display: none !important;
   }
 
   .gs-blog-card:hover {
@@ -5525,8 +5561,13 @@ a.gs-contact-card-item:hover .gs-contact-card-item__icon {
   }
 
   .gs-blog-load-more-wrap {
-    display: block !important;
+    display: block;
     margin-top: 1.25rem !important;
+  }
+
+  .gs-blog-load-more-wrap.is-hidden,
+  .gs-blog-load-more-wrap[hidden] {
+    display: none !important;
   }
 
   #gs-blog-load-more-btn {
