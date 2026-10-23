@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -1545,16 +1545,14 @@
     </div>
   </div>
 
+  <!-- Back to Top Button -->
+  <button type="button" class="gs-back-to-top" id="gs-back-to-top" aria-label="Kembali ke atas">
+    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+    </svg>
+  </button>
+
   <script defer src="assets/js/main.min.js"></script>
-  <script>
-    // Update filter tab aria-pressed
-    document.querySelectorAll('.gs-filter-tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.gs-filter-tab').forEach(function (t) { t.setAttribute('aria-pressed', 'false'); });
-        this.setAttribute('aria-pressed', 'true');
-      });
-    });
-  </script>
 </body>
 
 </html>

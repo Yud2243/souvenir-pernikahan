@@ -850,23 +850,16 @@
      Batched via requestAnimationFrame to eliminate Forced Reflow
      ============================================================ */
   const navbar = document.querySelector('.gs-navbar');
-  let backToTopBtn = document.getElementById('gs-back-to-top');
-  if (!backToTopBtn) {
-    backToTopBtn = document.createElement('button');
-    backToTopBtn.id = 'gs-back-to-top';
-    backToTopBtn.className = 'gs-back-to-top';
-    backToTopBtn.setAttribute('type', 'button');
-    backToTopBtn.setAttribute('aria-label', 'Kembali ke atas');
-    backToTopBtn.innerHTML = '<svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" /></svg>';
-    document.body.appendChild(backToTopBtn);
-  }
+  const backToTopBtn = document.getElementById('gs-back-to-top');
 
-  backToTopBtn.addEventListener('click', function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   let scrollTicking = false;
   function updateScrollState() {
@@ -931,13 +924,19 @@
       });
     }
 
+    let cachedStep = 0;
     function getCardStep() {
+      if (cachedStep > 0) return cachedStep;
       if (cards[0]) {
-        const rect = cards[0].getBoundingClientRect();
-        return rect.width + 16;
+        cachedStep = cards[0].offsetWidth + 16;
+        return cachedStep;
       }
       return 300;
     }
+
+    window.addEventListener('resize', function () {
+      cachedStep = 0;
+    }, { passive: true });
 
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
@@ -958,29 +957,19 @@
       window.requestAnimationFrame(function () {
         sliderTicking = false;
         if (!dotsContainer) return;
-        const trackRect = track.getBoundingClientRect();
-        const trackCenter = trackRect.left + trackRect.width / 2;
-
-        let closestIdx = 0;
-        let minDiff = Infinity;
-        cards.forEach(function (card, idx) {
-          const r = card.getBoundingClientRect();
-          const cardCenter = r.left + r.width / 2;
-          const diff = Math.abs(cardCenter - trackCenter);
-          if (diff < minDiff) {
-            minDiff = diff;
-            closestIdx = idx;
-          }
-        });
+        const step = getCardStep();
+        const activeIdx = Math.min(cards.length - 1, Math.max(0, Math.round(track.scrollLeft / step)));
 
         const dots = dotsContainer.querySelectorAll('.gs-slider-dot');
         dots.forEach(function (dot, idx) {
-          if (idx === closestIdx) {
-            dot.classList.add('is-active');
-            dot.setAttribute('aria-current', 'true');
-          } else {
-            dot.classList.remove('is-active');
-            dot.removeAttribute('aria-current');
+          const isActive = (idx === activeIdx);
+          if (dot.classList.contains('is-active') !== isActive) {
+            dot.classList.toggle('is-active', isActive);
+            if (isActive) {
+              dot.setAttribute('aria-current', 'true');
+            } else {
+              dot.removeAttribute('aria-current');
+            }
           }
         });
       });
