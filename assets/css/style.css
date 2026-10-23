@@ -376,7 +376,6 @@ p {
 /* ============================================================
    7. NAVBAR
    ============================================================ */
-header,
 body > header {
   position: sticky;
   top: 0;
@@ -2365,6 +2364,10 @@ body > header {
 }
 
 .gs-article__header {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  width: auto !important;
   margin-bottom: 2rem;
 }
 
