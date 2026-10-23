@@ -845,8 +845,8 @@
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.01,
+      rootMargin: '300px 0px 300px 0px'
     });
 
     document.querySelectorAll('[data-gs-animate]').forEach(function (el) {

@@ -376,10 +376,19 @@ p {
 /* ============================================================
    7. NAVBAR
    ============================================================ */
+header,
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
 .gs-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
   background-color: rgba(255, 253, 248, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -4072,16 +4081,14 @@ p {
    State: .is-visible (added by IntersectionObserver in main.js)
    ============================================================ */
 
-/* Base: hidden state */
+/* Base: hidden state - optimized for fast instant image reveal */
 [data-gs-animate] {
   opacity: 0;
-  transform: translateY(28px);
-  filter: blur(4px);
+  transform: translateY(14px);
   transition:
-    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
+    opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 /* Slide-only variant (no blur) */
@@ -4267,10 +4274,9 @@ html:not(.js) [data-gs-animate] {
     box-shadow var(--gs-transition);
 }
 
-/* Render section di bawah layar hanya saat mendekati viewport */
+/* Render section di bawah layar - content-visibility removed to eliminate image loading delay */
 .gs-section,
 .gs-footer {
-  content-visibility: auto;
   contain-intrinsic-size: auto 700px;
 }
 
