@@ -1,106 +1,170 @@
 # ============================================================
-# Souvenir Pernikahan — robots.txt
-# Optimized for Google, Bing, AI Search, AEO & GEO (2026-2027)
+# SOUVENIR PERNIKAHAN — ROBOTS.TXT
 # Website: https://souvenirpernikahan.web.id/
+# Bisnis: Penyedia Souvenir Pernikahan Elegan & Custom Corporate Gift
+# Lokasi: Kota Malang, Jawa Timur, Indonesia
+# Kontak WhatsApp: +62 821-3108-7971
+# Standar: 2026-2027 SEO / AEO (Answer Engine) / GEO (Generative Engine)
 # ============================================================
 
-# --- Default Rules for All Web Crawlers ---
+# ------------------------------------------------------------
+# 1. PERAYAP UMUM & MESIN PENCARI (Search Engines)
+# ------------------------------------------------------------
 User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /tentang.html
+Allow: /paket.html
+Allow: /paket/
+Allow: /paket/souvenir-tradisional.html
+Allow: /paket/souvenir-modern.html
+Allow: /portofolio.html
+Allow: /blog.html
+Allow: /blog/
+Allow: /blog/*.html
+Allow: /kebijakan-privasi.html
+Allow: /assets/
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/*.css
+Allow: /assets/js/*.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+# Proteksi File Internal & Konfigurasi Pengembang
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
+Disallow: /.htaccess
+Disallow: /.agents/
+Disallow: /.git/
+
+# ------------------------------------------------------------
+# 2. GOOGLE SEARCH & GOOGLE AI (Gemini, AI Overviews, Lens, Shopping)
+# ------------------------------------------------------------
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Googlebot-Image
+User-agent: Storebot-Google
 Allow: /
 Allow: /assets/
 Allow: /paket/
 Allow: /blog/
 Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Google Search & Google AI (Gemini, AI Overviews, SGE) ---
-User-agent: Googlebot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Storebot-Google
-Allow: /
-
-# --- OpenAI (ChatGPT, SearchGPT, GPTBot) ---
+# ------------------------------------------------------------
+# 3. OPENAI & SEARCHGPT (ChatGPT, SearchGPT, GPTBot)
+# ------------------------------------------------------------
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: OAI-SearchBot
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Anthropic (Claude, Claude-Web) ---
+# ------------------------------------------------------------
+# 4. ANTHROPIC CLAUDE (ClaudeBot, Claude-Web)
+# ------------------------------------------------------------
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: Claude-Web
-Allow: /
-
 User-agent: anthropic-ai
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Perplexity AI (Answer Engine Optimization / AEO) ---
+# ------------------------------------------------------------
+# 5. PERPLEXITY AI (Perplexity Answer Engine)
+# ------------------------------------------------------------
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: Perplexity-User
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Microsoft Bing & Copilot ---
+# ------------------------------------------------------------
+# 6. MICROSOFT BING & COPILOT
+# ------------------------------------------------------------
 User-agent: Bingbot
-Allow: /
-
 User-agent: bingbot
-Allow: /
-
 User-agent: MSNBot
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Apple (Apple Intelligence & Siri Spotlight Search) ---
+# ------------------------------------------------------------
+# 7. APPLE & APPLE INTELLIGENCE (Siri & Spotlight Search)
+# ------------------------------------------------------------
 User-agent: Applebot
-Allow: /
-
 User-agent: Applebot-Extended
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Meta AI (Llama, Meta AI Search, Facebook) ---
+# ------------------------------------------------------------
+# 8. META AI (Meta AI Web Search, WhatsApp / Instagram AI)
+# ------------------------------------------------------------
 User-agent: Meta-ExternalAgent
-Allow: /
-
 User-agent: Meta-ExternalFetcher
-Allow: /
-
 User-agent: FacebookBot
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Other AI & Research Crawlers (Cohere, Amazon, Mistral, Common Crawl, You.com, DuckDuckGo) ---
+# ------------------------------------------------------------
+# 9. OTHER AI & RESEARCH CRAWLERS (Cohere, Amazon, Mistral, Common Crawl, You.com)
+# ------------------------------------------------------------
 User-agent: cohere-ai
-Allow: /
-
 User-agent: Amazonbot
-Allow: /
-
 User-agent: MistralAI
-Allow: /
-
 User-agent: Bytespider
-Allow: /
-
 User-agent: CCBot
-Allow: /
-
 User-agent: YouBot
-Allow: /
-
 User-agent: DuckDuckBot
 Allow: /
+Allow: /assets/
+Allow: /paket/
+Allow: /blog/
+Disallow: /404.html
+Disallow: /*.md$
+Disallow: /*.json$
+Disallow: /*.map$
 
-# --- Canonical Host & XML Sitemaps ---
+# ------------------------------------------------------------
+# 10. SITEMAP & HOST
+# ------------------------------------------------------------
 Host: https://souvenirpernikahan.web.id
 Sitemap: https://souvenirpernikahan.web.id/sitemap.xml
