@@ -21,4 +21,8 @@
   # 5. Route /blog and /paket cleanly to blog.html and paket.html
   RewriteRule ^blog/?$ blog.html [L]
   RewriteRule ^paket/?$ paket.html [L]
+
+  # 6. Redirect renamed paket pages
+  RewriteRule ^paket/souvenir-pernikahan(\.html)?$ /paket/souvenir-tradisional.html [R=301,L]
+  RewriteRule ^paket/souvenir-perusahaan(\.html)?$ /paket/souvenir-modern.html [R=301,L]
 </IfModule>

@@ -251,8 +251,8 @@ greens-souvenir/
 ├── tentang.html
 ├── paket.html
 ├── paket/
-│   ├── souvenir-pernikahan.html
-│   └── souvenir-perusahaan.html
+│   ├── souvenir-tradisional.html
+│   └── souvenir-modern.html
 ├── portofolio.html
 ├── blog.html
 ├── blog/

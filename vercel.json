@@ -33,6 +33,26 @@
       "permanent": true
     },
     {
+      "source": "/paket/souvenir-pernikahan.html",
+      "destination": "/paket/souvenir-tradisional.html",
+      "permanent": true
+    },
+    {
+      "source": "/paket/souvenir-pernikahan",
+      "destination": "/paket/souvenir-tradisional",
+      "permanent": true
+    },
+    {
+      "source": "/paket/souvenir-perusahaan.html",
+      "destination": "/paket/souvenir-modern.html",
+      "permanent": true
+    },
+    {
+      "source": "/paket/souvenir-perusahaan",
+      "destination": "/paket/souvenir-modern",
+      "permanent": true
+    },
+    {
       "source": "/:path*/index.html",
       "destination": "/:path*",
       "permanent": true

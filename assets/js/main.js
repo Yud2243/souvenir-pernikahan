@@ -368,8 +368,8 @@
     updateDisplay();
   }
 
-  // Inisialisasi ketiga grid katalog paket
-  ['gs-paket-grid', 'gs-pernikahan-grid', 'gs-perusahaan-grid'].forEach(function (id) {
+  // Inisialisasi grid katalog paket
+  ['gs-paket-grid', 'gs-pernikahan-grid', 'gs-perusahaan-grid', 'gs-tradisional-grid', 'gs-modern-grid'].forEach(function (id) {
     const grid = document.getElementById(id);
     if (grid) initCatalogGrid(grid);
   });
