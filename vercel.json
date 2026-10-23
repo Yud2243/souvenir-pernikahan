@@ -61,6 +61,27 @@
       "source": "/:path*/index",
       "destination": "/:path*",
       "permanent": true
+    },
+    {
+      "source": "/PRD-Greens-Souvenir.md",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/design.md",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*\\.(md|json|map|env|sql|log|bak|tmp))",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
     }
   ],
   "rewrites": [

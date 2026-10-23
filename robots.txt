@@ -2,16 +2,18 @@
 # SOUVENIR PERNIKAHAN — ROBOTS.TXT
 # Website: https://souvenirpernikahan.web.id/
 # Bisnis: Penyedia Souvenir Pernikahan Elegan & Custom Corporate Gift
-# Lokasi: Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang, Kota Malang, Jawa Timur 65138, Indonesia
-# Maps: https://maps.app.goo.gl/fQQ1reAUBefTYWb27
-# Kontak WhatsApp: +62 821-3108-7971
-# Standar: 2026-2027 SEO / AEO (Answer Engine) / GEO (Generative Engine)
+# Alamat: Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang, Kota Malang, Jawa Timur 65138, Indonesia
+# Google Maps: https://maps.app.goo.gl/fQQ1reAUBefTYWb27
+# WhatsApp CS: +62 821-3108-7971
+# Standar: Robots Exclusion Protocol (RFC 9309) & AI / LLM Ready
 # ============================================================
 
 # ------------------------------------------------------------
-# 1. PERAYAP UMUM & MESIN PENCARI (Search Engines)
+# 1. ATURAN UMUM UNTUK SEMUA PERAYAP (GENERAL CRAWLERS)
 # ------------------------------------------------------------
 User-agent: *
+
+# Halaman & Aset Publik yang Boleh Diakses (Allow)
 Allow: /
 Allow: /index.html
 Allow: /tentang.html
@@ -24,38 +26,121 @@ Allow: /blog.html
 Allow: /blog/
 Allow: /blog/*.html
 Allow: /kebijakan-privasi.html
-Allow: /assets/
 Allow: /assets/images/*.webp
 Allow: /assets/profile/*.webp
-Allow: /assets/css/*.css
-Allow: /assets/js/*.js
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
 Allow: /sitemap.xml
 Allow: /llms.txt
 
-# Proteksi File Internal & Konfigurasi Pengembang
-Disallow: /404.html
-Disallow: /*.md$
-Disallow: /*.json$
-Disallow: /*.map$
+# Proteksi File Penting, Data Internal & Konfigurasi (Disallow)
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
 Disallow: /.htaccess
-Disallow: /.agents/
 Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
+
+# Larangan Berkas Sensitif & Ekstensi Internal (Source Maps, Markdown, JSON, Env, Database, Log, Backup, Script)
+Disallow: /*.md$
+Disallow: /*.md
+Disallow: /*.json$
+Disallow: /*.json
+Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+
+# Larangan Direktori & Parameter Sensitif
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
-# 2. GOOGLE SEARCH & GOOGLE AI (Gemini, AI Overviews, Lens, Shopping)
+# 2. GOOGLE ECOSYSTEM (Googlebot, Gemini, AI Overviews, Lens, Shopping)
 # ------------------------------------------------------------
 User-agent: Googlebot
 User-agent: Google-Extended
 User-agent: Googlebot-Image
 User-agent: Storebot-Google
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
 # 3. OPENAI & SEARCHGPT (ChatGPT, SearchGPT, GPTBot)
@@ -63,14 +148,59 @@ Disallow: /*.map$
 User-agent: GPTBot
 User-agent: ChatGPT-User
 User-agent: OAI-SearchBot
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
 # 4. ANTHROPIC CLAUDE (ClaudeBot, Claude-Web)
@@ -78,28 +208,118 @@ Disallow: /*.map$
 User-agent: ClaudeBot
 User-agent: Claude-Web
 User-agent: anthropic-ai
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
 # 5. PERPLEXITY AI (Perplexity Answer Engine)
 # ------------------------------------------------------------
 User-agent: PerplexityBot
 User-agent: Perplexity-User
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
 # 6. MICROSOFT BING & COPILOT
@@ -107,46 +327,181 @@ Disallow: /*.map$
 User-agent: Bingbot
 User-agent: bingbot
 User-agent: MSNBot
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
-# 7. APPLE & APPLE INTELLIGENCE (Siri & Spotlight Search)
+# 7. APPLE & APPLE INTELLIGENCE (Siri & Spotlight)
 # ------------------------------------------------------------
 User-agent: Applebot
 User-agent: Applebot-Extended
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
-# 8. META AI (Meta AI Web Search, WhatsApp / Instagram AI)
+# 8. META AI (Meta AI Search, WhatsApp / Instagram AI)
 # ------------------------------------------------------------
 User-agent: Meta-ExternalAgent
 User-agent: Meta-ExternalFetcher
 User-agent: FacebookBot
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
-# 9. OTHER AI & RESEARCH CRAWLERS (Cohere, Amazon, Mistral, Common Crawl, You.com)
+# 9. OTHER MAJOR AI & SEARCH CRAWLERS (Cohere, Amazon, Mistral, ByteDance, CCBot, You.com, DuckDuckGo, Yandex)
 # ------------------------------------------------------------
 User-agent: cohere-ai
 User-agent: Amazonbot
@@ -155,17 +510,63 @@ User-agent: Bytespider
 User-agent: CCBot
 User-agent: YouBot
 User-agent: DuckDuckBot
+User-agent: YandexBot
+
 Allow: /
-Allow: /assets/
 Allow: /paket/
 Allow: /blog/
-Disallow: /404.html
+Allow: /assets/images/*.webp
+Allow: /assets/profile/*.webp
+Allow: /assets/css/style.min.css
+Allow: /assets/js/main.min.js
+Allow: /sitemap.xml
+Allow: /llms.txt
+
+Disallow: /PRD-Greens-Souvenir.md
+Disallow: /design.md
+Disallow: /vercel.json
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /.git*
+Disallow: /.agents/
+Disallow: /assets/js/main.min.js.map
 Disallow: /*.md$
+Disallow: /*.md
 Disallow: /*.json$
+Disallow: /*.json
 Disallow: /*.map$
+Disallow: /*.map
+Disallow: /*.env*
+Disallow: /*.sql*
+Disallow: /*.db*
+Disallow: /*.sqlite*
+Disallow: /*.log*
+Disallow: /*.bak*
+Disallow: /*.backup*
+Disallow: /*.old*
+Disallow: /*.temp*
+Disallow: /*.tmp*
+Disallow: /*.sh$
+Disallow: /*.bat$
+Disallow: /*.ps1$
+Disallow: /*.cmd$
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /login/
+Disallow: /api/
+Disallow: /config/
+Disallow: /private/
+Disallow: /draft/
+Disallow: /temp/
+Disallow: /*?*token=
+Disallow: /*?*session=
+Disallow: /*?*auth=
+Disallow: /*?*key=
 
 # ------------------------------------------------------------
-# 10. SITEMAP & HOST
+# 10. HOST & SITEMAP REFERENCE
 # ------------------------------------------------------------
 Host: https://souvenirpernikahan.web.id
 Sitemap: https://souvenirpernikahan.web.id/sitemap.xml

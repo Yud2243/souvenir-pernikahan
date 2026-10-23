@@ -26,3 +26,21 @@
   RewriteRule ^paket/souvenir-pernikahan(\.html)?$ /paket/souvenir-tradisional.html [R=301,L]
   RewriteRule ^paket/souvenir-perusahaan(\.html)?$ /paket/souvenir-modern.html [R=301,L]
 </IfModule>
+
+# ------------------------------------------------------------
+# 7. Proteksi Server: Blokir Akses Langsung ke Berkas Sensitif & Hidden Dirs
+# ------------------------------------------------------------
+<FilesMatch "(^#.*#|\.(md|json|map|env|sql|db|sqlite|log|bak|backup|old|temp|tmp|sh|bat|ps1|cmd|git.*))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  # Blokir akses langsung ke direktori titik (.git, .agents, dll) kecuali .well-known
+  RewriteRule "(^|/)\.(?!well-known)" - [F]
+</IfModule>
