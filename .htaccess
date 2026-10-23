@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Redirect /index.html and /index at root to /
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index(\.html)?\ HTTP/ [NC]
+  RewriteRule ^index(\.html)?$ / [R=301,L]
+
+  # 2. Redirect /blog/index.html and /blog/index to /blog
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /blog/index(\.html)?\ HTTP/ [NC]
+  RewriteRule ^blog/index(\.html)?$ /blog [R=301,L]
+
+  # 3. Redirect /paket/index.html and /paket/index to /paket
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /paket/index(\.html)?\ HTTP/ [NC]
+  RewriteRule ^paket/index(\.html)?$ /paket [R=301,L]
+
+  # 4. Redirect any other folder /.../index.html or /.../index to /...
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)/index(\.html)?\ HTTP/ [NC]
+  RewriteRule ^(.*)/index(\.html)?$ /$1 [R=301,L]
+
+  # 5. Route /blog and /paket cleanly to blog.html and paket.html
+  RewriteRule ^blog/?$ blog.html [L]
+  RewriteRule ^paket/?$ paket.html [L]
+</IfModule>

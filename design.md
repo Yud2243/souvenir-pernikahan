@@ -249,28 +249,41 @@ Setiap halaman perlu metadata unik dan sesuai konten:
 greens-souvenir/
 ├── index.html
 ├── tentang.html
+├── paket.html
 ├── paket/
-│   ├── index.html
 │   ├── souvenir-pernikahan.html
 │   └── souvenir-perusahaan.html
 ├── portofolio.html
+├── blog.html
 ├── blog/
-│   ├── index.html
-│   └── contoh-artikel.html
+│   ├── cara-menghitung-jumlah-souvenir.html
+│   ├── checklist-pemesanan-souvenir-pernikahan.html
+│   ├── ide-kemasan-souvenir-pernikahan.html
+│   ├── panduan-memilih-souvenir-pernikahan.html
+│   ├── panduan-souvenir-perusahaan.html
+│   └── personalisasi-nama-dan-tanggal-souvenir.html
 ├── 404.html
 ├── kebijakan-privasi.html
 ├── assets/
 │   ├── css/
-│   │   └── style.css
+│   │   ├── style.css
+│   │   └── style.min.css
 │   ├── js/
-│   │   └── main.js
+│   │   ├── main.js
+│   │   └── main.min.js
 │   ├── images/
 │   └── icons/
 ├── robots.txt
-└── sitemap.xml
+├── sitemap.xml
+├── vercel.json
+└── .htaccess
 ```
 
-Struktur ini adalah contoh untuk website statis. Bila nanti dipindahkan ke WordPress, URL dan template akan menyesuaikan struktur WordPress; jangan menganggap struktur folder statis akan otomatis menjadi struktur WordPress.
+Catatan Arsitektur URL & Struktur Folder:
+- Tidak ada file `index.html` di dalam subfolder `blog/`, `paket/`, maupun subfolder lainnya. Halaman katalog/listing berada di root (`blog.html` dan `paket.html`).
+- Subfolder `blog/` dan `paket/` hanya berisi halaman detail artikel dan produk.
+- URL routing pada web server (Vercel `vercel.json` dan Apache `.htaccess`) telah dikonfigurasi dengan `cleanUrls` dan URL rewrite agar saat pengguna mengakses `/blog` atau `/paket`, server langsung menampilkan file `blog.html` dan `paket.html` tanpa mencari `index.html` di dalam folder tersebut dan tanpa memunculkan `index` pada URL bar.
+- Bila nanti dipindahkan ke WordPress, URL dan template akan menyesuaikan struktur WordPress; jangan menganggap struktur folder statis akan otomatis menjadi struktur WordPress.
 
 ## 15. Checklist Sebelum Rilis
 - [ ] Brand, logo, paket, foto, dan konten sudah disetujui.

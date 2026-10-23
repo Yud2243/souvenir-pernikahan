@@ -1,0 +1,56 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/paket/index.html",
+      "destination": "/paket",
+      "permanent": true
+    },
+    {
+      "source": "/paket/index",
+      "destination": "/paket",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/index.html",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*/index",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/paket",
+      "destination": "/paket.html"
+    }
+  ]
+}

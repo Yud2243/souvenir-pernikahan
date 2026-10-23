@@ -7,6 +7,23 @@
   'use strict';
 
   /* ============================================================
+     URL NORMALIZATION: Strip index / index.html from any path in URL
+     ============================================================ */
+  if (window.history && window.history.replaceState && window.location.protocol !== 'file:') {
+    try {
+      const pathname = window.location.pathname;
+      if (/\/index(?:\.html)?$/i.test(pathname)) {
+        let cleanPath = pathname.replace(/\/index(?:\.html)?$/i, '');
+        if (!cleanPath) cleanPath = '/';
+        const newUrl = cleanPath + window.location.search + window.location.hash;
+        window.history.replaceState(null, '', newUrl);
+      }
+    } catch (e) {
+      // Silently ignore in restricted environments
+    }
+  }
+
+  /* ============================================================
      NAVBAR: Hamburger & Mobile Menu
      ============================================================ */
   const hamburger = document.getElementById('gs-hamburger');
@@ -394,7 +411,7 @@
       const u = new URL(p, window.location.href);
       p = u.pathname;
     } catch (e) {}
-    p = p.toLowerCase().replace(/\/index\.html$/i, '/').replace(/\/+$/, '');
+    p = p.toLowerCase().replace(/\/index(?:\.html)?$/i, '').replace(/\/+$/, '');
     return p || '/';
   }
 
@@ -422,7 +439,7 @@
     let isActive = false;
 
     if (currentNorm === '/' || currentNorm.endsWith('/souvenirkeuda') || currentNorm.endsWith('/souvenirkeuda/')) {
-      if (linkNorm === '/' || linkNorm.endsWith('/souvenirkeuda') || linkNorm.endsWith('/index.html')) isActive = true;
+      if (linkNorm === '/' || linkNorm.endsWith('/souvenirkeuda')) isActive = true;
     } else if (isBlogSection) {
       if (linkNorm === currentNorm ||
           ((linkNorm.endsWith('/blog') || linkNorm.endsWith('/blog.html')) &&
