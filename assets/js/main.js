@@ -82,6 +82,7 @@
   /* ============================================================
      DESKTOP DROPDOWN
      ============================================================ */
+  const desktopMedia = window.matchMedia('(min-width: 992px)');
   const dropdowns = document.querySelectorAll('.gs-dropdown');
   dropdowns.forEach(function (dropdown) {
     const toggle = dropdown.querySelector('.gs-dropdown__toggle');
@@ -98,13 +99,13 @@
     });
 
     dropdown.addEventListener('mouseenter', function () {
-      if (window.innerWidth >= 992) {
+      if (desktopMedia.matches) {
         toggle.setAttribute('aria-expanded', 'true');
       }
     });
 
     dropdown.addEventListener('mouseleave', function () {
-      if (window.innerWidth >= 992) {
+      if (desktopMedia.matches) {
         toggle.setAttribute('aria-expanded', 'false');
         menu.classList.remove('is-open');
       }
@@ -231,22 +232,33 @@
         if (!cat || currentFilter === 'semua' || cat === currentFilter) {
           matchingCards.push(card);
         } else {
-          card.style.display = 'none';
+          if (card.style.display !== 'none') {
+            card.style.display = 'none';
+          }
         }
       });
 
       const total = matchingCards.length;
 
+      // Helper function to safely update display only if changed
+      function setCardVisibility(card, isVisible) {
+        const targetDisplay = isVisible ? '' : 'none';
+        if (card.style.display !== targetDisplay) {
+          card.style.display = targetDisplay;
+        }
+      }
+
       // 1. SLIDE MODE (khusus mobile saat mode slide aktif):
       if (isMobile && isSlideMode) {
         matchingCards.forEach(function (card) {
-          card.style.display = '';
+          setCardVisibility(card, true);
         });
-        if (loadMoreWrap) {
+        if (loadMoreWrap && loadMoreWrap.style.display !== 'none') {
           loadMoreWrap.style.display = 'none';
         }
         if (emptyState) {
-          emptyState.style.display = total === 0 ? 'block' : 'none';
+          const targetState = total === 0 ? 'block' : 'none';
+          if (emptyState.style.display !== targetState) emptyState.style.display = targetState;
         }
         return;
       }
@@ -255,25 +267,21 @@
       if (isMobile) {
         if (loadMoreWrap && loadMoreBtn) {
           matchingCards.forEach(function (card, index) {
-            if (index < visibleCountMobile) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
+            setCardVisibility(card, index < visibleCountMobile);
           });
 
           if (total <= STEP_MOBILE) {
-            loadMoreWrap.style.display = 'none';
+            if (loadMoreWrap.style.display !== 'none') loadMoreWrap.style.display = 'none';
           } else if (visibleCountMobile < total) {
             // Masih ada produk yang belum tampil -> tombol "Lihat Selengkapnya"
             const remaining = total - visibleCountMobile;
-            loadMoreWrap.style.display = 'block';
+            if (loadMoreWrap.style.display !== 'block') loadMoreWrap.style.display = 'block';
             loadMoreBtn.setAttribute('data-action', 'more');
             loadMoreBtn.setAttribute('aria-label', 'Lihat selengkapnya produk souvenir');
             loadMoreBtn.innerHTML = `Lihat Selengkapnya (${Math.min(remaining, STEP_MOBILE)} Produk Lagi) <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
           } else {
             // Semua produk sudah tampil -> ubah tombol menjadi "Tutup"
-            loadMoreWrap.style.display = 'block';
+            if (loadMoreWrap.style.display !== 'block') loadMoreWrap.style.display = 'block';
             loadMoreBtn.setAttribute('data-action', 'close');
             loadMoreBtn.setAttribute('aria-label', 'Tutup produk tambahan');
             loadMoreBtn.innerHTML = `Tutup <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
@@ -281,12 +289,13 @@
         } else {
           // Tanpa pembatas tombol load more: tampilkan langsung seluruh kartu katalog
           matchingCards.forEach(function (card) {
-            card.style.display = '';
+            setCardVisibility(card, true);
           });
         }
 
         if (emptyState) {
-          emptyState.style.display = total === 0 ? 'block' : 'none';
+          const targetState = total === 0 ? 'block' : 'none';
+          if (emptyState.style.display !== targetState) emptyState.style.display = targetState;
         }
         return;
       }
@@ -294,32 +303,33 @@
       // 3. DESKTOP MODE (khusus tampilan desktop: bertahap +3 per klik & toggle Lihat Lebih Sedikit):
       if (loadMoreWrap && loadMoreBtn) {
         if (total <= INITIAL_DESKTOP) {
-          matchingCards.forEach(function (card) { card.style.display = ''; });
-          loadMoreWrap.style.display = 'none';
+          matchingCards.forEach(function (card) { setCardVisibility(card, true); });
+          if (loadMoreWrap.style.display !== 'none') loadMoreWrap.style.display = 'none';
         } else if (visibleCountDesktop < total) {
           // Menampilkan produk bertahap (+3 per klik)
           matchingCards.forEach(function (card, index) {
-            card.style.display = index < visibleCountDesktop ? '' : 'none';
+            setCardVisibility(card, index < visibleCountDesktop);
           });
-          loadMoreWrap.style.display = 'block';
+          if (loadMoreWrap.style.display !== 'block') loadMoreWrap.style.display = 'block';
           loadMoreBtn.setAttribute('data-action', 'desktop-more');
           loadMoreBtn.setAttribute('aria-label', 'Lihat selengkapnya produk souvenir');
           loadMoreBtn.innerHTML = `Lihat Selengkapnya <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
         } else {
           // Seluruh produk sudah ditampilkan -> tombol menjadi "Lihat Lebih Sedikit"
-          matchingCards.forEach(function (card) { card.style.display = ''; });
-          loadMoreWrap.style.display = 'block';
+          matchingCards.forEach(function (card) { setCardVisibility(card, true); });
+          if (loadMoreWrap.style.display !== 'block') loadMoreWrap.style.display = 'block';
           loadMoreBtn.setAttribute('data-action', 'desktop-collapse');
           loadMoreBtn.setAttribute('aria-label', 'Lihat lebih sedikit produk souvenir');
           loadMoreBtn.innerHTML = `Lihat Lebih Sedikit <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
         }
       } else {
         // Tampilkan semua kartu katalog langsung jika tanpa tombol load more
-        matchingCards.forEach(function (card) { card.style.display = ''; });
+        matchingCards.forEach(function (card) { setCardVisibility(card, true); });
       }
 
       if (emptyState) {
-        emptyState.style.display = total === 0 ? 'block' : 'none';
+        const targetState = total === 0 ? 'block' : 'none';
+        if (emptyState.style.display !== targetState) emptyState.style.display = targetState;
       }
     }
 
@@ -332,7 +342,9 @@
           if (action === 'close') {
             visibleCountMobile = STEP_MOBILE;
             updateDisplay();
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.requestAnimationFrame(function () {
+              grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
           } else {
             visibleCountMobile += STEP_MOBILE;
             updateDisplay();
@@ -342,7 +354,9 @@
           if (action === 'desktop-collapse') {
             visibleCountDesktop = INITIAL_DESKTOP;
             updateDisplay();
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.requestAnimationFrame(function () {
+              grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
           } else {
             visibleCountDesktop += STEP_DESKTOP;
             updateDisplay();
@@ -909,19 +923,23 @@
 
     if (cards.length === 0) return;
 
-    // Build pagination dots
+    // Build pagination dots with DocumentFragment to eliminate layout thrashing
     if (dotsContainer) {
       dotsContainer.innerHTML = '';
+      const fragment = document.createDocumentFragment();
       cards.forEach(function (_, idx) {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'gs-slider-dot' + (idx === 0 ? ' is-active' : '');
         dot.setAttribute('aria-label', 'Slide ' + (idx + 1));
         dot.addEventListener('click', function () {
-          cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          window.requestAnimationFrame(function () {
+            cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          });
         });
-        dotsContainer.appendChild(dot);
+        fragment.appendChild(dot);
       });
+      dotsContainer.appendChild(fragment);
     }
 
     let cachedStep = 0;
@@ -934,9 +952,16 @@
       return 300;
     }
 
-    window.addEventListener('resize', function () {
-      cachedStep = 0;
-    }, { passive: true });
+    if (window.ResizeObserver && track) {
+      const ro = new ResizeObserver(function () {
+        cachedStep = 0;
+      });
+      ro.observe(track);
+    } else {
+      window.addEventListener('resize', function () {
+        cachedStep = 0;
+      }, { passive: true });
+    }
 
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
