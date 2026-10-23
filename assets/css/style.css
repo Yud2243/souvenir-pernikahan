@@ -389,15 +389,10 @@ body > header {
   top: 0;
   z-index: 1000;
   width: 100%;
-  background-color: rgba(255, 253, 248, 0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: #fffdf8;
   border-bottom: 1px solid var(--gs-border);
   box-shadow: var(--gs-shadow-nav);
-  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              -webkit-backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: box-shadow 0.25s ease;
 }
 
 .gs-navbar__inner {
@@ -4333,13 +4328,15 @@ html:not(.js) [data-gs-animate] {
 @media (max-width: 991px) {
 
   .gs-navbar {
-    background-color: rgba(255, 253, 248, 0.96);
+    background-color: #fffdf8;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .gs-navbar.is-scrolled {
-    background-color: rgba(255, 253, 248, 0.82) !important;
-    backdrop-filter: blur(14px) saturate(160%) !important;
-    -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+    background-color: #fffdf8;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .gs-hero__eyebrow,
@@ -4550,13 +4547,11 @@ html:not(.js) [data-gs-animate] {
    Mobile (<= 767px): slider, 2x2 Why Us, accordion & help box.
    ============================================================ */
 
-/* Navbar scrolled class - Transparent Frosted Glass Blur */
+/* Navbar scrolled class - Solid clean background */
 .gs-navbar.is-scrolled {
-  background-color: rgba(255, 253, 248, 0.80) !important;
-  backdrop-filter: blur(16px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
-  border-bottom: 1px solid rgba(207, 222, 212, 0.75) !important;
-  box-shadow: 0 4px 20px rgba(35, 71, 45, 0.12) !important;
+  background-color: #fffdf8;
+  border-bottom: 1px solid rgba(207, 222, 212, 0.75);
+  box-shadow: 0 4px 20px rgba(35, 71, 45, 0.12);
 }
 
 /* Slider defaults for desktop (hidden arrows & dots) */
