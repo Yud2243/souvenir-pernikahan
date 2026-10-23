@@ -5066,16 +5066,3 @@ html:not(.js) [data-gs-animate] {
     transform: scale(0.98) !important;
   }
 }
-/* ============================================================
-   ARTIKEL BLOG: Navbar Tidak Dikunci (Scroll Alami)
-   ============================================================ */
-body.gs-page-article header,
-body.gs-page-article body > header,
-body.gs-page-article .gs-navbar,
-body:has(.gs-article) header,
-body:has(.gs-article) body > header,
-body:has(.gs-article) .gs-navbar {
-  position: relative !important;
-  top: auto !important;
-  box-shadow: var(--gs-shadow-nav) !important;
-}
