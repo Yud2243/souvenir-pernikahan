@@ -42,7 +42,7 @@ Calon pelanggan sering perlu melihat contoh produk, memahami isi paket, mendapat
 - Halaman Paket dan halaman detail/kategori paket melalui dropdown.
 - Halaman Portofolio.
 - Blog: daftar artikel dan halaman artikel.
-- Tombol WhatsApp dengan nomor tujuan **6285810025485**.
+- Tombol WhatsApp dengan nomor tujuan **6282131087971**.
 - Pencarian/filter sederhana untuk katalog jika jumlah paket sudah cukup.
 - SEO on-page dan teknis dasar; metadata sosial; schema JSON-LD sesuai konten nyata.
 - Responsive layout, aksesibilitas dasar, halaman 404 sederhana, dan halaman kebijakan privasi bila formulir/analitik digunakan.
@@ -137,8 +137,8 @@ Jawab secara langsung dan konsisten:
 Isi jawaban hanya setelah kebijakan bisnis dikonfirmasi. FAQ schema tidak menjamin FAQ rich results dan penggunaannya harus mengikuti kebijakan mesin pencari terkini.
 
 ### 7.8 Kontak dan WhatsApp
-- Nomor tujuan: `6285810025485`.
-- Gunakan link berbentuk `https://wa.me/6285810025485?text=...` dengan teks URL-encoded.
+- Nomor tujuan: `6282131087971`.
+- Gunakan link berbentuk `https://wa.me/6282131087971?text=...` dengan teks URL-encoded.
 - Pesan default, misalnya: “Halo Green’s Souvenir, saya ingin konsultasi souvenir pernikahan. Boleh minta informasi paket yang tersedia?”
 - Untuk CTA paket, sertakan nama paket dalam pesan.
 - Jangan menampilkan tombol yang seolah-olah mengirim pesanan otomatis; WhatsApp dibuka dan pengguna menekan kirim sendiri.
@@ -242,7 +242,7 @@ Gunakan JSON-LD valid, sesuai konten yang terlihat dan benar-benar ada:
 ## 14. Acceptance Criteria
 - [ ] Navbar memuat Beranda, Tentang, Paket dropdown, Portofolio, Blog.
 - [ ] Dropdown berfungsi dengan mouse, sentuhan, dan keyboard.
-- [ ] Semua CTA WhatsApp mengarah ke `https://wa.me/6285810025485` dengan teks yang relevan.
+- [ ] Semua CTA WhatsApp mengarah ke `https://wa.me/6282131087971` dengan teks yang relevan.
 - [ ] Tidak ada checkout atau pembayaran online pada MVP.
 - [ ] Tidak ada harga, testimoni, alamat, jam layanan, rating, minimum order, atau klaim yang dibuat-buat.
 - [ ] Layout bekerja pada mobile, tablet, dan desktop.

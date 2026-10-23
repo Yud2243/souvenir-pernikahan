@@ -171,12 +171,12 @@ Gunakan CSS custom properties supaya tema mudah diubah.
 Gunakan prefix `gs-` pada kelas kustom untuk menghindari benturan CSS. Bootstrap dipakai untuk grid/utilitas dan komponen yang diperlukan; CSS kustom mengatur identitas visual. Jangan mengubah selector global seperti `section`, `button`, `img`, atau `a` secara agresif.
 
 ## 8. Tombol WhatsApp
-Nomor tujuan adalah `6285810025485`. Format link dasar:
+Nomor tujuan adalah `6282131087971`. Format link dasar:
 
 ```html
 <a
   class="btn gs-button gs-button--whatsapp"
-  href="https://wa.me/6285810025485?text=Halo%20Green%E2%80%99s%20Souvenir%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan."
+  href="https://wa.me/6282131087971?text=Halo%20Green%E2%80%99s%20Souvenir%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan."
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Konsultasi souvenir pernikahan melalui WhatsApp"

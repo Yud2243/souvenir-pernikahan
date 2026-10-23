@@ -544,7 +544,7 @@
         });
       }
       if (modalWaBtn && data.waText) {
-        modalWaBtn.href = 'https://wa.me/6285810025485?text=' + encodeURIComponent(data.waText);
+        modalWaBtn.href = 'https://wa.me/6282131087971?text=' + encodeURIComponent(data.waText);
       }
       modalOverlay.classList.add('is-open');
       document.body.style.overflow = 'hidden';
@@ -613,7 +613,7 @@
           title:    card.dataset.productTitle   || '',
           desc:     card.dataset.productDesc    || '',
           features: JSON.parse(card.dataset.productFeatures || '[]'),
-          waText:   card.dataset.productWa      || 'Halo Green\u2019s Souvenir, saya ingin konsultasi produk.'
+          waText:   card.dataset.productWa      || 'Halo Souvenir Pernikahan, saya ingin konsultasi produk.'
         }, this);
       });
     });
