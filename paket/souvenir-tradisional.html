@@ -5,6 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Preload Critical CSS & Hero LCP Image -->
+  <link rel="preload" href="../assets/css/style.min.css" as="style" />
+  <link rel="preload" as="image" href="../assets/images/kipas-batik-souvenir.webp" type="image/webp"
+    fetchpriority="high" />
+
   <title>Paket Souvenir Tradisional Elegan &amp; Unik — Souvenir Pernikahan</title>
   <meta name="description"
     content="Koleksi souvenir tradisional elegan, bernilai budaya, personal, dan ramah lingkungan dari Souvenir Pernikahan. Personalisasi nama, kemasan eksklusif, &amp; konsultasi gratis WhatsApp." />
@@ -49,9 +55,6 @@
     content="Pilihan souvenir tradisional elegan dan personal dari Souvenir Pernikahan." />
   <meta name="twitter:image" content="https://souvenirpernikahan.web.id//assets/images/hero-wedding.webp" />
   <meta name="twitter:image:alt" content="Koleksi Souvenir Pernikahan Souvenir Pernikahan" />
-
-  <!-- Preload Hero LCP Image -->
-  <link rel="preload" as="image" href="../assets/images/hero-wedding.webp" type="image/webp" fetchpriority="high" />
 
   <!-- Fonts (Non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -316,7 +319,7 @@
             <div class="gs-paket-gallery__main" role="region" aria-label="Foto utama souvenir">
               <img src="../assets/images/kipas-batik-souvenir.webp"
                 alt="Foto utama paket souvenir tradisional kipas batik tulis &amp; kayu jati" width="600" height="450"
-                fetchpriority="high" decoding="async" />
+                fetchpriority="high" />
             </div>
             <div class="gs-paket-gallery__thumbs" role="group" aria-label="Pilihan tampilan foto">
               <div class="gs-paket-gallery__thumb active" tabindex="0" role="button"

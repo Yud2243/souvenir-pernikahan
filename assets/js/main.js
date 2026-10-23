@@ -876,21 +876,24 @@
   }
 
   let scrollTicking = false;
+  let isNavbarScrolled = false;
+  let isBackToTopVisible = false;
+
   function updateScrollState() {
     scrollTicking = false;
     const y = window.scrollY || window.pageYOffset || 0;
     if (navbar) {
-      if (y > 10) {
-        navbar.classList.add('is-scrolled');
-      } else {
-        navbar.classList.remove('is-scrolled');
+      const shouldScroll = y > 10;
+      if (shouldScroll !== isNavbarScrolled) {
+        isNavbarScrolled = shouldScroll;
+        navbar.classList.toggle('is-scrolled', shouldScroll);
       }
     }
     if (backToTopBtn) {
-      if (y > 300) {
-        backToTopBtn.classList.add('is-visible');
-      } else {
-        backToTopBtn.classList.remove('is-visible');
+      const shouldShow = y > 300;
+      if (shouldShow !== isBackToTopVisible) {
+        isBackToTopVisible = shouldShow;
+        backToTopBtn.classList.toggle('is-visible', shouldShow);
       }
     }
   }

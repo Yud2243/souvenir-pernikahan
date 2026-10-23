@@ -5,6 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Preload Critical CSS & Hero LCP Image -->
+  <link rel="preload" href="../assets/css/style.min.css" as="style" />
+  <link rel="preload" as="image" href="../assets/images/souvenir-seminar-kit.webp" type="image/webp"
+    fetchpriority="high" />
+
   <title>Paket Souvenir Modern &amp; Custom — Souvenir Pernikahan</title>
   <meta name="description"
     content="Paket souvenir modern, merchandise fungsional, dan cinderamata eksklusif dari Souvenir Pernikahan. Desain kontemporer, kustomisasi logo &amp; nama, serta konsultasi gratis via WhatsApp." />
@@ -49,10 +55,6 @@
     content="Paket souvenir modern dan merchandise eksklusif dari Souvenir Pernikahan." />
   <meta name="twitter:image" content="https://souvenirpernikahan.web.id//assets/images/souvenir-seminar-kit.webp" />
   <meta name="twitter:image:alt" content="Koleksi Souvenir Modern Souvenir Pernikahan" />
-
-  <!-- Preload Hero LCP Image -->
-  <link rel="preload" as="image" href="../assets/images/souvenir-seminar-kit.webp" type="image/webp"
-    fetchpriority="high" />
 
   <!-- Fonts (Non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -316,7 +318,7 @@
           <div class="gs-paket-gallery" aria-label="Galeri foto souvenir modern">
             <div class="gs-paket-gallery__main" role="region" aria-label="Foto utama souvenir">
               <img src="../assets/images/souvenir-seminar-kit.webp" alt="Paket seminar kit premium modern" width="640"
-                height="477" fetchpriority="high" decoding="async" />
+                height="477" fetchpriority="high" />
             </div>
             <div class="gs-paket-gallery__thumbs" role="group" aria-label="Pilihan tampilan foto">
               <div class="gs-paket-gallery__thumb active" tabindex="0" role="button"
