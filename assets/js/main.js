@@ -252,15 +252,15 @@
 
       // 2. MOBILE GRID MODE:
       if (isMobile) {
-        matchingCards.forEach(function (card, index) {
-          if (index < visibleCountMobile) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
         if (loadMoreWrap && loadMoreBtn) {
+          matchingCards.forEach(function (card, index) {
+            if (index < visibleCountMobile) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
           if (total <= STEP_MOBILE) {
             loadMoreWrap.style.display = 'none';
           } else if (visibleCountMobile < total) {
@@ -275,6 +275,11 @@
             loadMoreBtn.setAttribute('data-action', 'close');
             loadMoreBtn.innerHTML = `Tutup <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;transform:rotate(180deg);"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
           }
+        } else {
+          // Tanpa pembatas tombol load more: tampilkan langsung seluruh kartu katalog
+          matchingCards.forEach(function (card) {
+            card.style.display = '';
+          });
         }
 
         if (emptyState) {
@@ -283,20 +288,18 @@
         return;
       }
 
-      // 3. DESKTOP MODE (konsisten untuk Semua Paket, Paket Pernikahan, dan Paket Perusahaan):
-      if (!isExpandedDesktop && total > INITIAL_DESKTOP) {
-        matchingCards.forEach(function (card, index) {
-          card.style.display = index < INITIAL_DESKTOP ? '' : 'none';
-        });
-        if (loadMoreWrap && loadMoreBtn) {
+      // 3. DESKTOP MODE:
+      if (loadMoreWrap && loadMoreBtn) {
+        if (!isExpandedDesktop && total > INITIAL_DESKTOP) {
+          matchingCards.forEach(function (card, index) {
+            card.style.display = index < INITIAL_DESKTOP ? '' : 'none';
+          });
           loadMoreWrap.style.display = 'block';
           loadMoreBtn.setAttribute('data-action', 'desktop-expand');
           const remainingDesktop = total - INITIAL_DESKTOP;
           loadMoreBtn.innerHTML = `Lihat Selengkapnya (${remainingDesktop} Produk Lainnya) <svg viewBox="0 0 20 20" fill="currentColor" style="width:18px;height:18px;"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
-        }
-      } else {
-        matchingCards.forEach(function (card) { card.style.display = ''; });
-        if (loadMoreWrap && loadMoreBtn) {
+        } else {
+          matchingCards.forEach(function (card) { card.style.display = ''; });
           if (total > INITIAL_DESKTOP) {
             loadMoreWrap.style.display = 'block';
             loadMoreBtn.setAttribute('data-action', 'desktop-collapse');
@@ -305,6 +308,9 @@
             loadMoreWrap.style.display = 'none';
           }
         }
+      } else {
+        // Tampilkan semua kartu katalog langsung jika tanpa tombol load more
+        matchingCards.forEach(function (card) { card.style.display = ''; });
       }
 
       if (emptyState) {
