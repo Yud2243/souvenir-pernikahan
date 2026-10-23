@@ -1601,6 +1601,12 @@ p {
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 0.5rem;
   line-height: 1.5;
+  text-decoration: none;
+  transition: color var(--gs-transition);
+}
+
+.gs-footer__location-item:hover {
+  color: var(--gs-green-300);
 }
 
 .gs-footer__location-item svg {
@@ -1609,6 +1615,11 @@ p {
   flex-shrink: 0;
   color: var(--gs-green-300);
   margin-top: 0.15em;
+  transition: transform var(--gs-transition);
+}
+
+.gs-footer__location-item:hover svg {
+  transform: translateY(-1px);
 }
 
 .gs-footer__desc {
