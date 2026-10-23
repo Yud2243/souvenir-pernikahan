@@ -73,17 +73,6 @@
       "permanent": true
     }
   ],
-  "headers": [
-    {
-      "source": "/(.*\\.(md|json|map|env|sql|log|bak|tmp))",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
-        }
-      ]
-    }
-  ],
   "rewrites": [
     {
       "source": "/blog",

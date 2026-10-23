@@ -357,9 +357,44 @@
         width: 100%;
       }
     }
+
+    @media (max-width: 767px) {
+      .gs-slider-arrow {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 1px solid #cfded4;
+        color: #17351f;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        z-index: 30 !important;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .gs-slider-arrow:active {
+        transform: translateY(-50%) scale(0.92);
+        background: #eef5f0;
+      }
+      .gs-slider-arrow--prev {
+        left: -0.5rem;
+      }
+      .gs-slider-arrow--next {
+        right: -0.5rem;
+      }
+      .gs-slider-arrow svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
   </style>
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.min.css" />
+  <link rel="stylesheet" href="assets/css/style.min.css?v=2" />
 
   <!-- Schema JSON-LD (2026-2027 AEO & GEO Structured Data) -->
   <script type="application/ld+json">
