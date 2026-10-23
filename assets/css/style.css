@@ -390,10 +390,14 @@ body > header {
   z-index: 1000;
   width: 100%;
   background-color: rgba(255, 253, 248, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--gs-border);
   box-shadow: var(--gs-shadow-nav);
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              -webkit-backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gs-navbar__inner {
@@ -4328,11 +4332,14 @@ html:not(.js) [data-gs-animate] {
 /* ---------- F. Mobile & tablet (<= 991px) ---------- */
 @media (max-width: 991px) {
 
-  /* Hapus blur/backdrop-filter (mahal di GPU HP) */
   .gs-navbar {
-    background-color: #fffdf8;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background-color: rgba(255, 253, 248, 0.96);
+  }
+
+  .gs-navbar.is-scrolled {
+    background-color: rgba(255, 253, 248, 0.82) !important;
+    backdrop-filter: blur(14px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
   }
 
   .gs-hero__eyebrow,
@@ -4543,9 +4550,13 @@ html:not(.js) [data-gs-animate] {
    Mobile (<= 767px): slider, 2x2 Why Us, accordion & help box.
    ============================================================ */
 
-/* Navbar scrolled class */
+/* Navbar scrolled class - Transparent Frosted Glass Blur */
 .gs-navbar.is-scrolled {
-  box-shadow: 0 4px 24px rgba(35, 71, 45, 0.14);
+  background-color: rgba(255, 253, 248, 0.80) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border-bottom: 1px solid rgba(207, 222, 212, 0.75) !important;
+  box-shadow: 0 4px 20px rgba(35, 71, 45, 0.12) !important;
 }
 
 /* Slider defaults for desktop (hidden arrows & dots) */
@@ -5059,4 +5070,17 @@ html:not(.js) [data-gs-animate] {
     background: #113321 !important;
     transform: scale(0.98) !important;
   }
+}
+/* ============================================================
+   ARTIKEL BLOG: Navbar Tidak Dikunci (Scroll Alami)
+   ============================================================ */
+body.gs-page-article header,
+body.gs-page-article body > header,
+body.gs-page-article .gs-navbar,
+body:has(.gs-article) header,
+body:has(.gs-article) body > header,
+body:has(.gs-article) .gs-navbar {
+  position: relative !important;
+  top: auto !important;
+  box-shadow: var(--gs-shadow-nav) !important;
 }
