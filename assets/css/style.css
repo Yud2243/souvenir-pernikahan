@@ -1187,6 +1187,7 @@ p {
   margin-bottom: 1.1rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -4940,6 +4941,7 @@ html:not(.js) [data-gs-animate] {
     font-family: var(--gs-font-heading) !important;
     display: block !important;
     -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
   }
 
   .gs-blog-card__title a {
@@ -4950,6 +4952,7 @@ html:not(.js) [data-gs-animate] {
   .gs-blog-card__excerpt {
     display: -webkit-box !important;
     -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
     font-size: 0.84rem !important;
