@@ -332,30 +332,6 @@
       </div>
     </section>
 
-    <!-- SUB-NAVIGASI CEPAT (JUMP TO PRODUCT) -->
-    <nav class="gs-portfolio-subnav" aria-label="Navigasi cepat produk portofolio">
-      <div class="gs-container">
-        <div class="gs-portfolio-subnav__inner">
-          <span class="gs-portfolio-subnav__label">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true" style="width:14px;height:14px;">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-            </svg>
-            Pilih Karya:
-          </span>
-          <a href="#souvenir-tradisional" class="gs-subnav-pill">1. Souvenir Tradisional</a>
-          <a href="#tumbler-custom" class="gs-subnav-pill">2. Tumbler Custom</a>
-          <a href="#seminar-kit" class="gs-subnav-pill">3. Seminar Kit</a>
-          <a href="#lilin-aromaterapi" class="gs-subnav-pill">4. Lilin Aroma</a>
-          <a href="#plakat-akrilik" class="gs-subnav-pill">5. Plakat Akrilik</a>
-          <a href="#tote-bag-pouch" class="gs-subnav-pill">6. Eco Tote Bag</a>
-          <a href="#hampers-vip" class="gs-subnav-pill">7. Hampers VIP</a>
-          <a href="#mug-keramik" class="gs-subnav-pill">8. Mug Keramik</a>
-          <a href="#coaster-kayu" class="gs-subnav-pill">9. Coaster Kayu</a>
-        </div>
-      </div>
-    </nav>
-
     <!-- FEED DETAIL PORTOFOLIO (ALL PRODUCTS IN ONE PAGE) -->
     <section class="gs-section gs-detail-feed" aria-label="Daftar lengkap detail portofolio">
       <div class="gs-container">
@@ -1340,10 +1316,9 @@
 
   <script defer src="assets/js/main.min.js?v=7"></script>
 
-  <!-- Script Penanganan Anchor & Active Pill Highlight -->
+  <!-- Script Penanganan Anchor Scroll -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Pastikan posisi anchor selalu tepat di bawah sticky navbar
       function handleHashScroll() {
         if (window.location.hash) {
           var targetEl = document.querySelector(window.location.hash);
@@ -1357,36 +1332,6 @@
 
       handleHashScroll();
       window.addEventListener('hashchange', handleHashScroll);
-
-      // Active state untuk sub-navigasi pill saat scrolling
-      var subnavPills = document.querySelectorAll('.gs-subnav-pill');
-      var sections = document.querySelectorAll('.gs-detail-item');
-
-      if ('IntersectionObserver' in window && sections.length) {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              var id = entry.target.id;
-              subnavPills.forEach(function (pill) {
-                if (pill.getAttribute('href') === '#' + id) {
-                  pill.classList.add('active');
-                  // scroll pill container agar pill aktif terlihat
-                  pill.scrollIntoView({ behavior: 'smooth', inline: 'nearest', block: 'nearest' });
-                } else {
-                  pill.classList.remove('active');
-                }
-              });
-            }
-          });
-        }, {
-          rootMargin: '-20% 0px -60% 0px',
-          threshold: 0
-        });
-
-        sections.forEach(function (sec) {
-          observer.observe(sec);
-        });
-      }
     });
   </script>
 </body>
