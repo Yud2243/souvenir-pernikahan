@@ -18,9 +18,12 @@
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)/index(\.html)?\ HTTP/ [NC]
   RewriteRule ^(.*)/index(\.html)?$ /$1 [R=301,L]
 
-  # 5. Route /blog and /paket cleanly to blog.html and paket.html
+  # 5. Route /blog, /paket, and /penulis cleanly
   RewriteRule ^blog/?$ blog.html [L]
   RewriteRule ^paket/?$ paket.html [L]
+  RewriteRule ^penulis/?$ penulis.html [L]
+  RewriteRule ^author/?$ penulis.html [L]
+  RewriteRule ^author/yudi-abraham/?$ /penulis.html [R=301,L]
 
   # 6. Redirect renamed paket pages
   RewriteRule ^paket/souvenir-pernikahan(\.html)?$ /paket/souvenir-tradisional.html [R=301,L]
