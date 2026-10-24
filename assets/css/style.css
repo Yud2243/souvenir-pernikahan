@@ -5146,3 +5146,653 @@ html:not(.js) [data-gs-animate] {
     transform: scale(0.98) !important;
   }
 }
+
+/* ==========================================================================
+   Author Profile Page (penulis.html)
+   ========================================================================== */
+
+.gs-author-page {
+  background-color: #f7faf5;
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.gs-author-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .gs-author-layout {
+    grid-template-columns: minmax(0, 1.9fr) minmax(320px, 1.1fr);
+    gap: 2.25rem;
+  }
+}
+
+.gs-author-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.gs-author-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Common Card Styling */
+.gs-author-card {
+  background: #ffffff;
+  border: 1px solid #d6e6d2;
+  border-radius: var(--gs-radius-lg);
+  padding: clamp(1.4rem, 3vw, 2rem);
+  box-shadow: 0 8px 28px -6px rgba(22, 45, 29, 0.06);
+  transition: box-shadow var(--gs-transition), border-color var(--gs-transition);
+}
+
+.gs-author-card:hover {
+  box-shadow: 0 14px 34px -6px rgba(22, 45, 29, 0.1);
+  border-color: #b8d9b2;
+}
+
+.gs-author-card__title {
+  font-family: var(--gs-font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  color: #122b17;
+  margin-bottom: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  position: relative;
+}
+
+.gs-author-card__title svg {
+  width: 22px;
+  height: 22px;
+  color: #235c30;
+  flex-shrink: 0;
+}
+
+/* 1. Profile Hero Card (Top Left) */
+.gs-author-profile-card {
+  background: linear-gradient(135deg, #112d18 0%, #1a4d25 55%, #245d31 100%);
+  color: #ffffff;
+  border-radius: var(--gs-radius-lg);
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  box-shadow: 0 16px 40px -8px rgba(18, 43, 23, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gs-author-profile-card::after {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(120, 169, 107, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .gs-author-profile-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.gs-author-avatar-wrap {
+  width: clamp(120px, 20vw, 160px);
+  height: clamp(120px, 20vw, 160px);
+  flex-shrink: 0;
+  border-radius: var(--gs-radius-md);
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  background-color: #0f2d18;
+  margin-inline: auto;
+}
+
+.gs-author-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gs-author-profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  position: relative;
+  z-index: 1;
+}
+
+.gs-author-role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--gs-radius-pill);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.gs-author-name {
+  font-family: var(--gs-font-heading);
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.gs-author-subtitle {
+  font-size: clamp(0.925rem, 1.8vw, 1.05rem);
+  font-weight: 600;
+  color: #b5d7a6;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gs-author-bio {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+
+.gs-author-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.gs-author-tag-pill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--gs-radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  transition: background var(--gs-transition);
+}
+
+.gs-author-tag-pill:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* 2. Tentang Penulis Content */
+.gs-author-text {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: #2b3b2e;
+  margin: 0;
+}
+
+/* 3. Keahlian & Fokus Grid */
+.gs-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+@media (min-width: 600px) {
+  .gs-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+.gs-skill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.gs-skill-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e2f0de;
+  color: #1a4d25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 1px solid #c2dfbb;
+}
+
+.gs-skill-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.8;
+}
+
+.gs-skill-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.gs-skill-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #122b17;
+  margin: 0;
+}
+
+.gs-skill-desc {
+  font-size: 0.85rem;
+  color: #4a5c4d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 4. Artikel yang Ditulis Section */
+.gs-articles-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.35rem;
+}
+
+.gs-articles-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #1e592c;
+  text-decoration: none;
+  transition: color var(--gs-transition), transform var(--gs-transition);
+}
+
+.gs-articles-all-link:hover {
+  color: #0d2913;
+  transform: translateX(3px);
+}
+
+.gs-articles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 520px) {
+  .gs-articles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .gs-articles-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+.gs-author-post-card {
+  background: #ffffff;
+  border: 1px solid #dce8db;
+  border-radius: var(--gs-radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--gs-transition), box-shadow var(--gs-transition), border-color var(--gs-transition);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.gs-author-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -4px rgba(35, 71, 45, 0.14);
+  border-color: #a4ce9d;
+}
+
+.gs-author-post-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  position: relative;
+  overflow: hidden;
+  background-color: #e5f1df;
+}
+
+.gs-author-post-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gs-author-post-card:hover .gs-author-post-thumb img {
+  transform: scale(1.06);
+}
+
+.gs-author-post-badge {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--gs-radius-pill);
+  background: rgba(18, 43, 23, 0.88);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gs-author-post-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.gs-author-post-title {
+  font-family: var(--gs-font-heading);
+  font-size: 0.94rem;
+  font-weight: 600;
+  line-height: 1.42;
+  color: #122b17;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 4.15em;
+  transition: color var(--gs-transition);
+}
+
+.gs-author-post-card:hover .gs-author-post-title {
+  color: #1a5627;
+}
+
+.gs-author-post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: #4f6352;
+  border-top: 1px solid #edf4eb;
+  padding-top: 0.65rem;
+}
+
+.gs-author-post-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.gs-author-post-meta svg {
+  width: 13px;
+  height: 13px;
+  color: #2a6836;
+  flex-shrink: 0;
+}
+
+/* 5. Sidebar: Terhubung dengan Penulis */
+.gs-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gs-contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0.95rem;
+  background: #f7faf5;
+  border: 1px solid #dbe8d8;
+  border-radius: var(--gs-radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--gs-transition);
+}
+
+.gs-contact-item:hover {
+  background: #eef6ec;
+  border-color: #a7d19f;
+  transform: translateX(4px);
+}
+
+.gs-contact-item-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.gs-contact-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--gs-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+}
+
+.gs-contact-icon-box--email {
+  background: linear-gradient(135deg, #1e88e5, #1565c0);
+}
+
+.gs-contact-icon-box--ig {
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+}
+
+.gs-contact-icon-box--github {
+  background: linear-gradient(135deg, #24292e, #181b1d);
+}
+
+.gs-contact-icon-box--phone {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.gs-contact-icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+.gs-contact-text-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gs-contact-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4a5d4d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gs-contact-val {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #122b17;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gs-contact-external-icon {
+  width: 16px;
+  height: 16px;
+  color: #5c7460;
+  flex-shrink: 0;
+  transition: transform var(--gs-transition), color var(--gs-transition);
+}
+
+.gs-contact-item:hover .gs-contact-external-icon {
+  color: #1a5627;
+  transform: translate(2px, -2px);
+}
+
+/* 6. Sidebar: Statistik Penulis */
+.gs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.gs-stat-box {
+  background: #f7faf5;
+  border: 1px solid #dce8db;
+  border-radius: var(--gs-radius-md);
+  padding: 0.95rem 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.gs-stat-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e2f0de;
+  color: #1a4d25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c8dfc3;
+}
+
+.gs-stat-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.gs-stat-value {
+  font-family: var(--gs-font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: #122b17;
+  line-height: 1.15;
+}
+
+.gs-stat-value--sm {
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.gs-stat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #4a5c4d;
+  line-height: 1.3;
+}
+
+/* 7. Sidebar: Topik Favorit */
+.gs-topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gs-topic-pill {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--gs-radius-pill);
+  background: #e5f1df;
+  color: #194e24;
+  border: 1px solid #c7e0c1;
+  text-decoration: none;
+  transition: all var(--gs-transition);
+}
+
+.gs-topic-pill:hover {
+  background: #194e24;
+  color: #ffffff;
+  border-color: #194e24;
+  transform: translateY(-2px);
+}
+
+/* 8. Sidebar: Pendidikan */
+.gs-education-card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.gs-education-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e2f0de;
+  color: #1a4d25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #bfdcba;
+}
+
+.gs-education-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.gs-education-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gs-education-degree {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #122b17;
+  margin: 0;
+}
+
+.gs-education-campus {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #2d6b38;
+  margin: 0;
+}
+
+.gs-education-period {
+  font-size: 0.8rem;
+  color: #556957;
+  margin: 0;
+}
