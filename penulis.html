@@ -362,7 +362,14 @@
       gap: 1.25rem;
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 520px) {
+      .gs-articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.15rem;
+      }
+    }
+
+    @media (min-width: 900px) {
       .gs-articles-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1.15rem;
@@ -739,7 +746,7 @@
         "@id": "https://souvenirpernikahan.web.id/penulis.html#person",
         "name": "Yudi Abraham",
         "jobTitle": "Technology Writer & Web Development Enthusiast",
-        "description": "Menulis artikel seputar teknologi informasi, pengembangan website, aplikasi mobile, dan teknologi yang digunakan dalam pengembangan aplikasi.",
+        "description": "Penulis panduan edukatif seputar souvenir pernikahan, tips cinderamata acara, inspirasi kemasan elegan, serta integrasi teknologi web di Souvenir Pernikahan.",
         "image": "https://souvenirpernikahan.web.id/assets/images/yudi-abraham.webp",
         "alumniOf": {
           "@type": "EducationalOrganization",
@@ -802,28 +809,24 @@
 
   <!-- HEADER & NAVIGATION -->
   <header>
-    <nav class="gs-navbar" aria-label="Navigasi Utama">
+    <nav class="gs-navbar" aria-label="Navigasi utama">
       <div class="gs-container">
         <div class="gs-navbar__inner">
-          <a href="./" class="gs-navbar__logo" aria-label="Beranda Souvenir Pernikahan">
-            <picture>
-              <source srcset="assets/profile/logo-navbar-120.webp" type="image/webp" />
-              <img src="assets/profile/Logo Navbar.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img"
-                width="120" height="60" fetchpriority="high" />
-            </picture>
+          <a href="./" class="gs-navbar__logo" aria-label="Souvenir Pernikahan — Beranda">
+            <img src="assets/profile/logo-navbar-120.webp" alt="Logo Souvenir Pernikahan" class="gs-navbar__logo-img"
+              width="60" height="60" decoding="async" />
+            <span class="gs-navbar__brand-text">Souvenir Pernikahan</span>
           </a>
-          <div class="gs-navbar__links" role="menubar">
+          <div class="gs-navbar__nav" role="menubar">
             <a href="./" class="gs-navbar__link" role="menuitem">Beranda</a>
             <a href="tentang.html" class="gs-navbar__link" role="menuitem">Tentang</a>
-            <div class="gs-dropdown" id="gs-dropdown-paket-wrap">
-              <button class="gs-navbar__link gs-dropdown__toggle" aria-expanded="false" aria-haspopup="true"
-                id="gs-dropdown-paket-btn">
-                Paket
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            <div class="gs-dropdown" role="none">
+              <button class="gs-dropdown__toggle" aria-haspopup="true" aria-expanded="false"
+                aria-controls="gs-dropdown-paket" id="gs-dropdown-paket-btn" role="menuitem">Paket <svg
+                  viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round" aria-hidden="true">
                   <path d="M4 6l4 4 4-4" />
-                </svg>
-              </button>
+                </svg></button>
               <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
                 <a href="paket.html" class="gs-dropdown__item" role="menuitem"><svg viewBox="0 0 20 20"
                     fill="currentColor" aria-hidden="true">
@@ -851,27 +854,21 @@
           <div class="gs-navbar__cta">
             <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan."
               class="gs-button gs-button--whatsapp gs-button--sm" target="_blank" rel="noopener noreferrer"
-              aria-label="Konsultasi melalui WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              aria-label="Konsultasi melalui WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-              </svg>
-              Konsultasi
-            </a>
+              </svg>Konsultasi</a>
           </div>
           <button class="gs-navbar__hamburger" id="gs-hamburger" aria-label="Buka menu navigasi" aria-expanded="false"
-            aria-controls="gs-mobile-menu">
-            <span class="gs-navbar__hamburger-line"></span>
-            <span class="gs-navbar__hamburger-line"></span>
-            <span class="gs-navbar__hamburger-line"></span>
-          </button>
+            aria-controls="gs-mobile-menu"><span class="gs-navbar__hamburger-line"></span><span
+              class="gs-navbar__hamburger-line"></span><span class="gs-navbar__hamburger-line"></span></button>
         </div>
         <div class="gs-navbar__mobile-menu" id="gs-mobile-menu" role="menu" aria-label="Menu navigasi mobile">
           <a href="./" class="gs-navbar__mobile-link" role="menuitem">Beranda</a>
           <a href="tentang.html" class="gs-navbar__mobile-link" role="menuitem">Tentang</a>
-          <button class="gs-navbar__mobile-submenu-toggle" aria-expanded="false" aria-controls="gs-mobile-paket">Paket
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" aria-hidden="true">
+          <button class="gs-navbar__mobile-submenu-toggle" aria-expanded="false"
+            aria-controls="gs-mobile-paket">Paket <svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M4 6l4 4 4-4" />
             </svg></button>
           <div class="gs-navbar__mobile-submenu" id="gs-mobile-paket" role="menu">
@@ -883,15 +880,13 @@
           <a href="portofolio.html" class="gs-navbar__mobile-link" role="menuitem">Portofolio</a>
           <a href="blog.html" class="gs-navbar__mobile-link" role="menuitem">Blog</a>
           <div class="gs-navbar__mobile-cta">
-            <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan."
+            <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi."
               class="gs-button gs-button--whatsapp" target="_blank" rel="noopener noreferrer"
-              style="width:100%;justify-content:center;">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;">
+              style="width:100%;justify-content:center;"><svg viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true" style="width:18px;height:18px;">
                 <path
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-              </svg>
-              Konsultasi WhatsApp
-            </a>
+              </svg> Konsultasi WhatsApp</a>
           </div>
         </div>
       </div>
@@ -933,15 +928,15 @@
               <div class="gs-author-profile-info">
                 <span class="gs-author-role-badge">Penulis Artikel</span>
                 <h2 class="gs-author-name">Yudi Abraham</h2>
-                <p class="gs-author-subtitle">Technology Writer &amp; Web Development Enthusiast</p>
+                <p class="gs-author-subtitle">Penulis &amp; Web Development Enthusiast</p>
                 <p class="gs-author-bio">
-                  Menulis artikel seputar teknologi informasi, pengembangan website, aplikasi mobile, dan teknologi yang digunakan dalam pengembangan aplikasi.
+                  Penulis konten edukatif dan panduan praktis seputar souvenir pernikahan, tips cinderamata acara, inspirasi kemasan elegan, serta integrasi teknologi web di Souvenir Pernikahan.
                 </p>
                 <div class="gs-author-tags-list">
+                  <span class="gs-author-tag-pill">Souvenir Pernikahan</span>
+                  <span class="gs-author-tag-pill">Tips Acara &amp; Event</span>
+                  <span class="gs-author-tag-pill">Kemasan &amp; Desain</span>
                   <span class="gs-author-tag-pill">Web Development</span>
-                  <span class="gs-author-tag-pill">Laravel</span>
-                  <span class="gs-author-tag-pill">Flutter</span>
-                  <span class="gs-author-tag-pill">Teknologi</span>
                 </div>
               </div>
             </article>
@@ -957,7 +952,7 @@
                 Tentang Penulis
               </h3>
               <p class="gs-author-text">
-                Yudi Abraham merupakan penulis yang memiliki minat pada teknologi informasi, khususnya pengembangan website dan aplikasi mobile. Melalui artikel yang ditulis, ia membahas teknologi pengembangan aplikasi, pemrograman, serta berbagai tools yang dapat membantu pembaca memahami dunia teknologi.
+                Yudi Abraham merupakan penulis aktif di portal Souvenir Pernikahan yang berfokus menyajikan panduan mendalam tentang pemilihan cinderamata, tips manajemen budget pernikahan, ide kemasan souvenir, hingga seminar kit perusahaan. Berbekal latar belakang di bidang teknologi informasi dan web development dari Politeknik Negeri Bali, ia menyajikan artikel yang informatif, terstruktur, dan aplikatif bagi calon pengantin maupun event organizer.
               </p>
             </section>
 
@@ -1077,14 +1072,14 @@
 
               <div class="gs-articles-grid">
                 <!-- Article Card 1 -->
-                <a href="blog/ide-kemasan-souvenir-pernikahan.html" class="gs-author-post-card">
+                <a href="blog/panduan-memilih-souvenir-pernikahan.html" class="gs-author-post-card">
                   <div class="gs-author-post-thumb">
-                    <img src="assets/images/craft-packaging.webp" alt="Ide Kemasan Souvenir Pernikahan Unik dan Berkesan"
-                      loading="lazy" width="300" height="188" />
-                    <span class="gs-author-post-badge">Tips &amp; Inspirasi</span>
+                    <img src="assets/images/hero-souvenir-169-400.webp" alt="Tips memilih souvenir pernikahan yang tepat untuk acara Anda"
+                      loading="lazy" width="400" height="250" />
+                    <span class="gs-author-post-badge">Tips Acara</span>
                   </div>
                   <div class="gs-author-post-body">
-                    <h4 class="gs-author-post-title">Ide Souvenir Pernikahan Unik dan Berkesan</h4>
+                    <h4 class="gs-author-post-title">Tips Memilih Souvenir yang Tepat untuk Acara Anda</h4>
                     <div class="gs-author-post-meta">
                       <span>
                         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1092,7 +1087,7 @@
                             d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                             clip-rule="evenodd" />
                         </svg>
-                        18 Okt 2024
+                        15 Okt 2026
                       </span>
                       <span>
                         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1107,14 +1102,14 @@
                 </a>
 
                 <!-- Article Card 2 -->
-                <a href="blog/personalisasi-nama-dan-tanggal-souvenir.html" class="gs-author-post-card">
+                <a href="blog/cara-menghitung-jumlah-souvenir.html" class="gs-author-post-card">
                   <div class="gs-author-post-thumb">
-                    <img src="assets/images/perfume-bottle-souvenir.webp"
-                      alt="Souvenir Pernikahan Custom untuk Semua Tema" loading="lazy" width="300" height="188" />
-                    <span class="gs-author-post-badge">Rekomendasi</span>
+                    <img src="assets/images/souvenir-botol-minyak.webp"
+                      alt="Cara praktis menghitung jumlah souvenir pernikahan agar pas" loading="lazy" width="400" height="250" />
+                    <span class="gs-author-post-badge">Manajemen Budget</span>
                   </div>
                   <div class="gs-author-post-body">
-                    <h4 class="gs-author-post-title">Souvenir Pernikahan Custom untuk Semua Tema</h4>
+                    <h4 class="gs-author-post-title">Cara Menghitung Jumlah Souvenir Pernikahan Agar Pas</h4>
                     <div class="gs-author-post-meta">
                       <span>
                         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1122,7 +1117,7 @@
                             d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                             clip-rule="evenodd" />
                         </svg>
-                        12 Okt 2024
+                        10 Okt 2026
                       </span>
                       <span>
                         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1130,22 +1125,21 @@
                             d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
                             clip-rule="evenodd" />
                         </svg>
-                        6 menit baca
+                        4 menit baca
                       </span>
                     </div>
                   </div>
                 </a>
 
                 <!-- Article Card 3 -->
-                <a href="blog/panduan-memilih-souvenir-pernikahan.html" class="gs-author-post-card">
+                <a href="blog/ide-kemasan-souvenir-pernikahan.html" class="gs-author-post-card">
                   <div class="gs-author-post-thumb">
-                    <img src="assets/images/hero-souvenir.webp"
-                      alt="Cara Memilih Souvenir Pernikahan yang Tepat dan Berkualitas" loading="lazy" width="300"
-                      height="188" />
-                    <span class="gs-author-post-badge">Panduan</span>
+                    <img src="assets/images/craft-packaging.webp" alt="Rekomendasi paket souvenir untuk seminar dan workshop"
+                      loading="lazy" width="400" height="250" />
+                    <span class="gs-author-post-badge">Paket Acara</span>
                   </div>
                   <div class="gs-author-post-body">
-                    <h4 class="gs-author-post-title">Cara Memilih Souvenir Pernikahan yang Tepat dan Berkualitas</h4>
+                    <h4 class="gs-author-post-title">Rekomendasi Paket Souvenir untuk Seminar dan Workshop</h4>
                     <div class="gs-author-post-meta">
                       <span>
                         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1153,7 +1147,68 @@
                             d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                             clip-rule="evenodd" />
                         </svg>
-                        5 Okt 2024
+                        05 Okt 2026
+                      </span>
+                      <span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        4 menit baca
+                      </span>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Article Card 4 -->
+                <a href="blog/personalisasi-nama-dan-tanggal-souvenir.html" class="gs-author-post-card">
+                  <div class="gs-author-post-thumb">
+                    <img src="assets/images/souvenir-tumbler-custom.webp"
+                      alt="Panduan personalisasi nama dan tanggal souvenir pernikahan elegan" loading="lazy" width="400" height="250" />
+                    <span class="gs-author-post-badge">Inspirasi Desain</span>
+                  </div>
+                  <div class="gs-author-post-body">
+                    <h4 class="gs-author-post-title">Panduan Personalisasi Nama dan Tanggal Souvenir Elegan</h4>
+                    <div class="gs-author-post-meta">
+                      <span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd"
+                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        28 Sep 2026
+                      </span>
+                      <span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        5 menit baca
+                      </span>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Article Card 5 -->
+                <a href="blog/checklist-pemesanan-souvenir-pernikahan.html" class="gs-author-post-card">
+                  <div class="gs-author-post-thumb">
+                    <img src="assets/images/hero-wedding-640.webp"
+                      alt="Checklist pemesanan souvenir pernikahan bebas stres" loading="lazy" width="400"
+                      height="250" />
+                    <span class="gs-author-post-badge">Checklist Acara</span>
+                  </div>
+                  <div class="gs-author-post-body">
+                    <h4 class="gs-author-post-title">Checklist Lengkap Pemesanan Souvenir Pernikahan</h4>
+                    <div class="gs-author-post-meta">
+                      <span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd"
+                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        20 Sep 2026
                       </span>
                       <span>
                         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -1162,6 +1217,37 @@
                             clip-rule="evenodd" />
                         </svg>
                         7 menit baca
+                      </span>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Article Card 6 -->
+                <a href="blog/panduan-souvenir-perusahaan.html" class="gs-author-post-card">
+                  <div class="gs-author-post-thumb">
+                    <img src="assets/images/souvenir-seminar-kit.webp"
+                      alt="5 item wajib dalam seminar kit yang benar-benar dipakai peserta" loading="lazy" width="400"
+                      height="250" />
+                    <span class="gs-author-post-badge">Event Management</span>
+                  </div>
+                  <div class="gs-author-post-body">
+                    <h4 class="gs-author-post-title">5 Item Wajib dalam Seminar Kit yang Benar-Benar Dipakai Peserta</h4>
+                    <div class="gs-author-post-meta">
+                      <span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd"
+                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        12 Sep 2026
+                      </span>
+                      <span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                            clip-rule="evenodd" />
+                        </svg>
+                        5 menit baca
                       </span>
                     </div>
                   </div>
@@ -1299,7 +1385,7 @@
                       <line x1="16" y1="17" x2="8" y2="17"></line>
                     </svg>
                   </div>
-                  <span class="gs-stat-value">3</span>
+                  <span class="gs-stat-value">6</span>
                   <span class="gs-stat-label">Artikel Ditulis</span>
                 </div>
 
