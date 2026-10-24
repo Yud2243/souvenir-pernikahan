@@ -447,6 +447,7 @@
   const currentNorm = normalizeNavPath(window.location.pathname);
   const isBlogSection = currentNorm.endsWith('/blog') || currentNorm.endsWith('/blog.html') || currentNorm.includes('/blog/');
   const isPaketSection = currentNorm.endsWith('/paket') || currentNorm.endsWith('/paket.html') || currentNorm.includes('/paket/');
+  const isPortofolioSection = currentNorm.endsWith('/portofolio') || currentNorm.endsWith('/portofolio.html') || currentNorm.includes('detail-portofolio');
 
   // Remove existing active states first
   const allNavLinks = document.querySelectorAll(
@@ -479,6 +480,11 @@
       if (linkNorm === currentNorm ||
           ((linkNorm.endsWith('/paket') || linkNorm.endsWith('/paket.html')) &&
            (currentNorm.endsWith('/paket') || currentNorm.endsWith('/paket.html') || currentNorm.includes('/paket/')))) {
+        isActive = true;
+      }
+    } else if (isPortofolioSection) {
+      if (linkNorm === currentNorm ||
+          ((linkNorm.endsWith('/portofolio') || linkNorm.endsWith('/portofolio.html')) && isPortofolioSection)) {
         isActive = true;
       }
     } else {

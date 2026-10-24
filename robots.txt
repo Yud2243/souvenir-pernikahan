@@ -22,13 +22,16 @@ Allow: /paket/
 Allow: /paket/souvenir-tradisional.html
 Allow: /paket/souvenir-modern.html
 Allow: /portofolio.html
+Allow: /detail-portofolio.html
 Allow: /blog.html
 Allow: /blog/
 Allow: /blog/*.html
 Allow: /kebijakan-privasi.html
 Allow: /assets/images/*.webp
+Allow: /assets/images/*.jpg
 Allow: /assets/profile/*.webp
 Allow: /assets/css/style.min.css
+Allow: /assets/css/detail-portofolio.css
 Allow: /assets/js/main.min.js
 Allow: /sitemap.xml
 Allow: /llms.txt

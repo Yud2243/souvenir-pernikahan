@@ -1,0 +1,373 @@
+/* ==========================================================================
+   Detail Portofolio Stylesheet (detail-portofolio.css)
+   Souvenir Pernikahan — Elegant, Responsive & Accessible Design System
+   ========================================================================== */
+
+/* Sub-navigasi Cepat (Quick Jump Pills) */
+.gs-portfolio-subnav {
+  position: sticky;
+  top: 76px;
+  z-index: 90;
+  background: rgba(253, 254, 251, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gs-border, #cfdecb);
+  padding: 0.85rem 0;
+  box-shadow: 0 4px 16px rgba(35, 71, 45, 0.05);
+  transition: all var(--gs-transition, 250ms ease);
+}
+
+.gs-portfolio-subnav__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+}
+
+.gs-portfolio-subnav__inner::-webkit-scrollbar {
+  display: none;
+}
+
+.gs-portfolio-subnav__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gs-green-900, #23472d);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+}
+
+.gs-subnav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gs-muted, #38483b);
+  background: var(--gs-white, #ffffff);
+  border: 1px solid var(--gs-border, #cfdecb);
+  border-radius: var(--gs-radius-pill, 999px);
+  padding: 0.4rem 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--gs-transition, 250ms ease);
+}
+
+.gs-subnav-pill:hover,
+.gs-subnav-pill:focus-visible {
+  background: var(--gs-green-100, #e5f1df);
+  border-color: var(--gs-green-500, #78a96b);
+  color: var(--gs-green-950, #0f2d18);
+  transform: translateY(-1px);
+}
+
+.gs-subnav-pill.active {
+  background: var(--gs-green-900, #23472d);
+  border-color: var(--gs-green-900, #23472d);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(35, 71, 45, 0.2);
+}
+
+/* Detail Feed Section */
+.gs-detail-feed {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.gs-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 5.5rem);
+}
+
+/* Individual Product Detail Item */
+.gs-detail-item {
+  scroll-margin-top: 135px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--gs-white, #ffffff);
+  border: 1px solid var(--gs-border, #cfdecb);
+  border-radius: var(--gs-radius-lg, 1.5rem);
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  box-shadow: var(--gs-shadow-card, 0 10px 30px -5px rgba(22, 45, 29, 0.08));
+  position: relative;
+  transition: box-shadow var(--gs-transition, 250ms ease), border-color var(--gs-transition, 250ms ease);
+}
+
+.gs-detail-item:hover {
+  box-shadow: 0 18px 45px -8px rgba(22, 45, 29, 0.12);
+  border-color: var(--gs-green-300, #b5d7a6);
+}
+
+/* Alternating Layout on Desktop */
+@media (min-width: 992px) {
+  .gs-detail-item {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 3.5rem;
+  }
+
+  /* Even numbered items: Photo on the right, Description on the left */
+  .gs-detail-item:nth-child(even) .gs-detail-visual {
+    order: 2;
+  }
+
+  .gs-detail-item:nth-child(even) .gs-detail-info {
+    order: 1;
+  }
+}
+
+/* Visual Column */
+.gs-detail-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.gs-detail-main-img-wrap {
+  position: relative;
+  border-radius: var(--gs-radius-md, 1rem);
+  overflow: hidden;
+  background: var(--gs-green-50, #f3f9f1);
+  border: 1px solid rgba(207, 222, 203, 0.7);
+  box-shadow: 0 12px 32px -6px rgba(35, 71, 45, 0.12);
+  aspect-ratio: 4 / 3;
+}
+
+.gs-detail-main-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gs-detail-item:hover .gs-detail-main-img-wrap img {
+  transform: scale(1.03);
+}
+
+/* Badges on Visual */
+.gs-detail-badge-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(18, 45, 24, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--gs-radius-pill, 999px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gs-detail-badge-overlay svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.gs-detail-badge-overlay--wedding {
+  background: linear-gradient(135deg, rgba(23, 71, 35, 0.95), rgba(45, 107, 56, 0.95));
+  border-color: rgba(181, 215, 166, 0.6);
+}
+
+/* Secondary Thumbnail Container (for wedding couple items) */
+.gs-detail-secondary-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  background: var(--gs-green-50, #f3f9f1);
+  border: 1px solid var(--gs-border, #cfdecb);
+  border-radius: var(--gs-radius-md, 1rem);
+}
+
+.gs-detail-secondary-thumb {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--gs-radius-sm, 0.5rem);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--gs-green-300, #b5d7a6);
+}
+
+.gs-detail-secondary-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gs-detail-secondary-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.gs-detail-secondary-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gs-green-800, #1e4f26);
+}
+
+.gs-detail-secondary-caption {
+  font-size: 0.83rem;
+  color: var(--gs-text, #18261b);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Info Column */
+.gs-detail-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.gs-detail-eyebrow-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gs-detail-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gs-green-950, #0f2d18);
+  background: var(--gs-green-100, #e5f1df);
+  border: 1px solid var(--gs-green-300, #b5d7a6);
+  padding: 0.28rem 0.8rem;
+  border-radius: var(--gs-radius-pill, 999px);
+}
+
+.gs-detail-order-index {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gs-muted, #38483b);
+  letter-spacing: 0.05em;
+}
+
+.gs-detail-title {
+  font-family: var(--gs-font-heading);
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  font-weight: 700;
+  color: var(--gs-green-900, #23472d);
+  line-height: 1.28;
+  margin: 0;
+}
+
+.gs-detail-lead {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--gs-text, #18261b);
+  margin: 0;
+}
+
+/* Highlights Specification Box */
+.gs-detail-highlights {
+  width: 100%;
+  background: var(--gs-green-50, #f3f9f1);
+  border: 1px solid rgba(207, 222, 203, 0.85);
+  border-left: 4px solid var(--gs-green-700, #3f7044);
+  border-radius: 0 var(--gs-radius-md, 1rem) var(--gs-radius-md, 1rem) 0;
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.gs-detail-highlights-head {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gs-green-950, #0f2d18);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.15rem;
+}
+
+.gs-detail-highlights-head svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gs-green-700, #3f7044);
+}
+
+.gs-detail-highlight-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--gs-text, #18261b);
+  line-height: 1.55;
+}
+
+.gs-detail-highlight-row svg {
+  width: 15px;
+  height: 15px;
+  color: var(--gs-green-700, #3f7044);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.gs-detail-highlight-row strong {
+  color: var(--gs-green-950, #0f2d18);
+  font-weight: 600;
+}
+
+/* Actions Row */
+.gs-detail-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.gs-detail-actions .gs-button {
+  font-size: 0.9rem;
+  padding: 0.7rem 1.45rem;
+}
+
+@media (max-width: 575px) {
+  .gs-detail-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .gs-detail-actions .gs-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

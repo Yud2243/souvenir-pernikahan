@@ -16,6 +16,7 @@
 - [Paket Souvenir Tradisional](https://souvenirpernikahan.web.id/paket/souvenir-tradisional.html): Pilihan souvenir bernuansa nusantara dan etnik berkelas.
 - [Paket Souvenir Modern](https://souvenirpernikahan.web.id/paket/souvenir-modern.html): Pilihan souvenir kontemporer, fungsional, dan corporate merchandise.
 - [Portofolio Karya](https://souvenirpernikahan.web.id/portofolio.html): Galeri dokumentasi hasil produksi asli dan testimoni.
+- [Detail Portofolio](https://souvenirpernikahan.web.id/detail-portofolio.html): Halaman visualisasi detail souvenir lengkap dalam konteks pernikahan dan spesifikasi produk.
 - [Tentang Kami](https://souvenirpernikahan.web.id/tentang.html): Profil, nilai-nilai, dan standar kualitas pengerjaan.
 - [Blog & Inspirasi](https://souvenirpernikahan.web.id/blog.html): Artikel panduan, tips anggaran, dan ide kemasan souvenir.
 - [Kebijakan Privasi](https://souvenirpernikahan.web.id/kebijakan-privasi.html): Kebijakan privasi data pemesanan dan konsultasi.
