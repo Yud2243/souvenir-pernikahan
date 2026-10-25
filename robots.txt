@@ -30,6 +30,11 @@ Allow: /kebijakan-privasi.html
 Allow: /assets/images/*.webp
 Allow: /assets/images/*.jpg
 Allow: /assets/profile/*.webp
+Allow: /assets/profile/*.png
+Allow: /assets/profile/*.ico
+Allow: /favicon.ico
+Allow: /apple-touch-icon.png
+Allow: /site.webmanifest
 Allow: /assets/css/style.min.css
 Allow: /assets/css/detail-portofolio.css
 Allow: /assets/js/main.min.js
