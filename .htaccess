@@ -18,20 +18,32 @@
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.*)/index(\.html)?\ HTTP/ [NC]
   RewriteRule ^(.*)/index(\.html)?$ /$1 [R=301,L]
 
-  # 5. Route /blog, /paket, and /penulis cleanly
+  # 5. External 301 Redirect: Strip .html extension from direct browser requests
+  # (Exclude Google search console verification files)
+  RewriteCond %{REQUEST_URI} !^/google[a-f0-9]+\.html$ [NC]
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+?)\.html(\?[^\ ]*)?\ HTTP/ [NC]
+  RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+  # 6. Route directory-name conflicts to hub pages
   RewriteRule ^blog/?$ blog.html [L]
   RewriteRule ^paket/?$ paket.html [L]
   RewriteRule ^penulis/?$ penulis.html [L]
   RewriteRule ^author/?$ penulis.html [L]
-  RewriteRule ^author/yudi-abraham/?$ /penulis.html [R=301,L]
+  RewriteRule ^author/yudi-abraham/?$ /penulis [R=301,L]
 
-  # 6. Redirect renamed paket pages
-  RewriteRule ^paket/souvenir-pernikahan(\.html)?$ /paket/souvenir-tradisional.html [R=301,L]
-  RewriteRule ^paket/souvenir-perusahaan(\.html)?$ /paket/souvenir-modern.html [R=301,L]
+  # 7. Redirect legacy / renamed paket pages
+  RewriteRule ^paket/souvenir-pernikahan/?$ /paket/souvenir-tradisional [R=301,L]
+  RewriteRule ^paket/souvenir-perusahaan/?$ /paket/souvenir-modern [R=301,L]
+
+  # 8. Internal Rewrite: Map extensionless clean URLs to .html if the file exists
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
 
 # ------------------------------------------------------------
-# 7. Proteksi Server: Blokir Akses Langsung ke Berkas Sensitif & Hidden Dirs
+# 9. Proteksi Server: Blokir Akses Langsung ke Berkas Sensitif & Hidden Dirs
 # ------------------------------------------------------------
 <FilesMatch "(^#.*#|\.(md|json|map|env|sql|db|sqlite|log|bak|backup|old|temp|tmp|sh|bat|ps1|cmd|git.*))$">
   <IfModule mod_authz_core.c>
