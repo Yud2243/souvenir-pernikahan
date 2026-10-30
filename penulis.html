@@ -81,7 +81,7 @@
   </noscript>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.min.css?v=7" />
+  <link rel="stylesheet" href="assets/css/style.min.css?v=8" />
 
   <!-- Schema JSON-LD (Organization, ProfilePage, Person & BreadcrumbList) -->
   <script type="application/ld+json">
@@ -177,7 +177,8 @@
         "image": "https://souvenirpernikahan.web.id/assets/images/yudi-abraham.webp",
         "alumniOf": {
           "@type": "EducationalOrganization",
-          "name": "Politeknik Negeri Bali"
+          "name": "Politeknik Negeri Bali",
+          "url": "https://www.pnb.ac.id/"
         },
         "knowsAbout": [
           "Web Development",
@@ -378,7 +379,7 @@
                 Tentang Penulis
               </h3>
               <p class="gs-author-text">
-                Yudi Abraham merupakan penulis aktif di portal Souvenir Pernikahan yang berfokus menyajikan panduan mendalam tentang pemilihan cinderamata, tips manajemen budget pernikahan, ide kemasan souvenir, hingga seminar kit perusahaan. Berbekal latar belakang di bidang teknologi informasi dan web development dari Politeknik Negeri Bali, ia menyajikan artikel yang informatif, terstruktur, dan aplikatif bagi calon pengantin maupun event organizer.
+                Yudi Abraham merupakan penulis aktif di portal Souvenir Pernikahan yang berfokus menyajikan panduan mendalam tentang pemilihan cinderamata, tips manajemen budget pernikahan, ide kemasan souvenir, hingga seminar kit perusahaan. Berbekal latar belakang di bidang teknologi informasi dan web development dari <a href="https://www.pnb.ac.id/" target="_blank" rel="noopener noreferrer" class="gs-article__author-link" title="Kunjungi situs resmi Politeknik Negeri Bali">Politeknik Negeri Bali</a>, ia menyajikan artikel yang informatif, terstruktur, dan aplikatif bagi calon pengantin maupun event organizer.
               </p>
             </section>
 
@@ -496,7 +497,7 @@
                 </a>
               </div>
 
-              <div class="gs-articles-grid">
+              <div class="gs-articles-grid" id="gs-author-articles-grid">
                 <!-- Article Card 0 (New) -->
                 <a href="blog/souvenir-pernikahan-unik-bermanfaat" class="gs-author-post-card">
                   <div class="gs-author-post-thumb">
@@ -588,7 +589,7 @@
                 </a>
 
                 <!-- Article Card 3 -->
-                <a href="blog/ide-kemasan-souvenir-pernikahan" class="gs-author-post-card">
+                <a href="blog/ide-kemasan-souvenir-pernikahan" class="gs-author-post-card is-hidden">
                   <div class="gs-author-post-thumb">
                     <img src="assets/images/craft-packaging.webp" alt="Ide Kemasan Souvenir Pernikahan yang Elegan, Unik, dan Berkesan"
                       loading="lazy" width="400" height="250" />
@@ -618,7 +619,7 @@
                 </a>
 
                 <!-- Article Card 4 -->
-                <a href="blog/personalisasi-nama-dan-tanggal-souvenir" class="gs-author-post-card">
+                <a href="blog/personalisasi-nama-dan-tanggal-souvenir" class="gs-author-post-card is-hidden">
                   <div class="gs-author-post-thumb">
                     <img src="assets/images/souvenir-tumbler-custom.webp"
                       alt="Tips Personalisasi Nama dan Tanggal pada Souvenir Pernikahan agar Terlihat Elegan" loading="lazy" width="400" height="250" />
@@ -648,7 +649,7 @@
                 </a>
 
                 <!-- Article Card 5 -->
-                <a href="blog/checklist-pemesanan-souvenir-pernikahan" class="gs-author-post-card">
+                <a href="blog/checklist-pemesanan-souvenir-pernikahan" class="gs-author-post-card is-hidden">
                   <div class="gs-author-post-thumb">
                     <img src="assets/images/hero-wedding-640.webp"
                       alt="Checklist Pemesanan Souvenir Pernikahan agar Tidak Ada yang Terlewat" loading="lazy" width="400"
@@ -679,7 +680,7 @@
                 </a>
 
                 <!-- Article Card 6 -->
-                <a href="blog/panduan-souvenir-perusahaan" class="gs-author-post-card">
+                <a href="blog/panduan-souvenir-perusahaan" class="gs-author-post-card is-hidden">
                   <div class="gs-author-post-thumb">
                     <img src="assets/images/souvenir-seminar-kit.webp"
                       alt="Panduan Souvenir untuk Acara dan Event Perusahaan yang Profesional" loading="lazy" width="400"
@@ -708,6 +709,19 @@
                     </div>
                   </div>
                 </a>
+              </div>
+
+              <!-- Action: Lihat Selengkapnya / Tutup Artikel -->
+              <div class="gs-author-articles-actions" id="gs-author-articles-actions">
+                <button type="button" class="gs-author-more-btn" id="gs-author-more-btn" aria-expanded="false"
+                  aria-controls="gs-author-articles-grid" data-action="more" aria-label="Lihat selengkapnya artikel">
+                  <span class="gs-author-more-btn__text">Lihat Selengkapnya</span>
+                  <svg class="gs-author-more-btn__icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd" />
+                  </svg>
+                </button>
               </div>
             </section>
 
@@ -893,7 +907,16 @@
                 </div>
                 <div class="gs-education-content">
                   <h4 class="gs-education-degree">D3 Manajemen Informatika</h4>
-                  <p class="gs-education-campus">Politeknik Negeri Bali</p>
+                  <p class="gs-education-campus">
+                    <a href="https://www.pnb.ac.id/" target="_blank" rel="noopener noreferrer" class="gs-education-link" title="Kunjungi website resmi Politeknik Negeri Bali">
+                      Politeknik Negeri Bali
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </p>
                   <p class="gs-education-period">Agustus 2024 – Sekarang</p>
                 </div>
               </div>
@@ -1010,7 +1033,80 @@
     </svg>
   </button>
 
-  <script defer src="assets/js/main.min.js?v=7"></script>
+  <script defer src="assets/js/main.min.js?v=8"></script>
+
+  <!-- Script Interaktivitas Load More & Tutup Artikel Penulis -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var grid = document.getElementById('gs-author-articles-grid');
+      var moreBtn = document.getElementById('gs-author-more-btn');
+      var moreWrap = document.getElementById('gs-author-articles-actions');
+      if (!grid || !moreBtn) return;
+
+      var cards = Array.from(grid.querySelectorAll('.gs-author-post-card'));
+      var STEP = 3;
+      var total = cards.length;
+      var visibleCount = STEP;
+
+      function updateDisplay(isInitial) {
+        if (total <= STEP) {
+          if (moreWrap) moreWrap.style.display = 'none';
+          cards.forEach(function (card) {
+            card.classList.remove('is-hidden');
+          });
+          return;
+        }
+
+        if (moreWrap) moreWrap.style.display = 'flex';
+
+        cards.forEach(function (card, index) {
+          if (index < visibleCount) {
+            var wasHidden = card.classList.contains('is-hidden');
+            card.classList.remove('is-hidden');
+            if (!isInitial && wasHidden) {
+              card.classList.add('is-revealed');
+            }
+          } else {
+            card.classList.add('is-hidden');
+            card.classList.remove('is-revealed');
+          }
+        });
+
+        var btnText = moreBtn.querySelector('.gs-author-more-btn__text');
+        if (visibleCount >= total) {
+          moreBtn.classList.add('is-expanded');
+          moreBtn.setAttribute('aria-expanded', 'true');
+          moreBtn.setAttribute('data-action', 'close');
+          moreBtn.setAttribute('aria-label', 'Tutup artikel tambahan');
+          if (btnText) btnText.textContent = 'Tutup Artikel';
+        } else {
+          moreBtn.classList.remove('is-expanded');
+          moreBtn.setAttribute('aria-expanded', 'false');
+          moreBtn.setAttribute('data-action', 'more');
+          moreBtn.setAttribute('aria-label', 'Lihat selengkapnya artikel');
+          if (btnText) btnText.textContent = 'Lihat Selengkapnya';
+        }
+      }
+
+      moreBtn.addEventListener('click', function () {
+        this.blur();
+        var action = this.getAttribute('data-action');
+        if (action === 'close') {
+          visibleCount = STEP;
+          updateDisplay(false);
+          var heading = document.getElementById('articles-heading') || grid;
+          if (heading) {
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        } else {
+          visibleCount = Math.min(visibleCount + STEP, total);
+          updateDisplay(false);
+        }
+      });
+
+      updateDisplay(true);
+    });
+  </script>
 </body>
 
 </html>

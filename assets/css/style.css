@@ -5560,6 +5560,72 @@ html:not(.js) [data-gs-animate] {
   flex-shrink: 0;
 }
 
+.gs-author-articles-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+.gs-author-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.75rem;
+  font-family: inherit;
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: #1a5627;
+  background: #f0f7ee;
+  border: 1.5px solid #a7d19f;
+  border-radius: var(--gs-radius-pill, 9999px);
+  cursor: pointer;
+  transition: all var(--gs-transition, 250ms ease);
+  box-shadow: 0 4px 14px rgba(26, 86, 39, 0.08);
+}
+
+.gs-author-more-btn:hover {
+  background: #1a5627;
+  color: #ffffff;
+  border-color: #1a5627;
+  box-shadow: 0 8px 22px rgba(26, 86, 39, 0.22);
+  transform: translateY(-2px);
+}
+
+.gs-author-more-btn:active {
+  transform: translateY(0);
+}
+
+.gs-author-more-btn__icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gs-author-more-btn.is-expanded .gs-author-more-btn__icon {
+  transform: rotate(180deg);
+}
+
+.gs-author-post-card.is-hidden {
+  display: none !important;
+}
+
+@keyframes gsAuthorCardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gs-author-post-card.is-revealed {
+  animation: gsAuthorCardReveal 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* 5. Sidebar: Terhubung dengan Penulis */
 .gs-contact-list {
   display: flex;
@@ -5788,6 +5854,33 @@ html:not(.js) [data-gs-animate] {
   font-weight: 600;
   color: #2d6b38;
   margin: 0;
+}
+
+.gs-education-link {
+  color: #2d6b38;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(45, 107, 56, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all var(--gs-transition);
+}
+
+.gs-education-link:hover {
+  color: #122b17;
+  text-decoration-color: #122b17;
+}
+
+.gs-education-link svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  transition: transform var(--gs-transition);
+}
+
+.gs-education-link:hover svg {
+  transform: translate(2px, -2px);
 }
 
 .gs-education-period {
