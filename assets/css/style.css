@@ -3128,13 +3128,15 @@ body > header {
   padding: 0.3rem 0.8rem;
   border-radius: var(--gs-radius-pill);
   text-decoration: none;
-  transition: background-color var(--gs-transition), color var(--gs-transition);
+  transition: all var(--gs-transition);
 }
 
 .gs-article__tag:hover {
-  background: #194e25;
-  color: #ffffff;
-  border-color: #194e25;
+  background: rgba(25, 78, 36, 0.14);
+  color: #0d2a13;
+  border-color: #6fa367;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(25, 78, 36, 0.1);
 }
 
 .gs-article__share {
@@ -5804,10 +5806,11 @@ html:not(.js) [data-gs-animate] {
 }
 
 .gs-topic-pill:hover {
-  background: #194e24;
-  color: #ffffff;
-  border-color: #194e24;
+  background: rgba(25, 78, 36, 0.14);
+  color: #0d2a13;
+  border-color: #6fa367;
   transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(25, 78, 36, 0.1);
 }
 
 /* 8. Sidebar: Pendidikan */
