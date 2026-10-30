@@ -74,7 +74,7 @@ Tidak otomatis. Mintalah rincian penawaran yang memisahkan harga produk, persona
 
 Kirim jumlah, jenis produk, desain, tenggat waktu, dan alamat tujuan. Bandingkan total biaya akhir, bukan hanya harga per unit.
 
-**Punya target budget Rp5.000 per souvenir?** Lihat [pilihan produk](/produk/) dan minta penawaran sesuai jumlah serta spesifikasi yang diperlukan.
+**Punya target budget Rp5.000 per souvenir?** Mulai dari [beranda Souvenir Pernikahan](/) untuk melihat kurasi produk hemat, atau minta penawaran sesuai jumlah serta spesifikasi yang diperlukan.
 
 ---
 

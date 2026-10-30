@@ -78,7 +78,7 @@ Belum tentu. Mintalah rincian tertulis untuk memastikan komponen yang termasuk d
 
 Sampaikan produk yang diinginkan, jumlah unit, desain, jadwal kebutuhan, dan alamat pengiriman. Minta total biaya serta ketentuan pemesanan sebelum menyetujui produksi.
 
-**Ingin menyusun anggaran yang lebih tepat?** Jelajahi [produk souvenir](/produk/) dan minta penawaran berdasarkan jumlah serta desain yang dibutuhkan.
+**Ingin menyusun anggaran yang lebih tepat?** Kunjungi [halaman utama Souvenir Pernikahan](/) untuk melihat pilihan produk lengkap, atau minta penawaran berdasarkan jumlah serta desain yang dibutuhkan.
 
 ---
 

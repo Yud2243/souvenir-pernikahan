@@ -159,7 +159,7 @@ kenang-kenangan yang berguna bagi tamu. Sebelum menentukan pilihan,
 periksa detail produk dan pastikan seluruh spesifikasi sesuai kebutuhan
 acara.
 
-**Lihat produk yang tersedia** atau **minta penawaran sesuai jumlah dan
+**Kunjungi [beranda Souvenir Pernikahan](/)** atau **minta penawaran sesuai jumlah dan
 desain** untuk mendapatkan informasi yang relevan dengan kebutuhan
 pernikahan Anda.
 

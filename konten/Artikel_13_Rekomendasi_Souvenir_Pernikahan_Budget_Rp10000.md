@@ -71,7 +71,7 @@ Belum tentu. Rp10.000 di artikel ini adalah **target anggaran**, bukan penawaran
 
 Kirim pilihan produk, jumlah unit, contoh desain, tenggat acara, serta alamat pengiriman. Minta rincian total dan MOQ sebelum memesan.
 
-**Siap membandingkan pilihan souvenir?** Jelajahi [produk souvenir pernikahan](/produk/) dan minta penawaran berdasarkan budget, jumlah, serta desain.
+**Siap membandingkan pilihan souvenir?** Jelajahi [beranda Souvenir Pernikahan](/) dan minta penawaran berdasarkan budget, jumlah, serta desain.
 
 ---
 
