@@ -34,7 +34,7 @@
     },
     {
       "source": "/paket/souvenir-pernikahan.html",
-      "destination": "/paket/souvenir-tradisional.html",
+      "destination": "/paket/souvenir-tradisional",
       "permanent": true
     },
     {
@@ -44,7 +44,7 @@
     },
     {
       "source": "/paket/souvenir-perusahaan.html",
-      "destination": "/paket/souvenir-modern.html",
+      "destination": "/paket/souvenir-modern",
       "permanent": true
     },
     {
@@ -81,6 +81,26 @@
     {
       "source": "/paket",
       "destination": "/paket.html"
+    },
+    {
+      "source": "/tentang",
+      "destination": "/tentang.html"
+    },
+    {
+      "source": "/portofolio",
+      "destination": "/portofolio.html"
+    },
+    {
+      "source": "/penulis",
+      "destination": "/penulis.html"
+    },
+    {
+      "source": "/kebijakan-privasi",
+      "destination": "/kebijakan-privasi.html"
+    },
+    {
+      "source": "/detail-portofolio",
+      "destination": "/detail-portofolio.html"
     }
   ]
 }
