@@ -1193,7 +1193,7 @@
                       <line x1="16" y1="17" x2="8" y2="17"></line>
                     </svg>
                   </div>
-                  <span class="gs-stat-value">7</span>
+                  <span class="gs-stat-value" id="gs-author-stat-articles">18</span>
                   <span class="gs-stat-label">Artikel Ditulis</span>
                 </div>
 
@@ -1303,8 +1303,7 @@
             <span>Souvenir Pernikahan</span>
           </a>
           <p class="gs-footer__desc">
-            Penyedia souvenir pernikahan elegan dan souvenir custom untuk organisasi serta perusahaan. Setiap produk
-            dibuat dengan perhatian penuh terhadap detail.
+            Penyedia souvenir pernikahan elegan, cinderamata custom unik, dan kemasan berkelas di Malang untuk pengiriman ke seluruh Indonesia. Dibuat dengan perhatian penuh terhadap mutu dan detail.
           </p>
           <a href="https://maps.app.goo.gl/fQQ1reAUBefTYWb27" class="gs-footer__location-item" target="_blank"
             rel="noopener noreferrer" aria-label="Lihat lokasi Souvenir Pernikahan di Google Maps">
@@ -1411,6 +1410,10 @@
       var STEP = 3;
       var total = cards.length;
       var visibleCount = STEP;
+      var statArticles = document.getElementById('gs-author-stat-articles');
+      if (statArticles && total) {
+        statArticles.textContent = total;
+      }
 
       function updateDisplay(isInitial) {
         if (total <= STEP) {
