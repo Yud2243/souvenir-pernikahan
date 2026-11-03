@@ -612,6 +612,38 @@ def build_article_html(cfg):
     }
     
     def contextualize(text, current_h2=""):
+        # 1. First, strip or convert draft docx notes in parentheses like (/panduan/...)
+        text = text.replace('(/panduan/anggaran-souvenir-pernikahan/)', '')
+        text = text.replace('(/panduan/memilih-vendor-souvenir-pernikahan/)', '')
+        text = text.replace('(/panduan/proses-pemesanan-souvenir-pernikahan-custom/)', '')
+        text = text.replace('(/vendor-souvenir-pernikahan/)', '')
+        text = re.sub(r'\s*\(/[a-zA-Z0-9_\-\/]+\)\s*', ' ', text).strip()
+        text = re.sub(r'\s+([.,;:!?])', r'\1', text)
+        
+        # 2. Convert specific cross-link sentences gracefully
+        if "7 ciri vendor souvenir pernikahan yang layak dipilih" in text:
+            text = text.replace("7 ciri vendor souvenir pernikahan yang layak dipilih", '<a href="/blog/ciri-vendor-souvenir-pernikahan-terpercaya">7 ciri vendor souvenir pernikahan yang layak dipilih</a>')
+            links_count["sibling_ciri"] += 1
+            return re.sub(r'\s+([.,;:!?])', r'\1', text)
+            
+        if "proses pemesanan souvenir pernikahan custom" in text and slug != "proses-pemesanan-souvenir-pernikahan-custom":
+            text = text.replace("proses pemesanan souvenir pernikahan custom", '<a href="/blog/proses-pemesanan-souvenir-pernikahan-custom">proses pemesanan souvenir pernikahan custom</a>')
+            links_count["sibling_proses"] += 1
+            return re.sub(r'\s+([.,;:!?])', r'\1', text)
+
+        if "anggaran souvenir pernikahan sesuai kebutuhan" in text or "anggaran souvenir pernikahan" in text:
+            if slug != "souvenir-pernikahan-sesuai-budget" and links_count["sibling_budget"] < 1:
+                text = text.replace("anggaran souvenir pernikahan", '<a href="/blog/souvenir-pernikahan-sesuai-budget">anggaran souvenir pernikahan</a>')
+                links_count["sibling_budget"] += 1
+                return re.sub(r'\s+([.,;:!?])', r'\1', text)
+
+        if "panduan vendor souvenir pernikahan custom" in text or "vendor souvenir pernikahan custom untuk berbagai konsep acara" in text:
+            if slug != "vendor-souvenir-pernikahan" and links_count["sibling_vendor"] < 1:
+                text = re.sub(r'(?:panduan\s+)?vendor souvenir pernikahan custom(?: untuk berbagai konsep acara)?', '<a href="/blog/vendor-souvenir-pernikahan">vendor souvenir pernikahan custom</a>', text)
+                links_count["sibling_vendor"] += 1
+                return re.sub(r'\s+([.,;:!?])', r'\1', text)
+
+        # 3. Standard Home anchors: souvenir pernikahan, vendor souvenir pernikahan, souvenir pernikahan custom
         if links_count["home_souvenir"] < 2 and "souvenir pernikahan" in text:
             text = re.sub(r'\bsouvenir pernikahan\b', r'<a href="/">souvenir pernikahan</a>', text, count=1)
             links_count["home_souvenir"] += 1
@@ -631,28 +663,8 @@ def build_article_html(cfg):
             elif "pilihan souvenir" in text:
                 text = re.sub(r'\bpilihan souvenir\b', r'<a href="/paket">pilihan souvenir</a>', text, count=1)
                 links_count["paket"] += 1
-                
-        if slug != "vendor-souvenir-pernikahan" and links_count["sibling_vendor"] < 1 and "vendor souvenir pernikahan custom" in text:
-            text = re.sub(r'\bvendor souvenir pernikahan custom\b', r'<a href="/blog/vendor-souvenir-pernikahan">vendor souvenir pernikahan custom</a>', text, count=1)
-            links_count["sibling_vendor"] += 1
             
-        if slug != "ciri-vendor-souvenir-pernikahan-terpercaya" and links_count["sibling_ciri"] < 1 and ("vendor souvenir pernikahan yang terpercaya" in text or "ciri vendor souvenir" in text):
-            if "ciri vendor souvenir" in text:
-                text = re.sub(r'\bciri vendor souvenir\b', r'<a href="/blog/ciri-vendor-souvenir-pernikahan-terpercaya">ciri vendor souvenir</a>', text, count=1)
-                links_count["sibling_ciri"] += 1
-            elif "vendor souvenir pernikahan yang terpercaya" in text:
-                text = re.sub(r'\bvendor souvenir pernikahan yang terpercaya\b', r'<a href="/blog/ciri-vendor-souvenir-pernikahan-terpercaya">vendor souvenir pernikahan yang terpercaya</a>', text, count=1)
-                links_count["sibling_ciri"] += 1
-                
-        if slug != "souvenir-pernikahan-sesuai-budget" and links_count["sibling_budget"] < 1 and "anggaran souvenir pernikahan" in text:
-            text = re.sub(r'\banggaran souvenir pernikahan\b', r'<a href="/blog/souvenir-pernikahan-sesuai-budget">anggaran souvenir pernikahan</a>', text, count=1)
-            links_count["sibling_budget"] += 1
-            
-        if slug != "proses-pemesanan-souvenir-pernikahan-custom" and links_count["sibling_proses"] < 1 and "proses pemesanan souvenir" in text:
-            text = re.sub(r'\bproses pemesanan souvenir\b', r'<a href="/blog/proses-pemesanan-souvenir-pernikahan-custom">proses pemesanan souvenir</a>', text, count=1)
-            links_count["sibling_proses"] += 1
-            
-        return text
+        return re.sub(r'\s+([.,;:!?])', r'\1', text)
 
     for sec in sections:
         sec_h2 = sec["h2"]
@@ -707,13 +719,12 @@ def build_article_html(cfg):
                     idx += 1
                     
         # -------------------------------------------------------------
-        # INJEKSI TABEL & LISTS KHUSUS TIAP SECTION AGAR SANGAT SCANNABLE
+        # INJEKSI TABEL & LISTS KHUSUS TIAP SECTION
         # -------------------------------------------------------------
         
         # 1. ARTICLE 1 (vendor-souvenir-pernikahan)
         if slug == "vendor-souvenir-pernikahan":
             if sec_id == "jenis-souvenir-pernikahan":
-                # Tambah bullet summary untuk 4 kategori
                 s_lines.append('''              <ul>
                 <li><strong>Souvenir Fungsional:</strong> Cinderamata yang memiliki manfaat praktis sehari-hari seperti sendok-garpu kayu mahoni, botol minum tumbler, dan pouch serbaguna.</li>
                 <li><strong>Souvenir Tradisional Khas:</strong> Menonjolkan kekayaan kriya nusantara seperti kain lurik, kipas batik cap, dompet anyaman pandan, dan gerabah estetik.</li>
@@ -721,7 +732,6 @@ def build_article_html(cfg):
                 <li><strong>Souvenir Premium &amp; VIP:</strong> Dirancang khusus untuk keluarga inti dan tamu kehormatan dengan material eksklusif hardbox velvet dan kombinasi gift set berkelas.</li>
               </ul>''')
             elif sec_id == "vendor-custom-vs-supplier-grosir":
-                # Tambah Tabel Komparasi Vendor Custom vs Supplier Grosir
                 s_lines.append('''              <div class="gs-article__table-wrapper">
                 <table class="gs-article__table">
                   <thead>
@@ -761,7 +771,6 @@ def build_article_html(cfg):
                 </table>
               </div>''')
             elif sec_id == "kesalahan-dalam-memesan":
-                # Tambah bullet checklist kesalahan
                 s_lines.append('''              <ul>
                 <li><strong>Pemesanan Terlalu Dekat Hari-H:</strong> Menyisakan sedikit waktu bila terjadi kendala bahan baku atau keterlambatan kurir kargo.</li>
                 <li><strong>Tidak Meminta Sampel Proofing:</strong> Risiko ketidaksesuaian warna sablon, ukuran riil, atau hasil grafir laser nama pengantin.</li>
@@ -772,7 +781,6 @@ def build_article_html(cfg):
         # 2. ARTICLE 2 (ciri-vendor-souvenir-pernikahan-terpercaya)
         elif slug == "ciri-vendor-souvenir-pernikahan-terpercaya":
             if sec_id == "mengapa-ciri-vendor-perlu-diperiksa":
-                # Tambah Tabel Matriks Evaluasi 7 Ciri Vendor Kredibel
                 s_lines.append('''              <div class="gs-article__table-wrapper">
                 <table class="gs-article__table">
                   <thead>
@@ -822,7 +830,6 @@ def build_article_html(cfg):
                 </table>
               </div>''')
             elif sec_id == "kesalahan-umum-memilih-vendor":
-                # Tambah bullet points jebakan vendor abal-abal
                 s_lines.append('''              <ul>
                 <li><strong>Tergiur Tawaran Harga Sangat Murah di Bawah Pasar:</strong> Sering kali mengorbankan kualitas bahan baku utama, ketebalan kemasan, atau kerapian sablon.</li>
                 <li><strong>Mengandalkan Foto Katalog Digital Semata:</strong> Banyak penjual perantara menggunakan foto unduhan tanpa memiliki workshop atau stok sendiri.</li>
@@ -833,7 +840,6 @@ def build_article_html(cfg):
         # 3. ARTICLE 3 (souvenir-pernikahan-sesuai-budget)
         elif slug == "souvenir-pernikahan-sesuai-budget":
             if sec_id == "pilihan-souvenir-segmen-harga":
-                # Tambah Tabel Matriks Rekomendasi Souvenir Menurut Segmen Anggaran
                 s_lines.append('''              <div class="gs-article__table-wrapper">
                 <table class="gs-article__table">
                   <thead>
@@ -873,7 +879,6 @@ def build_article_html(cfg):
                 </table>
               </div>''')
             elif sec_id == "menghemat-biaya-desain-dan-kemasan":
-                # Tambah bullet points trik hemat kemasan
                 s_lines.append('''              <ul>
                 <li><strong>Pilih Kemasan Berbahan Alami:</strong> Besek bambu, pouch kain blacu, atau kardus kraft cokelat memberikan kesan rustic elegan dengan biaya jauh lebih terjangkau dibanding hardbox mewah.</li>
                 <li><strong>Manfaatkan Hangtag Minimalis:</strong> Daripada mencetak sablon terpisah di setiap kotak kemasan, menggantungkan label ucapan monogram di pita kemasan menghemat biaya cetak hingga 40%.</li>
@@ -884,7 +889,6 @@ def build_article_html(cfg):
         # 4. ARTICLE 4 (proses-pemesanan-souvenir-pernikahan-custom)
         elif slug == "proses-pemesanan-souvenir-pernikahan-custom":
             if sec_id == "persiapan-sebelum-memesan-souvenir":
-                # Tambah checklist persiapan order
                 s_lines.append('''              <ul>
                 <li><strong>Tanggal Acara &amp; Lokasi Resepsi:</strong> Menentukan batas deadline pengiriman kargo tiba aman minimal H-14 hari sebelum acara.</li>
                 <li><strong>Estimasi Kuantitas Tamu (+10% Buffer):</strong> Mencegah kekurangan cinderamata saat hari pernikahan berlangsung.</li>
@@ -893,7 +897,6 @@ def build_article_html(cfg):
                 <li><strong>Batas Plafon Anggaran (Budget):</strong> Memberikan patokan jelas bagi tim konsultan dalam memberikan opsi produk terbaik.</li>
               </ul>''')
             elif sec_id == "lama-waktu-produksi-custom":
-                # Tambah Tabel Alur Kronologis Timeline Pemesanan Souvenir Custom
                 s_lines.append('''              <div class="gs-article__table-wrapper">
                 <table class="gs-article__table">
                   <thead>
@@ -939,7 +942,6 @@ def build_article_html(cfg):
                 </table>
               </div>''')
             elif sec_id == "quality-control-souvenir":
-                # Tambah bullet points 3 tahapan QC
                 s_lines.append('''              <ul>
                 <li><strong>Tahap 1 — Inspeksi Bahan Baku Mentah:</strong> Memastikan kayu tidak lapuk, keramik tanpa retak rambut, kain tenun tanpa serat putus, dan tumbler bebas goresan pabrik.</li>
                 <li><strong>Tahap 2 — Verifikasi Cetak &amp; Grafir Laser:</strong> Menguji ketajaman tipografi nama pengantin, ketepatan posisi logo, dan daya rekat sablon/tinta.</li>
@@ -1515,4 +1517,4 @@ for cfg in articles_config:
         f.write(content)
     print(f"Generated {out_path} ({len(content)} bytes)")
 
-print("\nAll 4 articles updated with rich tables and scannable lists!")
+print("\nAll 4 articles cleanly generated with no raw docx notes!")
