@@ -35,6 +35,7 @@
   <meta name="geo.placename" content="Kota Malang, Jawa Timur, Indonesia" />
   <meta name="geo.position" content="-7.9839;112.6214" />
   <meta name="ICBM" content="-7.9839, 112.6214" />
+  <meta name="geo.country" content="ID" />
 
   <!-- Open Graph / Facebook / WhatsApp -->
   <meta property="og:site_name" content="Souvenir Pernikahan" />
@@ -103,62 +104,201 @@
 
   <!-- Schema JSON-LD (2026-2027 CollectionPage & Breadcrumb Structured Data) -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "LocalBusiness"],
-        "@id": "https://souvenirpernikahan.web.id/#organization",
-        "name": "Souvenir Pernikahan",
-        "url": "https://souvenirpernikahan.web.id/",
-        "logo": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
-        "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
-        "telephone": "+6282131087971",
-        "priceRange": "$$",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang",
-          "addressLocality": "Kota Malang",
-          "addressRegion": "Jawa Timur",
-          "postalCode": "65138",
-          "addressCountry": "ID"
-        }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://souvenirpernikahan.web.id/#organization",
+      "name": "Souvenir Pernikahan",
+      "url": "https://souvenirpernikahan.web.id/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://souvenirpernikahan.web.id/assets/profile/logo-navbar-120.webp"
       },
-      {
-        "@type": "CollectionPage",
-        "@id": "https://souvenirpernikahan.web.id/portofolio#webpage",
-        "url": "https://souvenirpernikahan.web.id/portofolio",
-        "name": "Portofolio Souvenir Pernikahan & Custom — Souvenir Pernikahan",
-        "isPartOf": {
-          "@id": "https://souvenirpernikahan.web.id/#website"
+      "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+      "description": "Penyedia souvenir pernikahan custom elegan, bernilai budaya, dan ramah lingkungan di Malang. Melayani pengiriman ke Surabaya, Jabodetabek, dan seluruh kota di Indonesia.",
+      "telephone": "+6282131087971",
+      "priceRange": "Rp 15.000 - Rp 500.000",
+      "currenciesAccepted": "IDR",
+      "paymentAccepted": "Cash, Bank Transfer, QRIS",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang",
+        "addressLocality": "Kota Malang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "65138",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.9839,
+        "longitude": 112.6214
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Kota Malang"
         },
-        "description": "Dokumentasi hasil pengerjaan souvenir pernikahan elegan, cinderamata custom, dan kurasi souvenir tamu istimewa dari Souvenir Pernikahan.",
-        "inLanguage": "id-ID",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".gs-page-hero__title", ".gs-page-hero__desc"]
+        {
+          "@type": "City",
+          "name": "Kota Batu"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kabupaten Malang"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Surabaya"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kabupaten Sidoarjo"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kabupaten Gresik"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Pasuruan"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Kediri"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Blitar"
+        },
+        {
+          "@type": "State",
+          "name": "Jawa Timur"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "DKI Jakarta"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Bandung"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Semarang"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Yogyakarta"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Surakarta"
+        },
+        {
+          "@type": "City",
+          "name": "Kota Denpasar"
+        },
+        {
+          "@type": "Country",
+          "name": "Indonesia"
         }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+6282131087971",
+        "contactType": "customer service",
+        "areaServed": "ID",
+        "availableLanguage": [
+          "Indonesian"
+        ]
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://souvenirpernikahan.web.id/portofolio#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Beranda",
-            "item": "https://souvenirpernikahan.web.id/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Portofolio",
-            "item": "https://souvenirpernikahan.web.id/portofolio"
-          }
+      "sameAs": [
+        "https://www.instagram.com/sakasouvenirmlg/"
+      ],
+      "hasMap": "https://www.google.com/maps?q=-7.9839,112.6214",
+      "knowsAbout": [
+        "Souvenir Pernikahan",
+        "Wedding Favors",
+        "Cinderamata Acara",
+        "Kemasan Kustom",
+        "Kriya Nusantara",
+        "Souvenir Tradisional",
+        "Souvenir Modern"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://souvenirpernikahan.web.id/#website",
+      "url": "https://souvenirpernikahan.web.id/",
+      "name": "Souvenir Pernikahan",
+      "publisher": {
+        "@id": "https://souvenirpernikahan.web.id/#organization"
+      },
+      "inLanguage": "id-ID",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://souvenirpernikahan.web.id/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://souvenirpernikahan.web.id/portofolio#webpage",
+      "url": "https://souvenirpernikahan.web.id/portofolio",
+      "name": "Portofolio Souvenir Pernikahan & Custom — Souvenir Pernikahan",
+      "isPartOf": {
+        "@id": "https://souvenirpernikahan.web.id/#website"
+      },
+      "description": "Dokumentasi hasil pengerjaan souvenir pernikahan elegan, cinderamata custom, dan kurasi souvenir tamu istimewa dari Souvenir Pernikahan.",
+      "inLanguage": "id-ID",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".gs-page-hero__title",
+          ".gs-page-hero__desc"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://souvenirpernikahan.web.id/portofolio#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://souvenirpernikahan.web.id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Portofolio",
+          "item": "https://souvenirpernikahan.web.id/portofolio"
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 
