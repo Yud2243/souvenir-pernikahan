@@ -30,7 +30,11 @@ PAGES = [
     'blog/personalisasi-nama-dan-tanggal-souvenir.html',
     'blog/ide-kemasan-souvenir-pernikahan.html',
     'blog/checklist-pemesanan-souvenir-pernikahan.html',
-    'blog/panduan-souvenir-perusahaan.html'
+    'blog/panduan-souvenir-perusahaan.html',
+    'blog/vendor-souvenir-pernikahan.html',
+    'blog/ciri-vendor-souvenir-pernikahan-terpercaya.html',
+    'blog/souvenir-pernikahan-sesuai-budget.html',
+    'blog/proses-pemesanan-souvenir-pernikahan-custom.html'
 ]
 
 results = []
