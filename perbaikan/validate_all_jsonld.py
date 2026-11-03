@@ -43,3 +43,4 @@ if errors == 0:
     print(f"[SUCCESS] All {len(all_html)} HTML files have 100% valid JSON-LD schemas!")
 else:
     print(f"[ERROR] Found {errors} errors.")
+

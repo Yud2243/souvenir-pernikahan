@@ -282,6 +282,30 @@
               "@type": "Answer",
               "text": "Untuk informasi mengenai ketersediaan sampel produk, silakan hubungi kami langsung melalui WhatsApp. Tim kami akan menjelaskan opsi yang tersedia sesuai dengan jenis produk yang Anda minati."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah melayani pengiriman ke luar Kota Malang dan luar pulau?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya, kami melayani pemesanan dan pengiriman aman ke seluruh kota di Indonesia, meliputi Malang Raya, Surabaya, Sidoarjo, Gresik, Pasuruan, Kediri, Blitar, Jabodetabek (Jakarta), Bandung, Semarang, Yogyakarta, Solo, Denpasar Bali, hingga luar pulau. Pengiriman partai besar menggunakan armada kargo khusus (J&T Cargo, Indah Logistik, Dakota, KALOG Kereta) dengan tarif hemat per kilogram."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bagaimana jika ada souvenir yang pecah atau rusak saat diterima?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kami memberikan Garansi 100% Ganti Baru. Seluruh pesanan kami packing dengan standar keamanan tinggi (segel satuan, bubble wrap tebal, master karton ganda, dan peti kayu pallet untuk luar pulau). Jika ada barang yang rusak atau pecah selama perjalanan ekspedisi, cukup sertakan video unboxing dan kami segera mengirimkan produk pengganti tanpa biaya tambahan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Apakah calon pengantin bisa memesan sampel fisik (sample box) terlebih dahulu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tentu bisa. Kami menyediakan paket Sample Box sebelum produksi masal agar Anda dan pasangan dapat merasakan langsung kualitas bahan, tekstur cetak/grafir nama, kerapian jahitan, dan kemasannya. Hubungi customer support kami via WhatsApp untuk request sampel fisik produk impian Anda."
+            }
           }
         ]
       }
