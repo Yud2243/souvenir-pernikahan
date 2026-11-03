@@ -90,135 +90,151 @@
   <!-- Structured Data JSON-LD (BlogPosting, BreadcrumbList, FAQPage) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "LocalBusiness"],
-        "@id": "https://souvenirpernikahan.web.id/#organization",
-        "name": "Souvenir Pernikahan",
-        "url": "https://souvenirpernikahan.web.id/",
-        "logo": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
-        "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://souvenirpernikahan.web.id/#organization",
+      "name": "Souvenir Pernikahan",
+      "url": "https://souvenirpernikahan.web.id/",
+      "logo": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+      "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+      "telephone": "+6282131087971",
+      "priceRange": "Rp 15.000 - Rp 500.000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang",
+        "addressLocality": "Kota Malang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "65138",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.9839,
+        "longitude": 112.6214
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
         "telephone": "+6282131087971",
-        "priceRange": "Rp 15.000 - Rp 500.000",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang",
-          "addressLocality": "Kota Malang",
-          "addressRegion": "Jawa Timur",
-          "postalCode": "65138",
-          "addressCountry": "ID"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -7.9839,
-          "longitude": 112.6214
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Indonesia"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+6282131087971",
-          "contactType": "customer service",
-          "areaServed": "ID",
-          "availableLanguage": ["Indonesian"]
-        }
-      },
-      {
-        "@type": "BlogPosting",
-        "@id": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir#article",
-        "isPartOf": {
-          "@id": "https://souvenirpernikahan.web.id/#website"
-        },
-        "headline": "Souvenir Pernikahan Custom Nama dan Tanggal: Tips Agar Terlihat Elegan",
-        "description": "Panduan souvenir pernikahan custom nama dan tanggal: teknik cetak yang awet, font pilihan, tata letak elegan, dan cara memesan tanpa minimum order besar.",
-        "image": "https://souvenirpernikahan.web.id/assets/images/souvenir-tumbler-custom.webp",
-        "datePublished": "2026-09-28T09:00:00+07:00",
-        "dateModified": "2026-10-20T10:00:00+07:00",
-        "inLanguage": "id-ID",
-        "mainEntityOfPage": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir",
-        "author": {
-          "@type": "Person",
-          "@id": "https://souvenirpernikahan.web.id/penulis#person",
-          "name": "Yudi Abraham",
-          "url": "https://souvenirpernikahan.web.id/penulis",
-          "jobTitle": "Spesialis Tipografi & Personalisasi Cinderamata",
-          "description": "Spesialis tipografi dan personalisasi cinderamata yang menjaga standar estetika grafir laser, kaligrafi, dan layout branding souvenir pernikahan agar senantiasa tampak proporsional dan berkelas."
-        },
-        "publisher": {
-          "@id": "https://souvenirpernikahan.web.id/#organization"
-        },
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".gs-article__title", ".gs-article__lead", ".gs-article__key-takeaway p"]
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Beranda",
-            "item": "https://souvenirpernikahan.web.id/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "https://souvenirpernikahan.web.id/blog/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Tips Personalisasi Souvenir",
-            "item": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir"
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Apakah nama lengkap kedua mempelai harus dicetak di badan souvenir?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tidak harus. Praktik terbaik adalah menaruh inisial atau monogram minimalis pada badan produk, sementara nama lengkap, tanggal pernikahan, dan ucapan terima kasih dicantumkan pada hangtag kemasan luar."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Teknik personalisasi apa yang paling awet dan tahan lama?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Laser engraving (grafir laser) pada material kayu, bambu, stainless steel, atau kaca memiliki ketahanan paling lama karena mengikis permukaan secara permanen tanpa risiko luntur terkena air."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Bagaimana memilih font yang mudah dibaca untuk ukuran kecil?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Gunakan kombinasi font script kaligrafi elegan untuk inisial nama mempelai, dipadukan dengan font serif atau sans-serif clean (seperti Playfair atau Inter) untuk teks tanggal dan lokasi pernikahan."
-            }
-          }
+        "contactType": "customer service",
+        "areaServed": "ID",
+        "availableLanguage": [
+          "Indonesian"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir#article",
+      "isPartOf": {
+        "@id": "https://souvenirpernikahan.web.id/#website"
+      },
+      "headline": "Souvenir Pernikahan Custom Nama dan Tanggal: Tips Agar Terlihat Elegan",
+      "description": "Panduan souvenir pernikahan custom nama dan tanggal: teknik cetak yang awet, font pilihan, tata letak elegan, dan cara memesan tanpa minimum order besar.",
+      "image": "https://souvenirpernikahan.web.id/assets/images/souvenir-tumbler-custom.webp",
+      "datePublished": "2026-09-28T09:00:00+07:00",
+      "dateModified": "2026-10-20T10:00:00+07:00",
+      "inLanguage": "id-ID",
+      "mainEntityOfPage": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir",
+      "author": {
+        "@type": "Person",
+        "@id": "https://souvenirpernikahan.web.id/penulis#person",
+        "name": "Yudi Abraham",
+        "url": "https://souvenirpernikahan.web.id/penulis",
+        "jobTitle": "Spesialis Tipografi & Personalisasi Cinderamata",
+        "description": "Spesialis tipografi dan personalisasi cinderamata yang menjaga standar estetika grafir laser, kaligrafi, dan layout branding souvenir pernikahan agar senantiasa tampak proporsional dan berkelas."
+      },
+      "publisher": {
+        "@id": "https://souvenirpernikahan.web.id/#organization"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".gs-article__title",
+          ".gs-article__lead",
+          ".gs-article__key-takeaway p"
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://souvenirpernikahan.web.id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://souvenirpernikahan.web.id/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Souvenir Pernikahan Custom Nama dan Tanggal",
+          "item": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://souvenirpernikahan.web.id/blog/personalisasi-nama-dan-tanggal-souvenir#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Apakah nama lengkap kedua mempelai harus dicetak di badan souvenir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tidak harus. Praktik terbaik adalah menaruh inisial atau monogram minimalis pada badan produk, sementara nama lengkap, tanggal pernikahan, dan ucapan terima kasih dicantumkan pada hangtag kemasan luar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Teknik personalisasi apa yang paling awet dan tahan lama?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Laser engraving (grafir laser) pada material kayu, bambu, stainless steel, atau kaca memiliki ketahanan paling lama karena mengikis permukaan secara permanen tanpa risiko luntur terkena air."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bagaimana memilih font yang mudah dibaca untuk ukuran kecil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gunakan kombinasi font script kaligrafi elegan untuk inisial nama mempelai, dipadukan dengan font serif atau sans-serif clean (seperti Playfair atau Inter) untuk teks tanggal dan lokasi pernikahan."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <style>
     .gs-article__header {
@@ -328,8 +344,7 @@
 
               <li><a href="/blog" class="gs-breadcrumb__item">Blog</a></li>
 
-              <li class="gs-breadcrumb__item gs-breadcrumb__item--active" aria-current="page">Tips Personalisasi
-                Souvenir</li>
+              <li class="gs-breadcrumb__item gs-breadcrumb__item--active" aria-current="page">Souvenir Pernikahan Custom Nama dan Tanggal</li>
             </ol>
           </nav>
 
@@ -495,7 +510,7 @@
               </div>
               <div class="gs-article__baca-juga-content">
                 <strong>Baca Juga:</strong> Ingin memadukan personalisasi dengan kotak kemasan unik? Simak ulasan <a
-                  href="/blog/ide-kemasan-souvenir-pernikahan">ide kemasan souvenir pernikahan yang elegan dan
+                  href="/blog/ide-kemasan-souvenir-pernikahan">pilihan kemasan souvenir pernikahan custom yang elegan dan
                   berkesan</a>.
               </div>
             </div>
@@ -734,7 +749,7 @@
                     <time datetime="2026-10-15">15 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/panduan-memilih-souvenir-pernikahan">Cara Memilih Souvenir Pernikahan yang Tepat</a>
+                    <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan cara memilihnya</a>
                   </h3>
                   <p class="gs-blog-card__excerpt">Tips memilih cinderamata bernilai fungsi tinggi dan selaras tema
                     pesta pernikahan.</p>
@@ -746,7 +761,7 @@
 
               <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
-                  <img src="/assets/images/craft-packaging.webp" alt="Ide kemasan souvenir pernikahan elegan"
+                  <img src="/assets/images/craft-packaging.webp" alt="Pilihan kemasan souvenir pernikahan custom yang elegan"
                     loading="lazy" />
                 </div>
                 <div class="gs-blog-card__body">
@@ -756,11 +771,32 @@
                     <time datetime="2026-10-05">5 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/ide-kemasan-souvenir-pernikahan">Ide Kemasan Souvenir Pernikahan Elegan</a>
+                    <a href="/blog/ide-kemasan-souvenir-pernikahan">Pilihan Kemasan Souvenir Pernikahan Custom yang Elegan</a>
                   </h3>
                   <p class="gs-blog-card__excerpt">Inspirasi hardbox satin, pouch serut linen, dan kraft box rustic wax
                     seal.</p>
                   <a href="/blog/ide-kemasan-souvenir-pernikahan" class="gs-blog-card__link">
+                    Baca Selengkapnya &rarr;
+                  </a>
+                </div>
+              </article>
+
+                          <article data-gs-animate class="gs-blog-card">
+                <div class="gs-blog-card__image">
+                  <img src="/assets/images/hero-wedding.webp" alt="Checklist pemesanan souvenir dalam jumlah besar"
+                    loading="lazy" />
+                </div>
+                <div class="gs-blog-card__body">
+                  <div class="gs-blog-card__meta">
+                    <span class="gs-blog-card__category">Timeline</span>
+                    <span aria-hidden="true">&bull;</span>
+                    <time datetime="2026-09-20">20 Sep 2026</time>
+                  </div>
+                  <h3 class="gs-blog-card__title">
+                    <a href="/blog/checklist-pemesanan-souvenir-pernikahan">Checklist Pemesanan Souvenir dalam Jumlah Besar</a>
+                  </h3>
+                  <p class="gs-blog-card__excerpt">Daftar periksa tahap sampling, approval desain, QC, hingga distribusi meja resepsi.</p>
+                  <a href="/blog/checklist-pemesanan-souvenir-pernikahan" class="gs-blog-card__link">
                     Baca Selengkapnya &rarr;
                   </a>
                 </div>

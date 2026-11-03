@@ -88,135 +88,151 @@
   <!-- Structured Data JSON-LD (BlogPosting, BreadcrumbList, FAQPage) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "LocalBusiness"],
-        "@id": "https://souvenirpernikahan.web.id/#organization",
-        "name": "Souvenir Pernikahan",
-        "url": "https://souvenirpernikahan.web.id/",
-        "logo": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
-        "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "LocalBusiness"
+      ],
+      "@id": "https://souvenirpernikahan.web.id/#organization",
+      "name": "Souvenir Pernikahan",
+      "url": "https://souvenirpernikahan.web.id/",
+      "logo": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+      "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+      "telephone": "+6282131087971",
+      "priceRange": "Rp 15.000 - Rp 500.000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang",
+        "addressLocality": "Kota Malang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "65138",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.9839,
+        "longitude": 112.6214
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
         "telephone": "+6282131087971",
-        "priceRange": "Rp 15.000 - Rp 500.000",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang",
-          "addressLocality": "Kota Malang",
-          "addressRegion": "Jawa Timur",
-          "postalCode": "65138",
-          "addressCountry": "ID"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -7.9839,
-          "longitude": 112.6214
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Indonesia"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+6282131087971",
-          "contactType": "customer service",
-          "areaServed": "ID",
-          "availableLanguage": ["Indonesian"]
-        }
-      },
-      {
-        "@type": "BlogPosting",
-        "@id": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat#article",
-        "isPartOf": {
-          "@id": "https://souvenirpernikahan.web.id/#website"
-        },
-        "headline": "Souvenir Pernikahan Unik yang Bermanfaat untuk Tamu",
-        "description": "Panduan komprehensif memilih souvenir pernikahan fungsional dan bernilai guna: pouch custom, tas kain, tumbler ramah lingkungan, produk perawatan diri, serta panduan alur pemesanan custom.",
-        "image": "https://souvenirpernikahan.web.id/assets/images/souvenir-pernikahan-unik-bermanfaat.webp",
-        "datePublished": "2026-10-26T09:00:00+07:00",
-        "dateModified": "2026-10-26T10:00:00+07:00",
-        "inLanguage": "id-ID",
-        "mainEntityOfPage": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat",
-        "author": {
-          "@type": "Person",
-          "@id": "https://souvenirpernikahan.web.id/penulis#person",
-          "name": "Yudi Abraham",
-          "url": "https://souvenirpernikahan.web.id/penulis",
-          "jobTitle": "Technology Writer & Web Development Enthusiast",
-          "description": "Penulis konten edukatif seputar souvenir pernikahan, tips cinderamata acara, inspirasi kemasan elegan, serta integrasi teknologi web di Souvenir Pernikahan."
-        },
-        "publisher": {
-          "@id": "https://souvenirpernikahan.web.id/#organization"
-        },
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [".gs-article__title", ".gs-article__lead", ".gs-article__key-takeaway p"]
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Beranda",
-            "item": "https://souvenirpernikahan.web.id/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "https://souvenirpernikahan.web.id/blog"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Souvenir Pernikahan Unik Bermanfaat",
-            "item": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat"
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Bagaimana cara memilih souvenir pernikahan yang bermanfaat?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Mulailah dari fungsi yang dapat dipakai berulang kali, kemudahan dibawa oleh tamu, kualitas bahan yang layak, serta kesesuaian desain dengan tema acara. Sesuaikan juga pilihan dengan jumlah tamu undangan dan alokasi anggaran."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Apakah nama pasangan dan kemasan bisa dibuat custom?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Hal tersebut bergantung pada produk dan layanan penyedia. Tanyakan opsi metode personalisasi seperti grafir laser, hot print foil emas, bordir, atau thank you tag, serta konfirmasikan jenis kemasan, biaya tambahan, dan waktu pengerjaan."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Bagaimana cara mengetahui harga dan jumlah minimum pemesanan?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Mintalah penawaran resmi dengan menyebutkan produk yang diminati, estimasi kuantitas kebutuhan, detail spesifikasi custom, dan jenis kemasan. Harga serta ketentuan jumlah minimum pemesanan (MOQ) perlu dikonfirmasi langsung kepada penyedia."
-            }
-          }
+        "contactType": "customer service",
+        "areaServed": "ID",
+        "availableLanguage": [
+          "Indonesian"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat#article",
+      "isPartOf": {
+        "@id": "https://souvenirpernikahan.web.id/#website"
+      },
+      "headline": "Souvenir Pernikahan Unik yang Bermanfaat untuk Tamu",
+      "description": "Panduan komprehensif memilih souvenir pernikahan fungsional dan bernilai guna: pouch custom, tas kain, tumbler ramah lingkungan, produk perawatan diri, serta panduan alur pemesanan custom.",
+      "image": "https://souvenirpernikahan.web.id/assets/images/souvenir-pernikahan-unik-bermanfaat.webp",
+      "datePublished": "2026-10-26T09:00:00+07:00",
+      "dateModified": "2026-10-26T10:00:00+07:00",
+      "inLanguage": "id-ID",
+      "mainEntityOfPage": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat",
+      "author": {
+        "@type": "Person",
+        "@id": "https://souvenirpernikahan.web.id/penulis#person",
+        "name": "Yudi Abraham",
+        "url": "https://souvenirpernikahan.web.id/penulis",
+        "jobTitle": "Technology Writer & Web Development Enthusiast",
+        "description": "Penulis konten edukatif seputar souvenir pernikahan, tips cinderamata acara, inspirasi kemasan elegan, serta integrasi teknologi web di Souvenir Pernikahan."
+      },
+      "publisher": {
+        "@id": "https://souvenirpernikahan.web.id/#organization"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".gs-article__title",
+          ".gs-article__lead",
+          ".gs-article__key-takeaway p"
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://souvenirpernikahan.web.id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://souvenirpernikahan.web.id/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Souvenir Pernikahan Unik yang Bermanfaat untuk Tamu",
+          "item": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bagaimana cara memilih souvenir pernikahan yang bermanfaat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mulailah dari fungsi yang dapat dipakai berulang kali, kemudahan dibawa oleh tamu, kualitas bahan yang layak, serta kesesuaian desain dengan tema acara. Sesuaikan juga pilihan dengan jumlah tamu undangan dan alokasi anggaran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Apakah nama pasangan dan kemasan bisa dibuat custom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hal tersebut bergantung pada produk dan layanan penyedia. Tanyakan opsi metode personalisasi seperti grafir laser, hot print foil emas, bordir, atau thank you tag, serta konfirmasikan jenis kemasan, biaya tambahan, dan waktu pengerjaan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bagaimana cara mengetahui harga dan jumlah minimum pemesanan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mintalah penawaran resmi dengan menyebutkan produk yang diminati, estimasi kuantitas kebutuhan, detail spesifikasi custom, dan jenis kemasan. Harga serta ketentuan jumlah minimum pemesanan (MOQ) perlu dikonfirmasi langsung kepada penyedia."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
   <style>
     .gs-article__header {
@@ -324,7 +340,7 @@
             <ol class="gs-breadcrumb">
               <li><a href="/" class="gs-breadcrumb__item">Beranda</a></li>
               <li><a href="/blog" class="gs-breadcrumb__item">Blog</a></li>
-              <li class="gs-breadcrumb__item gs-breadcrumb__item--active" aria-current="page">Souvenir Pernikahan Unik yang Bermanfaat</li>
+              <li class="gs-breadcrumb__item gs-breadcrumb__item--active" aria-current="page">Souvenir Pernikahan Unik yang Bermanfaat untuk Tamu</li>
             </ol>
           </nav>
 
@@ -408,7 +424,7 @@
 
             <!-- Lead Paragraph -->
             <p class="gs-article__lead">
-              Souvenir pernikahan unik yang bermanfaat untuk tamu bukan hanya menjadi kenang-kenangan dari hari istimewa, tetapi juga dapat digunakan setelah acara selesai. Pilih souvenir berdasarkan fungsi, kualitas bahan, ukuran, desain, dan kesesuaiannya dengan konsep acara (pelajari juga <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan komprehensif memilih souvenir pernikahan</a>). Beberapa ide yang bisa dipertimbangkan antara lain pouch custom, tas kain, botol minum, serta produk perawatan diri. Pastikan pilihan akhir sesuai kebutuhan acara dan ketersediaan produk di <a href="/tentang">Souvenir Pernikahan</a>.
+              Souvenir pernikahan unik yang bermanfaat untuk tamu bukan hanya menjadi kenang-kenangan dari hari istimewa, tetapi juga dapat digunakan setelah acara selesai. Pilih souvenir berdasarkan fungsi, kualitas bahan, ukuran, desain, dan kesesuaiannya dengan konsep acara (pelajari juga <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan cara memilihnya</a>). Beberapa ide yang bisa dipertimbangkan antara lain pouch custom, tas kain, botol minum, serta produk perawatan diri. Pastikan pilihan akhir sesuai kebutuhan acara dan ketersediaan produk di <a href="/tentang">Souvenir Pernikahan</a>.
             </p>
 
             <!-- Key Takeaway Box (AEO/GEO Optimized) -->
@@ -440,10 +456,10 @@
                 <strong>Praktis dibawa:</strong> Pertimbangkan ukuran dan bobot fisik produk. Hal ini sangat krusial terutama jika tamu membawa souvenir bersama barang bawaan lainnya seperti tas pesta atau kado.
               </li>
               <li>
-                <strong>Sesuai tema acara:</strong> Warna, bentuk bahan dasar, serta ornamen kemasan dapat diselaraskan secara harmonis dengan konsep dekorasi pernikahan Anda (seperti <em>rustic</em>, modern minimalis, atau adat tradisional) melalui kurasi <a href="/blog/ide-kemasan-souvenir-pernikahan">ide kemasan souvenir pernikahan yang elegan</a>.
+                <strong>Sesuai tema acara:</strong> Warna, bentuk bahan dasar, serta ornamen kemasan dapat diselaraskan secara harmonis dengan konsep dekorasi pernikahan Anda (seperti <em>rustic</em>, modern minimalis, atau adat tradisional) melalui kurasi <a href="/blog/ide-kemasan-souvenir-pernikahan">pilihan kemasan souvenir pernikahan custom yang elegan</a>.
               </li>
               <li>
-                <strong>Memiliki sentuhan personal:</strong> Penulisan nama pasangan, inisial monogram, tanggal pernikahan, atau ilustrasi grafis khusus dapat disematkan secara proporsional melalui teknik <a href="/blog/personalisasi-nama-dan-tanggal-souvenir">personalisasi nama dan tanggal souvenir</a> yang tepat.
+                <strong>Memiliki sentuhan personal:</strong> Penulisan nama pasangan, inisial monogram, tanggal pernikahan, atau ilustrasi grafis khusus dapat disematkan secara proporsional melalui teknik <a href="/blog/personalisasi-nama-dan-tanggal-souvenir">souvenir pernikahan custom nama dan tanggal</a> yang tepat.
               </li>
               <li>
                 <strong>Kualitasnya layak:</strong> Periksa ketebalan bahan, kerapian jahitan, kehalusan hasil akhir (<em>finishing</em>), keandalan fungsi, serta proteksi kemasan sebelum memutuskan pesanan massal.
@@ -507,7 +523,7 @@
               </div>
               <div class="gs-article__baca-juga-content">
                 <strong>Baca Juga:</strong> Ingin memastikan jumlah pesanan cinderamata tepat dan tidak kurang saat resepsi? Pelajari <a
-                  href="/blog/cara-menghitung-jumlah-souvenir">rumus dan cara menghitung jumlah souvenir pernikahan agar pas dan aman</a>.
+                  href="/blog/cara-menghitung-jumlah-souvenir">rumus dan cara menghitung kebutuhan souvenir pernikahan agar pas dan aman</a>.
               </div>
             </div>
 
@@ -528,7 +544,7 @@
                 <tbody>
                   <tr>
                     <td><strong>Jumlah Tamu</strong></td>
-                    <td>Hitung kebutuhan berdasarkan daftar undangan riil dan selalu sediakan alokasi cadangan (<em>buffer stock</em> sekitar 10%–15%) sesuai panduan di <a href="/blog/cara-menghitung-jumlah-souvenir">cara menghitung jumlah souvenir</a> untuk tamu tambahan dan keluarga panitia.</td>
+                    <td>Hitung kebutuhan berdasarkan daftar undangan riil dan selalu sediakan alokasi cadangan (<em>buffer stock</em> sekitar 10%–15%) sesuai panduan di <a href="/blog/cara-menghitung-jumlah-souvenir">cara menghitung kebutuhan souvenir pernikahan agar pas</a> untuk tamu tambahan dan keluarga panitia.</td>
                   </tr>
                   <tr>
                     <td><strong>Tema Pernikahan</strong></td>
@@ -544,7 +560,7 @@
                   </tr>
                   <tr>
                     <td><strong>Kemasan (Packaging)</strong></td>
-                    <td>Periksa dimensi kemasan, kekuatan proteksi isi selama proses pengangkutan, dan inspirasi wadah di <a href="/blog/ide-kemasan-souvenir-pernikahan">ide kemasan souvenir pernikahan</a> agar tamu mudah membawanya pulang.</td>
+                    <td>Periksa dimensi kemasan, kekuatan proteksi isi selama proses pengangkutan, dan inspirasi wadah di <a href="/blog/ide-kemasan-souvenir-pernikahan">pilihan kemasan souvenir pernikahan custom yang elegan</a> agar tamu mudah membawanya pulang.</td>
                   </tr>
                   <tr>
                     <td><strong>Anggaran (Budget)</strong></td>
@@ -591,7 +607,7 @@
               <li><strong>Hang Tag &amp; Belly Band:</strong> Solusi personalisasi paling fleksibel dan ekonomis untuk produk botol kaca, sabun artisan, atau toples rempah.</li>
             </ul>
             <p>
-              Sebelum menyepakati pesanan, tanyakan secara detail mengenai batas area desain, jumlah minimum pesanan khusus (jika berlaku), tambahan biaya <em>molding/plate</em>, serta estimasi waktu pengerjaan. Untuk referensi panduan teknik cetak, grafir, dan foil lebih mendalam, simak ulasan kami tentang <a href="/blog/personalisasi-nama-dan-tanggal-souvenir">panduan personalisasi nama dan tanggal souvenir pernikahan</a>. Anda juga dapat melihat dokumentasi hasil produksi asli kami di galeri <a href="/portofolio">Portofolio Souvenir Pernikahan</a>.
+              Sebelum menyepakati pesanan, tanyakan secara detail mengenai batas area desain, jumlah minimum pesanan khusus (jika berlaku), tambahan biaya <em>molding/plate</em>, serta estimasi waktu pengerjaan. Untuk referensi panduan teknik cetak, grafir, dan foil lebih mendalam, simak ulasan kami tentang <a href="/blog/personalisasi-nama-dan-tanggal-souvenir">souvenir pernikahan custom nama dan tanggal</a>. Anda juga dapat melihat dokumentasi hasil produksi asli kami di galeri <a href="/portofolio">Portofolio Souvenir Pernikahan</a>.
             </p>
 
             <!-- Section 5 -->
@@ -609,7 +625,7 @@
               <li><strong>Lakukan proofing desain dan konfirmasi akhir:</strong> Periksa ejaan nama, tanggal, dan peletakan logo sebelum memberikan persetujuan cetak massal.</li>
             </ol>
             <p>
-              Alur kerja terstruktur ini terbukti efektif menekan risiko salah cetak dan memastikan souvenir tiba tepat waktu dalam kondisi prima. Gunakan juga panduan <a href="/blog/checklist-pemesanan-souvenir-pernikahan">checklist pemesanan souvenir pernikahan</a> kami agar seluruh tahapan persiapan pesta Anda terorganisasi dengan sempurna.
+              Alur kerja terstruktur ini terbukti efektif menekan risiko salah cetak dan memastikan souvenir tiba tepat waktu dalam kondisi prima. Gunakan juga panduan <a href="/blog/checklist-pemesanan-souvenir-pernikahan">checklist pemesanan souvenir dalam jumlah besar</a> kami agar seluruh tahapan persiapan pesta Anda terorganisasi dengan sempurna.
             </p>
 
             <!-- Section 6: FAQ -->
@@ -751,7 +767,7 @@
                     <time datetime="2026-10-15">15 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/panduan-memilih-souvenir-pernikahan">Cara Memilih Souvenir Pernikahan yang Tepat</a>
+                    <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan cara memilihnya</a>
                   </h3>
                   <p class="gs-blog-card__excerpt">Tips memilih cinderamata bernilai fungsi tinggi dan selaras tema pesta pernikahan Anda.</p>
                   <a href="/blog/panduan-memilih-souvenir-pernikahan" class="gs-blog-card__link">
@@ -763,7 +779,7 @@
               <!-- Related 2 -->
               <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
-                  <img src="/assets/images/souvenir-botol-minyak.webp" alt="Cara menghitung jumlah souvenir pernikahan"
+                  <img src="/assets/images/souvenir-botol-minyak.webp" alt="Cara menghitung kebutuhan souvenir pernikahan agar pas"
                     loading="lazy" />
                 </div>
                 <div class="gs-blog-card__body">
@@ -773,7 +789,7 @@
                     <time datetime="2026-10-10">10 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/cara-menghitung-jumlah-souvenir">Cara Menghitung Jumlah Souvenir Pernikahan</a>
+                    <a href="/blog/cara-menghitung-jumlah-souvenir">Cara Menghitung Kebutuhan Souvenir Pernikahan agar Pas</a>
                   </h3>
                   <p class="gs-blog-card__excerpt">Rumus perhitungan kuantitas pesanan, buffer cadangan, dan tips pembagian di meja tamu.</p>
                   <a href="/blog/cara-menghitung-jumlah-souvenir" class="gs-blog-card__link">
@@ -785,7 +801,7 @@
               <!-- Related 3 -->
               <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
-                  <img src="/assets/images/craft-packaging.webp" alt="Ide kemasan souvenir pernikahan elegan"
+                  <img src="/assets/images/craft-packaging.webp" alt="Pilihan kemasan souvenir pernikahan custom yang elegan"
                     loading="lazy" />
                 </div>
                 <div class="gs-blog-card__body">
@@ -795,7 +811,7 @@
                     <time datetime="2026-10-05">5 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/ide-kemasan-souvenir-pernikahan">Ide Kemasan Souvenir Pernikahan Elegan</a>
+                    <a href="/blog/ide-kemasan-souvenir-pernikahan">Pilihan Kemasan Souvenir Pernikahan Custom yang Elegan</a>
                   </h3>
                   <p class="gs-blog-card__excerpt">Inspirasi hardbox satin, pouch serut kanvas, dan kraft box rustic wax seal yang estetik.</p>
                   <a href="/blog/ide-kemasan-souvenir-pernikahan" class="gs-blog-card__link">
