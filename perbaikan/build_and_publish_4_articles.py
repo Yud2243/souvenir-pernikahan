@@ -612,7 +612,14 @@ def build_article_html(cfg):
     }
     
     def contextualize(text, current_h2=""):
-        # 1. First, strip or convert draft docx notes in parentheses like (/panduan/...)
+        # 1. Handle Source Citation notes cleanly as professional editorial callouts
+        if "Sumber: BPS - Nikah dan Cerai" in text:
+            return '<div class="gs-article__source-note" style="font-size:0.875rem;color:var(--gs-gray-600);background:#f8fafc;border-left:3px solid var(--gs-green-600);padding:0.6rem 0.9rem;border-radius:0 6px 6px 0;margin:0.75rem 0 1.25rem;"><strong>Sumber Rujukan Data:</strong> <a href="https://www.bps.go.id/id/statistics-table/3/VkhwVUszTXJPVmQ2ZFRKamNIZG9RMVo2VEdsbVVUMDkjMyMwMDAw/nikah-dan-cerai-menurut-provinsi-kejadian-.html?year=2024" target="_blank" rel="noopener noreferrer nofollow" style="color:var(--gs-green-800);text-decoration:underline;font-weight:600;">BPS RI &mdash; Statistik Nikah dan Cerai Menurut Provinsi (2024)</a> (Pembaruan data 27 Februari 2025).</div>'
+
+        if "Sumber: ANTARA - Data pernikahan nasional" in text:
+            return '<div class="gs-article__source-note" style="font-size:0.875rem;color:var(--gs-gray-600);background:#f8fafc;border-left:3px solid var(--gs-green-600);padding:0.6rem 0.9rem;border-radius:0 6px 6px 0;margin:0.75rem 0 1.25rem;"><strong>Sumber Rujukan Data:</strong> <a href="https://www.antaranews.com/berita/5328550/selama-2025-angka-pernikahan-nasional-tercatat-alami-kenaikan?page=1" target="_blank" rel="noopener noreferrer nofollow" style="color:var(--gs-green-800);text-decoration:underline;font-weight:600;">ANTARA News &mdash; Data Pernikahan Nasional (Kementerian Agama RI)</a> (Publikasi 31 Desember 2025).</div>'
+
+        # 2. First, strip or convert draft docx notes in parentheses like (/panduan/...)
         text = text.replace('(/panduan/anggaran-souvenir-pernikahan/)', '')
         text = text.replace('(/panduan/memilih-vendor-souvenir-pernikahan/)', '')
         text = text.replace('(/panduan/proses-pemesanan-souvenir-pernikahan-custom/)', '')
@@ -620,7 +627,7 @@ def build_article_html(cfg):
         text = re.sub(r'\s*\(/[a-zA-Z0-9_\-\/]+\)\s*', ' ', text).strip()
         text = re.sub(r'\s+([.,;:!?])', r'\1', text)
         
-        # 2. Convert specific cross-link sentences gracefully
+        # 3. Convert specific cross-link sentences gracefully and naturally
         if "7 ciri vendor souvenir pernikahan yang layak dipilih" in text:
             text = text.replace("7 ciri vendor souvenir pernikahan yang layak dipilih", '<a href="/blog/ciri-vendor-souvenir-pernikahan-terpercaya">7 ciri vendor souvenir pernikahan yang layak dipilih</a>')
             links_count["sibling_ciri"] += 1
@@ -637,13 +644,28 @@ def build_article_html(cfg):
                 links_count["sibling_budget"] += 1
                 return re.sub(r'\s+([.,;:!?])', r'\1', text)
 
+        if "layanan vendor dan ragam produknya" in text and slug != "vendor-souvenir-pernikahan":
+            text = 'Untuk memahami layanan vendor dan ragam produknya, simak panduan lengkap <a href="/blog/vendor-souvenir-pernikahan">vendor souvenir pernikahan custom</a>.'
+            links_count["sibling_vendor"] += 1
+            return text
+
+        if "bandingkan harga bersama spesifikasi tertulis" in text and slug != "vendor-souvenir-pernikahan":
+            text = 'Karena itu, bandingkan harga bersama spesifikasi tertulis. Untuk melihat kategori produk dan ragam layanannya, pelajari panduan <a href="/blog/vendor-souvenir-pernikahan">vendor souvenir pernikahan custom</a>.'
+            links_count["sibling_vendor"] += 1
+            return text
+
+        if "pilihan layanan" in text and "vendor souvenir pernikahan custom" in text and slug != "vendor-souvenir-pernikahan":
+            text = 'Untuk memahami gambaran layanan secara komprehensif, pelajari panduan lengkap <a href="/blog/vendor-souvenir-pernikahan">vendor souvenir pernikahan custom</a>.'
+            links_count["sibling_vendor"] += 1
+            return text
+
         if "panduan vendor souvenir pernikahan custom" in text or "vendor souvenir pernikahan custom untuk berbagai konsep acara" in text:
             if slug != "vendor-souvenir-pernikahan" and links_count["sibling_vendor"] < 1:
                 text = re.sub(r'(?:panduan\s+)?vendor souvenir pernikahan custom(?: untuk berbagai konsep acara)?', '<a href="/blog/vendor-souvenir-pernikahan">vendor souvenir pernikahan custom</a>', text)
                 links_count["sibling_vendor"] += 1
                 return re.sub(r'\s+([.,;:!?])', r'\1', text)
 
-        # 3. Standard Home anchors: souvenir pernikahan, vendor souvenir pernikahan, souvenir pernikahan custom
+        # 4. Standard Home anchors: souvenir pernikahan, vendor souvenir pernikahan, souvenir pernikahan custom
         if links_count["home_souvenir"] < 2 and "souvenir pernikahan" in text:
             text = re.sub(r'\bsouvenir pernikahan\b', r'<a href="/">souvenir pernikahan</a>', text, count=1)
             links_count["home_souvenir"] += 1
@@ -715,7 +737,10 @@ def build_article_html(cfg):
                     idx += 15
                 else:
                     proc_p = contextualize(itext, sec_h2)
-                    s_lines.append(f'              <p>{proc_p}</p>')
+                    if proc_p.startswith('<div'):
+                        s_lines.append(f'              {proc_p}')
+                    else:
+                        s_lines.append(f'              <p>{proc_p}</p>')
                     idx += 1
                     
         # -------------------------------------------------------------
