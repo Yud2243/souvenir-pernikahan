@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Souvenir Pernikahan — Sitemap XML (2026-2027 SEO / AEO / GEO Optimized — Clean URLs)
-  Last updated: 2026-11-02
+  Last updated: 2026-11-03
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- HALAMAN UTAMA -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- HALAMAN PAKET & KATEGORI -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/paket</loc>
     <lastmod>2026-11-03</lastmod>
@@ -30,7 +30,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <!-- HALAMAN PORTOFOLIO -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/portofolio</loc>
     <lastmod>2026-11-03</lastmod>
@@ -43,33 +43,33 @@
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
-  <!-- HALAMAN TENTANG -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/tentang</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- HALAMAN BLOG INDEX -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/blog</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- HALAMAN PENULIS -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/penulis</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- ARTIKEL BLOG -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/vendor-souvenir-pernikahan</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/ciri-vendor-souvenir-pernikahan-terpercaya</loc>
@@ -94,7 +94,7 @@
     <loc>https://souvenirpernikahan.web.id/blog/panduan-memilih-souvenir-pernikahan</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-premium-untuk-tamu-vip</loc>
@@ -142,7 +142,7 @@
     <loc>https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-tradisional-khas-indonesia</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-unik-bermanfaat</loc>
@@ -154,7 +154,7 @@
     <loc>https://souvenirpernikahan.web.id/blog/cara-menghitung-jumlah-souvenir</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/ide-kemasan-souvenir-pernikahan</loc>
@@ -172,19 +172,19 @@
     <loc>https://souvenirpernikahan.web.id/blog/checklist-pemesanan-souvenir-pernikahan</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/panduan-souvenir-perusahaan</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/panduan-harga-souvenir-pernikahan-berdasarkan-jenis-produk</loc>
     <lastmod>2026-11-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/blog/ide-souvenir-pernikahan-budget-rp5-000-per-pcs</loc>
@@ -198,7 +198,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- HALAMAN KEBIJAKAN PRIVASI -->
+  
   <url>
     <loc>https://souvenirpernikahan.web.id/kebijakan-privasi</loc>
     <lastmod>2026-11-03</lastmod>
