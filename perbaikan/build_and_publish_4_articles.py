@@ -670,6 +670,7 @@ def build_article_html(cfg):
                 s_lines.append(f'              <h3>{html.escape(itext)}</h3>')
                 idx += 1
             elif itype == 'p':
+                # ARTICLE 3 TABLE 1: SIMULASI HITUNG BUDGET
                 if itext == 'Jumlah Souvenir' and idx + 14 < len(items):
                     c_qty = itext
                     c_unit = items[idx+1][1]
@@ -705,6 +706,249 @@ def build_article_html(cfg):
                     s_lines.append(f'              <p>{proc_p}</p>')
                     idx += 1
                     
+        # -------------------------------------------------------------
+        # INJEKSI TABEL & LISTS KHUSUS TIAP SECTION AGAR SANGAT SCANNABLE
+        # -------------------------------------------------------------
+        
+        # 1. ARTICLE 1 (vendor-souvenir-pernikahan)
+        if slug == "vendor-souvenir-pernikahan":
+            if sec_id == "jenis-souvenir-pernikahan":
+                # Tambah bullet summary untuk 4 kategori
+                s_lines.append('''              <ul>
+                <li><strong>Souvenir Fungsional:</strong> Cinderamata yang memiliki manfaat praktis sehari-hari seperti sendok-garpu kayu mahoni, botol minum tumbler, dan pouch serbaguna.</li>
+                <li><strong>Souvenir Tradisional Khas:</strong> Menonjolkan kekayaan kriya nusantara seperti kain lurik, kipas batik cap, dompet anyaman pandan, dan gerabah estetik.</li>
+                <li><strong>Souvenir Modern Minimalis:</strong> Mengutamakan estetika simpel, clean, dan elegan seperti reed diffuser ruangan, lilin aromaterapi soy wax, dan tatakan gelas marmer.</li>
+                <li><strong>Souvenir Premium &amp; VIP:</strong> Dirancang khusus untuk keluarga inti dan tamu kehormatan dengan material eksklusif hardbox velvet dan kombinasi gift set berkelas.</li>
+              </ul>''')
+            elif sec_id == "vendor-custom-vs-supplier-grosir":
+                # Tambah Tabel Komparasi Vendor Custom vs Supplier Grosir
+                s_lines.append('''              <div class="gs-article__table-wrapper">
+                <table class="gs-article__table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="min-width: 140px;">Parameter Pembanding</th>
+                      <th scope="col">Vendor Souvenir Custom</th>
+                      <th scope="col">Supplier Grosir Pasar</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Fleksibilitas Desain</strong></td>
+                      <td>Sangat bebas; personalisasi grafir nama, inisial font, dan penyesuaian warna tema pesta.</td>
+                      <td>Terbatas pada produk cetakan pabrik yang sudah jadi (ready stock umum).</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Layanan Sampel Fisik</strong></td>
+                      <td>Menyediakan sampel proofing dan mockup digital sebelum masuk tahap produksi massal.</td>
+                      <td>Jarang ada sampel kustom; pembeli hanya bisa melihat contoh pajangan di toko.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Kemasan &amp; Kartu Ucapan</strong></td>
+                      <td>Termasuk kemasan terkonsep (box mika, hardbox, pouch tenun) dan kartu ucapan kustom.</td>
+                      <td>Umumnya kemasan plastik polos tipis tanpa kartu ucapan atau pita dekoratif.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Minimum Pemesanan (MOQ)</strong></td>
+                      <td>Fleksibel, mulai dari 50 hingga 100 pcs untuk intimate wedding maupun partai besar.</td>
+                      <td>Harus per dus karton besar pabrikan tanpa opsi personalisasi satuan.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Jaminan Mutu &amp; Garansi</strong></td>
+                      <td>Quality control berlapis dengan garansi penggantian barang cacat produksi.</td>
+                      <td>Sistem beli putus; barang pecah atau cacat cetak sulit ditukar kembali.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>''')
+            elif sec_id == "kesalahan-dalam-memesan":
+                # Tambah bullet checklist kesalahan
+                s_lines.append('''              <ul>
+                <li><strong>Pemesanan Terlalu Dekat Hari-H:</strong> Menyisakan sedikit waktu bila terjadi kendala bahan baku atau keterlambatan kurir kargo.</li>
+                <li><strong>Tidak Meminta Sampel Proofing:</strong> Risiko ketidaksesuaian warna sablon, ukuran riil, atau hasil grafir laser nama pengantin.</li>
+                <li><strong>Mengabaikan Perhitungan Buffer Cadangan (+10%):</strong> Berpotensi membuat cinderamata kurang saat tamu undangan membawa pendamping.</li>
+                <li><strong>Lupa Menghitung Waktu Ekspedisi Kargo:</strong> Pengiriman darat/laut ke luar pulau membutuhkan waktu transit 4–7 hari kerja.</li>
+              </ul>''')
+
+        # 2. ARTICLE 2 (ciri-vendor-souvenir-pernikahan-terpercaya)
+        elif slug == "ciri-vendor-souvenir-pernikahan-terpercaya":
+            if sec_id == "mengapa-ciri-vendor-perlu-diperiksa":
+                # Tambah Tabel Matriks Evaluasi 7 Ciri Vendor Kredibel
+                s_lines.append('''              <div class="gs-article__table-wrapper">
+                <table class="gs-article__table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="min-width: 140px;">7 Ciri Utama</th>
+                      <th scope="col">Bukti Verifikasi yang Wajib Diminta</th>
+                      <th scope="col">Risiko Jika Diabaikan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>1. Portofolio Nyata</strong></td>
+                      <td>Dokumentasi foto/video asli workshop, bukan mockup 3D atau comotan internet.</td>
+                      <td>Hasil jadi berbeda jauh dengan ekspektasi katalog digital.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>2. Kualitas Material</strong></td>
+                      <td>Spesifikasi ketebalan kain (gramasi), jenis kayu/keramik, dan kerapian jahitan.</td>
+                      <td>Bahan tipis, mudah robek, atau finishing kasar saat dibagikan.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>3. Sampel Fisik</strong></td>
+                      <td>Ketersediaan sampel fisik yang bisa dikirim atau dilihat di studio workshop.</td>
+                      <td>Kecewa massal setelah ratusan souvenir selesai diproduksi.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>4. Transparansi Biaya</strong></td>
+                      <td>Rincian nota formal mencakup produk, kemasan, kartu ucapan, dan estimasi ongkir.</td>
+                      <td>Biaya siluman tak terduga menjelang pelunasan barang.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>5. Ketentuan Tertulis</strong></td>
+                      <td>Invoice resmi dengan tanggal komitmen deadline, termin DP, dan klausa garansi.</td>
+                      <td>Perselisihan bila terjadi cacat produk atau pesanan molor.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>6. Komunikasi Jelas</strong></td>
+                      <td>Customer service responsif memberikan foto progres produksi berkala.</td>
+                      <td>Stres berkepanjangan karena vendor sulit dihubungi jelang hari-H.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>7. Jadwal Realistis</strong></td>
+                      <td>Timeline terstruktur dengan buffer pengiriman minimal 2 minggu sebelum acara.</td>
+                      <td>Paket souvenir belum tiba di gedung saat resepsi berlangsung.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>''')
+            elif sec_id == "kesalahan-umum-memilih-vendor":
+                # Tambah bullet points jebakan vendor abal-abal
+                s_lines.append('''              <ul>
+                <li><strong>Tergiur Tawaran Harga Sangat Murah di Bawah Pasar:</strong> Sering kali mengorbankan kualitas bahan baku utama, ketebalan kemasan, atau kerapian sablon.</li>
+                <li><strong>Mengandalkan Foto Katalog Digital Semata:</strong> Banyak penjual perantara menggunakan foto unduhan tanpa memiliki workshop atau stok sendiri.</li>
+                <li><strong>Tidak Meminta Sampel Fisik Terlebih Dahulu:</strong> Menilai tekstur, bobot, dan aroma produk mustahil dilakukan hanya melalui layar ponsel.</li>
+                <li><strong>Menyetujui Transaksi Tanpa Kesepakatan Deadline Tertulis:</strong> Ketiadaan tanggal batas akhir pengiriman berisiko membuat pesanan dikerjakan secara terburu-buru.</li>
+              </ul>''')
+
+        # 3. ARTICLE 3 (souvenir-pernikahan-sesuai-budget)
+        elif slug == "souvenir-pernikahan-sesuai-budget":
+            if sec_id == "pilihan-souvenir-segmen-harga":
+                # Tambah Tabel Matriks Rekomendasi Souvenir Menurut Segmen Anggaran
+                s_lines.append('''              <div class="gs-article__table-wrapper">
+                <table class="gs-article__table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="min-width: 140px;">Segmen Anggaran</th>
+                      <th scope="col">Kisaran Harga per Unit</th>
+                      <th scope="col">Rekomendasi Produk Terpopuler</th>
+                      <th scope="col">Opsi Kemasan Efisien</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Segmen Ekonomis</strong></td>
+                      <td>Rp 5.000 – Rp 8.000</td>
+                      <td>Sendok garpu kayu mahoni, pouch blacu mini, centong batik, gantungan kunci kulit sintetis.</td>
+                      <td>Plastik seal bening berpita rami &amp; hangtag nama sederhana.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Menengah Rendah</strong></td>
+                      <td>Rp 9.000 – Rp 15.000</td>
+                      <td>Kipas batik tangkai bambu, pouch tenun lurik, mangkok sambal keramik, coaster kayu grafir.</td>
+                      <td>Paper pouch ramah lingkungan / paper belt motif estetik.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Menengah</strong></td>
+                      <td>Rp 16.000 – Rp 35.000</td>
+                      <td>Tumbler stainless grafir laser, mug keramik custom, handuk bordir inisial, lilin aromaterapi soy wax.</td>
+                      <td>Kardus kraft motif jendela mika &amp; pita satin elegan.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Premium &amp; VIP</strong></td>
+                      <td>Rp 40.000 – Rp 150.000+</td>
+                      <td>Hampers set kriya nusantara, reed diffuser set eksklusif, clutch kulit asli, piring porselen dekoratif.</td>
+                      <td>Hardbox velvet bermagnet, hot stamp foil emas &amp; kartu eksklusif.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>''')
+            elif sec_id == "menghemat-biaya-desain-dan-kemasan":
+                # Tambah bullet points trik hemat kemasan
+                s_lines.append('''              <ul>
+                <li><strong>Pilih Kemasan Berbahan Alami:</strong> Besek bambu, pouch kain blacu, atau kardus kraft cokelat memberikan kesan rustic elegan dengan biaya jauh lebih terjangkau dibanding hardbox mewah.</li>
+                <li><strong>Manfaatkan Hangtag Minimalis:</strong> Daripada mencetak sablon terpisah di setiap kotak kemasan, menggantungkan label ucapan monogram di pita kemasan menghemat biaya cetak hingga 40%.</li>
+                <li><strong>Pesan Kuantitas Sekaligus:</strong> Memesan seluruh total kebutuhan dalam satu kali antrean produksi memberikan potongan harga grosir bahan baku daripada pemesanan terpecah.</li>
+                <li><strong>Hindari Desain Terlalu Rumit:</strong> Monogram inisial nama yang simpel lebih cepat dikerjakan, presisi, dan tidak membutuhkan biaya pembuatan pelat cetak tambahan.</li>
+              </ul>''')
+
+        # 4. ARTICLE 4 (proses-pemesanan-souvenir-pernikahan-custom)
+        elif slug == "proses-pemesanan-souvenir-pernikahan-custom":
+            if sec_id == "persiapan-sebelum-memesan-souvenir":
+                # Tambah checklist persiapan order
+                s_lines.append('''              <ul>
+                <li><strong>Tanggal Acara &amp; Lokasi Resepsi:</strong> Menentukan batas deadline pengiriman kargo tiba aman minimal H-14 hari sebelum acara.</li>
+                <li><strong>Estimasi Kuantitas Tamu (+10% Buffer):</strong> Mencegah kekurangan cinderamata saat hari pernikahan berlangsung.</li>
+                <li><strong>Tema Visual &amp; Palet Warna:</strong> Memudahkan vendor menyelaraskan warna pita, kemasan, atau material souvenir.</li>
+                <li><strong>Teks Inisial Nama &amp; Tanggal Pernikahan:</strong> Format penulisan monogram resmi yang akan dicantumkan pada kartu ucapan dan fisik souvenir.</li>
+                <li><strong>Batas Plafon Anggaran (Budget):</strong> Memberikan patokan jelas bagi tim konsultan dalam memberikan opsi produk terbaik.</li>
+              </ul>''')
+            elif sec_id == "lama-waktu-produksi-custom":
+                # Tambah Tabel Alur Kronologis Timeline Pemesanan Souvenir Custom
+                s_lines.append('''              <div class="gs-article__table-wrapper">
+                <table class="gs-article__table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="min-width: 130px;">Fase Alur</th>
+                      <th scope="col">Aktivitas Utama</th>
+                      <th scope="col">Estimasi Durasi</th>
+                      <th scope="col">Output yang Diterima Pengantin</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Fase 1: Konsultasi</strong></td>
+                      <td>Diskusi konsep, kecocokan tema, pilihan produk, dan penetapan anggaran.</td>
+                      <td>1 – 3 Hari</td>
+                      <td>Katalog rekomendasi &amp; estimasi penawaran harga.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fase 2: Mockup &amp; Sampel</strong></td>
+                      <td>Pembuatan layout digital grafir/cetak nama pengantin dan sampel fisik proofing.</td>
+                      <td>3 – 5 Hari</td>
+                      <td>File visual 2D/3D &amp; foto sampel nyata untuk approval.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fase 3: Produksi Massal</strong></td>
+                      <td>Pengerjaan pemotongan bahan, cetak kustom, dan perakitan seluruh unit.</td>
+                      <td>14 – 21 Hari</td>
+                      <td>Update dokumentasi progres pengerjaan di workshop.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fase 4: Quality Control</strong></td>
+                      <td>Pengecekan fisik 100%, sortir kecacatan, perakitan pita dan kartu ucapan.</td>
+                      <td>2 – 3 Hari</td>
+                      <td>Laporan inspeksi mutu siap bungkus kardus ekspedisi.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Fase 5: Pengiriman</strong></td>
+                      <td>Packing kardus berlapis, penyerahan ke kargo logistik, dan pelacakan resi.</td>
+                      <td>3 – 6 Hari</td>
+                      <td>Nomor resi kargo resmi &amp; paket tiba di alamat tujuan.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>''')
+            elif sec_id == "quality-control-souvenir":
+                # Tambah bullet points 3 tahapan QC
+                s_lines.append('''              <ul>
+                <li><strong>Tahap 1 — Inspeksi Bahan Baku Mentah:</strong> Memastikan kayu tidak lapuk, keramik tanpa retak rambut, kain tenun tanpa serat putus, dan tumbler bebas goresan pabrik.</li>
+                <li><strong>Tahap 2 — Verifikasi Cetak &amp; Grafir Laser:</strong> Menguji ketajaman tipografi nama pengantin, ketepatan posisi logo, dan daya rekat sablon/tinta.</li>
+                <li><strong>Tahap 3 — Uji Kelayakan Kemasan Akhir:</strong> Memastikan pita terpasang kencang simetris, kartu ucapan tidak terlipat, dan lapisan bubble wrap membungkus rapat setiap unit.</li>
+              </ul>''')
+
+        # -------------------------------------------------------------
+        # INLINE IMAGES
+        # -------------------------------------------------------------
         if cfg["img1"][0] == sec_id:
             s_lines.append('              <figure class="gs-article__figure">')
             s_lines.append(f'                <img src="{cfg["img1"][1]}" alt="{html.escape(cfg["img1"][2])}" width="900" height="500" loading="lazy" />')
@@ -1271,4 +1515,4 @@ for cfg in articles_config:
         f.write(content)
     print(f"Generated {out_path} ({len(content)} bytes)")
 
-print("\nAll 4 articles built successfully with optimized titles and tags!")
+print("\nAll 4 articles updated with rich tables and scannable lists!")
