@@ -330,7 +330,7 @@ articles_config = [
             "badge": "Konsultasi Vendor",
             "title": "Konsultasikan Kebutuhan Souvenir Pernikahan Custom Anda",
             "desc": "Dapatkan proposal penawaran transparan, sampel fisik, dan garansi produksi tepat waktu bersama tim spesialis Souvenir Pernikahan.",
-            "note": "Jaminan 100% Ganti Baru &amp; Pengiriman Aman se-Indonesia",
+            "note": "Jaminan 100% Ganti Baru & Pengiriman Aman se-Indonesia",
             "btn_text": "Konsultasi Vendor Sekarang",
             "btn_link": "https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20pemesanan%20souvenir%20custom."
         },
@@ -370,10 +370,10 @@ articles_config = [
         "tags": ["Ciri Vendor Souvenir Pernikahan", "Tips Memilih Vendor", "Vendor Souvenir Terpercaya", "Kualitas Souvenir", "Sampel Souvenir"],
         "product_rec": {
             "badge": "Vendor Terverifikasi",
-            "title": "Cari Vendor Souvenir Pernikahan Berpengalaman &amp; Transparan?",
+            "title": "Cari Vendor Souvenir Pernikahan Berpengalaman & Transparan?",
             "desc": "Kami mengedepankan portofolio produksi nyata, transparansi rincian biaya, dan tahapan approval sampel sebelum produksi massal.",
-            "note": "Workshop Resmi di Malang &bull; Melayani Pengiriman ke Seluruh Kota",
-            "btn_text": "Lihat Katalog &amp; Paket",
+            "note": "Workshop Resmi di Malang • Melayani Pengiriman ke Seluruh Kota",
+            "btn_text": "Lihat Katalog & Paket",
             "btn_link": "/paket"
         },
         "related": [
@@ -455,8 +455,8 @@ articles_config = [
         "product_rec": {
             "badge": "Alur Terencana",
             "title": "Siap Memulai Proses Pemesanan Souvenir Pernikahan Anda?",
-            "desc": "Ikuti alur konsultasi mudah, persetujuan sampel digital &amp; fisik, hingga pengemasan ekspedisi bergaransi untuk kelancaran hari istimewa Anda.",
-            "note": "Quality Control 3 Tahap &bull; Update Progres Produksi Berkala",
+            "desc": "Ikuti alur konsultasi mudah, persetujuan sampel digital & fisik, hingga pengemasan ekspedisi bergaransi untuk kelancaran hari istimewa Anda.",
+            "note": "Quality Control 3 Tahap • Update Progres Produksi Berkala",
             "btn_text": "Mulai Konsultasi Desain",
             "btn_link": "https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20memulai%20alur%20pemesanan%20souvenir%20custom."
         },
@@ -1376,12 +1376,12 @@ def build_article_html(cfg):
               </div>
               <div class="gs-article__product-rec-info">
                 <span class="badge">{cfg["product_rec"]["badge"]}</span>
-                <h4>{cfg["product_rec"]["title"]}</h4>
-                <p>{cfg["product_rec"]["desc"]}</p>
-                <div style="font-size:0.85rem;color:var(--gs-green-800);font-weight:600;">{cfg["product_rec"]["note"]}</div>
+                <h4>{html.escape(cfg["product_rec"]["title"])}</h4>
+                <p>{html.escape(cfg["product_rec"]["desc"])}</p>
+                <div style="font-size:0.85rem;color:var(--gs-green-800);font-weight:600;">{html.escape(cfg["product_rec"]["note"])}</div>
               </div>
               <div class="gs-article__product-rec-action">
-                <a href="{cfg["product_rec"]["btn_link"]}" class="gs-button gs-button--primary gs-button--sm">{cfg["product_rec"]["btn_text"]}</a>
+                <a href="{cfg["product_rec"]["btn_link"]}" class="gs-button gs-button--primary gs-button--sm">{html.escape(cfg["product_rec"]["btn_text"])}</a>
               </div>
             </div>
 
