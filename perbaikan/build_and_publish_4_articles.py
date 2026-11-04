@@ -499,7 +499,18 @@ def build_article_html(cfg):
         },
         "headline": h1,
         "description": cfg["meta_desc"],
-        "image": f"https://souvenirpernikahan.web.id{cfg['hero_img']}",
+        "image": {
+            "@type": "ImageObject",
+            "url": f"https://souvenirpernikahan.web.id{cfg['hero_img']}",
+            "width": 1200,
+            "height": 675
+        },
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": f"https://souvenirpernikahan.web.id{cfg['hero_img']}",
+            "width": 1200,
+            "height": 675
+        },
         "datePublished": "2026-11-03T09:00:00+07:00",
         "dateModified": "2026-11-03T09:00:00+07:00",
         "inLanguage": "id-ID",
@@ -1350,9 +1361,9 @@ def build_article_html(cfg):
             </section>
 
             <!-- Author Bio -->
-            <div class="gs-article__author-box">
+            <div class="gs-article__author-box" data-nosnippet>
               <a href="/penulis" class="gs-article__author-avatar" title="Lihat Profil Yudi Abraham">
-                <img src="/assets/images/yudi-abraham.jpg" alt="Yudi Abraham" width="68" height="68" loading="lazy" />
+                <img src="/assets/images/yudi-abraham.jpg" alt="Yudi Abraham" width="68" height="68" loading="lazy" data-nosnippet />
               </a>
               <div class="gs-article__author-info">
                 <h4><a href="/penulis" class="gs-article__author-heading-link" title="Lihat Profil Penulis">Yudi Abraham</a></h4>
