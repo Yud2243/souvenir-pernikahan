@@ -45,3 +45,4 @@ if old_card_pattern.search(content):
     print("Successfully updated blog archive card in blog.html!")
 else:
     print("Could not match old card in blog.html!")
+

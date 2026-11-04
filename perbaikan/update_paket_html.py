@@ -146,3 +146,4 @@ for pkg_file, products_list in [('paket/souvenir-modern.html', modern_products),
     with open(pkg_file, 'w', encoding='utf-8') as f:
         f.write(html)
     print(f"Added price notes to {pkg_file}!")
+

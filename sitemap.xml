@@ -3,13 +3,19 @@
   Souvenir Pernikahan — Sitemap XML (2026-2027 SEO / AEO / GEO Optimized — Clean URLs)
   Last updated: 2026-11-04
 -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
   <url>
     <loc>https://souvenirpernikahan.web.id/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Custom Unik, Elegan &amp; Bermanfaat</image:title>
+      <image:caption>Pusat vendor souvenir pernikahan custom kriya tradisional dan modern di Malang Indonesia</image:caption>
+    </image:image>
   </url>
   
   <url>
@@ -222,168 +228,308 @@
     <loc>https://souvenirpernikahan.web.id/produk/hampers-vip-gift-set-box</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/souvenir-seminar-kit.webp</image:loc>
+      <image:title>Paket Hampers Souvenir Pernikahan VIP Gift Set Box</image:title>
+      <image:caption>Paket hampers souvenir pernikahan eksklusif untuk tamu VIP kehormatan dalam hardbox magnetik hijau botol beraksen foil e</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/tumbler-kopi-stainless-sage-green</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/souvenir-tumbler-custom.webp</image:loc>
+      <image:title>Souvenir Pernikahan Tumbler Kopi Stainless Sage Green Monogram</image:title>
+      <image:caption>Souvenir pernikahan tumbler kopi stainless steel double-wall tahan panas dan dingin warna sage green matte dengan grafir</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/tumbler-termos-ivory-rose-gold</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/tumbler-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Tumbler Termos Stainless Ivory Rose Gold</image:title>
+      <image:caption>Termos travel souvenir pernikahan berbahan stainless steel SUS 304 food-grade warna ivory beraksen rose gold berkilau, g</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/glass-tumbler-borosilikat-tutup-bambu</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/glass-tumbler-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Glass Tumbler Kaca Borosilikat Tutup Bambu</image:title>
+      <image:caption>Gelas can-tumbler souvenir pernikahan kaca borosilikat transparan tebal dengan tutup kayu bambu berukir monogram dan sed</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/plakat-akrilik-souvenir-pernikahan</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/souvenir-plakat-akrilik.webp</image:loc>
+      <image:title>Plakat Akrilik Souvenir Pernikahan Dudukan Kayu Solid</image:title>
+      <image:caption>Plakat akrilik souvenir pernikahan kristal bening potongan laser dengan dudukan kayu solid walnut, diukir grafir kaligra</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/set-teh-herbal-tabung-kaca-saringan-emas</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/tea-infuser-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Teh Herbal Tabung Kaca & Saringan Emas</image:title>
+      <image:caption>Set souvenir pernikahan botanical gift box berisi infuser saringan teh bola rantai logam warna emas berbandul inisial pe</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/kaleng-teh-artisan-logam-tutup-gold</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/tea-tin-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Kaleng Teh Artisan Logam Tutup Gold</image:title>
+      <image:caption>Kaleng tabung logam tinplate kedap udara souvenir pernikahan dengan penutup ganda warna emas mewah dan label kustom inis</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/botol-dispenser-sabun-pump-gold</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/botol-sabun-custom.webp</image:loc>
+      <image:title>Souvenir Pernikahan Botol Dispenser Sabun Pump Gold Mewah</image:title>
+      <image:caption>Botol dispenser sabun cair souvenir pernikahan model hotel estetik dengan kepala pompa warna emas mengkilap, label botan</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/lilin-aromaterapi-jar-frosted-gold</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/candle-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Lilin Aromaterapi Jar Frosted Tutup Gold</image:title>
+      <image:caption>Lilin aromaterapi soy wax 100% alami souvenir pernikahan dalam jar kaca frosted putih buram berpenutup logam warna emas,</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/botol-parfum-kaca-amber-mewah</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/perfume-bottle-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Botol Parfum Kaca Amber Mewah</image:title>
+      <image:caption>Botol parfum travel souvenir pernikahan kaca tebal bentuk rounded pebble dengan sprayer semprot halus dan tutup amber ha</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/minyak-esensial-pipet-kaca-box-beludru</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/souvenir-botol-minyak.webp</image:loc>
+      <image:title>Souvenir Pernikahan Minyak Esensial Pipet Kaca & Box Beludru</image:title>
+      <image:caption>Minyak esensial aromaterapi murni souvenir pernikahan dalam botol kaca pipet tetes berlabel foil emas, berdampingan gift</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/silk-scrunchie-set-sutra-bridesmaid</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/silk-scrunchie-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Silk Scrunchie Set Sutra Bridesmaid</image:title>
+      <image:caption>Set ikat rambut kuncir silk scrunchie souvenir pernikahan berbahan kain sutra mulberry anti kusut dalam gradasi warna fe</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/pouch-serut-beludru-velvet-monogram</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/velvet-pouch-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Pouch Serut Beludru Velvet Bordir Monogram</image:title>
+      <image:caption>Pouch serut souvenir pernikahan berbahan kain beludru velvet tebal premium dengan bordir benang emas inisial nama pengan</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/eco-tote-bag-kanvas-cutlery-set</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/souvenir-tote-bag.webp</image:loc>
+      <image:title>Souvenir Pernikahan Eco Tote Bag Kanvas & Cutlery Set Kayu</image:title>
+      <image:caption>Tas jinjing tote bag souvenir pernikahan berbahan kanvas katun tebal motif botanical dipadukan set sendok garpu kayu ala</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/kipas-lipat-batik-tulis-kayu-jati</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/kipas-batik-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Kipas Lipat Batik Tulis Rangka Kayu Jati</image:title>
+      <image:caption>Kipas lipat souvenir pernikahan kain katun batik tulis motif parang dan sekar jagad klasik dengan rangka bilah kayu jati</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/pouch-dompet-tenun-lurik-tradisional</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/pouch-tenun-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Pouch Dompet Tenun Lurik Tradisional</image:title>
+      <image:caption>Dompet pouch souvenir pernikahan tenun lurik handmade bertekstur etnik alami bergaris bumi dengan kancing batok kelapa a</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/besek-anyaman-bambu-bunga-kering</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/besek-bambu-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Besek Anyaman Bambu Hias Bunga Kering</image:title>
+      <image:caption>Wadah besek bambu souvenir pernikahan anyaman kubus tradisional karya pengrajin lokal, diikat tali rami natural dan dihi</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/sepasang-sendok-kayu-jati-alami</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/wooden-spoon-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Sepasang Sendok Garpu Kayu Jati Alami</image:title>
+      <image:caption>Sepasang sendok makan souvenir pernikahan berbahan kayu jati solid perhutani halus bertekstur urat kayu eksotis non-toxi</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/madu-hutan-jar-heksagonal-tutup-renda</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/honey-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Madu Hutan Jar Heksagonal Tutup Renda</image:title>
+      <image:caption>Madu hutan murni souvenir pernikahan dalam jar kaca heksagonal bersegel kain renda putih cantik berikat tali emas, dilen</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/sabun-herbal-batang-alami-handmade</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/artisan-soap-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Sabun Herbal Batang Alami Handmade</image:title>
+      <image:caption>Sabun mandi herbal souvenir pernikahan buatan tangan dari minyak kelapa murni dan ekstrak rempah alami beraroma menenang</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/lilin-aromaterapi-pot-keramik-gerabah</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/souvenir-lilin-aroma.webp</image:loc>
+      <image:title>Souvenir Pernikahan Lilin Aromaterapi Pot Gerabah Terakota</image:title>
+      <image:caption>Lilin aromaterapi soy wax souvenir pernikahan dalam pot keramik gerabah tembikar matte berhias segel lilin wax seal bota</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/tatakan-gelas-kayu-jati-grafir-wreath</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/coaster-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Coaster Tatakan Gelas Kayu Jati Grafir Monogram</image:title>
+      <image:caption>Set tatakan gelas souvenir pernikahan berbahan kayu jati solid bundar berurat kayu mewah dengan grafir laser floral wrea</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/mug-keramik-stoneware-rustic-monogram</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/ceramic-mug-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Mug Keramik Stoneware Rustic Monogram</image:title>
+      <image:caption>Cangkir cawan keramik stoneware souvenir pernikahan bertekstur bintik alami dengan rim gerabah terakota rustic, dicetak </image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/pembatas-buku-kuningan-ukir-rumbai-sutra</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/brass-bookmark-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Pembatas Buku Kuningan Ukir Rumbai Sutra</image:title>
+      <image:caption>Pembatas buku souvenir pernikahan berbahan plat logam kuningan asli finishing antique gold berukir relief bunga klasik a</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/saputangan-kain-linen-bordir-monogram</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/linen-handkerchief-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Saputangan Linen Bordir Monogram Klasik</image:title>
+      <image:caption>Saputangan souvenir pernikahan kain katun linen serat alami putih bersih dengan tepian sulam lubang hemstitch halus, dih</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/wax-sachet-pewangi-lemari-bunga-kering</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/wax-sachet-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Wax Sachet Pewangi Lemari Botanical Bunga Kering</image:title>
+      <image:caption>Lilin aromaterapi gantung souvenir pernikahan pengharum lemari dari soy wax alami bertabur bunga kering lavender, kelopa</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/tanaman-sukulen-mini-pot-balut-goni</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/succulent-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Tanaman Sukulen Mini Pot Balut Goni Rustic</image:title>
+      <image:caption>Tanaman sukulen segar hidup souvenir pernikahan dalam pot mini gerabah terakota dibalut kain goni rustic dan pita tali r</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://souvenirpernikahan.web.id/produk/cermin-saku-lipat-logam-ukir-klasik-emas</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://souvenirpernikahan.web.id/assets/images/compact-mirror-souvenir.webp</image:loc>
+      <image:title>Souvenir Pernikahan Cermin Saku Lipat Logam Ukir Klasik Emas</image:title>
+      <image:caption>Cermin saku portabel lipat dua sisi souvenir pernikahan berbingkai logam warna emas antik dengan ukiran relief bunga kla</image:caption>
+    </image:image>
   </url>
 </urlset>

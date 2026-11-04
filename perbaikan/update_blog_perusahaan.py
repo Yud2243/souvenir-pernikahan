@@ -72,3 +72,4 @@ with open('blog/panduan-souvenir-perusahaan.html', 'w', encoding='utf-8') as f:
     f.write(content)
 
 print("Finished updating blog/panduan-souvenir-perusahaan.html!")
+

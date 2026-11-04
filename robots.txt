@@ -1,7 +1,7 @@
 # ============================================================
 # SOUVENIR PERNIKAHAN — ROBOTS.TXT
 # Website: https://souvenirpernikahan.web.id/
-# Bisnis: Penyedia Souvenir Pernikahan Elegan, Unik & Cinderamata Custom
+# Bisnis: Vendor Souvenir Pernikahan Unik, Elegan, Murah & Custom Nama
 # Standar: Robots Exclusion Protocol (RFC 9309) & Search Engine Friendly
 # ============================================================
 
@@ -16,5 +16,32 @@ Disallow: /draft/
 Disallow: /*?*token=
 Disallow: /*?*session=
 Disallow: /*?*auth=
+
+# Prioritas Googlebot & Googlebot-Image untuk Indexing Halaman Produk & Foto
+User-agent: Googlebot
+Allow: /
+Allow: /produk/
+Allow: /paket/
+Allow: /assets/images/
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /produk/
+
+User-agent: Bingbot
+Allow: /
+
+# Izinkan AI Search Engines (AEO & GEO Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://souvenirpernikahan.web.id/sitemap.xml

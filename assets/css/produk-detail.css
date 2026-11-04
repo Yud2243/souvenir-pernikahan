@@ -159,6 +159,26 @@
   gap: 0.5rem;
 }
 
+.gs-pdp-price-range {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  color: var(--gs-green-900, #23472d);
+}
+
+.gs-pdp-price-unit {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gs-muted, #38483b);
+}
+
+.gs-pdp-price-subtext {
+  font-size: 0.85rem;
+  color: var(--gs-muted, #38483b);
+  margin-top: -0.65rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
 .gs-pdp-price-note {
   font-size: 0.82rem;
   font-weight: 500;
