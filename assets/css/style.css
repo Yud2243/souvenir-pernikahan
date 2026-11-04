@@ -366,17 +366,17 @@ p {
 /* WhatsApp button inside dark CTA banner — high contrast gold variant */
 .gs-article__cta .gs-button--whatsapp {
   background-color: #ffffff;
-  color: #0f5c28;
+  color: #762b16;
   border-color: #ffffff;
   text-shadow: none;
   font-weight: 800;
 }
 
 .gs-article__cta .gs-button--whatsapp:hover {
-  background-color: #e6ffe6;
-  border-color: #e6ffe6;
-  color: #0a3d1a;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  background-color: #faf5ee;
+  border-color: #faf5ee;
+  color: #48180c;
+  box-shadow: 0 8px 28px rgba(118, 43, 22, 0.16);
 }
 
 .gs-button svg {
@@ -1168,20 +1168,20 @@ body > header {
   gap: 0.45rem;
   margin-bottom: 0.55rem;
   font-size: 0.8rem;
-  color: #647a6b;
+  color: #5e463f;
   font-weight: 500;
 }
 
 .gs-blog-card__topic {
-  color: #647a6b;
+  color: #5e463f;
 }
 
 .gs-blog-card__sep {
-  color: #8da495;
+  color: #bfaea8;
 }
 
 .gs-blog-card__readtime {
-  color: #647a6b;
+  color: #5e463f;
 }
 
 .gs-blog-card__title {
@@ -1205,7 +1205,7 @@ body > header {
 
 .gs-blog-card__excerpt {
   font-size: 0.84rem;
-  color: #556c5d;
+  color: #5e463f;
   line-height: 1.58;
   flex: 1;
   margin-bottom: 1.1rem;
@@ -1217,7 +1217,7 @@ body > header {
 }
 
 .gs-blog-card__footer {
-  border-top: 1px solid #eef3ef;
+  border-top: 1px solid #e6ded5;
   padding-top: 0.9rem;
   margin-top: auto;
   display: flex;
@@ -2244,7 +2244,7 @@ body > header {
 }
 
 .gs-page-hero .gs-breadcrumb__item {
-  color: #1a4d25;
+  color: #762b16;
   font-weight: 600;
 }
 
@@ -2258,7 +2258,7 @@ body > header {
 }
 
 .gs-page-hero .gs-breadcrumb li+li::before {
-  color: #6a8c6e;
+  color: #bfaea8;
 }
 
 .gs-page-hero__title {
@@ -4318,13 +4318,13 @@ main:focus {
 .gs-cta-section .gs-button--whatsapp {
   background-color: #ffffff;
   border-color: #ffffff;
-  color: #0f5c28;
+  color: #762b16;
 }
 
 .gs-cta-section .gs-button--whatsapp:hover {
-  background-color: #e6ffe6;
-  border-color: #e6ffe6;
-  color: #0a3d1a;
+  background-color: #faf5ee;
+  border-color: #faf5ee;
+  color: #48180c;
 }
 
 .gs-footer {

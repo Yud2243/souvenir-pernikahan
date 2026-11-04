@@ -420,9 +420,9 @@
                 </svg>
               </button>
               <div class="gs-dropdown__menu" id="gs-dropdown-paket" role="menu" aria-labelledby="gs-dropdown-paket-btn">
-                <a href="/paket" class="gs-dropdown__item" role="menuitem">Semua Paket</a>
+                <a href="/paket" class="gs-dropdown__item" role="menuitem">Katalog Souvenir</a>
                 <div class="gs-dropdown__divider" role="separator"></div>
-                <a href="/paket/souvenir-tradisional" class="gs-dropdown__item active" role="menuitem">Ecential Collection</a>
+                <a href="/paket/souvenir-tradisional" class="gs-dropdown__item active" role="menuitem">Essential Collection</a>
                 <a href="/paket/souvenir-modern" class="gs-dropdown__item" role="menuitem">Signature Collection</a>
               </div>
             </div>
@@ -440,6 +440,33 @@
             aria-controls="gs-mobile-menu"><span class="gs-navbar__hamburger-line"></span><span
               class="gs-navbar__hamburger-line"></span><span class="gs-navbar__hamburger-line"></span></button>
         </div>
+        <div class="gs-navbar__mobile-menu" id="gs-mobile-menu" role="menu" aria-label="Menu navigasi mobile">
+          <a href="/" class="gs-navbar__mobile-link" role="menuitem">Beranda</a>
+          <a href="/tentang" class="gs-navbar__mobile-link" role="menuitem">Tentang</a>
+          <button class="gs-navbar__mobile-submenu-toggle" aria-expanded="false" aria-controls="gs-mobile-paket">Paket
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4" />
+            </svg></button>
+          <div class="gs-navbar__mobile-submenu" id="gs-mobile-paket" role="menu">
+            <a href="/paket" class="gs-navbar__mobile-link" role="menuitem">Katalog Souvenir</a>
+            <a href="/paket/souvenir-tradisional" class="gs-navbar__mobile-link" role="menuitem">Essential Collection</a>
+            <a href="/paket/souvenir-modern" class="gs-navbar__mobile-link" role="menuitem">Signature Collection</a>
+          </div>
+          <a href="/portofolio" class="gs-navbar__mobile-link" role="menuitem">Portofolio</a>
+          <a href="/blog" class="gs-navbar__mobile-link" role="menuitem">Blog</a>
+          <div class="gs-navbar__mobile-cta">
+            <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir."
+              class="gs-button gs-button--whatsapp" target="_blank" rel="noopener noreferrer"
+              style="width:100%;justify-content:center;">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+              </svg>
+              Konsultasi WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -456,7 +483,7 @@
           <span>/</span>
           <a href="/paket">Paket Souvenir</a>
           <span>/</span>
-          <a href="/paket/souvenir-tradisional">Ecential Collection</a>
+          <a href="/paket/souvenir-tradisional">Essential Collection</a>
           <span>/</span>
           <strong style="color:var(--gs-green-950);">Souvenir Pernikahan Coaster Tatakan Gelas Kayu Jati Grafir Monogram</strong>
         </nav>
@@ -535,21 +562,22 @@
               <div class="gs-pdp-order-row">
                 <div class="gs-pdp-qty-control">
                   <button type="button" class="gs-pdp-qty-btn" onclick="adjustQty(-25)" aria-label="Kurangi jumlah 25 pcs">-</button>
-                  <input type="number" id="pdp-qty-input" class="gs-pdp-qty-input" value="100" min="100" step="25" oninput="updatePricing()" />
+                  <input type="number" id="pdp-qty-input" class="gs-pdp-qty-input" value="100" min="100" step="25" oninput="handleQtyInput()" onblur="handleQtyBlur()" />
                   <button type="button" class="gs-pdp-qty-btn" onclick="adjustQty(25)" aria-label="Tambah jumlah 25 pcs">+</button>
                 </div>
                 <span class="gs-pdp-qty-unit">pcs (Minimal order 100 pcs)</span>
               </div>
+              <span class="gs-pdp-qty-error" id="pdp-qty-error" style="color:#b25032;font-size:0.8rem;display:none;margin-top:0.35rem;font-weight:600;" role="alert"></span>
               <span class="gs-pdp-tier-note" id="pdp-tier-note">&bull; Semakin banyak jumlah pesanan, harga estimasi satuan otomatis semakin murah.</span>
             </div>
 
             <!-- Actions Buttons -->
             <div class="gs-pdp-actions">
-              <a id="pdp-wa-cta" href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20memesan%20100%20pcs%20Souvenir%20Pernikahan%20Coaster%20Tatakan%20Gelas%20Kayu%20Jati%20Grafir%20Monogram%20%28Pilihan%3A%20Tali%20Serat%20Goni%20%2B%20Daun%20Zaitun%20Asli%29%20untuk%20souvenir%20pernikahan%20saya.%20Mohon%20konfirmasi%20ketersediaan%20slot%20produksi%20dan%20penawaran%20resminya." class="gs-pdp-btn-wa" target="_blank" rel="noopener noreferrer">
+              <a id="pdp-wa-cta" href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20tertarik%20memesan%20100%20pcs%20Souvenir%20Pernikahan%20Coaster%20Tatakan%20Gelas%20Kayu%20Jati%20Grafir%20Monogram%20%28Pilihan%3A%20Tali%20Serat%20Goni%20%2B%20Daun%20Zaitun%20Asli%29%20untuk%20souvenir%20pernikahan%20saya.%20Mohon%20konfirmasi%20ketersediaan%20slot%20produksi%20dan%20penawaran%20resminya." class="gs-pdp-btn-wa" target="_blank" rel="noopener noreferrer" onclick="handleWaClick(event)">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" style="width:20px;height:20px;max-width:20px;max-height:20px;flex-shrink:0;">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
-                BELI SEKARANG VIA WHATSAPP
+                Minta Penawaran via WhatsApp
               </a>
               <a href="/paket/souvenir-tradisional" class="gs-pdp-btn-secondary">
                 &larr; Lihat Semua Koleksi Souvenir Tradisional
@@ -935,8 +963,8 @@
         <div>
           <p class="gs-footer__heading">Kategori Paket</p>
           <ul class="gs-footer__links">
-            <li><a href="/paket" class="gs-footer__link">Semua Paket</a></li>
-            <li><a href="/paket/souvenir-tradisional" class="gs-footer__link">Ecential Collection</a></li>
+            <li><a href="/paket" class="gs-footer__link">Katalog Souvenir</a></li>
+            <li><a href="/paket/souvenir-tradisional" class="gs-footer__link">Essential Collection</a></li>
             <li><a href="/paket/souvenir-modern" class="gs-footer__link">Signature Collection</a></li>
           </ul>
         </div>
@@ -1002,6 +1030,9 @@
       stepVal: 25
     };
 
+    var currentQty = PDP_DATA.minOrder;
+    var isValidQty = true;
+
     function switchImage(src, btn) {
       var mainImg = document.getElementById('pdp-main-img');
       if (mainImg) {
@@ -1053,8 +1084,67 @@
       }
     }
 
-    function updatePricing() {
+    function handleQtyInput() {
       var qtyInput = document.getElementById('pdp-qty-input');
+      var errorEl = document.getElementById('pdp-qty-error');
+      if (!qtyInput) return;
+
+      var raw = qtyInput.value.trim();
+      if (raw === "") {
+        isValidQty = false;
+        if (errorEl) {
+          errorEl.textContent = "Jumlah pesanan wajib diisi (minimal " + PDP_DATA.minOrder + " pcs).";
+          errorEl.style.display = "block";
+        }
+        updatePricing(null);
+        return;
+      }
+
+      var parsed = parseInt(raw, 10);
+      if (isNaN(parsed) || parsed < PDP_DATA.minOrder) {
+        isValidQty = false;
+        if (errorEl) {
+          errorEl.textContent = "Minimal pemesanan untuk produk ini adalah " + PDP_DATA.minOrder + " pcs.";
+          errorEl.style.display = "block";
+        }
+        updatePricing(null);
+      } else {
+        isValidQty = true;
+        currentQty = parsed;
+        if (errorEl) {
+          errorEl.textContent = "";
+          errorEl.style.display = "none";
+        }
+        updatePricing(currentQty);
+      }
+    }
+
+    function handleQtyBlur() {
+      var qtyInput = document.getElementById('pdp-qty-input');
+      var errorEl = document.getElementById('pdp-qty-error');
+      if (!qtyInput) return;
+
+      var raw = qtyInput.value.trim();
+      var parsed = parseInt(raw, 10);
+      if (raw === "" || isNaN(parsed) || parsed < PDP_DATA.minOrder) {
+        isValidQty = false;
+        if (errorEl) {
+          errorEl.textContent = "Minimal pemesanan untuk produk ini adalah " + PDP_DATA.minOrder + " pcs.";
+          errorEl.style.display = "block";
+        }
+        updatePricing(null);
+      } else {
+        isValidQty = true;
+        currentQty = parsed;
+        if (errorEl) {
+          errorEl.textContent = "";
+          errorEl.style.display = "none";
+        }
+        updatePricing(currentQty);
+      }
+    }
+
+    function updatePricing(validQty) {
       var variantSelect = document.getElementById('pdp-variant-select');
       var unitPriceEl = document.getElementById('pdp-unit-price');
       var totalPriceEl = document.getElementById('pdp-total-price');
@@ -1063,13 +1153,7 @@
       var tierNoteEl = document.getElementById('pdp-tier-note');
       var waBtn = document.getElementById('pdp-wa-cta');
 
-      if (!qtyInput) return;
-
-      var qty = parseInt(qtyInput.value) || PDP_DATA.minOrder;
-      if (qty < PDP_DATA.minOrder) {
-        qty = PDP_DATA.minOrder;
-        qtyInput.value = qty;
-      }
+      var qty = (validQty !== null && validQty !== undefined) ? validQty : currentQty;
 
       var variantIdx = variantSelect ? variantSelect.selectedIndex : 0;
       var variantText = variantSelect ? variantSelect.options[variantIdx].text : "Kemasan Standar";
@@ -1093,7 +1177,7 @@
       if (unitPriceEl) {
         unitPriceEl.textContent = formatIDR(unitPrice);
         unitPriceEl.classList.remove('is-updated');
-        void unitPriceEl.offsetWidth; // trigger reflow for pulse animation
+        void unitPriceEl.offsetWidth;
         unitPriceEl.classList.add('is-updated');
       }
       if (totalPriceEl) totalPriceEl.textContent = formatIDR(totalPrice);
@@ -1128,7 +1212,7 @@
       var pills = document.querySelectorAll('.gs-tier-pill');
       pills.forEach(function(pill) {
         var pillQty = parseInt(pill.getAttribute('data-qty'));
-        if (pillQty === qty) {
+        if (pillQty === qty && isValidQty) {
           pill.classList.add('active');
         } else {
           pill.classList.remove('active');
@@ -1137,30 +1221,66 @@
 
       // Update WhatsApp link
       if (waBtn) {
-        var msg = "Halo Souvenir Pernikahan, saya tertarik memesan " + qty + " pcs " + PDP_DATA.prodName + 
-                  " (Pilihan: " + variantText + ") dengan estimasi harga satuan " + formatIDR(unitPrice) + "/pcs" +
-                  " (Estimasi Total: " + formatIDR(totalPrice) + ")." +
-                  " Mohon konfirmasi ketersediaan slot produksi dan penawaran resminya.";
-        waBtn.href = "https://wa.me/6282131087971?text=" + encodeURIComponent(msg);
+        if (isValidQty && qty >= PDP_DATA.minOrder) {
+          var msg = "Halo Souvenir Pernikahan, saya tertarik memesan " + qty + " pcs " + PDP_DATA.prodName + 
+                    " (Pilihan: " + variantText + ") dengan estimasi harga satuan " + formatIDR(unitPrice) + "/pcs" +
+                    " (Estimasi Total: " + formatIDR(totalPrice) + ")." +
+                    " Mohon konfirmasi ketersediaan slot produksi dan penawaran resminya.";
+          waBtn.href = "https://wa.me/6282131087971?text=" + encodeURIComponent(msg);
+          waBtn.setAttribute('data-valid', 'true');
+        } else {
+          waBtn.setAttribute('data-valid', 'false');
+        }
       }
     }
 
     function setQty(val) {
       var input = document.getElementById('pdp-qty-input');
+      var errorEl = document.getElementById('pdp-qty-error');
       if (input) {
         input.value = val;
-        updatePricing();
+        currentQty = val;
+        isValidQty = true;
+        if (errorEl) {
+          errorEl.textContent = "";
+          errorEl.style.display = "none";
+        }
+        updatePricing(val);
       }
     }
 
     function adjustQty(amount) {
       var input = document.getElementById('pdp-qty-input');
+      var errorEl = document.getElementById('pdp-qty-error');
       if (input) {
-        var val = parseInt(input.value) || PDP_DATA.minOrder;
-        val += amount;
+        var val = (isValidQty ? currentQty : PDP_DATA.minOrder) + amount;
         if (val < PDP_DATA.minOrder) val = PDP_DATA.minOrder;
         input.value = val;
-        updatePricing();
+        currentQty = val;
+        isValidQty = true;
+        if (errorEl) {
+          errorEl.textContent = "";
+          errorEl.style.display = "none";
+        }
+        updatePricing(val);
+      }
+    }
+
+    function handleWaClick(e) {
+      var qtyInput = document.getElementById('pdp-qty-input');
+      var errorEl = document.getElementById('pdp-qty-error');
+      var raw = qtyInput ? qtyInput.value.trim() : "";
+      var parsed = parseInt(raw, 10);
+      if (!isValidQty || raw === "" || isNaN(parsed) || parsed < PDP_DATA.minOrder) {
+        e.preventDefault();
+        if (qtyInput) {
+          qtyInput.focus();
+          qtyInput.style.borderColor = '#b25032';
+        }
+        if (errorEl) {
+          errorEl.textContent = "Jumlah belum memenuhi minimum pemesanan (" + PDP_DATA.minOrder + " pcs). Mohon sesuaikan jumlah terlebih dahulu.";
+          errorEl.style.display = "block";
+        }
       }
     }
 
