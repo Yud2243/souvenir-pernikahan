@@ -1,3 +1,35 @@
+:root {
+  /* Terracotta Palette */
+  --gs-terracotta-50: #fbf6f3;
+  --gs-terracotta-100: #f5eae3;
+  --gs-terracotta-200: #ecd5c8;
+  --gs-terracotta-300: #dfb6a1;
+  --gs-terracotta-500: #c87656;
+  --gs-terracotta-700: #b25032;
+  --gs-terracotta-800: #963b21;
+  --gs-terracotta-900: #762b16;
+  --gs-terracotta-950: #48180c;
+
+  /* Aliasing Greens to Terracotta */
+  --gs-green-50: #fbf6f3;
+  --gs-green-100: #f5eae3;
+  --gs-green-200: #ecd5c8;
+  --gs-green-300: #dfb6a1;
+  --gs-green-500: #c87656;
+  --gs-green-700: #b25032;
+  --gs-green-800: #963b21;
+  --gs-green-900: #762b16;
+  --gs-green-950: #48180c;
+
+  /* Cream & Neutrals */
+  --gs-cream: #faf5ee;
+  --gs-cream-alt: #f5ede4;
+  --gs-white: #ffffff;
+  --gs-text: #2b1d18;
+  --gs-muted: #5e463f;
+  --gs-border: #e6ded5;
+}
+
 /* ==========================================================================
    Single Product Detail Page Stylesheet (produk-detail.css)
    Inspired by Luxury E-Commerce / Dekayu PDP System
@@ -27,12 +59,12 @@
 }
 
 .gs-pdp-breadcrumb a:hover {
-  color: var(--gs-green-800, #1e4f26);
+  color: var(--gs-green-800, #963b21);
 }
 
 .gs-pdp-breadcrumb span {
   margin: 0 0.4rem;
-  color: var(--gs-border, #cfdecb);
+  color: var(--gs-border, #e6ded5);
 }
 
 /* Two Column Main Grid */
@@ -64,7 +96,7 @@
   border-radius: var(--gs-radius-md, 1rem);
   overflow: hidden;
   background: #ffffff;
-  border: 1px solid var(--gs-border, #cfdecb);
+  border: 1px solid var(--gs-border, #e6ded5);
   aspect-ratio: 1 / 1;
   box-shadow: var(--gs-shadow-card, 0 10px 30px -5px rgba(22, 45, 29, 0.08));
 }
@@ -82,7 +114,7 @@
   top: 1rem;
   left: 1rem;
   z-index: 2;
-  background: var(--gs-green-800, #1e4f26);
+  background: var(--gs-green-800, #963b21);
   color: #ffffff;
   font-size: 0.72rem;
   font-weight: 700;
@@ -102,7 +134,7 @@
 
 .gs-pdp-thumb-btn {
   background: #ffffff;
-  border: 2px solid var(--gs-border, #cfdecb);
+  border: 2px solid var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-sm, 0.5rem);
   overflow: hidden;
   padding: 0;
@@ -113,7 +145,7 @@
 
 .gs-pdp-thumb-btn:hover,
 .gs-pdp-thumb-btn.active {
-  border-color: var(--gs-green-800, #1e4f26);
+  border-color: var(--gs-green-800, #963b21);
   box-shadow: 0 4px 12px rgba(35, 71, 45, 0.15);
   transform: translateY(-2px);
 }
@@ -137,22 +169,22 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--gs-green-800, #1e4f26);
+  color: var(--gs-green-800, #963b21);
 }
 
 .gs-pdp-title {
   font-family: var(--gs-font-heading);
   font-size: clamp(1.45rem, 2.6vw, 2.15rem);
   font-weight: 700;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   line-height: 1.25;
   margin: 0;
 }
 
 /* Pricing Card & Dynamic Tier Pricing */
 .gs-pdp-price-card {
-  background: var(--gs-green-50, #f4f8f5);
-  border: 1px solid var(--gs-border, #cfdecb);
+  background: var(--gs-green-50, #fbf6f3);
+  border: 1px solid var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-md, 0.75rem);
   padding: 1.15rem 1.25rem;
   display: flex;
@@ -173,7 +205,7 @@
   font-family: var(--gs-font-body);
   font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 700;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   display: flex;
   align-items: baseline;
   gap: 0.35rem;
@@ -182,7 +214,7 @@
 .gs-pdp-price-amount {
   font-size: clamp(1.45rem, 2.4vw, 1.95rem);
   font-weight: 800;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   transition: color 0.25s ease;
 }
 
@@ -199,7 +231,7 @@
 .gs-pdp-price-range {
   font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 700;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
 }
 
 .gs-pdp-price-unit {
@@ -214,17 +246,17 @@
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
   background: #ffffff;
-  color: var(--gs-green-900, #23472d);
-  border: 1px solid var(--gs-border, #cfdecb);
+  color: var(--gs-green-900, #762b16);
+  border: 1px solid var(--gs-border, #e6ded5);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: all 0.25s ease;
   white-space: nowrap;
 }
 
 .gs-pdp-tier-badge.is-discount {
-  background: var(--gs-green-900, #23472d);
+  background: var(--gs-green-900, #762b16);
   color: #ffffff;
-  border-color: var(--gs-green-900, #23472d);
+  border-color: var(--gs-green-900, #762b16);
   box-shadow: 0 2px 6px rgba(35, 71, 45, 0.25);
 }
 
@@ -233,11 +265,11 @@
   align-items: center;
   justify-content: space-between;
   background: #ffffff;
-  border: 1px dashed var(--gs-border, #cfdecb);
+  border: 1px dashed var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-sm, 0.5rem);
   padding: 0.65rem 0.95rem;
   font-size: 0.88rem;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
 }
 
 .gs-pdp-total-label {
@@ -248,7 +280,7 @@
 .gs-pdp-total-amount {
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
 }
 
 .gs-pdp-price-subtext {
@@ -261,7 +293,7 @@
 
 .gs-pdp-range-hint {
   font-weight: 600;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
 }
 
 .gs-pdp-price-note {
@@ -284,25 +316,25 @@
   align-items: center;
   gap: 0.35rem;
   background: #ffffff;
-  border: 1.5px solid var(--gs-border, #cfdecb);
+  border: 1.5px solid var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-sm, 0.5rem);
   padding: 0.45rem 0.85rem;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   cursor: pointer;
   transition: all var(--gs-transition);
 }
 
 .gs-tier-pill:hover {
-  border-color: var(--gs-green-800, #1e4f26);
-  background: var(--gs-green-50, #f4f8f5);
+  border-color: var(--gs-green-800, #963b21);
+  background: var(--gs-green-50, #fbf6f3);
 }
 
 .gs-tier-pill.active {
-  background: var(--gs-green-900, #23472d);
+  background: var(--gs-green-900, #762b16);
   color: #ffffff;
-  border-color: var(--gs-green-900, #23472d);
+  border-color: var(--gs-green-900, #762b16);
   box-shadow: 0 2px 6px rgba(35, 71, 45, 0.2);
 }
 
@@ -322,7 +354,7 @@
 
 .gs-pdp-tier-note {
   font-size: 0.8rem;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
   font-style: italic;
   margin-top: 0.35rem;
   display: block;
@@ -341,24 +373,24 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
 }
 
 .gs-pdp-select {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
-  border: 1px solid var(--gs-border, #cfdecb);
+  border: 1px solid var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-sm, 0.5rem);
   background: #ffffff;
-  color: var(--gs-text, #18261b);
+  color: var(--gs-text, #2b1d18);
   cursor: pointer;
   transition: border-color var(--gs-transition);
 }
 
 .gs-pdp-select:focus {
   outline: none;
-  border-color: var(--gs-green-800, #1e4f26);
+  border-color: var(--gs-green-800, #963b21);
 }
 
 /* Quantity & Order Row */
@@ -371,7 +403,7 @@
 .gs-pdp-qty-control {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--gs-border, #cfdecb);
+  border: 1px solid var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-sm, 0.5rem);
   background: #ffffff;
   overflow: hidden;
@@ -380,17 +412,17 @@
 .gs-pdp-qty-btn {
   width: 38px;
   height: 44px;
-  background: var(--gs-green-50, #f3f9f1);
+  background: var(--gs-green-50, #fbf6f3);
   border: none;
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
   cursor: pointer;
   transition: background var(--gs-transition);
 }
 
 .gs-pdp-qty-btn:hover {
-  background: var(--gs-green-100, #e5f1df);
+  background: var(--gs-green-100, #f5eae3);
 }
 
 .gs-pdp-qty-input {
@@ -400,7 +432,7 @@
   text-align: center;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
 }
 
 .gs-pdp-qty-unit {
@@ -429,7 +461,7 @@
   font-weight: 700;
   text-decoration: none;
   color: #ffffff;
-  background: #689f38; /* Green button exactly like Dekayu */
+  background: #b25032; /* Green button exactly like Dekayu */
   border: none;
   border-radius: var(--gs-radius-sm, 0.5rem);
   box-shadow: 0 4px 14px rgba(104, 159, 56, 0.35);
@@ -438,7 +470,7 @@
 }
 
 .gs-pdp-btn-wa:hover {
-  background: #558b2f;
+  background: #963b21;
   box-shadow: 0 6px 18px rgba(104, 159, 56, 0.45);
   transform: translateY(-1px);
 }
@@ -459,16 +491,16 @@
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
   background: transparent;
-  border: 1px solid var(--gs-border, #cfdecb);
+  border: 1px solid var(--gs-border, #e6ded5);
   border-radius: var(--gs-radius-sm, 0.5rem);
   transition: all var(--gs-transition);
 }
 
 .gs-pdp-btn-secondary:hover {
-  background: var(--gs-green-50, #f3f9f1);
-  border-color: var(--gs-green-700, #3f7044);
+  background: var(--gs-green-50, #fbf6f3);
+  border-color: var(--gs-green-700, #b25032);
 }
 
 /* Metadata SKU & Social Share */
@@ -478,12 +510,12 @@
   gap: 0.35rem;
   font-size: 0.82rem;
   color: var(--gs-muted, #38483b);
-  border-top: 1px solid var(--gs-border, #cfdecb);
+  border-top: 1px solid var(--gs-border, #e6ded5);
   padding-top: 1rem;
 }
 
 .gs-pdp-meta-item strong {
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   font-weight: 600;
 }
 
@@ -501,16 +533,16 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--gs-border, #cfdecb);
-  color: var(--gs-green-800, #1e4f26);
+  border: 1px solid var(--gs-border, #e6ded5);
+  color: var(--gs-green-800, #963b21);
   text-decoration: none;
   transition: all var(--gs-transition);
 }
 
 .gs-pdp-share-icon:hover {
-  background: var(--gs-green-800, #1e4f26);
+  background: var(--gs-green-800, #963b21);
   color: #ffffff;
-  border-color: var(--gs-green-800, #1e4f26);
+  border-color: var(--gs-green-800, #963b21);
 }
 
 .gs-pdp-share-icon svg {
@@ -520,7 +552,7 @@
 
 /* Product Tabs Section */
 .gs-pdp-tabs-section {
-  border-top: 1px solid var(--gs-border, #cfdecb);
+  border-top: 1px solid var(--gs-border, #e6ded5);
   padding-top: clamp(2.5rem, 5vw, 4rem);
   padding-bottom: clamp(3rem, 5vw, 4.5rem);
 }
@@ -529,7 +561,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  border-bottom: 2px solid var(--gs-border, #cfdecb);
+  border-bottom: 2px solid var(--gs-border, #e6ded5);
   margin-bottom: 2rem;
   overflow-x: auto;
   scrollbar-width: none;
@@ -552,7 +584,7 @@
 
 .gs-pdp-tab-trigger:hover,
 .gs-pdp-tab-trigger.active {
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
 }
 
 .gs-pdp-tab-trigger.active::after {
@@ -562,13 +594,13 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--gs-green-800, #1e4f26);
+  background: var(--gs-green-800, #963b21);
 }
 
 .gs-pdp-tab-pane {
   display: none;
   line-height: 1.8;
-  color: var(--gs-text, #18261b);
+  color: var(--gs-text, #2b1d18);
 }
 
 .gs-pdp-tab-pane.active {
@@ -592,7 +624,7 @@
   align-items: flex-start;
   gap: 0.65rem;
   font-size: 0.92rem;
-  color: var(--gs-text, #18261b);
+  color: var(--gs-text, #2b1d18);
 }
 
 .gs-pdp-checklist svg,
@@ -604,7 +636,7 @@
   height: 18px !important;
   max-width: 18px !important;
   max-height: 18px !important;
-  color: #689f38 !important;
+  color: #b25032 !important;
   fill: currentColor !important;
   flex-shrink: 0 !important;
   margin-top: 0.2rem !important;
@@ -628,7 +660,7 @@
 /* Related Products Section */
 .gs-pdp-related-section {
   background: #fbfdfa;
-  border-top: 1px solid var(--gs-border, #cfdecb);
+  border-top: 1px solid var(--gs-border, #e6ded5);
   padding: clamp(3rem, 5vw, 4.5rem) 0;
 }
 
@@ -647,7 +679,7 @@
 
 .gs-pdp-related-card {
   background: #ffffff;
-  border: 1px solid var(--gs-border, #cfdecb);
+  border: 1px solid var(--gs-border, #e6ded5);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
@@ -659,14 +691,14 @@
 .gs-pdp-related-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(24, 38, 27, 0.1);
-  border-color: #689f38;
+  border-color: #b25032;
 }
 
 .gs-pdp-related-img-wrap {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   position: relative;
-  background: var(--gs-green-50, #f3f9f1);
+  background: var(--gs-green-50, #fbf6f3);
   display: block;
 }
 
@@ -687,7 +719,7 @@
   left: 10px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(4px);
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   font-size: 0.72rem;
   font-weight: 700;
   padding: 0.25rem 0.65rem;
@@ -716,7 +748,7 @@
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #689f38;
+  color: #b25032;
 }
 
 .gs-pdp-related-rating {
@@ -729,7 +761,7 @@
   font-family: var(--gs-font-heading, 'Playfair Display', serif);
   font-size: 0.98rem;
   font-weight: 700;
-  color: var(--gs-green-950, #0f2d18);
+  color: var(--gs-green-950, #48180c);
   margin: 0 0 0.65rem 0;
   line-height: 1.4;
   display: -webkit-box;
@@ -747,7 +779,7 @@
 }
 
 .gs-pdp-related-title a:hover {
-  color: #689f38;
+  color: #b25032;
 }
 
 .gs-pdp-related-price-box {
@@ -766,7 +798,7 @@
 .gs-pdp-related-price {
   font-size: 0.98rem;
   font-weight: 700;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-900, #762b16);
 }
 
 .gs-pdp-related-unit {
@@ -789,9 +821,9 @@
   padding: 0.55rem 0.5rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--gs-green-900, #23472d);
-  background: var(--gs-green-50, #f3f9f1);
-  border: 1px solid var(--gs-border, #cfdecb);
+  color: var(--gs-green-900, #762b16);
+  background: var(--gs-green-50, #fbf6f3);
+  border: 1px solid var(--gs-border, #e6ded5);
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -799,9 +831,9 @@
 }
 
 .gs-pdp-btn-detail:hover {
-  background: var(--gs-green-100, #e2eedf);
-  border-color: #689f38;
-  color: var(--gs-green-950, #0f2d18);
+  background: var(--gs-green-100, #f5eae3);
+  border-color: #b25032;
+  color: var(--gs-green-950, #48180c);
 }
 
 .gs-pdp-btn-card-wa {
