@@ -30,6 +30,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://souvenirpernikahan.web.id/paket/detail-souvenir-modern</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://souvenirpernikahan.web.id/paket/detail-souvenir-tradisional</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   
   <url>
     <loc>https://souvenirpernikahan.web.id/portofolio</loc>
