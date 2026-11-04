@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Rebuild all 28 Product Detail Pages (PDP) in /produk/
-1. Fix duplicate breadcrumbs (keep only top breadcrumb, remove redundant text inside buybox).
-2. Fix title and price text (remove awkward slashes, clean pricing format, clear package description).
-3. Fix gallery images (100% relevant 3 photos per product with keyword-rich alt texts).
-4. Supercharge SEO, AEO, GEO (Meta tags, Speakable, FAQ Q&A, LocalBusiness).
-5. Rich Schema JSON-LD (Product, AggregateOffer, AggregateRating, Review, BreadcrumbList, FAQPage).
+Rebuild all 28 Product Detail Pages (PDP) in /produk/ with Dynamic Wholesale/Tiered Pricing:
+1. Dynamic wholesale/tiered pricing where unit price decreases as quantity increases.
+2. Real-time calculated unit price, discount tier badge, and estimated total price.
+3. Quick-selection quantity pills (e.g. 100, 250, 500, 1000+ pcs).
+4. WhatsApp CTA pre-filled message synced with quantity, variant, unit price, and total estimate.
+5. 100% valid Schema JSON-LD.
 """
 
 import json
@@ -16,240 +16,104 @@ import sys
 sys.path.append('.')
 
 from perbaikan.generate_package_pages import modern_products, tradisional_products, ORG_LOCALBUSINESS
+from perbaikan.rebuild_all_pdp_system import GALLERY_MAP
 
-# Mapping of authentic relevant gallery images
-GALLERY_MAP = {
-    "kipas-lipat-batik-tulis-kayu-jati": [
-        ("/assets/images/kipas-batik-souvenir.webp", "Souvenir Pernikahan Kipas Lipat Batik Tulis Rangka Kayu Jati Tampak Depan"),
-        ("/assets/images/kipas-batik-untuk-souvenir-pernikahan.webp", "Detail Bilah Kayu Ukir & Rumbai Sutra Kipas Batik"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft Rustic Bertali Rami")
-    ],
-    "mug-keramik-stoneware-rustic-monogram": [
-        ("/assets/images/ceramic-mug-souvenir.webp", "Souvenir Pernikahan Mug Keramik Stoneware Rustic Monogram"),
-        ("/assets/images/detail-mug-keramik-pengantin.webp", "Detail Monogram Emas & Glazur Keramik Terakota"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Hardbox Kraft Eksklusif Monogram")
-    ],
-    "pouch-dompet-tenun-lurik-tradisional": [
-        ("/assets/images/pouch-tenun-souvenir.webp", "Souvenir Pernikahan Pouch Dompet Tenun Lurik Tradisional"),
-        ("/assets/images/pouch-batik-dan-dompet-tenun-untuk-souvenir.webp", "Detail Tekstur Tenun ATBM & Kancing Batok Kelapa"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft Rustic & Pita Rami")
-    ],
-    "lilin-aromaterapi-pot-keramik-gerabah": [
-        ("/assets/images/souvenir-lilin-aroma.webp", "Souvenir Pernikahan Lilin Aromaterapi Pot Gerabah Terakota"),
-        ("/assets/images/detail-lilin-aroma-pengantin.webp", "Detail Lilin Aromaterapi Alami & Wangi Botanical"),
-        ("/assets/images/candle-souvenir.webp", "Kemasan Box Kraft & Label Monogram")
-    ],
-    "lilin-aromaterapi-jar-frosted-gold": [
-        ("/assets/images/candle-souvenir.webp", "Souvenir Pernikahan Lilin Aromaterapi Jar Frosted Tutup Gold"),
-        ("/assets/images/detail-lilin-aroma-pengantin.webp", "Detail Jar Kaca Frosted & Tutup Logam Gold"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Eksklusif & Kartu Ucapan")
-    ],
-    "tumbler-kopi-stainless-sage-green": [
-        ("/assets/images/souvenir-tumbler-custom.webp", "Souvenir Pernikahan Tumbler Kopi Stainless Sage Green"),
-        ("/assets/images/tumbler-souvenir.webp", "Detail Grafir Laser Monogram Nama Pengantin"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Tabung Silinder Eksklusif")
-    ],
-    "tumbler-termos-ivory-rose-gold": [
-        ("/assets/images/tumbler-souvenir.webp", "Souvenir Pernikahan Tumbler Termos Stainless Ivory Rose Gold"),
-        ("/assets/images/souvenir-tumbler-custom.webp", "Detail Finishing Matte & Tutup Rose Gold"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Silinder Berpita Grosgrain")
-    ],
-    "hampers-vip-gift-set-box": [
-        ("/assets/images/souvenir-seminar-kit.webp", "Paket Hampers Souvenir Pernikahan VIP Gift Set Box Hijau Botol"),
-        ("/assets/images/detail-hampers-vip-pengantin.webp", "Detail Isian Lengkap Hampers Pernikahan VIP"),
-        ("/assets/images/hero-wedding.webp", "Kemasan Hardbox Magnetik Foil Emas")
-    ],
-    "besek-anyaman-bambu-bunga-kering": [
-        ("/assets/images/besek-bambu-souvenir.webp", "Souvenir Pernikahan Besek Anyaman Bambu Hias Bunga Kering"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Anyaman Bambu Halus & Buket Bunga Kering"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Tradisional Besek & Tali Rami")
-    ],
-    "sepasang-sendok-kayu-jati-alami": [
-        ("/assets/images/wooden-spoon-souvenir.webp", "Souvenir Pernikahan Sepasang Sendok Garpu Kayu Jati Alami"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Serat Kayu Jati Solid Food Grade"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft & Tali Rami Alami")
-    ],
-    "madu-hutan-jar-heksagonal-tutup-renda": [
-        ("/assets/images/honey-souvenir.webp", "Souvenir Pernikahan Madu Hutan Jar Heksagonal Tutup Renda"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Jar Kaca Heksagonal & Sendok Kayu Madu"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Soft Box Mika / Kraft Berpita")
-    ],
-    "sabun-herbal-batang-alami-handmade": [
-        ("/assets/images/artisan-soap-souvenir.webp", "Souvenir Pernikahan Sabun Herbal Batang Alami Handmade"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Tekstur Sabun Nabati & Aroma Alami"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Kertas Daur Ulang & Label Nama")
-    ],
-    "tatakan-gelas-kayu-jati-grafir-wreath": [
-        ("/assets/images/coaster-souvenir.webp", "Souvenir Pernikahan Coaster Tatakan Gelas Kayu Jati Grafir Monogram"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Grafir Laser Presisi Monogram Wreath"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft Ikat Rami")
-    ],
-    "pembatas-buku-kuningan-ukir-rumbai-sutra": [
-        ("/assets/images/brass-bookmark-souvenir.webp", "Souvenir Pernikahan Pembatas Buku Kuningan Ukir Rumbai Sutra"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Ukiran Logam Kuningan & Bandul Rumbai Sutra"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Amplop Kraft Estetik Bersegel Lilin")
-    ],
-    "saputangan-kain-linen-bordir-monogram": [
-        ("/assets/images/linen-handkerchief-souvenir.webp", "Souvenir Pernikahan Saputangan Linen Bordir Monogram Klasik"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Serat Kain Linen Alami & Bordir Monogram"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Kraft Transparan Berpita")
-    ],
-    "wax-sachet-pewangi-lemari-bunga-kering": [
-        ("/assets/images/wax-sachet-souvenir.webp", "Souvenir Pernikahan Wax Sachet Botanical Bunga Kering"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Lilin Aromatik Hias Bunga Kering Alami"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Pouch Organza & Gift Box")
-    ],
-    "tanaman-sukulen-mini-pot-balut-goni": [
-        ("/assets/images/succulent-souvenir.webp", "Souvenir Pernikahan Tanaman Sukulen Mini Pot Balut Goni"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Sukulen Hidup & Pot Kain Goni Rustic"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Mika Tegak / Kraft Handle")
-    ],
-    "cermin-saku-lipat-logam-ukir-klasik-emas": [
-        ("/assets/images/compact-mirror-souvenir.webp", "Souvenir Pernikahan Cermin Saku Lipat Logam Ukir Klasik Emas"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp", "Detail Ukiran Logam Vintage Bersepuh Emas"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Pouch Serut Beludru & Box Kraft")
-    ],
-    "glass-tumbler-borosilikat-tutup-bambu": [
-        ("/assets/images/glass-tumbler-souvenir.webp", "Souvenir Pernikahan Glass Tumbler Kaca Borosilikat Tutup Bambu"),
-        ("/assets/images/tumbler-souvenir.webp", "Detail Tutup Kayu Bambu Alami & Kaca Bening"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Kraft Silinder & Kartu Ucapan")
-    ],
-    "plakat-akrilik-souvenir-pernikahan": [
-        ("/assets/images/souvenir-plakat-akrilik.webp", "Plakat Akrilik Souvenir Pernikahan Dudukan Kayu Solid"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Hardbox Beludru Eksklusif"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Grafir Bening Akrilik Presisi")
-    ],
-    "set-teh-herbal-tabung-kaca-saringan-emas": [
-        ("/assets/images/tea-infuser-souvenir.webp", "Souvenir Pernikahan Teh Herbal Tabung Kaca & Saringan Emas"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft dengan Sekat Pelindung"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Saringan Teh Emas & Racikan Artisan Tea")
-    ],
-    "kaleng-teh-artisan-logam-tutup-gold": [
-        ("/assets/images/tea-tin-souvenir.webp", "Souvenir Pernikahan Kaleng Teh Artisan Logam Tutup Gold"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Kraft & Pita Satin"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Label Custom Monogram Foil Emas")
-    ],
-    "botol-dispenser-sabun-pump-gold": [
-        ("/assets/images/botol-sabun-custom.webp", "Souvenir Pernikahan Botol Dispenser Sabun Pump Gold Mewah"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Silinder / Hardbox Kraft"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Pompa Logam Emas & Grafir Botol")
-    ],
-    "botol-parfum-kaca-amber-mewah": [
-        ("/assets/images/perfume-bottle-souvenir.webp", "Souvenir Pernikahan Botol Parfum Kaca Amber Mewah"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Kraft Elegan & Kartu Ucapan"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Nozzle Spray Emas & Kaca Amber Tebal")
-    ],
-    "minyak-esensial-pipet-kaca-box-beludru": [
-        ("/assets/images/souvenir-botol-minyak.webp", "Souvenir Pernikahan Minyak Esensial Pipet Kaca & Box Beludru"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Box Hardbox / Beludru Berpita"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Pipet Kaca Presisi & Minyak Aromaterapi")
-    ],
-    "silk-scrunchie-set-sutra-bridesmaid": [
-        ("/assets/images/silk-scrunchie-souvenir.webp", "Souvenir Pernikahan Silk Scrunchie Set Sutra Bridesmaid"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Pouch Transparan / Box Mika Pita"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Serat Sutra Lembut Berkilau Alami")
-    ],
-    "pouch-serut-beludru-velvet-monogram": [
-        ("/assets/images/velvet-pouch-souvenir.webp", "Souvenir Pernikahan Pouch Serut Beludru Velvet Bordir Monogram"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft & Hangtag"),
-        ("/assets/images/hero-souvenir-sq-597.webp", "Detail Bordir Inisial Monogram Benang Emas")
-    ],
-    "eco-tote-bag-kanvas-cutlery-set": [
-        ("/assets/images/souvenir-tote-bag.webp", "Souvenir Pernikahan Eco Tote Bag Kanvas & Cutlery Set Kayu"),
-        ("/assets/images/wooden-spoon-souvenir.webp", "Detail Sendok Garpu Kayu Alami"),
-        ("/assets/images/craft-packaging.webp", "Kemasan Pita Rami & Hangtag Daur Ulang")
-    ]
-}
-
-def extract_prices(price_str):
-    nums = re.findall(r'\d+', price_str.replace('.', ''))
-    if len(nums) >= 2:
-        return int(nums[0]), int(nums[1])
-    elif len(nums) == 1:
-        return int(nums[0]), int(nums[0])
-    return 15000, 50000
-
-def get_related_products(all_prods, current_slug, count=4):
-    others = [p for p in all_prods if p["slug"] != current_slug]
-    return others[:count]
-
-all_prods_list = tradisional_products + modern_products
-
-def generate_clean_pdp(prod, package_type, index):
-    is_modern = (package_type == "modern")
-    sku = f"SP-{'MOD' if is_modern else 'TRA'}-{index+1:02d}"
-    cat_name = "Souvenir Modern" if is_modern else "Souvenir Tradisional"
-    parent_slug = "souvenir-modern" if is_modern else "souvenir-tradisional"
-    
+def generate_clean_pdp_with_dynamic_pricing(prod, cat_type, idx):
     slug = prod["slug"]
-    title = prod["title"] # e.g. "Souvenir Pernikahan Kipas Lipat Batik Tulis Rangka Kayu Jati"
+    title = prod["title"]
+    is_modern = (cat_type == "modern")
+    parent_slug = "souvenir-modern" if is_modern else "souvenir-tradisional"
+    cat_name = "Souvenir Modern" if is_modern else "Souvenir Tradisional"
     
-    # Meta tags
-    page_meta_title = f"{title} — Unik, Elegan &amp; Custom Nama"
-    meta_desc = f"Pusat {title} murah, unik, elegan, dan bermanfaat. Gratis custom nama pengantin &amp; kartu ucapan, kemasan estetik, serta garansi kirim aman seluruh Indonesia."
-    keywords_str = f"{title.lower()}, souvenir pernikahan, souvenir pernikahan unik, souvenir pernikahan elegan, souvenir pernikahan murah, souvenir pernikahan bermanfaat, souvenir pernikahan malang, souvenir pernikahan surabaya, souvenir pernikahan jakarta"
+    # Parse prices & min_order
+    price_matches = re.findall(r'Rp\s*([\d\.]+)', prod["price"])
+    low_price = int(price_matches[0].replace('.', ''))
+    high_price = int(price_matches[1].replace('.', ''))
+    
+    min_order_match = re.search(r'\d+', prod.get("min_order", "100"))
+    min_order_int = int(min_order_match.group()) if min_order_match else 100
+    
+    # Configure steps and pills based on min_order_int
+    if min_order_int <= 25:
+        step_val = 10
+        pills_html = f'''              <div class="gs-pdp-tier-pills" role="group" aria-label="Pilihan cepat kuantiti grosir">
+                <button type="button" class="gs-tier-pill active" data-qty="{min_order_int}" onclick="setQty({min_order_int})">{min_order_int} pcs</button>
+                <button type="button" class="gs-tier-pill" data-qty="50" onclick="setQty(50)">50 pcs <span class="gs-pill-save">-6%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="100" onclick="setQty(100)">100 pcs <span class="gs-pill-save">-12%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="250" onclick="setQty(250)">250+ pcs <span class="gs-pill-save">-18%</span></button>
+              </div>'''
+    elif min_order_int <= 50:
+        step_val = 25
+        pills_html = f'''              <div class="gs-pdp-tier-pills" role="group" aria-label="Pilihan cepat kuantiti grosir">
+                <button type="button" class="gs-tier-pill active" data-qty="{min_order_int}" onclick="setQty({min_order_int})">{min_order_int} pcs</button>
+                <button type="button" class="gs-tier-pill" data-qty="100" onclick="setQty(100)">100 pcs <span class="gs-pill-save">-6%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="250" onclick="setQty(250)">250 pcs <span class="gs-pill-save">-12%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="500" onclick="setQty(500)">500+ pcs <span class="gs-pill-save">-18%</span></button>
+              </div>'''
+    elif min_order_int == 150:
+        step_val = 25
+        pills_html = f'''              <div class="gs-pdp-tier-pills" role="group" aria-label="Pilihan cepat kuantiti grosir">
+                <button type="button" class="gs-tier-pill active" data-qty="150" onclick="setQty(150)">150 pcs</button>
+                <button type="button" class="gs-tier-pill" data-qty="250" onclick="setQty(250)">250 pcs <span class="gs-pill-save">-8%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="500" onclick="setQty(500)">500 pcs <span class="gs-pill-save">-14%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="1000" onclick="setQty(1000)">1.000+ pcs <span class="gs-pill-save">-20%</span></button>
+              </div>'''
+    else: # 100 pcs
+        step_val = 25
+        pills_html = f'''              <div class="gs-pdp-tier-pills" role="group" aria-label="Pilihan cepat kuantiti grosir">
+                <button type="button" class="gs-tier-pill active" data-qty="100" onclick="setQty(100)">100 pcs</button>
+                <button type="button" class="gs-tier-pill" data-qty="250" onclick="setQty(250)">250 pcs <span class="gs-pill-save">-8%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="500" onclick="setQty(500)">500 pcs <span class="gs-pill-save">-14%</span></button>
+                <button type="button" class="gs-tier-pill" data-qty="1000" onclick="setQty(1000)">1.000+ pcs <span class="gs-pill-save">-20%</span></button>
+              </div>'''
+
     canonical_url = f"https://souvenirpernikahan.web.id/produk/{slug}"
+    sku = f"SPN-{cat_type[:3].upper()}-{idx+1:03d}"
     
-    low_p, high_p = extract_prices(prod["price"])
-    
-    # 3 genuine relevant images
-    gallery_items = GALLERY_MAP.get(slug, [
-        (prod["image"], f"{title} Foto Utama"),
-        ("/assets/images/craft-packaging.webp", f"Kemasan Gift Box {title}"),
-        ("/assets/images/detail-souvenir-tradisional-pengantin.webp" if not is_modern else "/assets/images/hero-souvenir-sq-597.webp", f"Detail Finishing {title}")
+    # Gallery images
+    gal = GALLERY_MAP.get(slug, [
+        (prod["image"], f"{title} — Foto Utama"),
+        ("/assets/images/craft-packaging.webp", "Kemasan Gift Box Kraft Rustic"),
+        ("/assets/images/hero-souvenir.webp", "Detail Finishing Cinderamata")
     ])
-    
-    img_main, img_main_alt = gallery_items[0]
-    img_pack, img_pack_alt = gallery_items[1]
-    img_detail, img_detail_alt = gallery_items[2]
-    
-    # WhatsApp Default URL
-    default_wa_text = f"Halo Souvenir Pernikahan, saya tertarik memesan 100 pcs {title} untuk souvenir pernikahan saya. Mohon info rincian harga, opsi kemasan, dan estimasi produksinya."
-    default_wa_url = f"https://wa.me/6282131087971?text={urllib.parse.quote(default_wa_text)}"
-    
+    img_main, img_main_alt = gal[0]
+    img_pack, img_pack_alt = gal[1]
+    img_detail, img_detail_alt = gal[2]
+
     # Related products
-    related = get_related_products(all_prods_list, slug, 4)
-    related_html_list = []
-    for rel in related:
-        rel_slug = rel["slug"]
-        rel_title = rel["title"]
-        rel_price = rel["price"]
-        rel_img = rel["image"]
-        rel_badge = rel["badge"]
-        related_html_list.append(f'''        <article class="gs-pdp-related-card">
-          <div class="gs-pdp-related-img-wrap">
-            <a href="/produk/{rel_slug}" title="Lihat {rel_title}">
-              <img src="{rel_img}" alt="{rel_title}" loading="lazy" width="300" height="300" />
-            </a>
-          </div>
-          <div class="gs-pdp-related-body">
-            <span class="gs-pdp-related-sub">{rel_badge}</span>
-            <h3 class="gs-pdp-related-title">
-              <a href="/produk/{rel_slug}" style="color:inherit;text-decoration:none;">{rel_title}</a>
-            </h3>
-            <span class="gs-pdp-related-price">{rel_price}</span>
-            <a href="/produk/{rel_slug}" class="gs-pdp-related-btn">
-              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
-              Lihat Detail
-            </a>
-          </div>
-        </article>''')
-    related_cards_html = "\n".join(related_html_list)
+    product_pool = modern_products if is_modern else tradisional_products
+    related_items = [p for p in product_pool if p["slug"] != slug][:4]
     
-    # Schema JSON-LD
+    related_cards_html = ""
+    for r in related_items:
+        r_gal = GALLERY_MAP.get(r["slug"], [(r["image"], r["title"])])
+        r_img, r_alt = r_gal[0]
+        r_wa_msg = f"Halo Souvenir Pernikahan, saya tertarik memesan {r['title']} untuk souvenir pernikahan saya."
+        r_wa_url = f"https://wa.me/6282131087971?text={urllib.parse.quote(r_wa_msg)}"
+        
+        related_cards_html += f'''          <div class="gs-pdp-related-card">
+            <a href="/produk/{r['slug']}" class="gs-pdp-related-img-wrap" aria-label="{r['title']}">
+              <img src="{r_img}" alt="{r_alt}" width="280" height="280" loading="lazy" decoding="async" />
+            </a>
+            <div class="gs-pdp-related-content">
+              <span class="gs-pdp-related-cat">{cat_name.upper()}</span>
+              <h3 class="gs-pdp-related-title"><a href="/produk/{r['slug']}">{r['title']}</a></h3>
+              <div class="gs-pdp-related-price">{r['price']} <span style="font-size:0.8rem;font-weight:normal;color:var(--gs-muted);">/ pcs</span></div>
+              <a href="{r_wa_url}" class="gs-pdp-related-btn-wa" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                BUY VIA WHATSAPP
+              </a>
+            </div>
+          </div>\n'''
+
+    page_meta_title = f"{title} — Souvenir Pernikahan Unik &amp; Elegan"
+    meta_desc = f"Pusat {title} murah, unik, elegan, dan bermanfaat. Gratis custom nama pengantin & kartu ucapan, harga grosir bertingkat semakin banyak semakin murah, serta garansi kirim aman seluruh Indonesia."
+    keywords = f"{title.lower()}, souvenir pernikahan, souvenir pernikahan unik, souvenir pernikahan elegan, souvenir pernikahan murah, souvenir pernikahan bermanfaat, grosir souvenir pernikahan, souvenir pernikahan malang, souvenir pernikahan surabaya, souvenir pernikahan jakarta"
+
     schema_graph = {
         "@context": "https://schema.org",
         "@graph": [
             ORG_LOCALBUSINESS,
-            {
-                "@type": "WebSite",
-                "@id": "https://souvenirpernikahan.web.id/#website",
-                "url": "https://souvenirpernikahan.web.id/",
-                "name": "Souvenir Pernikahan",
-                "publisher": {
-                    "@id": "https://souvenirpernikahan.web.id/#organization"
-                }
-            },
             {
                 "@type": "BreadcrumbList",
                 "@id": f"{canonical_url}#breadcrumb",
@@ -263,7 +127,7 @@ def generate_clean_pdp(prod, package_type, index):
                     {
                         "@type": "ListItem",
                         "position": 2,
-                        "name": "Katalog Souvenir",
+                        "name": "Paket Souvenir",
                         "item": "https://souvenirpernikahan.web.id/paket"
                     },
                     {
@@ -284,27 +148,30 @@ def generate_clean_pdp(prod, package_type, index):
                 "@type": "Product",
                 "@id": f"{canonical_url}#product",
                 "name": title,
-                "description": f"{prod['lead']} Cocok untuk souvenir pernikahan unik, elegan, dan bermanfaat dengan custom nama kedua mempelai.",
+                "url": canonical_url,
                 "image": [
                     f"https://souvenirpernikahan.web.id{img_main}",
                     f"https://souvenirpernikahan.web.id{img_pack}",
                     f"https://souvenirpernikahan.web.id{img_detail}"
                 ],
+                "description": prod["lead"],
                 "sku": sku,
-                "category": f"Souvenir Pernikahan > {cat_name}",
+                "mpn": sku,
                 "brand": {
                     "@type": "Brand",
                     "name": "Souvenir Pernikahan"
                 },
+                "category": f"Souvenir Pernikahan > {cat_name}",
                 "offers": {
                     "@type": "AggregateOffer",
+                    "url": canonical_url,
                     "priceCurrency": "IDR",
-                    "lowPrice": low_p,
-                    "highPrice": high_p,
-                    "offerCount": 100,
+                    "lowPrice": str(low_price),
+                    "highPrice": str(high_price),
+                    "offerCount": "120",
                     "priceValidUntil": "2027-12-31",
-                    "itemCondition": "https://schema.org/NewCondition",
                     "availability": "https://schema.org/InStock",
+                    "itemCondition": "https://schema.org/NewCondition",
                     "hasMerchantReturnPolicy": {
                         "@type": "MerchantReturnPolicy",
                         "applicableCountry": "ID",
@@ -378,7 +245,7 @@ def generate_clean_pdp(prod, package_type, index):
                         "name": f"Berapa harga dan minimal order untuk {title}?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": f"Estimasi harga satuan mulai dari {prod['price']} per pcs tergantung variasi kemasan. Minimal pemesanan mulai dari {prod['min_order']}."
+                            "text": f"Estimasi harga satuan mulai dari {prod['price']} per pcs tergantung pilihan kemasan dan jumlah pemesanan. Kami menerapkan sistem harga grosir bertingkat (tiered discount) sehingga semakin banyak jumlah yang dipesan (250, 500, hingga 1.000+ pcs), harga satuan akan otomatis semakin murah. Minimal pemesanan mulai dari {prod['min_order']}."
                         }
                     },
                     {
@@ -417,15 +284,12 @@ def generate_clean_pdp(prod, package_type, index):
             }
         ]
     }
-    schema_json_str = json.dumps(schema_graph, indent=2, ensure_ascii=False)
     
-    # Checklist Features HTML
-    features_html = "\n".join([f'''            <li>
-              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              <span>{feat}</span>
-            </li>''' for feat in prod["features"]])
+    schema_json = json.dumps(schema_graph, indent=2, ensure_ascii=False)
+
+    features_li_html = "".join([f"<li>{feat}</li>" for feat in prod["features"]])
+    default_wa_msg = f"Halo Souvenir Pernikahan, saya tertarik memesan {min_order_int} pcs {title} (Pilihan: {prod['packaging']}) untuk souvenir pernikahan saya. Mohon konfirmasi ketersediaan slot produksi dan penawaran resminya."
+    default_wa_url = f"https://wa.me/6282131087971?text={urllib.parse.quote(default_wa_msg)}"
 
     html = f'''<!DOCTYPE html>
 <html lang="id">
@@ -442,7 +306,7 @@ def generate_clean_pdp(prod, package_type, index):
 
   <title>{page_meta_title}</title>
   <meta name="description" content="{meta_desc}" />
-  <meta name="keywords" content="{keywords_str}" />
+  <meta name="keywords" content="{keywords}" />
   <meta name="author" content="Yudi Abraham" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
@@ -493,7 +357,7 @@ def generate_clean_pdp(prod, package_type, index):
 
   <!-- Schema JSON-LD (Product, AggregateOffer, BreadcrumbList, FAQPage, Organization) -->
   <script type="application/ld+json">
-{schema_json_str}
+{schema_json}
   </script>
 </head>
 
@@ -594,33 +458,52 @@ def generate_clean_pdp(prod, package_type, index):
             
             <h1 class="gs-pdp-title">{title}</h1>
 
-            <div class="gs-pdp-price">
-              <span class="gs-pdp-price-range">{prod["price"]}</span>
-              <span class="gs-pdp-price-unit">/ pcs</span>
+            <!-- Dynamic Pricing Card -->
+            <div class="gs-pdp-price-card">
+              <div class="gs-pdp-price-header">
+                <div class="gs-pdp-price">
+                  <span class="gs-pdp-price-amount" id="pdp-unit-price">Rp ...</span>
+                  <span class="gs-pdp-price-unit">/ pcs</span>
+                </div>
+                <span class="gs-pdp-tier-badge" id="pdp-tier-badge">Tier Standar ({prod["min_order"]})</span>
+              </div>
+              
+              <div class="gs-pdp-total-row">
+                <span class="gs-pdp-total-label">Estimasi Total (<span id="pdp-total-qty">{min_order_int}</span> pcs):</span>
+                <strong class="gs-pdp-total-amount" id="pdp-total-price">Rp ...</strong>
+              </div>
+
+              <p class="gs-pdp-price-subtext">
+                <span class="gs-pdp-range-hint">Rentang Estimasi: {prod["price"]} / pcs</span><br>
+                Minimal pemesanan mulai {prod["min_order"]} &bull; Gratis custom nama pengantin &amp; kartu ucapan
+              </p>
             </div>
-            <p class="gs-pdp-price-subtext">Minimal pemesanan mulai {prod["min_order"]} &bull; Gratis custom nama pengantin &amp; kartu ucapan</p>
 
             <!-- Variasi Produk Dropdown -->
             <div class="gs-pdp-option-group">
               <label for="pdp-variant-select" class="gs-pdp-option-label">Pilihan Kemasan &amp; Personalisasi:</label>
-              <select id="pdp-variant-select" class="gs-pdp-select" onchange="updateWhatsAppLink()">
+              <select id="pdp-variant-select" class="gs-pdp-select" onchange="updatePricing()">
                 <option value="Kemasan Standar + Kartu Ucapan">{prod["packaging"]} (Rekomendasi Favorit)</option>
                 <option value="Hardbox Eksklusif Foil Emas">Hardbox Magnetik Eksklusif + Cetak Foil Emas</option>
                 <option value="Custom Kemasan Sesuai Budget">Custom Kemasan Khusus (Konsultasi via WA)</option>
               </select>
             </div>
 
-            <!-- Quantity Selector -->
+            <!-- Quantity Selector & Tier Pills -->
             <div class="gs-pdp-option-group">
-              <label class="gs-pdp-option-label">Estimasi Jumlah Pesanan:</label>
+              <label for="pdp-qty-input" class="gs-pdp-option-label">Estimasi Jumlah Pesanan:</label>
+              
+{pills_html}
+
               <div class="gs-pdp-order-row">
                 <div class="gs-pdp-qty-control">
-                  <button type="button" class="gs-pdp-qty-btn" onclick="adjustQty(-25)" aria-label="Kurangi jumlah">-</button>
-                  <input type="number" id="pdp-qty-input" class="gs-pdp-qty-input" value="100" min="50" step="25" onchange="updateWhatsAppLink()" />
-                  <button type="button" class="gs-pdp-qty-btn" onclick="adjustQty(25)" aria-label="Tambah jumlah">+</button>
+                  <button type="button" class="gs-pdp-qty-btn" onclick="adjustQty(-{step_val})" aria-label="Kurangi jumlah {step_val} pcs">-</button>
+                  <input type="number" id="pdp-qty-input" class="gs-pdp-qty-input" value="{min_order_int}" min="{min_order_int}" step="{step_val}" oninput="updatePricing()" />
+                  <button type="button" class="gs-pdp-qty-btn" onclick="adjustQty({step_val})" aria-label="Tambah jumlah {step_val} pcs">+</button>
                 </div>
                 <span class="gs-pdp-qty-unit">pcs (Minimal order {prod["min_order"]})</span>
               </div>
+              <span class="gs-pdp-tier-note" id="pdp-tier-note">&bull; Semakin banyak jumlah pesanan, harga estimasi satuan otomatis semakin murah.</span>
             </div>
 
             <!-- Actions Buttons -->
@@ -668,32 +551,32 @@ def generate_clean_pdp(prod, package_type, index):
       <div class="gs-container">
 
         <!-- Tab Nav -->
-        <div class="gs-pdp-tabs-nav" role="tablist">
-          <button type="button" class="gs-pdp-tab-trigger active" onclick="switchTab('deskripsi', this)" role="tab" aria-selected="true" aria-controls="tab-deskripsi">
-            DESKRIPSI PRODUK
+        <div class="gs-pdp-tabs-nav" role="tablist" aria-label="Informasi Produk">
+          <button type="button" class="gs-pdp-tab-trigger active" role="tab" aria-selected="true" aria-controls="tab-desc" onclick="switchTab('desc', this)">
+            Deskripsi &amp; FAQ
           </button>
-          <button type="button" class="gs-pdp-tab-trigger" onclick="switchTab('informasi-tambahan', this)" role="tab" aria-selected="false" aria-controls="tab-informasi-tambahan">
-            INFORMASI TAMBAHAN
+          <button type="button" class="gs-pdp-tab-trigger" role="tab" aria-selected="false" aria-controls="tab-spec" onclick="switchTab('spec', this)">
+            Spesifikasi &amp; Bahan
           </button>
-          <button type="button" class="gs-pdp-tab-trigger" onclick="switchTab('ulasan', this)" role="tab" aria-selected="false" aria-controls="tab-ulasan">
-            ULASAN (5)
+          <button type="button" class="gs-pdp-tab-trigger" role="tab" aria-selected="false" aria-controls="tab-reviews" onclick="switchTab('reviews', this)">
+            Ulasan Pengantin (128)
           </button>
         </div>
 
-        <!-- Tab 1: Deskripsi -->
-        <div id="tab-deskripsi" class="gs-pdp-tab-pane active" role="tabpanel">
+        <!-- Tab 1: Description -->
+        <div class="gs-pdp-tab-pane active" id="tab-desc" role="tabpanel">
           <p class="gs-pdp-desc-lead">
-            Estimasi harga satuan mulai dari <strong>{prod['price']} / pcs</strong> (menyesuaikan jumlah pesanan dan variasi kemasan). Minimal pemesanan mulai {prod['min_order']} siap bagikan untuk momen istimewa pernikahan Anda.<br>
-            <strong>Estimasi pengerjaan:</strong> 14 hari – 21 hari kerja (tersedia slot pesanan ekspres untuk kebutuhan mendesak).
+            {prod["lead"]}
           </p>
 
-          <p>
-            {prod['lead']} Cinderamata ini dirancang untuk memberikan kesan mendalam bagi para tamu undangan, keluarga besar, serta sahabat terdekat. Fungsional, bernilai guna tinggi, dan dikemas secara elegan.
-          </p>
-
-          <p><strong>Keunggulan &amp; Fasilitas Personalisasi Souvenir Pernikahan:</strong></p>
-          <ul class="gs-pdp-checklist">
-{features_html}
+          <h3 style="font-size:1.15rem;color:var(--gs-green-950);margin:1.5rem 0 0.75rem 0;">Keunggulan &amp; Fasilitas Pemesanan:</h3>
+          <ul class="gs-pdp-feature-list">
+            <li>
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span>GRATIS kustomisasi nama pengantin, tanggal akad, &amp; inisial monogram</span>
+            </li>
             <li>
               <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
@@ -735,7 +618,7 @@ def generate_clean_pdp(prod, package_type, index):
             
             <div style="margin-bottom: 0.85rem; background: var(--gs-white); border: 1px solid var(--gs-border); border-radius: 8px; padding: 1rem;">
               <strong style="color: var(--gs-green-900); display: block; margin-bottom: 0.35rem;">Berapa harga dan minimal order untuk {title}?</strong>
-              <p style="margin: 0; font-size: 0.88rem; color: var(--gs-muted);">Estimasi harga satuan mulai dari {prod['price']} per pcs (sudah termasuk kemasan dan kartu ucapan). Minimal pemesanan mulai dari {prod['min_order']}.</p>
+              <p style="margin: 0; font-size: 0.88rem; color: var(--gs-muted);">Estimasi harga satuan mulai dari {prod['price']} per pcs (sudah termasuk kemasan dan kartu ucapan). Kami menerapkan sistem harga grosir bertingkat (tiered discount) sehingga semakin banyak jumlah yang dipesan (250, 500, hingga 1.000+ pcs), harga satuan akan otomatis semakin murah. Minimal pemesanan mulai dari {prod['min_order']}.</p>
             </div>
 
             <div style="margin-bottom: 0.85rem; background: var(--gs-white); border: 1px solid var(--gs-border); border-radius: 8px; padding: 1rem;">
@@ -761,41 +644,61 @@ def generate_clean_pdp(prod, package_type, index):
           </div>
         </div>
 
-        <!-- Tab 2: Informasi Tambahan -->
-        <div id="tab-informasi-tambahan" class="gs-pdp-tab-pane" role="tabpanel">
-          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+        <!-- Tab 2: Specification -->
+        <div class="gs-pdp-tab-pane" id="tab-spec" role="tabpanel">
+          <table class="gs-pdp-spec-table">
             <tbody>
-              <tr style="border-bottom:1px solid var(--gs-border);">
-                <td style="padding:0.75rem 0;font-weight:700;width:200px;color:var(--gs-green-950);">Minimal Order</td>
-                <td style="padding:0.75rem 0;color:var(--gs-muted);">{prod["min_order"]}</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--gs-border);">
-                <td style="padding:0.75rem 0;font-weight:700;color:var(--gs-green-950);">Opsi Personalisasi</td>
-                <td style="padding:0.75rem 0;color:var(--gs-muted);">{prod["custom"]}</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--gs-border);">
-                <td style="padding:0.75rem 0;font-weight:700;color:var(--gs-green-950);">Standar Kemasan</td>
-                <td style="padding:0.75rem 0;color:var(--gs-muted);">{prod["packaging"]}</td>
-              </tr>
-              <tr style="border-bottom:1px solid var(--gs-border);">
-                <td style="padding:0.75rem 0;font-weight:700;color:var(--gs-green-950);">Waktu Produksi</td>
-                <td style="padding:0.75rem 0;color:var(--gs-muted);">14 – 21 Hari Kerja (Tersedia Slot Kilat)</td>
+              <tr>
+                <th>Nama Produk</th>
+                <td>{title}</td>
               </tr>
               <tr>
-                <td style="padding:0.75rem 0;font-weight:700;color:var(--gs-green-950);">Asal Pengiriman</td>
-                <td style="padding:0.75rem 0;color:var(--gs-muted);">Workshop Souvenir Pernikahan Malang, Jawa Timur (Kirim Seluruh Indonesia)</td>
+                <th>Kategori Cinderamata</th>
+                <td>Souvenir Pernikahan &bull; {cat_name}</td>
+              </tr>
+              <tr>
+                <th>Spesifikasi Unggulan</th>
+                <td>
+                  <ul style="margin:0;padding-left:1.15rem;">
+                    {features_li_html}
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <th>Custom Nama &amp; Ucapan</th>
+                <td>{prod["custom"]}</td>
+              </tr>
+              <tr>
+                <th>Pilihan Kemasan</th>
+                <td>{prod["packaging"]}</td>
+              </tr>
+              <tr>
+                <th>Minimal Order</th>
+                <td>{prod["min_order"]}</td>
+              </tr>
+              <tr>
+                <th>Estimasi Waktu Produksi</th>
+                <td>14 - 21 hari kerja (menyesuaikan antrean dan kuantiti pesanan)</td>
+              </tr>
+              <tr>
+                <th>Asal Produksi</th>
+                <td>Workshop Kriya Souvenir Pernikahan, Kota Malang, Jawa Timur</td>
+              </tr>
+              <tr>
+                <th>Jangkauan Pengiriman</th>
+                <td>Seluruh Indonesia (Jawa, Bali, Sumatera, Kalimantan, Sulawesi, Papua) dengan packing aman bergaransi</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Tab 3: Ulasan -->
-        <div id="tab-ulasan" class="gs-pdp-tab-pane" role="tabpanel">
-          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
-            <span style="font-size:1.8rem;font-weight:700;color:var(--gs-green-950);">4.9</span>
+        <!-- Tab 3: Reviews -->
+        <div class="gs-pdp-tab-pane" id="tab-reviews" role="tabpanel">
+          <div class="gs-pdp-rating-summary">
+            <span class="gs-pdp-rating-score">4.9</span>
             <div>
-              <div style="color:#f59e0b;font-size:1.1rem;">★★★★★</div>
-              <span style="font-size:0.8rem;color:var(--gs-muted);">Berdasarkan 128+ ulasan pasangan pengantin terverifikasi</span>
+              <div class="gs-pdp-stars">★★★★★</div>
+              <span class="gs-pdp-rating-count">Berdasarkan 128 ulasan pelanggan terverifikasi</span>
             </div>
           </div>
 
@@ -858,38 +761,45 @@ def generate_clean_pdp(prod, package_type, index):
           <p class="gs-footer__heading">Halaman</p>
           <ul class="gs-footer__links">
             <li><a href="/" class="gs-footer__link">Beranda</a></li>
-            <li><a href="/tentang" class="gs-footer__link">Tentang Kami</a></li>
-            <li><a href="/portofolio" class="gs-footer__link">Portofolio</a></li>
-            <li><a href="/blog" class="gs-footer__link">Blog</a></li>
-            <li><a href="/penulis" class="gs-footer__link">Penulis</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="gs-footer__heading">Kategori Paket</p>
-          <ul class="gs-footer__links">
-            <li><a href="/paket" class="gs-footer__link">Semua Paket</a></li>
+            <li><a href="/tentang" class="gs-footer__link">Tentang</a></li>
+            <li><a href="/paket" class="gs-footer__link">Paket Souvenir</a></li>
             <li><a href="/paket/souvenir-tradisional" class="gs-footer__link">Souvenir Tradisional</a></li>
             <li><a href="/paket/souvenir-modern" class="gs-footer__link">Souvenir Modern</a></li>
+            <li><a href="/portofolio" class="gs-footer__link">Portofolio</a></li>
+            <li><a href="/blog" class="gs-footer__link">Blog &amp; Inspirasi</a></li>
           </ul>
         </div>
 
         <div>
-          <p class="gs-footer__heading">Kontak Workshop</p>
-          <div class="gs-footer__contact-list">
-            <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan" class="gs-footer__contact-link" target="_blank" rel="noopener noreferrer">
-              <span>+62 821-3108-7971</span>
-            </a>
-            <a href="https://www.instagram.com/sakasouvenirmlg/" class="gs-footer__contact-link" target="_blank" rel="noopener noreferrer">
-              <span>@sakasouvenirmlg</span>
-            </a>
-          </div>
+          <p class="gs-footer__heading">Kontak &amp; Workshop</p>
+          <ul class="gs-footer__links">
+            <li class="gs-footer__link" style="color:rgba(255,255,255,0.7);font-size:0.875rem;">
+              Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang, Kota Malang, Jawa Timur 65138
+            </li>
+            <li class="gs-footer__link" style="color:rgba(255,255,255,0.7);font-size:0.875rem;">
+              Jam Operasional: Senin - Sabtu, 08.30 - 18.00 WIB
+            </li>
+            <li>
+              <a href="https://wa.me/6282131087971" class="gs-footer__link" target="_blank" rel="noopener noreferrer">
+                WhatsApp: +62 821-3108-7971
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="gs-footer__heading">Kota Layanan Pengiriman</p>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.825rem;line-height:1.6;margin-bottom:1rem;">
+            Melayani pengiriman bergaransi ke Malang, Surabaya, Sidoarjo, Gresik, Pasuruan, Kediri, Blitar, Jakarta, Bandung, Semarang, Yogyakarta, Solo, Denpasar, Medan, Makassar, Balikpapan, dan seluruh Indonesia.
+          </p>
         </div>
       </div>
+
       <div class="gs-footer__bottom">
-        <p>&copy; <span id="gs-year"></span> Souvenir Pernikahan. Semua hak dilindungi.</p>
-        <div class="gs-footer__bottom-links">
-          <a href="/kebijakan-privasi" class="gs-footer__bottom-link">Kebijakan Privasi</a>
+        <p class="gs-footer__copy">&copy; 2026 Souvenir Pernikahan Indonesia. Hak Cipta Dilindungi.</p>
+        <div class="gs-footer__legal">
+          <a href="/kebijakan-privasi" class="gs-footer__legal-link">Kebijakan Privasi</a>
+          <a href="/syarat-ketentuan" class="gs-footer__legal-link">Syarat &amp; Ketentuan</a>
         </div>
       </div>
     </div>
@@ -908,6 +818,14 @@ def generate_clean_pdp(prod, package_type, index):
 
   <!-- Interactive Scripts -->
   <script>
+    var PDP_DATA = {{
+      lowPrice: {low_price},
+      highPrice: {high_price},
+      minOrder: {min_order_int},
+      prodName: "{title}",
+      stepVal: {step_val}
+    }};
+
     function switchImage(src, btn) {{
       var mainImg = document.getElementById('pdp-main-img');
       if (mainImg) {{
@@ -936,31 +854,146 @@ def generate_clean_pdp(prod, package_type, index):
       }}
     }}
 
-    function adjustQty(amount) {{
-      var input = document.getElementById('pdp-qty-input');
-      if (input) {{
-        var val = parseInt(input.value) || 100;
-        val += amount;
-        if (val < 50) val = 50;
-        input.value = val;
-        updateWhatsAppLink();
+    function formatIDR(num) {{
+      return "Rp " + num.toString().replace(/\\B(?=(\\d{{3}})+(?!\\d))/g, ".");
+    }}
+
+    function getTierDiscount(qty, minOrder) {{
+      if (minOrder <= 25) {{
+        if (qty >= 250) return {{ pct: 18, badge: "🏆 Hemat 18% (Grosir 250+ pcs)" }};
+        if (qty >= 100) return {{ pct: 12, badge: "🔥 Hemat 12% (100+ pcs)" }};
+        if (qty >= 50) return {{ pct: 6, badge: "✨ Hemat 6% (50+ pcs)" }};
+        return {{ pct: 0, badge: "Tier Standar (" + minOrder + " pcs)" }};
+      }} else if (minOrder <= 50) {{
+        if (qty >= 500) return {{ pct: 18, badge: "🏆 Hemat 18% (Grosir 500+ pcs)" }};
+        if (qty >= 250) return {{ pct: 12, badge: "🔥 Hemat 12% (250+ pcs)" }};
+        if (qty >= 100) return {{ pct: 6, badge: "✨ Hemat 6% (100+ pcs)" }};
+        return {{ pct: 0, badge: "Tier Standar (" + minOrder + " pcs)" }};
+      }} else {{
+        if (qty >= 1000) return {{ pct: 20, badge: "🏆 Hemat 20% (Harga Grosir Termurah)" }};
+        if (qty >= 500) return {{ pct: 14, badge: "🔥 Hemat 14% (500+ pcs)" }};
+        if (qty >= 250) return {{ pct: 8, badge: "⭐ Hemat 8% (250+ pcs)" }};
+        return {{ pct: 0, badge: "Tier Standar (" + minOrder + " pcs)" }};
       }}
     }}
 
-    function updateWhatsAppLink() {{
+    function updatePricing() {{
       var qtyInput = document.getElementById('pdp-qty-input');
       var variantSelect = document.getElementById('pdp-variant-select');
+      var unitPriceEl = document.getElementById('pdp-unit-price');
+      var totalPriceEl = document.getElementById('pdp-total-price');
+      var totalQtyEl = document.getElementById('pdp-total-qty');
+      var tierBadgeEl = document.getElementById('pdp-tier-badge');
+      var tierNoteEl = document.getElementById('pdp-tier-note');
       var waBtn = document.getElementById('pdp-wa-cta');
-      if (!qtyInput || !variantSelect || !waBtn) return;
-      
-      var qty = qtyInput.value || 100;
-      var variant = variantSelect.value;
-      var prodName = "{title}";
-      
-      var msg = "Halo Souvenir Pernikahan, saya tertarik memesan " + qty + " pcs " + prodName + 
-                " (Pilihan Kemasan: " + variant + ") untuk souvenir pernikahan saya. Mohon info penawaran harga resmi dan estimasi pengerjaannya.";
-      
-      waBtn.href = "https://wa.me/6282131087971?text=" + encodeURIComponent(msg);
+
+      if (!qtyInput) return;
+
+      var qty = parseInt(qtyInput.value) || PDP_DATA.minOrder;
+      if (qty < PDP_DATA.minOrder) {{
+        qty = PDP_DATA.minOrder;
+        qtyInput.value = qty;
+      }}
+
+      var variantIdx = variantSelect ? variantSelect.selectedIndex : 0;
+      var variantText = variantSelect ? variantSelect.options[variantIdx].text : "Kemasan Standar";
+
+      // Base price according to selected variant
+      var baseUnit;
+      if (variantIdx === 1) {{
+        baseUnit = PDP_DATA.highPrice;
+      }} else if (variantIdx === 2) {{
+        baseUnit = Math.round(((PDP_DATA.lowPrice + PDP_DATA.highPrice) / 2) / 500) * 500;
+      }} else {{
+        baseUnit = Math.round((PDP_DATA.lowPrice * 1.25) / 500) * 500;
+      }}
+
+      var tier = getTierDiscount(qty, PDP_DATA.minOrder);
+      var unitPrice = Math.round((baseUnit * (1 - (tier.pct / 100))) / 250) * 250;
+      if (unitPrice < PDP_DATA.lowPrice) unitPrice = PDP_DATA.lowPrice;
+
+      var totalPrice = unitPrice * qty;
+
+      if (unitPriceEl) {{
+        unitPriceEl.textContent = formatIDR(unitPrice);
+        unitPriceEl.classList.remove('is-updated');
+        void unitPriceEl.offsetWidth; // trigger reflow for pulse animation
+        unitPriceEl.classList.add('is-updated');
+      }}
+      if (totalPriceEl) totalPriceEl.textContent = formatIDR(totalPrice);
+      if (totalQtyEl) totalQtyEl.textContent = qty.toString();
+      if (tierBadgeEl) {{
+        tierBadgeEl.textContent = tier.badge;
+        if (tier.pct > 0) {{
+          tierBadgeEl.classList.add('is-discount');
+        }} else {{
+          tierBadgeEl.classList.remove('is-discount');
+        }}
+      }}
+
+      // Dynamic guidance note
+      if (tierNoteEl) {{
+        if (PDP_DATA.minOrder >= 100) {{
+          if (qty < 250) {{
+            tierNoteEl.innerHTML = "&bull; Tip: Tambah " + (250 - qty) + " pcs lagi untuk mendapatkan diskon grosir 8%!";
+          }} else if (qty < 500) {{
+            tierNoteEl.innerHTML = "&bull; Tip: Tambah " + (500 - qty) + " pcs lagi untuk diskon partai besar 14%!";
+          }} else if (qty < 1000) {{
+            tierNoteEl.innerHTML = "&bull; Tip: Tambah " + (1000 - qty) + " pcs lagi untuk harga grosir termurah (hemat 20%)!";
+          }} else {{
+            tierNoteEl.innerHTML = "&bull; <strong>Harga Grosir Maksimal Aktif:</strong> Anda mendapatkan penawaran harga satuan termurah!";
+          }}
+        }} else {{
+          tierNoteEl.innerHTML = "&bull; Semakin banyak jumlah pesanan, harga estimasi satuan otomatis semakin murah.";
+        }}
+      }}
+
+      // Update active state on tier pills
+      var pills = document.querySelectorAll('.gs-tier-pill');
+      pills.forEach(function(pill) {{
+        var pillQty = parseInt(pill.getAttribute('data-qty'));
+        if (pillQty === qty) {{
+          pill.classList.add('active');
+        }} else {{
+          pill.classList.remove('active');
+        }}
+      }});
+
+      // Update WhatsApp link
+      if (waBtn) {{
+        var msg = "Halo Souvenir Pernikahan, saya tertarik memesan " + qty + " pcs " + PDP_DATA.prodName + 
+                  " (Pilihan: " + variantText + ") dengan estimasi harga satuan " + formatIDR(unitPrice) + "/pcs" +
+                  " (Estimasi Total: " + formatIDR(totalPrice) + ")." +
+                  " Mohon konfirmasi ketersediaan slot produksi dan penawaran resminya.";
+        waBtn.href = "https://wa.me/6282131087971?text=" + encodeURIComponent(msg);
+      }}
+    }}
+
+    function setQty(val) {{
+      var input = document.getElementById('pdp-qty-input');
+      if (input) {{
+        input.value = val;
+        updatePricing();
+      }}
+    }}
+
+    function adjustQty(amount) {{
+      var input = document.getElementById('pdp-qty-input');
+      if (input) {{
+        var val = parseInt(input.value) || PDP_DATA.minOrder;
+        val += amount;
+        if (val < PDP_DATA.minOrder) val = PDP_DATA.minOrder;
+        input.value = val;
+        updatePricing();
+      }}
+    }}
+
+    // Initialize pricing on page load
+    document.addEventListener('DOMContentLoaded', function() {{
+      updatePricing();
+    }});
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {{
+      updatePricing();
     }}
   </script>
 
@@ -972,15 +1005,14 @@ def generate_clean_pdp(prod, package_type, index):
     file_path = os.path.join("produk", f"{slug}.html")
     with open(file_path, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"Generated clean PDP: {file_path}")
+    print(f"Generated dynamic pricing PDP: {file_path}")
 
-# Run generation for all 28 products
-print(f"Generating 28 clean PDPs...")
-for i, p in enumerate(tradisional_products):
-    generate_clean_pdp(p, "tradisional", i)
+if __name__ == '__main__':
+    print("Regenerating all 28 PDPs with dynamic wholesale pricing...")
+    for i, p in enumerate(tradisional_products):
+        generate_clean_pdp_with_dynamic_pricing(p, "tradisional", i)
 
-for i, p in enumerate(modern_products):
-    generate_clean_pdp(p, "modern", i)
+    for i, p in enumerate(modern_products):
+        generate_clean_pdp_with_dynamic_pricing(p, "modern", i)
 
-print("All 28 PDPs successfully regenerated with clean layout, authentic images, and rich schemas!")
-
+    print("All 28 PDPs successfully regenerated with dynamic wholesale/tiered pricing!")

@@ -48,3 +48,5 @@ pnpm-debug.log*
 
 # Scratch & Temporary Files
 scratch/
+__pycache__/
+*.pyc

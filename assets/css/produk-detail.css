@@ -149,14 +149,51 @@
   margin: 0;
 }
 
+/* Pricing Card & Dynamic Tier Pricing */
+.gs-pdp-price-card {
+  background: var(--gs-green-50, #f4f8f5);
+  border: 1px solid var(--gs-border, #cfdecb);
+  border-radius: var(--gs-radius-md, 0.75rem);
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: all var(--gs-transition);
+}
+
+.gs-pdp-price-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
 .gs-pdp-price {
   font-family: var(--gs-font-body);
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   font-weight: 700;
-  color: var(--gs-green-900, #23472d);
+  color: var(--gs-green-950, #0f2d18);
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 0.35rem;
+}
+
+.gs-pdp-price-amount {
+  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+  font-weight: 800;
+  color: var(--gs-green-950, #0f2d18);
+  transition: color 0.25s ease;
+}
+
+.gs-pdp-price-amount.is-updated {
+  animation: pricePulse 0.35s ease-out;
+}
+
+@keyframes pricePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); color: #2e7d32; }
+  100% { transform: scale(1); }
 }
 
 .gs-pdp-price-range {
@@ -171,18 +208,125 @@
   color: var(--gs-muted, #38483b);
 }
 
-.gs-pdp-price-subtext {
-  font-size: 0.85rem;
+.gs-pdp-tier-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--gs-green-900, #23472d);
+  border: 1px solid var(--gs-border, #cfdecb);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.gs-pdp-tier-badge.is-discount {
+  background: var(--gs-green-900, #23472d);
+  color: #ffffff;
+  border-color: var(--gs-green-900, #23472d);
+  box-shadow: 0 2px 6px rgba(35, 71, 45, 0.25);
+}
+
+.gs-pdp-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px dashed var(--gs-border, #cfdecb);
+  border-radius: var(--gs-radius-sm, 0.5rem);
+  padding: 0.65rem 0.95rem;
+  font-size: 0.88rem;
+  color: var(--gs-green-900, #23472d);
+}
+
+.gs-pdp-total-label {
+  font-weight: 500;
   color: var(--gs-muted, #38483b);
-  margin-top: -0.65rem;
-  margin-bottom: 0.25rem;
-  line-height: 1.4;
+}
+
+.gs-pdp-total-amount {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--gs-green-950, #0f2d18);
+}
+
+.gs-pdp-price-subtext {
+  font-size: 0.84rem;
+  color: var(--gs-muted, #38483b);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  line-height: 1.45;
+}
+
+.gs-pdp-range-hint {
+  font-weight: 600;
+  color: var(--gs-green-900, #23472d);
 }
 
 .gs-pdp-price-note {
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--gs-muted, #38483b);
+}
+
+/* Tier Selection Pills */
+.gs-pdp-tier-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.gs-tier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ffffff;
+  border: 1.5px solid var(--gs-border, #cfdecb);
+  border-radius: var(--gs-radius-sm, 0.5rem);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gs-green-950, #0f2d18);
+  cursor: pointer;
+  transition: all var(--gs-transition);
+}
+
+.gs-tier-pill:hover {
+  border-color: var(--gs-green-800, #1e4f26);
+  background: var(--gs-green-50, #f4f8f5);
+}
+
+.gs-tier-pill.active {
+  background: var(--gs-green-900, #23472d);
+  color: #ffffff;
+  border-color: var(--gs-green-900, #23472d);
+  box-shadow: 0 2px 6px rgba(35, 71, 45, 0.2);
+}
+
+.gs-tier-pill .gs-pill-save {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #c59b27;
+  background: #fef9ee;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.gs-tier-pill.active .gs-pill-save {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.gs-pdp-tier-note {
+  font-size: 0.8rem;
+  color: var(--gs-green-900, #23472d);
+  font-style: italic;
+  margin-top: 0.35rem;
+  display: block;
+  line-height: 1.4;
 }
 
 /* Options / Variant Select */
