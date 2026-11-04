@@ -625,50 +625,11 @@
   max-height: 18px !important;
 }
 
-.gs-pdp-related-btn-wa svg {
-  width: 16px !important;
-  height: 16px !important;
-  max-width: 16px !important;
-  max-height: 16px !important;
-}
-
-/* Brand Story Section below Tab */
-.gs-pdp-brand-story {
-  margin-top: 2.5rem;
-  padding: 1.75rem 2rem;
-  background: var(--gs-green-50, #f3f9f1);
-  border: 1px solid var(--gs-border, #cfdecb);
-  border-radius: var(--gs-radius-md, 1rem);
-}
-
-.gs-pdp-brand-story h3 {
-  font-family: var(--gs-font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--gs-green-900, #23472d);
-  margin-bottom: 0.5rem;
-}
-
-.gs-pdp-brand-story p {
-  font-size: 0.88rem;
-  color: var(--gs-muted, #38483b);
-  margin-bottom: 1rem;
-}
-
-/* Related Products Grid */
+/* Related Products Section */
 .gs-pdp-related-section {
-  background: #ffffff;
+  background: #fbfdfa;
   border-top: 1px solid var(--gs-border, #cfdecb);
   padding: clamp(3rem, 5vw, 4.5rem) 0;
-}
-
-.gs-pdp-related-heading {
-  font-family: var(--gs-font-heading);
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 700;
-  color: var(--gs-green-950, #0f2d18);
-  margin-bottom: 2rem;
-  text-align: center;
 }
 
 .gs-pdp-related-grid {
@@ -687,16 +648,18 @@
 .gs-pdp-related-card {
   background: #ffffff;
   border: 1px solid var(--gs-border, #cfdecb);
-  border-radius: var(--gs-radius-md, 1rem);
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform var(--gs-transition), box-shadow var(--gs-transition);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(24, 38, 27, 0.04);
 }
 
 .gs-pdp-related-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--gs-shadow-card);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(24, 38, 27, 0.1);
+  border-color: #689f38;
 }
 
 .gs-pdp-related-img-wrap {
@@ -704,72 +667,171 @@
   overflow: hidden;
   position: relative;
   background: var(--gs-green-50, #f3f9f1);
+  display: block;
 }
 
 .gs-pdp-related-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .gs-pdp-related-card:hover .gs-pdp-related-img-wrap img {
-  transform: scale(1.05);
+  transform: scale(1.06);
+}
+
+.gs-pdp-related-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  color: var(--gs-green-950, #0f2d18);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .gs-pdp-related-body {
-  padding: 1rem;
+  padding: 1.15rem 1.25rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
   flex-grow: 1;
+  justify-content: space-between;
 }
 
-.gs-pdp-related-sub {
-  font-size: 0.7rem;
+.gs-pdp-related-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.gs-pdp-related-cat {
+  font-size: 0.68rem;
   font-weight: 700;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: var(--gs-green-800, #1e4f26);
+  color: #689f38;
+}
+
+.gs-pdp-related-rating {
+  font-size: 0.75rem;
+  color: #f59e0b;
+  letter-spacing: 1px;
 }
 
 .gs-pdp-related-title {
-  font-family: var(--gs-font-heading);
-  font-size: 0.95rem;
+  font-family: var(--gs-font-heading, 'Playfair Display', serif);
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--gs-green-950, #0f2d18);
-  margin: 0;
-  line-height: 1.35;
+  margin: 0 0 0.65rem 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.8rem;
+}
+
+.gs-pdp-related-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gs-pdp-related-title a:hover {
+  color: #689f38;
+}
+
+.gs-pdp-related-price-box {
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #e5ebe4;
+}
+
+.gs-pdp-related-price-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--gs-muted, #556957);
+  margin-bottom: 0.15rem;
 }
 
 .gs-pdp-related-price {
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   font-weight: 700;
   color: var(--gs-green-900, #23472d);
+}
+
+.gs-pdp-related-unit {
+  font-size: 0.78rem;
+  font-weight: normal;
+  color: var(--gs-muted, #556957);
+}
+
+.gs-pdp-related-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
   margin-top: auto;
 }
 
-.gs-pdp-related-btn {
+.gs-pdp-btn-detail {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.6rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #ffffff;
-  background: #689f38;
-  border-radius: var(--gs-radius-sm, 0.5rem);
+  padding: 0.55rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gs-green-900, #23472d);
+  background: var(--gs-green-50, #f3f9f1);
+  border: 1px solid var(--gs-border, #cfdecb);
+  border-radius: 8px;
   text-decoration: none;
-  margin-top: 0.5rem;
-  transition: background var(--gs-transition);
+  transition: all 0.2s ease;
+  text-align: center;
 }
 
-.gs-pdp-related-btn:hover {
-  background: #558b2f;
+.gs-pdp-btn-detail:hover {
+  background: var(--gs-green-100, #e2eedf);
+  border-color: #689f38;
+  color: var(--gs-green-950, #0f2d18);
 }
 
-.gs-pdp-related-btn svg {
-  width: 16px;
-  height: 16px;
+.gs-pdp-btn-card-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: #25d366;
+  border: 1px solid #20ba59;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.25);
+}
+
+.gs-pdp-btn-card-wa:hover {
+  background: #20ba59;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.35);
+}
+
+.gs-pdp-btn-card-wa svg {
+  width: 15px !important;
+  height: 15px !important;
+  max-width: 15px !important;
+  max-height: 15px !important;
+  flex-shrink: 0 !important;
+  fill: currentColor !important;
 }
 

@@ -232,20 +232,34 @@ def generate_clean_pdp_with_dynamic_pricing(prod, cat_type, idx):
         r_wa_msg = f"Halo Souvenir Pernikahan, saya tertarik memesan {r['title']} untuk souvenir pernikahan saya."
         r_wa_url = f"https://wa.me/6282131087971?text={urllib.parse.quote(r_wa_msg)}"
         
-        related_cards_html += f'''          <div class="gs-pdp-related-card">
+        related_cards_html += f'''          <article class="gs-pdp-related-card">
             <a href="/produk/{r['slug']}" class="gs-pdp-related-img-wrap" aria-label="{r['title']}">
               <img src="{r_img}" alt="{r_alt}" width="280" height="280" loading="lazy" decoding="async" />
+              <span class="gs-pdp-related-badge">{cat_name}</span>
             </a>
-            <div class="gs-pdp-related-content">
-              <span class="gs-pdp-related-cat">{cat_name.upper()}</span>
-              <h3 class="gs-pdp-related-title"><a href="/produk/{r['slug']}">{r['title']}</a></h3>
-              <div class="gs-pdp-related-price">{r['price']} <span style="font-size:0.8rem;font-weight:normal;color:var(--gs-muted);">/ pcs</span></div>
-              <a href="{r_wa_url}" class="gs-pdp-related-btn-wa" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true" style="width:16px;height:16px;max-width:16px;max-height:16px;display:inline-block;vertical-align:middle;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-                BUY VIA WHATSAPP
-              </a>
+            <div class="gs-pdp-related-body">
+              <div class="gs-pdp-related-meta">
+                <span class="gs-pdp-related-cat">{cat_name.upper()}</span>
+                <span class="gs-pdp-related-rating" aria-label="Rating 5 bintang">★★★★★</span>
+              </div>
+              <h3 class="gs-pdp-related-title">
+                <a href="/produk/{r['slug']}" title="{r['title']}">{r['title']}</a>
+              </h3>
+              <div class="gs-pdp-related-price-box">
+                <span class="gs-pdp-related-price-label">Estimasi Harga Satuan:</span>
+                <div class="gs-pdp-related-price">{r['price']} <span class="gs-pdp-related-unit">/ pcs</span></div>
+              </div>
+              <div class="gs-pdp-related-actions">
+                <a href="/produk/{r['slug']}" class="gs-pdp-btn-detail">Lihat Detail</a>
+                <a href="{r_wa_url}" class="gs-pdp-btn-card-wa" target="_blank" rel="noopener noreferrer" aria-label="Pesan {r['title']} via WhatsApp">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true" style="width:15px;height:15px;max-width:15px;max-height:15px;flex-shrink:0;">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  <span>Pesan</span>
+                </a>
+              </div>
             </div>
-          </div>\n'''
+          </article>\n'''
 
     page_meta_title = f"{title} — Souvenir Pernikahan Unik &amp; Elegan"
     meta_desc = f"Pusat {title} murah, unik, elegan, dan bermanfaat. Gratis custom nama pengantin & kartu ucapan, harga grosir bertingkat semakin banyak semakin murah, serta garansi kirim aman seluruh Indonesia."
@@ -442,7 +456,7 @@ def generate_clean_pdp_with_dynamic_pricing(prod, cat_type, idx):
 
   <!-- Preload CSS -->
   <link rel="preload" href="/assets/css/style.min.css?v=8" as="style" />
-  <link rel="preload" href="/assets/css/produk-detail.css?v=5" as="style" />
+  <link rel="preload" href="/assets/css/produk-detail.css?v=6" as="style" />
   <link rel="preload" as="image" href="{img_main}" />
 
   <title>{page_meta_title}</title>
@@ -494,7 +508,7 @@ def generate_clean_pdp_with_dynamic_pricing(prod, cat_type, idx):
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="/assets/css/style.min.css?v=8" />
-  <link rel="stylesheet" href="/assets/css/produk-detail.css?v=5" />
+  <link rel="stylesheet" href="/assets/css/produk-detail.css?v=6" />
 
   <!-- Schema JSON-LD (Product, AggregateOffer, BreadcrumbList, FAQPage, Organization) -->
   <script type="application/ld+json">
@@ -873,7 +887,11 @@ def generate_clean_pdp_with_dynamic_pricing(prod, cat_type, idx):
     <!-- RELATED PRODUCTS SECTION -->
     <section class="gs-pdp-related-section" aria-labelledby="related-heading">
       <div class="gs-container">
-        <h2 id="related-heading" class="gs-pdp-related-heading">PRODUK TERKAIT</h2>
+        <div class="gs-section-heading" style="text-align:center;margin-bottom:2.5rem;">
+          <span class="gs-eyebrow" style="font-size:0.75rem;letter-spacing:1.8px;text-transform:uppercase;color:#689f38;font-weight:700;display:inline-block;margin-bottom:0.4rem;">Pilihan Cinderamata Favorit</span>
+          <h2 id="related-heading" style="font-family:var(--gs-font-heading);font-size:clamp(1.5rem, 2.8vw, 2.1rem);font-weight:700;color:var(--gs-green-950);margin-bottom:0.5rem;">Produk Terkait</h2>
+          <p style="color:var(--gs-muted);font-size:0.92rem;max-width:560px;margin:0 auto;line-height:1.6;">Rekomendasi koleksi souvenir pernikahan lainnya yang elegan, fungsional, dan dapat dipersonalisasi nama pengantin.</p>
+        </div>
         <div class="gs-pdp-related-grid">
 {related_cards_html}
         </div>
