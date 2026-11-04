@@ -983,3 +983,4 @@ for i, p in enumerate(modern_products):
     generate_clean_pdp(p, "modern", i)
 
 print("All 28 PDPs successfully regenerated with clean layout, authentic images, and rich schemas!")
+
