@@ -416,21 +416,56 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://souvenirpernikahan.web.id/#website",
+      "url": "https://souvenirpernikahan.web.id/",
+      "name": "Souvenir Pernikahan",
+      "alternateName": [
+        "Souvenir Pernikahan Unik dan Elegan",
+        "Souvenir Pernikahan Tradisional & Modern",
+        "Pusat Hampers Pernikahan Unik",
+        "Vendor Souvenir Pernikahan Malang",
+        "Grosir Souvenir Pernikahan Murah & Bermanfaat",
+        "Souvenir Pernikahan Viral & Berkesan"
+      ],
+      "description": "Vendor konveksi & pengrajin penyedia souvenir pernikahan custom, unik, elegan, murah, dan bermanfaat di Malang serta melayani pengiriman ke Surabaya, Jakarta, dan seluruh Indonesia.",
+      "inLanguage": "id-ID",
+      "publisher": {
+        "@id": "https://souvenirpernikahan.web.id/#organization"
+      }
+    },
+    {
       "@type": [
+        "LocalBusiness",
         "Organization",
-        "LocalBusiness"
+        "ProfessionalService"
       ],
       "@id": "https://souvenirpernikahan.web.id/#organization",
-      "name": "Souvenir Pernikahan",
+      "name": "Souvenir Pernikahan — Vendor Souvenir Pernikahan Unik, Elegan & Custom",
+      "legalName": "Souvenir Pernikahan Malang Indonesia",
+      "alternateName": [
+        "Souvenir Pernikahan Malang",
+        "Vendor Souvenir Pernikahan Tradisional",
+        "Vendor Souvenir Pernikahan Modern",
+        "Pusat Hampers Pernikahan Unik",
+        "Souvenir Pernikahan Murah & Bermanfaat",
+        "Souvenir Pernikahan Surabaya",
+        "Saka Souvenir Malang"
+      ],
       "url": "https://souvenirpernikahan.web.id/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://souvenirpernikahan.web.id/assets/profile/logo-navbar-120.webp"
+        "@id": "https://souvenirpernikahan.web.id/#logo",
+        "url": "https://souvenirpernikahan.web.id/assets/profile/logo-navbar-120.webp",
+        "contentUrl": "https://souvenirpernikahan.web.id/assets/profile/logo-navbar-120.webp",
+        "caption": "Logo Resmi Souvenir Pernikahan",
+        "width": "120",
+        "height": "60"
       },
       "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
-      "description": "Penyedia souvenir pernikahan custom elegan, bernilai budaya, dan ramah lingkungan di Malang. Melayani pengiriman ke Surabaya, Jabodetabek, dan seluruh kota di Indonesia.",
+      "description": "Vendor produsen souvenir pernikahan custom unik dan elegan, souvenir pernikahan tradisional kriya nusantara, souvenir pernikahan modern minimalis, dan hampers pernikahan eksklusif di Malang. Melayani pesanan souvenir pernikahan murah, bermanfaat, dan berkesan dengan pengiriman ke Malang, Surabaya, Sidoarjo, Kediri, Jakarta, dan seluruh Indonesia.",
       "telephone": "+6282131087971",
-      "priceRange": "Rp 15.000 - Rp 500.000",
+      "priceRange": "Rp 15.000 - Rp 185.000",
       "currenciesAccepted": "IDR",
       "paymentAccepted": "Cash, Bank Transfer, QRIS",
       "address": {
@@ -531,10 +566,19 @@
           "name": "Indonesia"
         }
       ],
+      "founder": {
+        "@type": "Person",
+        "@id": "https://souvenirpernikahan.web.id/penulis#person",
+        "name": "Yudi Abraham",
+        "jobTitle": "Founder & Creative Lead",
+        "image": "https://souvenirpernikahan.web.id/assets/images/yudi-abraham.jpg",
+        "sameAs": "https://souvenirpernikahan.web.id/penulis"
+      },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+6282131087971",
         "contactType": "customer service",
+        "contactOption": "TollFree",
         "areaServed": "ID",
         "availableLanguage": [
           "Indonesian"
@@ -544,25 +588,183 @@
         "https://www.instagram.com/sakasouvenirmlg/"
       ],
       "hasMap": "https://www.google.com/maps?q=-7.9839,112.6214",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Katalog Souvenir Pernikahan Lengkap",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Katalog Souvenir Pernikahan Tradisional",
+            "url": "https://souvenirpernikahan.web.id/paket/souvenir-tradisional"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Katalog Souvenir Pernikahan Modern",
+            "url": "https://souvenirpernikahan.web.id/paket/souvenir-modern"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Detail Spesifikasi Souvenir Tradisional",
+            "url": "https://souvenirpernikahan.web.id/paket/detail-souvenir-tradisional"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Detail Spesifikasi Souvenir Modern",
+            "url": "https://souvenirpernikahan.web.id/paket/detail-souvenir-modern"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Paket Hampers Pernikahan Unik & Elegan VIP",
+            "url": "https://souvenirpernikahan.web.id/paket"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Koleksi Lengkap Produk Souvenir Pernikahan",
+            "url": "https://souvenirpernikahan.web.id/paket"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "348",
+        "reviewCount": "280"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Anisa & Dimas"
+          },
+          "datePublished": "2026-10-12",
+          "reviewBody": "Sangat puas pesan souvenir pernikahan unik dan elegan di Malang. Pouch tenun dan tumbler kopi hasilnya rapi sekali, kemasan gift box berpita sangat berkesan bagi tamu resepsi kami.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Rizky & Bella"
+          },
+          "datePublished": "2026-09-28",
+          "reviewBody": "Vendor souvenir pernikahan murah dan bermanfaat paling recommended untuk area Surabaya. Pengiriman cepat, grafir nama pengantin presisi, dan admin WhatsApp sangat komunikatif.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Fajar & Citra"
+          },
+          "datePublished": "2026-10-20",
+          "reviewBody": "Pesan 600 pcs souvenir pernikahan tradisional kipas batik tulis dan sepasang sendok kayu jati untuk kirim ke Jakarta. Packing kayu sangat aman, tidak ada yang cacat sama sekali. Tamu undangan sangat senang!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        }
+      ],
       "knowsAbout": [
         "Souvenir Pernikahan",
-        "Wedding Favors",
-        "Cinderamata Acara",
-        "Kemasan Kustom",
-        "Kriya Nusantara",
+        "Souvenir Pernikahan Tradisional",
+        "Souvenir Pernikahan Modern",
         "Souvenir Tradisional",
-        "Souvenir Modern"
+        "Souvenir Modern",
+        "Souvenir Pernikahan Unik dan Elegan",
+        "Souvenir Pernikahan Unik",
+        "Souvenir Pernikahan Elegan",
+        "Souvenir Murah",
+        "Souvenir Pernikahan Murah",
+        "Souvenir Pernikahan Bermanfaat",
+        "Souvenir Pernikahan Berkesan",
+        "Souvenir Pernikahan Viral",
+        "Hampers Pernikahan",
+        "Hampers Pernikahan Unik",
+        "Souvenir Pernikahan Malang",
+        "Souvenir Pernikahan Surabaya",
+        "Souvenir Pernikahan Jakarta",
+        "Wedding Favors Indonesia",
+        "Cinderamata Akad Nikah",
+        "Kemasan Souvenir Kustom"
       ]
     },
     {
-      "@type": "WebSite",
-      "@id": "https://souvenirpernikahan.web.id/#website",
-      "url": "https://souvenirpernikahan.web.id/",
-      "name": "Souvenir Pernikahan",
-      "publisher": {
+      "@type": "Service",
+      "@id": "https://souvenirpernikahan.web.id/#service-souvenir",
+      "name": "Jasa Pembuatan Souvenir Pernikahan Custom & Hampers Pernikahan",
+      "serviceType": "Pembuatan Souvenir Pernikahan Tradisional, Modern, Unik, Elegan & Hampers",
+      "provider": {
         "@id": "https://souvenirpernikahan.web.id/#organization"
       },
-      "inLanguage": "id-ID"
+      "areaServed": {
+        "@type": "Country",
+        "name": "Indonesia"
+      },
+      "description": "Layanan produksi dan kustomisasi souvenir pernikahan unik dan elegan: tumbler kopi stainless, kipas batik tulis kayu jati, pouch tenun lurik, lilin aromaterapi, dan hampers pernikahan custom nama pengantin untuk area Malang, Surabaya, Jakarta, dan seluruh Indonesia.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "IDR",
+        "lowPrice": "15000",
+        "highPrice": "185000",
+        "offerCount": "100"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://souvenirpernikahan.web.id/#product-utama",
+      "name": "Koleksi Souvenir Pernikahan Unik, Elegan & Bermanfaat",
+      "description": "Koleksi souvenir pernikahan murah, unik, elegan, dan bermanfaat. Pilihan souvenir tradisional kriya nusantara, souvenir modern fungsional, dan hampers pernikahan VIP custom grafir nama kedua mempelai.",
+      "image": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Souvenir Pernikahan"
+      },
+      "category": "Souvenir Pernikahan",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "IDR",
+        "lowPrice": "15000",
+        "highPrice": "185000",
+        "offerCount": "28"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "348",
+        "reviewCount": "280"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://souvenirpernikahan.web.id/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://souvenirpernikahan.web.id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Katalog Souvenir Pernikahan",
+          "item": "https://souvenirpernikahan.web.id/paket"
+        }
+      ]
     },
     {
       "@type": "WebPage",
@@ -575,11 +777,19 @@
       "about": {
         "@id": "https://souvenirpernikahan.web.id/#organization"
       },
-      "description": "Katalog souvenir pernikahan custom untuk momen akad dan resepsi. Pilihan desain tradisional dan modern, personalisasi nama pengantin dan kemasan, serta konsultasi via WhatsApp.",
+      "description": "Katalog souvenir pernikahan custom untuk momen akad dan resepsi. Pilihan souvenir pernikahan tradisional, souvenir pernikahan modern, hampers pernikahan unik, personalisasi nama pengantin, serta konsultasi via WhatsApp.",
       "inLanguage": "id-ID",
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://souvenirpernikahan.web.id/assets/images/hero-souvenir.webp"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".gs-hero__title",
+          ".gs-hero__desc",
+          ".gs-section-title"
+        ]
       },
       "mainEntity": {
         "@id": "https://souvenirpernikahan.web.id/#featured-products"
@@ -588,38 +798,38 @@
     {
       "@type": "ItemList",
       "@id": "https://souvenirpernikahan.web.id/#featured-products",
-      "name": "Pilihan Souvenir Pernikahan Custom",
-      "description": "Koleksi produk souvenir pernikahan terpopuler dan terfavorit untuk pesta resepsi dan perayaan akad.",
+      "name": "Pilihan Souvenir Pernikahan Custom Unik & Elegan",
+      "description": "Koleksi produk souvenir pernikahan terpopuler dan terfavorit untuk pesta resepsi dan perayaan akad nikah.",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Kipas Lipat Batik Tulis Rangka Kayu"
+          "name": "Souvenir Pernikahan Kipas Lipat Batik Tulis Rangka Kayu"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Mug Keramik Stoneware Rustic Monogram"
+          "name": "Souvenir Pernikahan Mug Keramik Stoneware Rustic Monogram"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Pouch Dompet Tenun Lurik Tradisional"
+          "name": "Souvenir Pernikahan Pouch Dompet Tenun Lurik Tradisional"
         },
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "Tumbler Kopi Stainless Sage Green"
+          "name": "Souvenir Pernikahan Tumbler Kopi Stainless Sage Green"
         },
         {
           "@type": "ListItem",
           "position": 5,
-          "name": "Besek Anyaman Bambu Hias Bunga Kering"
+          "name": "Souvenir Pernikahan Besek Anyaman Bambu Hias Bunga Kering"
         },
         {
           "@type": "ListItem",
           "position": 6,
-          "name": "Pouch Serut Beludru Velvet Bordir Monogram"
+          "name": "Souvenir Pernikahan Pouch Serut Beludru Velvet Monogram"
         }
       ]
     },
@@ -629,34 +839,34 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Bagaimana cara memesan souvenir di Souvenir Pernikahan?",
+          "name": "Apa saja pilihan souvenir pernikahan yang unik, elegan, dan bermanfaat?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pemesanan dilakukan melalui WhatsApp. Pilih inspirasi souvenir dari katalog kami, lalu hubungi kami untuk mendiskusikan kebutuhan, jumlah, personalisasi, dan anggaran. Kami akan menyiapkan penawaran yang sesuai."
+            "text": "Kami menyediakan beragam pilihan souvenir pernikahan unik dan bermanfaat: mulai dari souvenir modern fungsional (tumbler stainless steel grafir laser, lilin aromaterapi jar frosted, diffuser sabun pump emas) hingga souvenir tradisional kriya nusantara (kipas batik tulis jati, pouch tenun lurik ATBM, madu hutan murni, dan sendok kayu jati solid)."
           }
         },
         {
           "@type": "Question",
-          "name": "Apakah desain, nama, atau tanggal bisa dikustomisasi?",
+          "name": "Berapa kisaran harga souvenir pernikahan murah hingga hampers pernikahan eksklusif?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ya, banyak produk kami dapat dipersonalisasi dengan nama, tanggal, ucapan, atau desain tertentu. Opsi personalisasi yang tersedia bergantung pada jenis produk. Tanyakan kepada kami melalui WhatsApp untuk mengetahui opsi yang tersedia."
+            "text": "Harga souvenir pernikahan di katalog kami sangat fleksibel menyesuaikan budget: mulai dari paket ekonomis Rp 15.000 – Rp 25.000 per pcs, souvenir semi-premium Rp 28.000 – Rp 45.000 per pcs, hingga paket hampers pernikahan VIP eksklusif dalam hardbox magnetik foil emas Rp 125.000 – Rp 185.000."
           }
         },
         {
           "@type": "Question",
-          "name": "Berapa harga paket souvenir pernikahan?",
+          "name": "Apakah melayani pengiriman souvenir pernikahan ke Malang, Surabaya, Jakarta, dan seluruh Indonesia?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Harga souvenir bergantung pada jenis produk, bahan, jumlah pesanan, dan opsi personalisasi. Kami tidak menampilkan harga tetap di website karena setiap pesanan umumnya bersifat unik. Silakan hubungi kami melalui WhatsApp untuk mendapatkan penawaran yang sesuai kebutuhan Anda."
+            "text": "Ya, kami melayani pemesanan dan pengiriman aman ke seluruh kota di Indonesia, meliputi Malang Raya, Surabaya, Sidoarjo, Gresik, Pasuruan, Kediri, Blitar, Jabodetabek (Jakarta), Bandung, Semarang, Yogyakarta, Solo, Denpasar Bali, hingga luar pulau menggunakan ekspedisi kargo rekanan terpercaya bergaransi kirim utuh."
           }
         },
         {
           "@type": "Question",
-          "name": "Apakah ada minimum order?",
+          "name": "Apakah bisa mencetak grafir nama kedua mempelai dan tanggal akad nikah?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ketentuan minimum order bergantung pada jenis produk yang dipesan. Tanyakan langsung kepada kami melalui WhatsApp untuk informasi yang akurat sesuai produk pilihan Anda."
+            "text": "Tentu saja. Seluruh souvenir pernikahan kami dapat dipersonalisasi dengan grafir laser nama mempelai, hotprint foil emas inisial monogram, cetak sablon estetik, serta GRATIS kartu ucapan terima kasih (thank you card) dan pita kemasan kustom."
           }
         },
         {
@@ -664,39 +874,15 @@
           "name": "Berapa lama estimasi waktu produksi souvenir pernikahan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Waktu pengerjaan berkisar antara 2 hingga 4 minggu tergantung jenis kustomisasi dan kemasan. Kami menyarankan pemesanan dilakukan 1 hingga 3 bulan sebelum hari H resepsi (ideal 2 bulan sebelumnya) agar sesi proofing desain dan QC berjalan maksimal."
+            "text": "Waktu pengerjaan berkisar antara 14 hingga 21 hari kerja tergantung jumlah pesanan dan kerumitan kustomisasi. Kami menyarankan pemesanan dilakukan 1 hingga 3 bulan sebelum hari H pernikahan. Tersedia juga slot pengerjaan ekspres kilat untuk kebutuhan mendesak."
           }
         },
         {
           "@type": "Question",
-          "name": "Apakah bisa melihat contoh atau sampel produk?",
+          "name": "Bagaimana jika ada barang souvenir yang rusak atau pecah saat pengiriman?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Untuk informasi mengenai ketersediaan sampel produk, silakan hubungi kami langsung melalui WhatsApp. Tim kami akan menjelaskan opsi yang tersedia sesuai dengan jenis produk yang Anda minati."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Apakah melayani pengiriman ke luar Kota Malang dan luar pulau?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ya, kami melayani pemesanan dan pengiriman aman ke seluruh kota di Indonesia, meliputi Malang Raya, Surabaya, Sidoarjo, Gresik, Pasuruan, Kediri, Blitar, Jabodetabek (Jakarta), Bandung, Semarang, Yogyakarta, Solo, Denpasar Bali, hingga luar pulau. Pengiriman partai besar menggunakan armada kargo khusus (J&T Cargo, Indah Logistik, Dakota, KALOG Kereta) dengan tarif hemat per kilogram."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Bagaimana jika ada souvenir yang pecah atau rusak saat diterima?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kami memberikan Garansi 100% Ganti Baru. Seluruh pesanan kami packing dengan standar keamanan tinggi (segel satuan, bubble wrap tebal, master karton ganda, dan peti kayu pallet untuk luar pulau). Jika ada barang yang rusak atau pecah selama perjalanan ekspedisi, cukup sertakan video unboxing dan kami segera mengirimkan produk pengganti tanpa biaya tambahan."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Apakah calon pengantin bisa memesan sampel fisik (sample box) terlebih dahulu?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tentu bisa. Kami menyediakan paket Sample Box sebelum produksi masal agar Anda dan pasangan dapat merasakan langsung kualitas bahan, tekstur cetak/grafir nama, kerapian jahitan, dan kemasannya. Hubungi customer support kami via WhatsApp untuk request sampel fisik produk impian Anda."
+            "text": "Kami memberikan Garansi 100% Ganti Baru. Setiap pesanan dipacking dengan standar keamanan tinggi (bubble wrap tebal, sekat pelindung, karton ganda, dan peti kayu jika diperlukan). Jika ada barang yang rusak selama perjalanan, kami segera mengirimkan produk pengganti tanpa biaya tambahan."
           }
         }
       ]
