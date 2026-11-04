@@ -432,3 +432,4 @@ if m:
     print("Successfully updated index.html schema with targeted keywords!")
 else:
     print("Could not find script tag in index.html!")
+
