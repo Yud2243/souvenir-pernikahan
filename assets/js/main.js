@@ -784,7 +784,14 @@
         blogEmptyState.style.display = matchCount === 0 ? 'block' : 'none';
       }
       if (blogCountEl) {
-        blogCountEl.textContent = 'Menampilkan ' + matchCount + ' artikel';
+        var visibleCount = isMobile && !mobileExpanded ? Math.min(matchCount, 3) : matchCount;
+        if (matchCount === 0) {
+          blogCountEl.textContent = 'Tidak ada artikel yang cocok';
+        } else if (visibleCount < matchCount) {
+          blogCountEl.textContent = 'Menampilkan ' + visibleCount + ' dari ' + matchCount + ' artikel';
+        } else {
+          blogCountEl.textContent = 'Menampilkan ' + matchCount + ' artikel';
+        }
       }
       if (blogLoadMoreWrap) {
         if (isMobile && !mobileExpanded && matchCount > 3) {
