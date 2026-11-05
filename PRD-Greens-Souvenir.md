@@ -1,11 +1,11 @@
 # PRD — Website Green’s Souvenir
-**Versi:** 1.0  
-**Tanggal:** 20 Oktober 2026  
+**Versi:** 1.1  
+**Tanggal:** 5 November 2026  
 **Status:** Draft untuk implementasi lokal  
 **Platform:** HTML + Bootstrap + CSS murni (tanpa framework CSS tambahan); JavaScript vanilla seperlunya
 
 ## 1. Ringkasan Produk
-Website katalog untuk **Green’s Souvenir**, dengan tema visual hijau muda yang elegan dan fokus pada souvenir pernikahan. Website membantu calon pelanggan menemukan inspirasi, membandingkan paket, melihat portofolio, membaca artikel panduan, lalu berkonsultasi melalui WhatsApp. Website juga dapat melayani kebutuhan souvenir perusahaan/organisasi sebagai segmen penting kedua.
+Website katalog untuk **Green’s Souvenir**, dengan tema visual terracotta × krem dan fokus pada souvenir pernikahan. Website membantu calon pelanggan menemukan inspirasi, membandingkan paket, melihat portofolio, membaca artikel panduan, lalu berkonsultasi melalui WhatsApp. Website juga dapat melayani kebutuhan souvenir perusahaan/organisasi sebagai segmen penting kedua.
 
 Website pada tahap awal dijalankan di **localhost**, tanpa biaya hosting/domain dan tanpa checkout atau pembayaran online. Pemesanan dilakukan melalui katalog dan konsultasi WhatsApp.
 
@@ -146,7 +146,7 @@ Isi jawaban hanya setelah kebijakan bisnis dikonfirmasi. FAQ schema tidak menjam
 - Nomor harus ditulis dalam format internasional tanpa tanda `+`, spasi, atau tanda hubung pada URL.
 
 ## 8. Desain dan UX
-- Nuansa hijau muda, putih hangat, dan hijau tua untuk teks/kontras.
+- Tema terracotta × krem. Judul #762B16, teks #2B1D18, teks sekunder #5E463F, latar #FAF5EE, tombol #963B21 dengan teks putih. Hijau dipertahankan pada WhatsApp mengambang.
 - Visual elegan, romantis, modern, tidak terlalu ramai atau terlalu dekoratif.
 - Foto produk autentik menjadi fokus.
 - Navbar desktop dengan dropdown Paket; mobile menggunakan menu yang mudah dioperasikan.
@@ -272,3 +272,26 @@ Gunakan JSON-LD valid, sesuai konten yang terlihat dan benar-benar ada:
 
 ## 17. Catatan Versi 2026–2027
 SEO, AEO, dan GEO bukan paket metadata yang sekali pasang lalu selesai. Rekomendasi implementasi harus diperiksa terhadap dokumentasi resmi yang berlaku pada saat peluncuran. Prioritaskan konten bermanfaat, aksesibilitas, crawlability, performa, reputasi, dan informasi bisnis yang konsisten; hindari klaim bahwa markup tertentu menjamin ranking atau jawaban AI.
+
+
+## Ketentuan revisi berdasarkan audit ZIP
+
+Ketentuan bagian ini menggantikan rancangan awal yang bertentangan. Situs produksi adalah https://souvenirpernikahan.web.id/. Pengujian lokal tetap dilakukan sebelum rilis. Identitas publik yang sudah disetujui, stack HTML/Bootstrap/CSS/vanilla JS, serta operasi tanpa database dipertahankan.
+
+- Navigasi Katalog Souvenir berisi Semua Souvenir, Essential Collection dan Signature Collection. Filter terlihat Semua, Essential, Signature. Rute lama /paket/souvenir-tradisional dan /paket/souvenir-modern tetap berlaku.
+- Kisaran Essential Rp10.000–Rp35.000 per buah dan Signature Rp50.000–Rp150.000 per buah. Harga SKU, diskon dan kalkulator memerlukan data bisnis resmi. Jangan mengarang angka, menaikkan harga otomatis, atau membuat klaim promo.
+- Menu HP di detail produk sudah memiliki panel pada ZIP ini. Pertahankan komponen yang bekerja dan uji langsung sebelum merombaknya.
+- Jumlah harus bilangan bulat aman, memenuhi minimum dan step yang sudah tercantum pada produk. Pengguna boleh mengosongkan kolom sementara. Pesan WA harus mengikuti jumlah valid dan kemasan terakhir.
+- Penghitung blog harus membedakan artikel yang terlihat dari seluruh hasil pencarian/filter pada mobile.
+- Pertahankan nomor WhatsApp 6282131087971. Harga final mengikuti konsultasi. Kebijakan garansi, angka ulasan, dan klaim bisnis yang belum terbukti tetap menunggu konfirmasi.
+- Kerjakan hanya masalah yang disetujui dan lewati bagian yang sudah benar. Jangan mengganti URL, framework, foto produk, indexing atau fungsi lain sebagai efek samping.
+- File sementara, arsip editorial dan riwayat Git dibahas dalam inventaris. Penghapusan dilakukan pemilik setelah peninjauan.
+
+### Kriteria penerimaan revisi
+
+1. Jumlah 250 dapat diketik tanpa berubah pada digit pertama; nilai desimal, kosong, di bawah minimum, atau tidak memenuhi step tidak diteruskan.
+2. Pada mobile dengan 22 hasil dan tiga kartu terlihat, label menyebut “Menampilkan 3 dari 22 artikel”. Desktop dan perluasan hasil menampilkan jumlah yang sesuai.
+3. Blog menggunakan satu id gs-blog-count.
+4. Menu, filter, judul koleksi dan label navigasi konsisten tanpa perubahan slug.
+5. CSS dan JS runtime ikut diperbarui bersama source dan cache URL.
+6. Uji peramban dan perangkat yang belum dijalankan wajib dilaporkan. Peringkat kata kunci tidak dijanjikan.

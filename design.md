@@ -1,11 +1,11 @@
 # design.md — Green’s Souvenir
-**Versi:** 1.0  
-**Tanggal:** 20 Oktober 2026  
+**Versi:** 1.1  
+**Tanggal:** 5 November 2026  
 **Produk:** Website katalog souvenir pernikahan dan souvenir custom untuk organisasi/perusahaan  
 **Implementasi:** HTML semantik + Bootstrap + CSS kustom + JavaScript vanilla
 
 ## 1. Arah Desain
-Menciptakan pengalaman katalog yang **segar, lembut, romantis, elegan, dan tepercaya**. Hijau muda menjadi warna identitas, dipadukan dengan putih hangat dan hijau tua agar tetap terbaca serta terasa premium. Hindari tampilan terlalu ramai, terlalu banyak ornamen pernikahan, atau kesan template generik.
+Menciptakan pengalaman katalog yang **segar, lembut, romantis, elegan, dan tepercaya**. Terracotta menjadi warna identitas, dipadukan dengan krem dan cokelat tua agar tetap terbaca serta terasa premium. Hindari tampilan terlalu ramai, terlalu banyak ornamen pernikahan, atau kesan template generik.
 
 Urutan prioritas visual:
 1. Foto produk/portofolio autentik.
@@ -19,19 +19,19 @@ Gunakan CSS custom properties supaya tema mudah diubah.
 
 ```css
 :root {
-  --gs-green-50: #f3f9f1;
-  --gs-green-100: #e5f1df;
-  --gs-green-200: #cfe5c4;
-  --gs-green-300: #b5d7a6;
-  --gs-green-500: #78a96b;
-  --gs-green-700: #3f7044;
-  --gs-green-900: #23472d;
+  --gs-green-50: #fbf6f3;
+  --gs-green-100: #f5eae3;
+  --gs-green-200: #ecd5c8;
+  --gs-green-300: #dfb6a1;
+  --gs-green-500: #c87656;
+  --gs-green-700: #963b21;
+  --gs-green-900: #762b16;
 
-  --gs-cream: #fffdf8;
+  --gs-cream: #faf5ee;
   --gs-white: #ffffff;
-  --gs-text: #26352a;
-  --gs-muted: #657267;
-  --gs-border: #dce7d8;
+  --gs-text: #2b1d18;
+  --gs-muted: #5e463f;
+  --gs-border: #e6ded5;
   --gs-whatsapp: #167c45;
 
   --gs-radius-sm: 0.5rem;
@@ -39,8 +39,8 @@ Gunakan CSS custom properties supaya tema mudah diubah.
   --gs-radius-lg: 1.5rem;
   --gs-radius-pill: 999px;
 
-  --gs-shadow-card: 0 12px 32px rgba(35, 71, 45, 0.08);
-  --gs-shadow-hover: 0 18px 42px rgba(35, 71, 45, 0.13);
+  --gs-shadow-card: 0 12px 32px rgba(72, 24, 12, 0.08);
+  --gs-shadow-hover: 0 18px 42px rgba(72, 24, 12, 0.13);
 
   --gs-container: 1140px;
   --gs-section-space: clamp(3.5rem, 7vw, 6.5rem);
@@ -54,7 +54,7 @@ Gunakan CSS custom properties supaya tema mudah diubah.
 - Hover tombol utama: `--gs-green-900`.
 - Heading: `--gs-green-900`.
 - Body text: `--gs-text`.
-- Hijau muda jangan dipakai untuk teks kecil di atas latar putih.
+- Terracotta muda jangan dipakai untuk teks kecil di atas latar putih.
 - WhatsApp boleh memakai warna hijau khusus agar fungsi CTA mudah dikenali, tetapi jangan jadikan seluruh website berwarna hijau WhatsApp.
 
 ## 3. Tipografi
@@ -115,7 +115,7 @@ Gunakan CSS custom properties supaya tema mudah diubah.
 7. **FAQ**
    - Accordion aksesibel atau daftar tanya-jawab sederhana.
 8. **CTA Penutup**
-   - Background hijau muda lembut, copy singkat, tombol WhatsApp.
+   - Background krem lembut, copy singkat, tombol WhatsApp.
 9. **Footer**
    - Ringkasan brand, tautan halaman, kategori paket, kontak WhatsApp, social links jika akun resmi tersedia, dan copyright dinamis opsional.
 
@@ -297,3 +297,13 @@ Catatan Arsitektur URL & Struktur Folder:
 - [ ] Gambar dioptimalkan dan tidak menyebabkan layout shift berlebihan.
 - [ ] Tautan internal, gambar, halaman 404, dan console diperiksa.
 - [ ] Sitemap/robots/canonical menggunakan domain produksi yang benar setelah peluncuran.
+
+
+## Ketentuan desain revisi
+
+- Nama token lama --gs-green dipertahankan sebagai alias terracotta agar kompatibel. Nilai efektif menentukan tampilan. Jangan menjalankan penggantian global nama kelas/token.
+- Menu Katalog Souvenir, Essential Collection dan Signature Collection menggantikan rancangan nama menu awal. Pertahankan slug /paket dan kedua rute koleksi lama.
+- Pertahankan font yang berjalan pada situs, termasuk Playfair Display/Inter. Rekomendasi system font di atas hanya fallback, bukan perintah migrasi.
+- Tombol utama konten terracotta, tombol sekunder outline terracotta. WA mengambang tetap hijau dengan ikon putih. Jangan mewarnai ulang foto produk.
+- Gunakan label harga “kisaran” pada tingkat koleksi. Essential Rp10.000–Rp35.000 dan Signature Rp50.000–Rp150.000 per buah. Estimasi SKU menunggu rekonsiliasi data resmi.
+- Batasi perubahan pada komponen yang disetujui. Hasil uji visual mobile dan desktop wajib dibedakan dari pemeriksaan kode.

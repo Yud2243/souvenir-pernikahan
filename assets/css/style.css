@@ -5912,3 +5912,25 @@ html:not(.js) [data-gs-animate] {
   color: #5e463f;
   margin: 0;
 }
+
+/* Catalog consultation actions use the brand palette. */
+.gs-card__actions .gs-button--whatsapp,
+.gs-cta-section .gs-button--whatsapp,
+.gs-article__cta .gs-button--whatsapp {
+  background: #963b21;
+  border-color: #963b21;
+  color: #fff;
+  text-shadow: none;
+}
+.gs-card__actions .gs-button--whatsapp:hover,
+.gs-cta-section .gs-button--whatsapp:hover,
+.gs-article__cta .gs-button--whatsapp:hover {
+  background: #762b16;
+  border-color: #762b16;
+  color: #fff;
+}
+.gs-card__actions a:focus-visible,
+.gs-cta-section a:focus-visible {
+  outline: 3px solid #762b16;
+  outline-offset: 3px;
+}

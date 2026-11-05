@@ -1,0 +1,6 @@
+/* Perbaikan beranda: copy dan CTA tampil lebih dulu pada layar mobile. */
+@media (max-width: 991px) {
+  .gs-hero__image-wrapper {
+    order: initial;
+  }
+}

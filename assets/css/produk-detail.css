@@ -869,3 +869,18 @@
   fill: currentColor !important;
 }
 
+
+/* Keep long product names and controls usable on narrow screens. */
+.gs-pdp-breadcrumb { flex-wrap: wrap; overflow-wrap: anywhere; }
+.gs-pdp-title { overflow-wrap: anywhere; }
+.gs-pdp-tabs-nav { flex-wrap: wrap; }
+.gs-pdp-btn-card-wa {
+  background: #963b21;
+  border-color: #963b21;
+  color: #fff;
+}
+.gs-pdp-btn-card-wa:hover { background: #762b16; color: #fff; }
+.gs-pdp-btn-card-wa:focus-visible {
+  outline: 3px solid #762b16;
+  outline-offset: 3px;
+}
