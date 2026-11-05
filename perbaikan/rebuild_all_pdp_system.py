@@ -261,7 +261,7 @@ def generate_clean_pdp_with_dynamic_pricing(prod, cat_type, idx):
             </div>
           </article>\n'''
 
-    page_meta_title = f"{title} — Souvenir Pernikahan Unik &amp; Elegan"
+    page_meta_title = f"{title} — Souvenir Pernikahan Elegan &amp; Berkesan"
     meta_desc = f"Pusat {title} murah, unik, elegan, dan bermanfaat. Gratis custom nama pengantin & kartu ucapan, harga grosir bertingkat semakin banyak semakin murah, serta garansi kirim aman seluruh Indonesia."
     keywords = f"{title.lower()}, souvenir pernikahan, souvenir pernikahan unik, souvenir pernikahan elegan, souvenir pernikahan murah, souvenir pernikahan bermanfaat, grosir souvenir pernikahan, souvenir pernikahan malang, souvenir pernikahan surabaya, souvenir pernikahan jakarta"
 

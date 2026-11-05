@@ -4,7 +4,7 @@ import os
 
 all_html = []
 for root, dirs, files in os.walk('.'):
-    if any(p in root for p in ['.git', '.gemini', 'node_modules', 'perbaikan']):
+    if any(p in root for p in ['.git', '.gemini', 'node_modules', 'perbaikan', 'scratch']):
         continue
     for f in files:
         if f.endswith('.html') and f != 'googleda790fa92f6b7c24.html':
