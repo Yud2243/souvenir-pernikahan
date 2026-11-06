@@ -6220,6 +6220,7 @@ html:not(.js) [data-gs-animate] {
   color: var(--gs-terracotta-300, #dfb6a1);
   background: linear-gradient(135deg, #ffffff 0%, #dfb6a1 50%, #c87656 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
