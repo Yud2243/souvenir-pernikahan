@@ -1,711 +1,734 @@
-:root {
-  /* Terracotta Palette */
-  --gs-terracotta-50: #fbf6f3;
-  --gs-terracotta-100: #f5eae3;
-  --gs-terracotta-200: #ecd5c8;
-  --gs-terracotta-300: #dfb6a1;
-  --gs-terracotta-500: #c87656;
-  --gs-terracotta-700: #b25032;
-  --gs-terracotta-800: #963b21;
-  --gs-terracotta-900: #762b16;
-  --gs-terracotta-950: #48180c;
-
-  /* Aliasing Greens to Terracotta */
-  --gs-green-50: #fbf6f3;
-  --gs-green-100: #f5eae3;
-  --gs-green-200: #ecd5c8;
-  --gs-green-300: #dfb6a1;
-  --gs-green-500: #c87656;
-  --gs-green-700: #b25032;
-  --gs-green-800: #963b21;
-  --gs-green-900: #762b16;
-  --gs-green-950: #48180c;
-
-  /* Cream & Neutrals */
-  --gs-cream: #faf5ee;
-  --gs-cream-alt: #f5ede4;
-  --gs-white: #ffffff;
-  --gs-text: #2b1d18;
-  --gs-muted: #5e463f;
-  --gs-border: #e6ded5;
-}
-
 /* ==========================================================================
-   Single Product Detail Page Stylesheet (produk-detail.css)
-   Inspired by Luxury E-Commerce / Dekayu PDP System
-   Souvenir Pernikahan — Elegant, Fast & Mobile Responsive
+   SEKATA SOUVENIR PERNIKAHAN — PRODUCT DETAIL PAGE (PDP) MASTER STYLESHEET
+   File: assets/css/produk-detail.css
+   Responsive Viewport-Fit Design System for Desktop & Mobile
    ========================================================================== */
 
-/* PDP Layout Container */
-.gs-pdp-section {
-  padding-top: clamp(1.5rem, 3vw, 2.5rem);
-  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
-  background: var(--gs-cream, #fdfefb);
+/* 1. PDP Hero Container & Viewport-Fit Layout */
+.gs-pdp-hero {
+  padding-top: clamp(0.75rem, 1.6vh, 1.25rem);
+  padding-bottom: clamp(1.25rem, 2.5vh, 2rem);
+  background-color: var(--gs-cream, #faf5ee);
+  border-bottom: 1px solid var(--gs-border, #e6ded5);
+}
+
+.gs-pdp-breadcrumb-wrap {
+  margin-bottom: clamp(0.5rem, 1vh, 0.85rem);
 }
 
 .gs-pdp-breadcrumb {
-  margin-bottom: 1.5rem;
-  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   color: var(--gs-muted, #5e463f);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .gs-pdp-breadcrumb a {
   color: var(--gs-muted, #5e463f);
   text-decoration: none;
-  transition: color var(--gs-transition);
+  transition: color var(--gs-transition, 0.2s);
 }
 
 .gs-pdp-breadcrumb a:hover {
-  color: var(--gs-green-800, #963b21);
+  color: var(--gs-terracotta-800, #963b21);
 }
 
-.gs-pdp-breadcrumb span {
-  margin: 0 0.4rem;
-  color: var(--gs-border, #e6ded5);
+.gs-pdp-breadcrumb-sep {
+  color: var(--gs-border, #dfb6a1);
+  user-select: none;
 }
 
-/* Two Column Main Grid */
-.gs-pdp-grid {
+.gs-pdp-breadcrumb-current {
+  color: var(--gs-terracotta-900, #762b16);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px;
+}
+
+/* 2. Hero Two-Column Grid */
+.gs-pdp-hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(2rem, 4vw, 3.5rem);
-  align-items: start;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 @media (min-width: 992px) {
-  .gs-pdp-grid {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: 4rem;
+  .gs-pdp-hero-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+    align-items: center;
   }
 }
 
-/* Left Column: Gallery */
+/* 3. Left Column: Product Gallery */
 .gs-pdp-gallery {
-  position: static;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.65rem;
   width: 100%;
-}
-
-@media (min-width: 992px) {
-  .gs-pdp-gallery {
-    position: sticky;
-    top: 90px;
-  }
+  max-width: 520px;
+  margin-inline: auto;
 }
 
 .gs-pdp-main-image-wrap {
   position: relative;
-  border-radius: var(--gs-radius-md, 1rem);
+  border-radius: 14px;
   overflow: hidden;
   background: #ffffff;
   border: 1px solid var(--gs-border, #e6ded5);
-  aspect-ratio: 1 / 1;
-  box-shadow: var(--gs-shadow-card, 0 10px 30px -5px rgba(22, 45, 29, 0.08));
+  box-shadow: 0 4px 18px rgba(72, 24, 12, 0.06);
+  /* Adaptive height on desktop/laptop to ensure single-viewport fit */
+  width: 100%;
+  height: clamp(270px, 46vh, 430px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
 }
 
 .gs-pdp-main-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Never crop or distort product photo */
   display: block;
-  transition: opacity 0.3s ease, transform 0.5s ease;
+  transition: opacity 0.25s ease, transform 0.3s ease;
 }
 
-.gs-pdp-badge-promo {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 2;
-  background: var(--gs-green-800, #963b21);
-  color: #ffffff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.35rem 0.85rem;
-  border-radius: var(--gs-radius-pill, 999px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Thumbnail Row */
 .gs-pdp-thumbs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 2px 2px 4px;
+  scrollbar-width: none;
 }
 
-.gs-pdp-thumb-btn {
-  background: #ffffff;
+.gs-pdp-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.gs-pdp-thumb {
+  width: clamp(52px, 6.2vh, 64px);
+  height: clamp(52px, 6.2vh, 64px);
+  border-radius: 8px;
   border: 2px solid var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-sm, 0.5rem);
   overflow: hidden;
-  padding: 0;
+  background: #ffffff;
   cursor: pointer;
-  aspect-ratio: 1 / 1;
-  transition: all var(--gs-transition);
+  padding: 2px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gs-pdp-thumb-btn:hover,
-.gs-pdp-thumb-btn.active {
-  border-color: var(--gs-green-800, #963b21);
-  box-shadow: 0 4px 12px rgba(72, 24, 12, 0.15);
-  transform: translateY(-2px);
-}
-
-.gs-pdp-thumb-btn img {
+.gs-pdp-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: 5px;
 }
 
-/* Right Column: Buy Box Info */
-.gs-pdp-info {
+.gs-pdp-thumb.active,
+.gs-pdp-thumb:hover {
+  border-color: var(--gs-terracotta-700, #b25032);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(118, 43, 22, 0.18);
+}
+
+/* 4. Right Column: Information Panel */
+.gs-pdp-info-panel {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: clamp(0.4rem, 0.9vh, 0.7rem);
+  background: #ffffff;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 16px;
+  padding: clamp(1rem, 2vh, 1.4rem) clamp(1.15rem, 2.2vw, 1.65rem);
+  box-shadow: 0 4px 20px rgba(72, 24, 12, 0.05);
 }
 
-.gs-pdp-category-tag {
-  font-size: 0.72rem;
+.gs-pdp-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.gs-pdp-cat-badge {
+  font-size: 0.68rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gs-green-800, #963b21);
+  color: var(--gs-terracotta-900, #762b16);
+  background: var(--gs-terracotta-100, #f5eae3);
+  border: 1px solid var(--gs-terracotta-300, #dfb6a1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.gs-pdp-origin-badge {
+  font-size: 0.72rem;
+  color: var(--gs-muted, #5e463f);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .gs-pdp-title {
-  font-family: var(--gs-font-heading);
-  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+  font-family: var(--gs-font-heading, serif);
+  font-size: clamp(1.25rem, 1.9vw, 1.75rem);
   font-weight: 700;
-  color: var(--gs-green-950, #48180c);
-  line-height: 1.25;
+  color: var(--gs-green-900, #762b16);
+  line-height: 1.22;
   margin: 0;
 }
 
-/* Pricing Card & Dynamic Tier Pricing */
-.gs-pdp-price-card {
-  background: var(--gs-green-50, #fbf6f3);
-  border: 1px solid var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-md, 0.75rem);
-  padding: 1.15rem 1.25rem;
+.gs-pdp-lead {
+  font-size: clamp(0.82rem, 1.15vw, 0.88rem);
+  color: var(--gs-muted, #5e463f);
+  line-height: 1.48;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gs-pdp-meta-row {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 0.65rem;
-  transition: all var(--gs-transition);
-}
-
-.gs-pdp-price-header {
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.5rem;
 }
 
-.gs-pdp-price {
-  font-family: var(--gs-font-body);
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-  font-weight: 700;
-  color: var(--gs-green-950, #48180c);
-  display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
-}
-
-.gs-pdp-price-amount {
-  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
-  font-weight: 800;
-  color: var(--gs-green-950, #48180c);
-  transition: color 0.25s ease;
-}
-
-.gs-pdp-price-amount.is-updated {
-  animation: pricePulse 0.35s ease-out;
-}
-
-@keyframes pricePulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.06); color: #b25032; }
-  100% { transform: scale(1); }
-}
-
-.gs-pdp-price-range {
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-  font-weight: 700;
-  color: var(--gs-green-900, #762b16);
-}
-
-.gs-pdp-price-unit {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--gs-muted, #5e463f);
-}
-
-.gs-pdp-tier-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.3rem 0.75rem;
-  border-radius: 999px;
-  background: #ffffff;
-  color: var(--gs-green-900, #762b16);
-  border: 1px solid var(--gs-border, #e6ded5);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.gs-pdp-tier-badge.is-discount {
-  background: var(--gs-green-900, #762b16);
-  color: #ffffff;
-  border-color: var(--gs-green-900, #762b16);
-  box-shadow: 0 2px 6px rgba(72, 24, 12, 0.25);
-}
-
-.gs-pdp-total-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  border: 1px dashed var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-sm, 0.5rem);
-  padding: 0.65rem 0.95rem;
-  font-size: 0.88rem;
-  color: var(--gs-green-900, #762b16);
-}
-
-.gs-pdp-total-label {
-  font-weight: 500;
-  color: var(--gs-muted, #5e463f);
-}
-
-.gs-pdp-total-amount {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--gs-green-950, #48180c);
-}
-
-.gs-pdp-price-subtext {
-  font-size: 0.84rem;
-  color: var(--gs-muted, #5e463f);
-  margin-top: 0.25rem;
-  margin-bottom: 0;
-  line-height: 1.45;
-}
-
-.gs-pdp-range-hint {
-  font-weight: 600;
-  color: var(--gs-green-900, #762b16);
-}
-
-.gs-pdp-price-note {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--gs-muted, #5e463f);
-}
-
-/* Tier Selection Pills */
-.gs-pdp-tier-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.35rem;
-  margin-bottom: 0.5rem;
-}
-
-.gs-tier-pill {
+.gs-pdp-moq-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: #ffffff;
-  border: 1.5px solid var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-sm, 0.5rem);
-  padding: 0.45rem 0.85rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--gs-green-950, #48180c);
-  cursor: pointer;
-  transition: all var(--gs-transition);
+  background: #fbf6f3;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+  color: var(--gs-text, #2b1d18);
 }
 
-.gs-tier-pill:hover {
-  border-color: var(--gs-green-800, #963b21);
-  background: var(--gs-green-50, #fbf6f3);
+.gs-pdp-moq-chip strong {
+  color: var(--gs-terracotta-800, #963b21);
 }
 
-.gs-tier-pill.active {
-  background: var(--gs-green-900, #762b16);
-  color: #ffffff;
-  border-color: var(--gs-green-900, #762b16);
-  box-shadow: 0 2px 6px rgba(72, 24, 12, 0.2);
+.gs-pdp-lead-time {
+  font-size: 0.75rem;
+  color: var(--gs-muted, #5e463f);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.gs-tier-pill .gs-pill-save {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #c59b27;
-  background: #fef9ee;
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
-}
-
-.gs-tier-pill.active .gs-pill-save {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.gs-pdp-tier-note {
-  font-size: 0.8rem;
-  color: var(--gs-green-900, #762b16);
-  font-style: italic;
-  margin-top: 0.35rem;
-  display: block;
-  line-height: 1.4;
-}
-
-/* Options / Variant Select */
-.gs-pdp-option-group {
+/* Control Groups */
+.gs-pdp-control-group {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.25rem;
 }
 
-.gs-pdp-option-label {
-  font-size: 0.82rem;
+.gs-pdp-control-label {
+  font-size: 0.72rem;
   font-weight: 700;
+  color: var(--gs-text, #2b1d18);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--gs-green-950, #48180c);
+  letter-spacing: 0.04em;
 }
 
 .gs-pdp-select {
   width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 0.9rem;
-  border: 1px solid var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-sm, 0.5rem);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.82rem;
+  font-family: inherit;
+  border: 1.5px solid var(--gs-border, #e6ded5);
+  border-radius: 8px;
   background: #ffffff;
   color: var(--gs-text, #2b1d18);
+  outline: none;
+  transition: border-color 0.2s;
   cursor: pointer;
-  transition: border-color var(--gs-transition);
 }
 
 .gs-pdp-select:focus {
-  outline: none;
-  border-color: var(--gs-green-800, #963b21);
+  border-color: var(--gs-terracotta-700, #b25032);
 }
 
-/* Quantity & Order Row */
-.gs-pdp-order-row {
+.gs-pdp-qty-row {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.65rem;
+  flex-wrap: wrap;
 }
 
-.gs-pdp-qty-control {
+.gs-pdp-qty-spinner {
   display: inline-flex;
   align-items: center;
-  border: 1px solid var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-sm, 0.5rem);
-  background: #ffffff;
+  border: 1.5px solid var(--gs-border, #e6ded5);
+  border-radius: 8px;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .gs-pdp-qty-btn {
-  width: 38px;
-  height: 44px;
-  background: var(--gs-green-50, #fbf6f3);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbf6f3;
   border: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--gs-green-900, #762b16);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gs-terracotta-900, #762b16);
   cursor: pointer;
-  transition: background var(--gs-transition);
+  transition: background 0.15s;
+  user-select: none;
 }
 
 .gs-pdp-qty-btn:hover {
-  background: var(--gs-green-100, #f5eae3);
+  background: var(--gs-terracotta-100, #f5eae3);
 }
 
 .gs-pdp-qty-input {
-  width: 55px;
-  height: 44px;
+  width: 54px;
+  height: 34px;
   border: none;
+  border-left: 1px solid var(--gs-border, #e6ded5);
+  border-right: 1px solid var(--gs-border, #e6ded5);
   text-align: center;
-  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--gs-green-950, #48180c);
+  font-size: 0.88rem;
+  color: var(--gs-text, #2b1d18);
+  outline: none;
+  font-family: inherit;
 }
 
-.gs-pdp-qty-unit {
-  font-size: 0.82rem;
-  color: var(--gs-muted, #5e463f);
-  font-weight: 500;
-}
-
-/* Actions */
-.gs-pdp-actions {
+.gs-pdp-qty-pills {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  width: 100%;
-  margin-top: 0.5rem;
+  gap: 0.3rem;
+  flex-wrap: wrap;
 }
 
-.gs-pdp-btn-wa {
+.gs-pdp-qty-pill {
+  padding: 0.25rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #fbf6f3;
+  border: 1px solid var(--gs-border, #e6ded5);
+  color: var(--gs-muted, #5e463f);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.gs-pdp-qty-pill.active,
+.gs-pdp-qty-pill:hover {
+  background: var(--gs-terracotta-700, #b25032);
+  color: #ffffff;
+  border-color: var(--gs-terracotta-700, #b25032);
+}
+
+/* WhatsApp CTA Button */
+.gs-pdp-cta-wrap {
+  margin-top: 0.2rem;
+}
+
+.gs-pdp-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
+  gap: 0.55rem;
   width: 100%;
-  padding: 0.9rem 1.5rem;
-  font-size: 0.98rem;
+  min-height: 44px;
+  padding: 0.65rem 1.25rem;
+  background: linear-gradient(135deg, #963b21 0%, #762b16 100%);
+  color: #ffffff !important;
+  font-size: 0.88rem;
   font-weight: 700;
+  font-family: inherit;
+  border-radius: 9999px;
   text-decoration: none;
-  color: #ffffff;
-  background: #b25032; /* Green button exactly like Dekayu */
-  border: none;
-  border-radius: var(--gs-radius-sm, 0.5rem);
-  box-shadow: 0 4px 14px rgba(118, 43, 22, 0.25);
+  box-shadow: 0 4px 14px rgba(118, 43, 22, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  transition: all var(--gs-transition);
+  border: none;
 }
 
-.gs-pdp-btn-wa:hover {
-  background: #963b21;
-  box-shadow: 0 6px 18px rgba(118, 43, 22, 0.35);
-  transform: translateY(-1px);
+.gs-pdp-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(118, 43, 22, 0.35);
 }
 
-.gs-pdp-btn-wa svg {
-  width: 22px;
-  height: 22px;
+.gs-pdp-cta-btn svg {
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
-.gs-pdp-btn-secondary {
-  display: inline-flex;
+.gs-pdp-trust-micro {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 0.8rem 1.25rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--gs-green-900, #762b16);
-  background: transparent;
-  border: 1px solid var(--gs-border, #e6ded5);
-  border-radius: var(--gs-radius-sm, 0.5rem);
-  transition: all var(--gs-transition);
-}
-
-.gs-pdp-btn-secondary:hover {
-  background: var(--gs-green-50, #fbf6f3);
-  border-color: var(--gs-green-700, #b25032);
-}
-
-/* Metadata SKU & Social Share */
-.gs-pdp-meta-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.82rem;
+  gap: 0.85rem;
+  font-size: 0.72rem;
   color: var(--gs-muted, #5e463f);
-  border-top: 1px solid var(--gs-border, #e6ded5);
-  padding-top: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.1rem;
 }
 
-.gs-pdp-meta-item strong {
-  color: var(--gs-green-950, #48180c);
-  font-weight: 600;
+.gs-pdp-trust-micro span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-.gs-pdp-share-row {
+/* ==========================================================================
+   5. SECTIONS FLOWING BELOW THE HERO FOLD
+   ========================================================================== */
+.gs-pdp-content-section {
+  padding-block: clamp(3rem, 5vw, 4.5rem);
+}
+
+.gs-pdp-content-section--alt {
+  background-color: #ffffff;
+}
+
+.gs-pdp-section-header {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.gs-pdp-section-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gs-terracotta-800, #963b21);
+  margin-bottom: 0.4rem;
+}
+
+.gs-pdp-section-title {
+  font-family: var(--gs-font-heading, serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight: 700;
+  color: var(--gs-green-900, #762b16);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+.gs-pdp-section-subtitle {
+  font-size: clamp(0.88rem, 1.3vw, 0.98rem);
+  color: var(--gs-muted, #5e463f);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* SECTION 1: Tentang Produk */
+.gs-pdp-about-body {
+  max-width: 820px;
+  margin-inline: auto;
+  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+  color: var(--gs-text, #2b1d18);
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.gs-pdp-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.gs-pdp-value-card {
+  background: #ffffff;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 12px;
+  padding: 1.35rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(72, 24, 12, 0.04);
+}
+
+.gs-pdp-value-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gs-terracotta-100, #f5eae3);
+  color: var(--gs-terracotta-900, #762b16);
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
 }
 
-.gs-pdp-share-icon {
+.gs-pdp-value-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.gs-pdp-value-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gs-text, #2b1d18);
+  margin-bottom: 0.35rem;
+}
+
+.gs-pdp-value-desc {
+  font-size: 0.82rem;
+  color: var(--gs-muted, #5e463f);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* SECTION 2: Spesifikasi Table */
+.gs-pdp-table-wrap {
+  max-width: 860px;
+  margin-inline: auto;
+  background: #ffffff;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(72, 24, 12, 0.04);
+}
+
+.gs-pdp-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.gs-pdp-spec-table tr:not(:last-child) {
+  border-bottom: 1px solid var(--gs-border, #e6ded5);
+}
+
+.gs-pdp-spec-table th {
+  width: 32%;
+  padding: 0.85rem 1.15rem;
+  background: #fbf6f3;
+  color: var(--gs-green-900, #762b16);
+  font-weight: 700;
+  text-align: left;
+  vertical-align: top;
+}
+
+.gs-pdp-spec-table td {
+  padding: 0.85rem 1.15rem;
+  color: var(--gs-text, #2b1d18);
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+/* SECTION 3: Visual & Personalisasi */
+.gs-pdp-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gs-pdp-visual-card {
+  background: #ffffff;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(72, 24, 12, 0.04);
+}
+
+.gs-pdp-visual-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #f5eae3;
+  overflow: hidden;
+}
+
+.gs-pdp-visual-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gs-pdp-visual-card:hover .gs-pdp-visual-img-wrap img {
+  transform: scale(1.04);
+}
+
+.gs-pdp-visual-info {
+  padding: 1rem 1.15rem;
+}
+
+.gs-pdp-visual-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gs-text, #2b1d18);
+  margin-bottom: 0.25rem;
+}
+
+.gs-pdp-visual-desc {
+  font-size: 0.8rem;
+  color: var(--gs-muted, #5e463f);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* SECTION 4: Alur Pemesanan */
+.gs-pdp-workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.15rem;
+}
+
+.gs-pdp-workflow-card {
+  background: #ffffff;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(72, 24, 12, 0.03);
+}
+
+.gs-pdp-step-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--gs-border, #e6ded5);
-  color: var(--gs-green-800, #963b21);
-  text-decoration: none;
-  transition: all var(--gs-transition);
-}
-
-.gs-pdp-share-icon:hover {
-  background: var(--gs-green-800, #963b21);
+  background: var(--gs-terracotta-900, #762b16);
   color: #ffffff;
-  border-color: var(--gs-green-800, #963b21);
-}
-
-.gs-pdp-share-icon svg {
-  width: 15px;
-  height: 15px;
-}
-
-/* Product Tabs Section */
-.gs-pdp-tabs-section {
-  border-top: 1px solid var(--gs-border, #e6ded5);
-  padding-top: clamp(2.5rem, 5vw, 4rem);
-  padding-bottom: clamp(3rem, 5vw, 4.5rem);
-}
-
-.gs-pdp-tabs-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  border-bottom: 2px solid var(--gs-border, #e6ded5);
-  margin-bottom: 2rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.gs-pdp-tab-trigger {
-  background: none;
-  border: none;
-  padding: 0.75rem 0.25rem 1rem;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--gs-muted, #5e463f);
-  cursor: pointer;
-  position: relative;
-  white-space: nowrap;
-  transition: color var(--gs-transition);
+  margin-bottom: 0.65rem;
 }
 
-.gs-pdp-tab-trigger:hover,
-.gs-pdp-tab-trigger.active {
-  color: var(--gs-green-950, #48180c);
-}
-
-.gs-pdp-tab-trigger.active::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--gs-green-800, #963b21);
-}
-
-.gs-pdp-tab-pane {
-  display: none;
-  line-height: 1.8;
+.gs-pdp-workflow-title {
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--gs-text, #2b1d18);
+  margin-bottom: 0.3rem;
 }
 
-.gs-pdp-tab-pane.active {
-  display: block;
+.gs-pdp-workflow-desc {
+  font-size: 0.8rem;
+  color: var(--gs-muted, #5e463f);
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* Dekayu-style Checkmark Lists & Feature Highlights */
-.gs-pdp-checklist,
-.gs-pdp-feature-list {
-  list-style: none;
-  padding: 0;
-  margin: 1.25rem 0;
+/* SECTION 5: FAQ Accordion */
+.gs-pdp-faq-wrap {
+  max-width: 820px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.gs-pdp-checklist li,
-.gs-pdp-feature-list li {
+.gs-pdp-faq-item {
+  background: #ffffff;
+  border: 1px solid var(--gs-border, #e6ded5);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.gs-pdp-faq-item[open] {
+  border-color: var(--gs-terracotta-300, #dfb6a1);
+}
+
+.gs-pdp-faq-summary {
+  padding: 0.95rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gs-green-900, #762b16);
+  cursor: pointer;
+  list-style: none;
   display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  font-size: 0.92rem;
-  color: var(--gs-text, #2b1d18);
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  user-select: none;
 }
 
-.gs-pdp-checklist svg,
-.gs-pdp-feature-list svg,
-.gs-pdp-tabs-section svg,
-.gs-pdp-tab-pane svg,
-.gs-pdp-tab-pane li svg {
-  width: 18px !important;
-  height: 18px !important;
-  max-width: 18px !important;
-  max-height: 18px !important;
-  color: #b25032 !important;
-  fill: currentColor !important;
-  flex-shrink: 0 !important;
-  margin-top: 0.2rem !important;
+.gs-pdp-faq-summary::-webkit-details-marker {
+  display: none;
 }
 
-.gs-pdp-btn-wa svg {
-  width: 20px !important;
-  height: 20px !important;
-  max-width: 20px !important;
-  max-height: 20px !important;
-  flex-shrink: 0 !important;
+.gs-pdp-faq-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--gs-terracotta-700, #b25032);
+  transition: transform 0.2s ease;
 }
 
-.gs-pdp-share-icon svg {
-  width: 18px !important;
-  height: 18px !important;
-  max-width: 18px !important;
-  max-height: 18px !important;
+.gs-pdp-faq-item[open] .gs-pdp-faq-arrow {
+  transform: rotate(180deg);
 }
 
-/* Related Products Section */
-.gs-pdp-related-section {
-  background: #fbf6f3;
-  border-top: 1px solid var(--gs-border, #e6ded5);
-  padding: clamp(3rem, 5vw, 4.5rem) 0;
+.gs-pdp-faq-content {
+  padding: 0 1.25rem 1rem;
+  font-size: 0.85rem;
+  color: var(--gs-muted, #5e463f);
+  line-height: 1.6;
 }
 
+/* SECTION 6: Koleksi Terkait */
 .gs-pdp-related-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.25rem;
-}
-
-@media (min-width: 992px) {
-  .gs-pdp-related-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
 }
 
 .gs-pdp-related-card {
   background: #ffffff;
   border: 1px solid var(--gs-border, #e6ded5);
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-  box-shadow: 0 2px 8px rgba(72, 24, 12, 0.04);
+  box-shadow: 0 3px 12px rgba(72, 24, 12, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .gs-pdp-related-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(72, 24, 12, 0.1);
-  border-color: #b25032;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(72, 24, 12, 0.1);
+  border-color: var(--gs-terracotta-300, #dfb6a1);
 }
 
 .gs-pdp-related-img-wrap {
+  width: 100%;
   aspect-ratio: 1 / 1;
+  background: #fbf6f3;
   overflow: hidden;
   position: relative;
-  background: var(--gs-green-50, #fbf6f3);
   display: block;
 }
 
@@ -713,522 +736,201 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
 .gs-pdp-related-card:hover .gs-pdp-related-img-wrap img {
-  transform: scale(1.06);
-}
-
-.gs-pdp-related-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(4px);
-  color: var(--gs-green-950, #48180c);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 0.25rem 0.65rem;
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
 }
 
 .gs-pdp-related-body {
-  padding: 1.15rem 1.25rem 1.25rem;
+  padding: 0.85rem 1rem 1rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  justify-content: space-between;
+  flex: 1;
 }
 
-.gs-pdp-related-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.4rem;
-}
-
-.gs-pdp-related-cat {
-  font-size: 0.68rem;
+.gs-pdp-related-badge {
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.6px;
   text-transform: uppercase;
-  color: #b25032;
-}
-
-.gs-pdp-related-rating {
-  font-size: 0.75rem;
-  color: #f59e0b;
-  letter-spacing: 1px;
+  color: var(--gs-terracotta-900, #762b16);
+  background: var(--gs-terracotta-100, #f5eae3);
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  width: fit-content;
 }
 
 .gs-pdp-related-title {
-  font-family: var(--gs-font-heading, 'Playfair Display', serif);
-  font-size: 0.98rem;
+  font-family: var(--gs-font-heading, serif);
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--gs-green-950, #48180c);
-  margin: 0 0 0.65rem 0;
-  line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 2.8rem;
+  line-height: 1.3;
+  margin: 0 0 0.4rem;
 }
 
 .gs-pdp-related-title a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.gs-pdp-related-title a:hover {
-  color: #b25032;
-}
-
-.gs-pdp-related-price-box {
-  margin-bottom: 1rem;
-  padding-top: 0.5rem;
-  border-top: 1px dashed #e6ded5;
-}
-
-.gs-pdp-related-price-label {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--gs-muted, #5e463f);
-  margin-bottom: 0.15rem;
-}
-
-.gs-pdp-related-price {
-  font-size: 0.98rem;
-  font-weight: 700;
   color: var(--gs-green-900, #762b16);
+  text-decoration: none;
 }
 
-.gs-pdp-related-unit {
-  font-size: 0.78rem;
-  font-weight: normal;
+.gs-pdp-related-moq {
+  font-size: 0.75rem;
   color: var(--gs-muted, #5e463f);
+  margin-bottom: 0.75rem;
 }
 
 .gs-pdp-related-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  display: flex;
+  gap: 0.4rem;
   margin-top: auto;
 }
 
 .gs-pdp-btn-detail {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.55rem 0.5rem;
-  font-size: 0.8rem;
+  flex: 1;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--gs-green-900, #762b16);
-  background: var(--gs-green-50, #fbf6f3);
+  color: var(--gs-terracotta-900, #762b16);
+  background: #fbf6f3;
   border: 1px solid var(--gs-border, #e6ded5);
-  border-radius: 8px;
+  border-radius: 9999px;
   text-decoration: none;
-  transition: all 0.2s ease;
   text-align: center;
+  transition: all 0.15s;
 }
 
 .gs-pdp-btn-detail:hover {
-  background: var(--gs-green-100, #f5eae3);
-  border-color: #b25032;
-  color: var(--gs-green-950, #48180c);
+  background: var(--gs-terracotta-100, #f5eae3);
+  border-color: var(--gs-terracotta-500, #c87656);
 }
 
 .gs-pdp-btn-card-wa {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  padding: 0.55rem 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
+  gap: 0.3rem;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: #ffffff !important;
-  background: #963b21;
-  border: 1px solid #762b16;
-  border-radius: 8px;
+  background: var(--gs-terracotta-800, #963b21);
+  border-radius: 9999px;
   text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(118, 43, 22, 0.2);
+  transition: background 0.15s;
 }
 
 .gs-pdp-btn-card-wa:hover {
-  background: #762b16;
-  border-color: #48180c;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(118, 43, 22, 0.3);
-}
-
-.gs-pdp-btn-card-wa svg {
-  width: 15px !important;
-  height: 15px !important;
-  max-width: 15px !important;
-  max-height: 15px !important;
-  flex-shrink: 0 !important;
-  fill: currentColor !important;
-}
-
-
-/* Keep long product names and controls usable on narrow screens. */
-.gs-pdp-breadcrumb { overflow-wrap: anywhere; }
-.gs-pdp-title { word-break: normal; overflow-wrap: break-word; }
-.gs-pdp-tabs-nav { flex-wrap: wrap; }
-.gs-pdp-btn-card-wa {
-  background: #963b21;
-  border-color: #963b21;
-  color: #fff;
-}
-.gs-pdp-btn-card-wa:hover { background: #762b16; color: #fff; }
-.gs-pdp-btn-card-wa:focus-visible {
-  outline: 3px solid #762b16;
-  outline-offset: 3px;
+  background: var(--gs-terracotta-900, #762b16);
 }
 
 /* ==========================================================================
-   Mobile Product Detail View (Shopee / Modern E-Commerce Compact UX)
-   Resolves scroll trapping and ensures image + title + price fit on initial view
+   6. RESPONSIVE MEDIA QUERIES (Mobile & Tablet)
    ========================================================================== */
-
 @media (max-width: 991px) {
-  .gs-pdp-section {
-    padding-top: clamp(0.75rem, 2vw, 1.25rem);
-    padding-bottom: 2.5rem;
-  }
-
-  .gs-pdp-grid {
-    gap: 1.25rem;
+  .gs-pdp-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .gs-pdp-gallery {
-    position: static;
-    top: auto;
-    max-width: 380px;
-    margin-inline: auto;
-    gap: 0.75rem;
+    max-width: 100%;
   }
 
   .gs-pdp-main-image-wrap {
-    max-width: 320px;
-    max-height: 320px;
-    margin-inline: auto;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-height: 400px;
   }
 
-  .gs-pdp-thumbs {
-    max-width: 280px;
-    margin-inline: auto;
-    gap: 0.5rem;
-  }
-
-  .gs-pdp-thumb-btn {
-    max-height: 60px;
+  .gs-pdp-spec-table th {
+    width: 38%;
   }
 }
 
 @media (max-width: 768px) {
-  .gs-pdp-section {
-    padding-top: 0.5rem;
-    padding-bottom: 2rem;
-  }
-
-  .gs-pdp-breadcrumb {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    font-size: 0.72rem;
-    margin-bottom: 0.65rem;
-    gap: 0.25rem;
-    padding-bottom: 2px;
-  }
-
-  .gs-pdp-breadcrumb::-webkit-scrollbar {
-    display: none;
-  }
-
-  .gs-pdp-breadcrumb strong {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 190px;
-    display: inline-block;
-    vertical-align: bottom;
-  }
-
-  .gs-pdp-grid {
-    gap: 0.85rem;
-  }
-
-  .gs-pdp-gallery {
-    position: static;
-    top: auto;
-    max-width: 280px;
-    margin-inline: auto;
-    gap: 0.45rem;
+  .gs-pdp-hero {
+    padding-top: 0.75rem;
+    padding-bottom: 1.5rem;
   }
 
   .gs-pdp-main-image-wrap {
-    max-width: 250px;
-    max-height: 250px;
-    margin-inline: auto;
-    border-radius: 12px;
+    max-height: 350px;
   }
 
-  .gs-pdp-badge-promo {
-    top: 0.5rem;
-    left: 0.5rem;
-    font-size: 0.62rem;
-    padding: 0.22rem 0.6rem;
-    max-width: calc(100% - 1rem);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-sizing: border-box;
-  }
-
-  .gs-pdp-thumbs {
-    max-width: 220px;
-    margin-inline: auto;
-    gap: 0.4rem;
-  }
-
-  .gs-pdp-thumb-btn {
-    max-height: 52px;
-    border-radius: 8px;
-  }
-
-  .gs-pdp-info {
-    gap: 0.6rem;
-  }
-
-  .gs-pdp-category-tag {
-    font-size: 0.68rem;
-    margin-bottom: -0.15rem;
-  }
-
-  .gs-pdp-title {
-    font-size: clamp(1.15rem, 4.2vw, 1.35rem);
-    line-height: 1.25;
-    margin: 0;
-  }
-
-  .gs-pdp-price-card {
-    padding: 0.75rem 0.95rem;
-    gap: 0.35rem;
-    border-radius: 10px;
-  }
-
-  .gs-pdp-price-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
-
-  .gs-pdp-price {
-    font-size: 1.35rem;
-  }
-
-  .gs-pdp-price-amount {
-    font-size: 1.45rem;
-  }
-
-  .gs-pdp-price-unit {
-    font-size: 0.85rem;
-  }
-
-  .gs-pdp-tier-badge {
-    font-size: 0.68rem;
-    padding: 0.2rem 0.55rem;
-  }
-
-  .gs-pdp-total-row {
-    padding: 0.45rem 0.75rem;
-    font-size: 0.8rem;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
-
-  .gs-pdp-total-amount {
-    font-size: 0.98rem;
-  }
-
-  .gs-pdp-price-subtext {
-    font-size: 0.72rem;
-    line-height: 1.35;
-    margin-top: 0.15rem;
-  }
-
-  .gs-pdp-option-group {
-    gap: 0.35rem;
-  }
-
-  .gs-pdp-option-label {
-    font-size: 0.78rem;
-  }
-
-  .gs-pdp-select {
-    padding: 0.6rem 0.85rem;
-    font-size: 0.85rem;
-  }
-
-  .gs-pdp-tier-pills {
-    gap: 0.4rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .gs-tier-pill {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.76rem;
-  }
-
-  .gs-tier-pill .gs-pill-save {
-    font-size: 0.68rem;
-    padding: 0.08rem 0.35rem;
-  }
-
-  .gs-pdp-order-row {
+  .gs-pdp-info-panel {
+    padding: 1.15rem 1rem;
+    border-radius: 14px;
     gap: 0.65rem;
-    flex-wrap: wrap;
   }
 
-  .gs-pdp-qty-control {
-    height: 40px;
+  .gs-pdp-lead {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
   }
 
-  .gs-pdp-qty-btn {
-    width: 36px;
-    height: 40px;
-    font-size: 1.05rem;
+  .gs-pdp-spec-table {
+    font-size: 0.82rem;
   }
 
-  .gs-pdp-qty-input {
-    width: 50px;
-    height: 40px;
-    font-size: 0.9rem;
+  .gs-pdp-spec-table th,
+  .gs-pdp-spec-table td {
+    padding: 0.75rem 0.85rem;
   }
 
-  .gs-pdp-actions {
-    margin-top: 0.4rem;
-    gap: 0.5rem;
+  .gs-pdp-spec-table tr {
+    display: flex;
+    flex-direction: column;
   }
 
-  .gs-pdp-btn-primary {
-    padding: 0.8rem 1.25rem;
-    font-size: 0.92rem;
+  .gs-pdp-spec-table th {
+    width: 100%;
+    padding-bottom: 0.25rem;
+    border-bottom: none;
+  }
+
+  .gs-pdp-spec-table td {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .gs-pdp-workflow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gs-pdp-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .gs-pdp-related-body {
+    padding: 0.65rem 0.65rem 0.75rem;
+  }
+
+  .gs-pdp-related-title {
+    font-size: 0.85rem;
+    min-height: 2.4em;
+  }
+
+  .gs-pdp-related-actions {
+    flex-direction: column;
   }
 }
 
 @media (max-width: 480px) {
-  .gs-pdp-section {
-    padding-top: 0.4rem;
-    padding-bottom: 2rem;
-  }
-
-  .gs-pdp-gallery {
-    position: static;
-    top: auto;
-    max-width: 250px;
-    gap: 0.35rem;
-  }
-
   .gs-pdp-main-image-wrap {
-    max-width: 220px;
-    max-height: 220px;
-    border-radius: 10px;
+    max-height: 290px;
   }
 
-  .gs-pdp-badge-promo {
-    top: 0.4rem;
-    left: 0.4rem;
-    font-size: 0.58rem;
-    padding: 0.18rem 0.5rem;
-    max-width: calc(100% - 0.8rem);
+  .gs-pdp-thumb {
+    width: 50px;
+    height: 50px;
   }
 
-  .gs-pdp-thumbs {
-    max-width: 195px;
-    gap: 0.35rem;
-  }
-
-  .gs-pdp-thumb-btn {
-    max-height: 46px;
-    border-radius: 6px;
-    border-width: 1.5px;
-  }
-
-  .gs-pdp-title {
-    font-size: 1.15rem;
-    line-height: 1.25;
-  }
-
-  .gs-pdp-price-card {
-    padding: 0.65rem 0.85rem;
-    gap: 0.3rem;
-  }
-
-  .gs-pdp-price-amount {
-    font-size: 1.35rem;
-  }
-
-  .gs-pdp-option-group {
-    gap: 0.3rem;
-  }
-
-  .gs-pdp-option-label {
-    font-size: 0.74rem;
-  }
-
-  .gs-pdp-select {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
-  }
-
-  .gs-pdp-tier-pills {
-    gap: 0.3rem;
-    margin-top: 0.2rem;
-    margin-bottom: 0.25rem;
-  }
-
-  .gs-tier-pill {
-    padding: 0.3rem 0.55rem;
-    font-size: 0.72rem;
-  }
-
-  .gs-pdp-qty-control {
-    height: 36px;
-  }
-
-  .gs-pdp-qty-btn {
-    width: 34px;
-    height: 36px;
-    font-size: 1rem;
-  }
-
-  .gs-pdp-qty-input {
-    width: 44px;
-    height: 36px;
-    font-size: 0.85rem;
-  }
-
-  .gs-pdp-actions {
-    margin-top: 0.3rem;
-  }
-
-  .gs-pdp-btn-primary {
-    padding: 0.75rem 1rem;
-    font-size: 0.88rem;
+  .gs-pdp-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
 }
