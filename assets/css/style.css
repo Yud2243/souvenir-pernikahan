@@ -6061,8 +6061,8 @@ html:not(.js) [data-gs-animate] {
   background-color: #1a0c07;
   overflow: hidden;
   color: #ffffff;
-  padding-top: clamp(70px, 9vh, 92px);
-  padding-bottom: clamp(40px, 6vh, 70px);
+  padding-top: clamp(118px, 14vh, 148px);
+  padding-bottom: clamp(35px, 5vh, 65px);
 }
 
 .gs-hero-fullscreen__bg-wrap {
@@ -6441,10 +6441,10 @@ html:not(.js) [data-gs-animate] {
 /* 10. Mobile Responsiveness */
 @media (max-width: 991px) {
   .gs-hero-fullscreen {
-    min-height: 85vh;
-    min-height: 85dvh;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: clamp(105px, 13.5vh, 125px);
+    padding-bottom: clamp(35px, 5vh, 50px);
   }
 
   .gs-hero-fullscreen__content {

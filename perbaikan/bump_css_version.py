@@ -24,3 +24,4 @@ for path in html_files:
         count += 1
 
 print(f"Updated style.min.css?v=13 in {count} HTML files out of {len(html_files)}")
+

@@ -130,18 +130,18 @@ body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__hamburger
   background-color: #ffffff;
 }
 
-/* 3. Fullscreen Hero Section (Position Raised to Green Line) */
+/* 3. Fullscreen Hero Section (Posisi Disesuaikan Sesuai Garis Hijau) */
 .gs-hero-fullscreen {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  align-items: flex-start; /* Posisi diangkat ke atas sejajar garis hijau */
+  align-items: flex-start;
   background-color: #1a0c07;
   overflow: hidden;
   color: #ffffff;
-  padding-top: clamp(70px, 9vh, 92px); /* Naik ke atas sejajar garis hijau */
-  padding-bottom: clamp(40px, 6vh, 70px);
+  padding-top: clamp(118px, 14vh, 148px);
+  padding-bottom: clamp(35px, 5vh, 65px);
 }
 
 .gs-hero-fullscreen__bg-wrap {
@@ -521,10 +521,10 @@ body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__hamburger
 /* 11. Mobile Responsiveness */
 @media (max-width: 991px) {
   .gs-hero-fullscreen {
-    min-height: 85vh;
-    min-height: 85dvh;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: clamp(105px, 13.5vh, 125px);
+    padding-bottom: clamp(35px, 5vh, 50px);
   }
 
   .gs-hero-fullscreen__content {
