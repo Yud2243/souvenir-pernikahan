@@ -3577,73 +3577,140 @@ body > header {
 
   /* Compact 2-column Product Grid on Mobile */
   #gs-paket-grid:not(.is-slide-mode),
+  #gs-tradisional-grid:not(.is-slide-mode),
+  #gs-modern-grid:not(.is-slide-mode),
   .gs-section .gs-grid-3:not(.is-slide-mode) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
   }
 
   /* Compact Cards for Mobile */
   .gs-card {
-    border-radius: var(--gs-radius-md);
+    border-radius: var(--gs-radius-md) !important;
+    border: 1px solid var(--gs-border) !important;
+    box-shadow: 0 2px 8px rgba(72, 24, 12, 0.05) !important;
+    overflow: hidden !important;
   }
 
   .gs-card__image {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
   }
 
   .gs-card__body {
-    padding: 0.75rem 0.8rem;
+    padding: 0.6rem 0.65rem 0.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
   }
 
   .gs-card__badge {
-    font-size: 0.65rem;
-    padding: 0.18rem 0.5rem;
-    margin-bottom: 0.35rem;
-    letter-spacing: 0.02em;
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    padding: 0.15rem 0.45rem !important;
+    margin-bottom: 0.35rem !important;
+    letter-spacing: 0.02em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    display: inline-block !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
+    width: fit-content !important;
   }
 
   .gs-card__title {
-    font-size: 0.88rem;
-    line-height: 1.25;
-    margin-bottom: 0.3rem;
+    font-size: clamp(0.78rem, 3.2vw, 0.85rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.25rem !important;
+    font-family: var(--gs-font-heading) !important;
+    font-weight: 700 !important;
+    color: var(--gs-green-900) !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-height: 2.15em !important;
+    max-height: 2.15em !important;
   }
 
-  .gs-card__desc {
-    font-size: 0.75rem;
-    line-height: 1.35;
-    margin-bottom: 0.45rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .gs-card__title a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* Sembunyikan deskripsi di mode grid 2-kolom mobile agar rapi, tidak menumpuk, dan langsung fokus ke gambar & harga (seperti Shopee) */
+  #gs-paket-grid:not(.is-slide-mode) .gs-card__desc,
+  #gs-tradisional-grid:not(.is-slide-mode) .gs-card__desc,
+  #gs-modern-grid:not(.is-slide-mode) .gs-card__desc,
+  .gs-section .gs-grid-3:not(.is-slide-mode):not(.gs-product-slider) .gs-card__desc {
+    display: none !important;
+  }
+
+  /* Jika dalam mode slide horizontal, batasi deskripsi max 2 baris agar tetap rapi */
+  .gs-grid-3.is-slide-mode .gs-card__desc,
+  .gs-product-slider > .gs-card .gs-card__desc {
+    font-size: 0.75rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.45rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
   .gs-card__price-note {
-    font-size: 0.7rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.25;
+    font-size: 0.68rem !important;
+    margin-top: 0.2rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.25 !important;
+    color: var(--gs-muted) !important;
+    font-style: normal !important;
+  }
+
+  .gs-card__price-note strong {
+    display: block !important;
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+    color: var(--gs-terracotta-800, #762b16) !important;
+    font-weight: 700 !important;
+    margin-bottom: 2px !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.01em !important;
   }
 
   .gs-card__actions {
-    gap: 0.35rem;
-    flex-direction: column;
-    width: 100%;
+    gap: 0.35rem !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    margin-top: auto !important;
   }
 
   .gs-card__actions .gs-button,
   .gs-card__actions .gs-card__btn-detail {
-    width: 100%;
-    justify-content: center;
-    font-size: 0.72rem;
-    padding: 0.4rem 0.5rem;
-    min-height: 32px;
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    padding: 0.38rem 0.5rem !important;
+    min-height: 32px !important;
+    height: 32px !important;
+    border-radius: var(--gs-radius-pill) !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
   }
 
   .gs-card__actions .gs-button svg,
   .gs-card__actions .gs-card__btn-detail svg {
-    width: 14px;
-    height: 14px;
+    width: 13px !important;
+    height: 13px !important;
+    margin-right: 3px !important;
+    flex-shrink: 0 !important;
   }
 }
 
@@ -3702,17 +3769,21 @@ body > header {
 
   /* Retain 2 columns for product grid down to 350px */
   #gs-paket-grid:not(.is-slide-mode),
+  #gs-tradisional-grid:not(.is-slide-mode),
+  #gs-modern-grid:not(.is-slide-mode),
   .gs-section .gs-grid-3:not(.is-slide-mode) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.65rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
   }
 }
 
 @media (max-width: 350px) {
 
   #gs-paket-grid:not(.is-slide-mode),
+  #gs-tradisional-grid:not(.is-slide-mode),
+  #gs-modern-grid:not(.is-slide-mode),
   .gs-section .gs-grid-3:not(.is-slide-mode) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -4547,35 +4618,6 @@ html:not(.js) [data-gs-animate] {
   .gs-hero__eyebrow,
   .gs-section-heading .gs-eyebrow {
     font-size: 0.8125rem;
-  }
-
-  .gs-card__badge {
-    font-size: 0.75rem;
-    padding: 0.2rem 0.6rem;
-  }
-
-  .gs-card__title {
-    font-size: 1rem;
-    line-height: 1.3;
-  }
-
-  .gs-card__desc {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-  }
-
-  .gs-card__price-note {
-    font-size: 0.8125rem;
-    line-height: 1.35;
-  }
-
-  .gs-card__actions .gs-button,
-  .gs-card__actions .gs-card__btn-detail {
-    font-size: 0.8125rem;
-    min-height: 44px;
-    padding: 0.5rem 0.6rem;
   }
 
   .gs-hero__stat-label,
