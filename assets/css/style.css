@@ -521,14 +521,22 @@ body > header .gs-navbar {
   color: var(--gs-text);
   padding: 0.5rem 0.85rem;
   border-radius: var(--gs-radius-sm);
-  transition: color var(--gs-transition), background-color var(--gs-transition);
+  background: transparent !important;
+  background-color: transparent !important;
+  transition: color var(--gs-transition);
 }
 
-.gs-navbar__link:hover,
+.gs-navbar__link:hover {
+  color: var(--gs-terracotta-700, #b25032);
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
 .gs-navbar__link.active {
-  color: var(--gs-green-900);
-  font-weight: 600;
-  background-color: var(--gs-green-100);
+  color: var(--gs-terracotta-800, #963b21);
+  font-weight: 700;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Dropdown */
@@ -545,29 +553,38 @@ body > header .gs-navbar {
   color: var(--gs-text);
   padding: 0.5rem 0.85rem;
   border-radius: var(--gs-radius-sm);
-  background: none;
+  background: transparent !important;
+  background-color: transparent !important;
   border: none;
   cursor: pointer;
-  transition: color var(--gs-transition), background-color var(--gs-transition);
+  transition: color var(--gs-transition);
   font-family: var(--gs-font-body);
 }
 
 .gs-dropdown__toggle:hover,
 .gs-dropdown__toggle[aria-expanded="true"] {
-  color: var(--gs-green-900);
-  font-weight: 600;
-  background-color: var(--gs-green-100);
+  color: var(--gs-terracotta-700, #b25032);
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .gs-dropdown__toggle.active {
-  color: var(--gs-green-900);
+  color: var(--gs-terracotta-800, #963b21);
   font-weight: 700;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .gs-dropdown__toggle svg {
   width: 14px;
   height: 14px;
   transition: transform var(--gs-transition);
+}
+
+.gs-dropdown__toggle:hover svg,
+.gs-dropdown__toggle[aria-expanded="true"] svg,
+.gs-dropdown__toggle.active svg {
+  stroke: var(--gs-terracotta-800, #963b21);
 }
 
 .gs-dropdown__toggle[aria-expanded="true"] svg {
@@ -579,10 +596,12 @@ body > header .gs-navbar {
   top: calc(100% + 8px);
   left: 0;
   min-width: 240px;
-  background-color: var(--gs-white);
-  border: 1px solid var(--gs-border);
-  border-radius: var(--gs-radius-md);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.47) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
   padding: 0.5rem;
   opacity: 0;
   visibility: hidden;
@@ -630,38 +649,38 @@ body > header .gs-navbar {
   align-items: center;
   gap: 0.6rem;
   padding: 0.6rem 0.85rem;
-  border-radius: var(--gs-radius-sm);
+  border-radius: 10px;
   font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--gs-text);
+  font-weight: 600;
+  color: var(--gs-text, #2b1d18);
   transition: background-color var(--gs-transition), color var(--gs-transition);
 }
 
 .gs-dropdown__item:hover {
-  background-color: var(--gs-green-100);
-  color: var(--gs-green-950);
+  background-color: rgba(255, 255, 255, 0.45);
+  color: var(--gs-terracotta-800, #963b21);
 }
 
 .gs-dropdown__item.active {
-  background-color: var(--gs-green-100);
-  color: var(--gs-green-950);
-  font-weight: 600;
+  background-color: rgba(150, 59, 33, 0.15);
+  color: var(--gs-terracotta-800, #963b21);
+  font-weight: 700;
 }
 
 .gs-dropdown__item svg {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  color: var(--gs-green-500);
+  color: var(--gs-terracotta-700, #b25032);
 }
 
 .gs-dropdown__item.active svg {
-  color: var(--gs-green-700);
+  color: var(--gs-terracotta-800, #963b21);
 }
 
 .gs-dropdown__divider {
   height: 1px;
-  background-color: var(--gs-border);
+  background-color: rgba(255, 255, 255, 0.35);
   margin: 0.35rem 0.5rem;
 }
 
@@ -716,12 +735,12 @@ body > header .gs-navbar {
   display: none;
   flex-direction: column;
   padding: 0.85rem 1.25rem 1.25rem;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   margin-top: 0.5rem;
   gap: 0.2rem;
 }
@@ -733,19 +752,26 @@ body > header .gs-navbar {
 .gs-navbar__mobile-link {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--gs-text);
+  color: var(--gs-text, #2b1d18);
   padding: 0.6rem 0.5rem;
   border-radius: var(--gs-radius-sm);
   display: block;
   transition: color var(--gs-transition), background-color var(--gs-transition), padding-left var(--gs-transition);
 }
 
-.gs-navbar__mobile-link:hover,
-.gs-navbar__mobile-link.active {
-  color: var(--gs-green-950);
-  background-color: var(--gs-green-100);
+.gs-navbar__mobile-link:hover {
+  color: var(--gs-terracotta-800, #963b21);
+  background-color: rgba(255, 255, 255, 0.45);
+  padding-left: 0.85rem;
+}
+
+.gs-navbar__mobile-link.active,
+.gs-navbar__mobile-link[aria-current="page"] {
+  color: var(--gs-terracotta-900, #762b16);
+  background-color: rgba(245, 234, 227, 0.9);
   padding-left: 0.85rem;
   font-weight: 600;
+  border-radius: var(--gs-radius-sm);
 }
 
 .gs-navbar__mobile-submenu-toggle {
@@ -755,7 +781,7 @@ body > header .gs-navbar {
   width: 100%;
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--gs-text);
+  color: var(--gs-text, #2b1d18);
   padding: 0.6rem 0.5rem;
   border-radius: var(--gs-radius-sm);
   text-align: left;
@@ -767,8 +793,8 @@ body > header .gs-navbar {
 
 .gs-navbar__mobile-submenu-toggle:hover,
 .gs-navbar__mobile-submenu-toggle[aria-expanded="true"] {
-  color: var(--gs-green-950);
-  background-color: var(--gs-green-100);
+  color: var(--gs-terracotta-800, #963b21);
+  background-color: rgba(255, 255, 255, 0.45);
 }
 
 .gs-navbar__mobile-submenu-toggle svg {

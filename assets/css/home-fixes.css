@@ -89,13 +89,53 @@
 
 /* Mobile dropdown menu glass card */
 .gs-navbar__mobile-menu {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
   margin-top: 0.5rem;
+}
+
+/* Glassmorphism Desktop Dropdown */
+.gs-dropdown__menu {
+  background: rgba(255, 255, 255, 0.47) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.gs-dropdown__item {
+  color: var(--gs-text, #2b1d18) !important;
+  font-weight: 600;
+}
+
+.gs-dropdown__item:hover {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+  color: var(--gs-terracotta-800, #963b21) !important;
+}
+
+.gs-dropdown__item.active {
+  background-color: rgba(150, 59, 33, 0.15) !important;
+  color: var(--gs-terracotta-800, #963b21) !important;
+  font-weight: 700;
+}
+
+.gs-dropdown__item svg {
+  color: var(--gs-terracotta-700, #b25032) !important;
+}
+
+.gs-dropdown__item.active svg {
+  color: var(--gs-terracotta-800, #963b21) !important;
+}
+
+.gs-dropdown__divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.35) !important;
+  margin: 0.35rem 0.5rem;
 }
 
 /* Header fixed over fullscreen hero on Homepage */
@@ -118,12 +158,30 @@ body:has(.gs-hero-fullscreen) > header .gs-navbar {
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__brand-text {
-  color: #ffffff;
+  color: #ffffff !important;
+  background: transparent !important;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link.active,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle.active,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link:hover,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle:hover,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle[aria-expanded="true"] {
+  color: #dfb6a1 !important;
+  background: transparent !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 12px rgba(223, 182, 161, 0.4);
+}
+
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle svg {
-  stroke: #ffffff;
+  stroke: #ffffff !important;
+}
+
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle.active svg,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle:hover svg,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle[aria-expanded="true"] svg {
+  stroke: #dfb6a1 !important;
 }
 
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__hamburger-line {
