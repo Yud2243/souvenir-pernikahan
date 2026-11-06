@@ -84,11 +84,18 @@
 
 /* Left Column: Gallery */
 .gs-pdp-gallery {
-  position: sticky;
-  top: 90px;
+  position: static;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .gs-pdp-gallery {
+    position: sticky;
+    top: 90px;
+  }
 }
 
 .gs-pdp-main-image-wrap {
@@ -871,8 +878,8 @@
 
 
 /* Keep long product names and controls usable on narrow screens. */
-.gs-pdp-breadcrumb { flex-wrap: wrap; overflow-wrap: anywhere; }
-.gs-pdp-title { overflow-wrap: anywhere; }
+.gs-pdp-breadcrumb { overflow-wrap: anywhere; }
+.gs-pdp-title { word-break: normal; overflow-wrap: break-word; }
 .gs-pdp-tabs-nav { flex-wrap: wrap; }
 .gs-pdp-btn-card-wa {
   background: #963b21;
@@ -883,4 +890,345 @@
 .gs-pdp-btn-card-wa:focus-visible {
   outline: 3px solid #762b16;
   outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Mobile Product Detail View (Shopee / Modern E-Commerce Compact UX)
+   Resolves scroll trapping and ensures image + title + price fit on initial view
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  .gs-pdp-section {
+    padding-top: clamp(0.75rem, 2vw, 1.25rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .gs-pdp-grid {
+    gap: 1.25rem;
+  }
+
+  .gs-pdp-gallery {
+    position: static;
+    top: auto;
+    max-width: 380px;
+    margin-inline: auto;
+    gap: 0.75rem;
+  }
+
+  .gs-pdp-main-image-wrap {
+    max-width: 320px;
+    max-height: 320px;
+    margin-inline: auto;
+  }
+
+  .gs-pdp-thumbs {
+    max-width: 280px;
+    margin-inline: auto;
+    gap: 0.5rem;
+  }
+
+  .gs-pdp-thumb-btn {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gs-pdp-section {
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .gs-pdp-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.72rem;
+    margin-bottom: 0.65rem;
+    gap: 0.25rem;
+    padding-bottom: 2px;
+  }
+
+  .gs-pdp-breadcrumb::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gs-pdp-breadcrumb strong {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .gs-pdp-grid {
+    gap: 0.85rem;
+  }
+
+  .gs-pdp-gallery {
+    position: static;
+    top: auto;
+    max-width: 280px;
+    margin-inline: auto;
+    gap: 0.45rem;
+  }
+
+  .gs-pdp-main-image-wrap {
+    max-width: 250px;
+    max-height: 250px;
+    margin-inline: auto;
+    border-radius: 12px;
+  }
+
+  .gs-pdp-badge-promo {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.62rem;
+    padding: 0.22rem 0.6rem;
+    max-width: calc(100% - 1rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+  }
+
+  .gs-pdp-thumbs {
+    max-width: 220px;
+    margin-inline: auto;
+    gap: 0.4rem;
+  }
+
+  .gs-pdp-thumb-btn {
+    max-height: 52px;
+    border-radius: 8px;
+  }
+
+  .gs-pdp-info {
+    gap: 0.6rem;
+  }
+
+  .gs-pdp-category-tag {
+    font-size: 0.68rem;
+    margin-bottom: -0.15rem;
+  }
+
+  .gs-pdp-title {
+    font-size: clamp(1.15rem, 4.2vw, 1.35rem);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  .gs-pdp-price-card {
+    padding: 0.75rem 0.95rem;
+    gap: 0.35rem;
+    border-radius: 10px;
+  }
+
+  .gs-pdp-price-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .gs-pdp-price {
+    font-size: 1.35rem;
+  }
+
+  .gs-pdp-price-amount {
+    font-size: 1.45rem;
+  }
+
+  .gs-pdp-price-unit {
+    font-size: 0.85rem;
+  }
+
+  .gs-pdp-tier-badge {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .gs-pdp-total-row {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .gs-pdp-total-amount {
+    font-size: 0.98rem;
+  }
+
+  .gs-pdp-price-subtext {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin-top: 0.15rem;
+  }
+
+  .gs-pdp-option-group {
+    gap: 0.35rem;
+  }
+
+  .gs-pdp-option-label {
+    font-size: 0.78rem;
+  }
+
+  .gs-pdp-select {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .gs-pdp-tier-pills {
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .gs-tier-pill {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.76rem;
+  }
+
+  .gs-tier-pill .gs-pill-save {
+    font-size: 0.68rem;
+    padding: 0.08rem 0.35rem;
+  }
+
+  .gs-pdp-order-row {
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+
+  .gs-pdp-qty-control {
+    height: 40px;
+  }
+
+  .gs-pdp-qty-btn {
+    width: 36px;
+    height: 40px;
+    font-size: 1.05rem;
+  }
+
+  .gs-pdp-qty-input {
+    width: 50px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .gs-pdp-actions {
+    margin-top: 0.4rem;
+    gap: 0.5rem;
+  }
+
+  .gs-pdp-btn-primary {
+    padding: 0.8rem 1.25rem;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gs-pdp-section {
+    padding-top: 0.4rem;
+    padding-bottom: 2rem;
+  }
+
+  .gs-pdp-gallery {
+    position: static;
+    top: auto;
+    max-width: 250px;
+    gap: 0.35rem;
+  }
+
+  .gs-pdp-main-image-wrap {
+    max-width: 220px;
+    max-height: 220px;
+    border-radius: 10px;
+  }
+
+  .gs-pdp-badge-promo {
+    top: 0.4rem;
+    left: 0.4rem;
+    font-size: 0.58rem;
+    padding: 0.18rem 0.5rem;
+    max-width: calc(100% - 0.8rem);
+  }
+
+  .gs-pdp-thumbs {
+    max-width: 195px;
+    gap: 0.35rem;
+  }
+
+  .gs-pdp-thumb-btn {
+    max-height: 46px;
+    border-radius: 6px;
+    border-width: 1.5px;
+  }
+
+  .gs-pdp-title {
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+
+  .gs-pdp-price-card {
+    padding: 0.65rem 0.85rem;
+    gap: 0.3rem;
+  }
+
+  .gs-pdp-price-amount {
+    font-size: 1.35rem;
+  }
+
+  .gs-pdp-option-group {
+    gap: 0.3rem;
+  }
+
+  .gs-pdp-option-label {
+    font-size: 0.74rem;
+  }
+
+  .gs-pdp-select {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .gs-pdp-tier-pills {
+    gap: 0.3rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .gs-tier-pill {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .gs-pdp-qty-control {
+    height: 36px;
+  }
+
+  .gs-pdp-qty-btn {
+    width: 34px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .gs-pdp-qty-input {
+    width: 44px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .gs-pdp-actions {
+    margin-top: 0.3rem;
+  }
+
+  .gs-pdp-btn-primary {
+    padding: 0.75rem 1rem;
+    font-size: 0.88rem;
+  }
 }
