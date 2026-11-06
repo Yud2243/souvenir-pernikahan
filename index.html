@@ -8,9 +8,7 @@
 
   <!-- Preload Critical CSS & Hero LCP Image (Earliest discovery) -->
   <link rel="preload" href="/assets/css/style.min.css?v=12" as="style" />
-  <link rel="preload" as="image" href="/assets/images/hero-souvenir.webp"
-    imagesrcset="/assets/images/hero-souvenir-640.webp 640w, /assets/images/hero-souvenir.webp 800w"
-    imagesizes="(max-width: 991px) calc(100vw - 3rem), 506px" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/images/hero-wedding-fullscreen.webp" fetchpriority="high" />
 
   <title>Souvenir Pernikahan: Vendor Souvenir Custom, Elegan &amp; Berkesan</title>
   <meta name="description"
@@ -420,7 +418,7 @@
   </style>
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/style.min.css?v=12" />
-  <link rel="stylesheet" href="/assets/css/home-fixes.css?v=1" />
+  <link rel="stylesheet" href="/assets/css/home-fixes.css?v=2" />
 
   <!-- Schema JSON-LD (2026-2027 AEO & GEO Structured Data) -->
   <script type="application/ld+json">
@@ -1073,66 +1071,134 @@
 
   <main id="main-content" tabindex="-1">
 
-    <!-- ===== HERO ===== -->
-    <section class="gs-hero" aria-labelledby="gs-hero-title">
-      <div class="gs-container">
-        <div class="gs-hero__inner">
-          <!-- Copy -->
-          <div class="gs-hero__content">
-            <div class="gs-hero__eyebrow">
-              <span aria-hidden="true"></span>
-              VENDOR SOUVENIR PERNIKAHAN ELEGAN &amp; PERSONAL
-            </div>
-            <h1 class="gs-hero__title" id="gs-hero-title">
-              Souvenir Pernikahan Custom,<br />
-              Elegan &amp; <em>Berkesan</em>
-            </h1>
-            <p class="gs-hero__description">
-              Hadirkan kesan istimewa di hari bahagia Anda melalui koleksi souvenir pernikahan custom yang elegan, personal, dan penuh makna. Jelajahi Essential Collection dengan pilihan cinderamata yang berkesan, Signature Collection dengan desain berkelas, dengan sentuhan personal seperti nama atau inisial pengantin.
-            </p>
-            <div class="gs-hero__actions">
-              <a href="/paket" class="gs-button gs-button--primary">
-                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;">
-                  <path
-                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
-                </svg>
-                Lihat Katalog Souvenir
-              </a>
-              <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan.%20Boleh%20minta%20informasi%20paket%20yang%20tersedia%3F"
-                class="gs-button gs-button--secondary" target="_blank" rel="noopener noreferrer"
-                aria-label="Konsultasi souvenir pernikahan melalui WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:18px;height:18px;">
-                  <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                </svg>
-                Konsultasi WhatsApp
-              </a>
-            </div>
+    <!-- ===== FULLSCREEN HERO SECTION (INSPIRASI GOODIEBAG.WEB.ID) ===== -->
+    <section class="gs-hero-fullscreen" aria-labelledby="gs-hero-title">
+      <!-- Background Image Container with Cinematic Overlay -->
+      <div class="gs-hero-fullscreen__bg-wrap" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 768px)" srcset="/assets/images/hero-wedding-fullscreen-mobile.webp" type="image/webp" />
+          <img src="/assets/images/hero-wedding-fullscreen.webp" alt="Latar belakang gaun pengantin elegan dan syahdu Sekata Souvenir Pernikahan" class="gs-hero-fullscreen__bg-img" width="1920" height="1078" fetchpriority="high" decoding="sync" />
+        </picture>
+        <div class="gs-hero-fullscreen__overlay"></div>
+      </div>
+
+      <!-- Hero Content Container (Positioned slightly towards center) -->
+      <div class="gs-container gs-hero-fullscreen__container">
+        <div class="gs-hero-fullscreen__content">
+          <!-- Eyebrow Badge -->
+          <div class="gs-hero-fullscreen__eyebrow">
+            <span class="gs-hero-fullscreen__dot" aria-hidden="true"></span>
+            VENDOR SOUVENIR PERNIKAHAN ELEGAN &amp; PERSONAL
           </div>
 
-          <!-- Image -->
-          <div class="gs-hero__image-wrapper">
-            <div class="gs-hero__image-dots" aria-hidden="true"></div>
-            <div class="gs-hero__image-frame">
-              <img src="/assets/images/hero-souvenir.webp"
-                alt="Set paket souvenir pernikahan eksklusif Souvenir Pernikahan bernuansa terracotta dan cream"
-                width="800" height="597" fetchpriority="high"
-                srcset="/assets/images/hero-souvenir-640.webp 640w, /assets/images/hero-souvenir.webp 800w"
-                sizes="(max-width: 991px) calc(100vw - 3rem), 506px" />
+          <!-- Main Title with 'New Icon Serif Condensed' -->
+          <h1 class="gs-hero-fullscreen__title" id="gs-hero-title">
+            Souvenir Pernikahan Custom,<br />
+            Elegan &amp; <em class="gs-hero-fullscreen__em">Berkesan</em>
+          </h1>
+
+          <!-- Description -->
+          <p class="gs-hero-fullscreen__desc">
+            Hadirkan kesan istimewa di hari bahagia Anda melalui koleksi souvenir pernikahan custom yang elegan, personal, dan penuh makna. Jelajahi Essential Collection dengan pilihan cinderamata yang berkesan, Signature Collection dengan desain berkelas, dengan sentuhan personal seperti nama atau inisial pengantin.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="gs-hero-fullscreen__actions">
+            <a href="/paket" class="gs-hero-btn gs-hero-btn--primary">
+              <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" width="18" height="18">
+                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
+              </svg>
+              Lihat Katalog Souvenir
+            </a>
+            <a href="https://wa.me/6282131087971?text=Halo%20Sekata,%20saya%20ingin%20konsultasi%20souvenir%20pernikahan.%20Boleh%20minta%20informasi%20katalog%20dan%20penawaran%20paket%20yang%20tersedia?"
+              class="gs-hero-btn gs-hero-btn--glass" target="_blank" rel="noopener noreferrer"
+              aria-label="Konsultasi souvenir pernikahan melalui WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="20" height="20">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+              </svg>
+              Konsultasi WhatsApp
+            </a>
+          </div>
+
+          <!-- Trust Badges List -->
+          <div class="gs-hero-fullscreen__trust">
+            <span class="gs-hero-trust-item">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Gratis Preview Mockup Digital
+            </span>
+            <span class="gs-hero-trust-item">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Layanan Sampel Proofing Fisik
+            </span>
+            <span class="gs-hero-trust-item">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Garansi Kerapian 100% QC
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== KINETIC RUNNING MARQUEE EDITORIAL TICKER ===== -->
+    <div class="gs-editorial-ticker" aria-label="Keunggulan dan Komitmen Layanan Sekata Souvenir">
+      <div class="gs-marquee-track-wrap">
+        <div class="gs-animate-marquee">
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> VENDOR SOUVENIR PERNIKAHAN MALANG &amp; JAWA TIMUR</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> 10.000+ CINDERAMATA PERNIKAHAN BERKESAN TERKIRIM</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> 100% PENGECEKAN MUTU (QC) &amp; GARANSI KEPUASAN</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> BEBAS KUSTOMISASI GRAFIR NAMA &amp; DIGITAL MOCKUP 3D</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> PENGIRIMAN AMAN &amp; BERASURANSI KE SELURUH INDONESIA</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> MINIMUM PEMESANAN RAMAH MULAI 50 PCS</span>
+          <!-- Duplicate for Seamless Infinite Loop -->
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> VENDOR SOUVENIR PERNIKAHAN MALANG &amp; JAWA TIMUR</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> 10.000+ CINDERAMATA PERNIKAHAN BERKESAN TERKIRIM</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> 100% PENGECEKAN MUTU (QC) &amp; GARANSI KEPUASAN</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> BEBAS KUSTOMISASI GRAFIR NAMA &amp; DIGITAL MOCKUP 3D</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> PENGIRIMAN AMAN &amp; BERASURANSI KE SELURUH INDONESIA</span>
+          <span class="gs-ticker-item"><span class="gs-ticker-star">✦</span> MINIMUM PEMESANAN RAMAH MULAI 50 PCS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SECTION GRID KEUNGGULAN VENDOR (STATS / TRUST BAR) ===== -->
+    <section class="gs-vendor-stats-section" id="gs-vendor-stats-section" aria-labelledby="gs-vendor-stats-heading">
+      <div class="gs-container">
+        <h2 id="gs-vendor-stats-heading" class="visually-hidden">Pencapaian dan Statistik Mutu Souvenir Pernikahan Sekata</h2>
+        <div class="gs-vendor-stats-grid">
+          <!-- Card 1: Pesanan Selesai -->
+          <div class="gs-vendor-stat-card">
+            <div class="gs-vendor-stat-number">6.000+</div>
+            <div class="gs-vendor-stat-label">PESANAN SELESAI</div>
+            <div class="gs-vendor-stat-sub">Dipercaya ribuan pengantin di berbagai kota</div>
+          </div>
+
+          <!-- Card 2: QC 100% with Green Pulse Dot -->
+          <div class="gs-vendor-stat-card">
+            <div class="gs-vendor-stat-number">
+              100%<span class="gs-vendor-stat-dot" aria-hidden="true"></span>
             </div>
-            <div class="gs-hero__image-badge" aria-label="Tersedia konsultasi gratis">
-              <div class="gs-hero__image-badge-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                </svg>
-              </div>
-              <div class="gs-hero__image-badge-text">
-                <strong>Konsultasi Gratis</strong>
-                <span>via WhatsApp</span>
-              </div>
-            </div>
+            <div class="gs-vendor-stat-label">PENGECEKAN MUTU (QC)</div>
+            <div class="gs-vendor-stat-sub">Pemeriksaan fisik teliti sebelum dikemas rapi</div>
+          </div>
+
+          <!-- Card 3: 34 Provinsi Terjangkau -->
+          <div class="gs-vendor-stat-card">
+            <div class="gs-vendor-stat-number">34</div>
+            <div class="gs-vendor-stat-label">PROVINSI TERJANGKAU</div>
+            <div class="gs-vendor-stat-sub">Pengiriman aman ekspedisi ke seluruh Indonesia</div>
+          </div>
+
+          <!-- Card 4: Mitra & Instansi / WO Rekanan -->
+          <div class="gs-vendor-stat-card">
+            <div class="gs-vendor-stat-number">500+</div>
+            <div class="gs-vendor-stat-label">MITRA &amp; INSTANSI</div>
+            <div class="gs-vendor-stat-sub">Rekanan wedding organizer &amp; vendor terpercaya</div>
           </div>
         </div>
       </div>
