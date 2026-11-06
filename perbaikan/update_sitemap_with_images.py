@@ -25,7 +25,7 @@ all_prods = {p['slug']: p for p in tradisional_products + modern_products}
 for slug, p in all_prods.items():
     loc = f"https://souvenirpernikahan.web.id/produk/{slug}"
     img_url = f"https://souvenirpernikahan.web.id{p['image']}"
-    title = p['title']
+    title = p['title'].replace('&', '&amp;')
     lead = p['lead'][:120].replace('&', '&amp;')
     
     old_url_block = f'''  <url>
