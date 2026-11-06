@@ -1351,6 +1351,5 @@ def generate_detail_page(package_type):
         f.write(html)
     print(f"Generated {out_path} successfully ({len(html)} chars).")
 
-if __name__ == '__main__':
-    generate_detail_page("modern")
-    generate_detail_page("tradisional")
+generate_detail_page("modern")
+generate_detail_page("tradisional")
