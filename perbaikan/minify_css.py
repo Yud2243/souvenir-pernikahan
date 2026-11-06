@@ -33,3 +33,4 @@ if __name__ == '__main__':
         f.write(minified)
         
     print(f"Minified {src} ({len(raw)} bytes) -> {dst} ({len(minified)} bytes)")
+
