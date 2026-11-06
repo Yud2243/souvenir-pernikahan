@@ -91,7 +91,9 @@
 
     html {
       scroll-behavior: smooth;
-      font-size: 16px
+      font-size: 16px;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     body {
@@ -99,7 +101,9 @@
       background-color: #fdfefb;
       color: #2b1d18;
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     img {
@@ -175,20 +179,57 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(255, 253, 248, .96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--gs-border);
-      box-shadow: var(--gs-shadow-nav)
+      width: 100%;
+      background: transparent !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      padding: 0.5rem 0 !important;
+      transition: all 0.3s ease;
+    }
+
+    .gs-navbar.is-scrolled {
+      background: transparent !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
     }
 
     .gs-navbar__inner {
+      margin-left: auto;
+      margin-right: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 76px;
-      gap: 1.25rem;
-      padding: .35rem 0
+      gap: 0.75rem;
+      border-radius: 16px;
+      padding: 0.625rem 0.625rem 0.625rem 1rem;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0);
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: 1px solid transparent;
+      min-height: auto;
+    }
+
+    @media (min-width: 576px) {
+      .gs-navbar__inner {
+        padding-left: 1.25rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .gs-navbar__inner {
+        padding: 1rem 1.25rem 1rem 1.25rem;
+      }
+    }
+
+    .gs-navbar.is-scrolled .gs-navbar__inner {
+      background: rgba(255, 255, 255, 0.47) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+      backdrop-filter: blur(5px) !important;
+      -webkit-backdrop-filter: blur(5px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
 
     .gs-navbar__logo {
@@ -951,7 +992,7 @@
   <a class="gs-skip-link" href="#main-content">Lewati ke konten utama</a>
 
   <!-- ===== NAVBAR ===== -->
-  <header>
+  <header class="gs-header-fixed">
     <nav class="gs-navbar" aria-label="Navigasi utama">
       <div class="gs-container">
         <div class="gs-navbar__inner">

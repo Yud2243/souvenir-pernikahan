@@ -13,17 +13,134 @@
   font-display: swap;
 }
 
-/* 2. Fullscreen Hero Section */
+/* 2. Floating Capsule Glassmorphism Navbar (Global for All Pages) */
+.gs-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding: 0.5rem 0 !important;
+  transition: all 0.3s ease;
+}
+
+.gs-navbar.is-scrolled {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* User exact specification:
+   style={{
+     background: scrolled ? "rgba(255, 255, 255, 0.47)" : "rgba(255, 255, 255, 0)",
+     borderRadius: "16px",
+     boxShadow: scrolled ? "0 4px 30px rgba(0, 0, 0, 0.1)" : "none",
+     backdropFilter: scrolled ? "blur(5px)" : "none",
+     WebkitBackdropFilter: scrolled ? "blur(5px)" : "none",
+     border: scrolled ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid transparent",
+   }}
+   className="mx-auto flex items-center justify-between gap-3 rounded-[16px] py-2.5 md:py-4 pl-4 pr-2.5 md:pr-5 transition-all duration-300 sm:pl-5"
+*/
+.gs-navbar__inner {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem; /* gap-3 */
+  border-radius: 16px; /* rounded-[16px] */
+  padding-top: 0.625rem; /* py-2.5 */
+  padding-bottom: 0.625rem;
+  padding-left: 1rem; /* pl-4 */
+  padding-right: 0.625rem; /* pr-2.5 */
+  transition: all 0.3s ease; /* transition-all duration-300 */
+  background: rgba(255, 255, 255, 0);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid transparent;
+  min-height: auto !important;
+}
+
+@media (min-width: 576px) {
+  .gs-navbar__inner {
+    padding-left: 1.25rem; /* sm:pl-5 */
+  }
+}
+
+@media (min-width: 768px) {
+  .gs-navbar__inner {
+    padding-top: 1rem; /* md:py-4 */
+    padding-bottom: 1rem;
+    padding-right: 1.25rem; /* md:pr-5 */
+  }
+}
+
+.gs-navbar.is-scrolled .gs-navbar__inner {
+  background: rgba(255, 255, 255, 0.47) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Mobile dropdown menu glass card */
+.gs-navbar__mobile-menu {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-top: 0.5rem;
+}
+
+/* Header fixed over fullscreen hero on Homepage */
+header.gs-header-fixed,
+body:has(.gs-hero-fullscreen) > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+header.gs-header-fixed .gs-navbar,
+body:has(.gs-hero-fullscreen) > header .gs-navbar {
+  pointer-events: auto;
+}
+
+/* Transparent navbar text over dark hero when not scrolled */
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__brand-text {
+  color: #ffffff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle svg {
+  stroke: #ffffff;
+}
+
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__hamburger-line {
+  background-color: #ffffff;
+}
+
+/* 3. Fullscreen Hero Section (Position Raised to Green Line) */
 .gs-hero-fullscreen {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Posisi diangkat ke atas sejajar garis hijau */
   background-color: #1a0c07;
   overflow: hidden;
   color: #ffffff;
-  padding-top: clamp(80px, 11vh, 120px);
+  padding-top: clamp(70px, 9vh, 92px); /* Naik ke atas sejajar garis hijau */
   padding-bottom: clamp(40px, 6vh, 70px);
 }
 
@@ -45,7 +162,7 @@
   height: 100%;
   transform: translate(-50%, -50%) scale(1.02);
   object-fit: cover;
-  object-position: right center; /* Orientasi asli: gaun pengantin berada di sisi kanan */
+  object-position: right center; /* Orientasi asli: gaun pengantin di sisi kanan */
   animation: heroSubtleZoom 24s ease-in-out infinite alternate;
 }
 
@@ -61,8 +178,7 @@
 .gs-hero-fullscreen__overlay {
   position: absolute;
   inset: 0;
-  /* Cinematic Terracotta / Dark Warm Gradient:
-     Lebih pekat di kiri tempat judul berada, lebih lembut di kanan tempat gaun berada */
+  /* Cinematic Terracotta / Dark Warm Gradient */
   background: linear-gradient(
     90deg,
     rgba(20, 9, 5, 0.85) 0%,
@@ -91,10 +207,10 @@
   width: 100%;
 }
 
-/* 3. Hero Content: Positioned slightly towards the center (not dead center) */
+/* 4. Hero Content: Positioned slightly towards center, raised upwards */
 .gs-hero-fullscreen__content {
   max-width: 760px;
-  margin-left: clamp(1rem, 5vw, 4.5rem); /* Sedikit bergeser ke tengah, tidak menempel di tepi kiri */
+  margin-left: clamp(1rem, 5vw, 4.5rem); /* Sedikit ke arah tengah, tidak menempel di pojok kiri */
   text-align: left;
   animation: gsHeroFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -125,7 +241,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
@@ -138,16 +254,16 @@
   box-shadow: 0 0 10px rgba(200, 118, 86, 0.85);
 }
 
-/* 4. Main Title with New Icon Serif Condensed */
+/* 5. Main Title with New Icon Serif Condensed */
 .gs-hero-fullscreen__title {
   font-family: 'New Icon Serif Condensed', 'Playfair Display', Georgia, serif;
   font-stretch: condensed;
   letter-spacing: -0.015em;
-  font-size: clamp(2.35rem, 4.4vw, 3.9rem); /* Diperbesar sedikit agar lebih menonjol */
+  font-size: clamp(2.35rem, 4.4vw, 3.9rem);
   line-height: 1.15;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 }
 
@@ -160,23 +276,23 @@
   display: inline-block;
 }
 
-/* 5. Description */
+/* 6. Description */
 .gs-hero-fullscreen__desc {
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   line-height: 1.65;
   color: rgba(251, 246, 243, 0.92);
   max-width: 650px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.85rem;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* 6. Action Buttons */
+/* 7. Action Buttons */
 .gs-hero-fullscreen__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.85rem;
 }
 
 .gs-hero-btn {
@@ -223,7 +339,7 @@
   transform: translateY(-2px);
 }
 
-/* 7. Trust Markers */
+/* 8. Trust Markers */
 .gs-hero-fullscreen__trust {
   display: flex;
   flex-wrap: wrap;
@@ -244,7 +360,7 @@
   color: #dfb6a1;
 }
 
-/* 8. Kinetic Running Marquee Editorial Ticker */
+/* 9. Kinetic Running Marquee Editorial Ticker */
 .gs-editorial-ticker {
   background: #361208;
   border-top: 1px solid rgba(223, 182, 161, 0.25);
@@ -253,6 +369,8 @@
   padding: 13px 0;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 100vw;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -308,7 +426,7 @@
   text-shadow: 0 0 8px rgba(223, 182, 161, 0.7);
 }
 
-/* 9. Section Grid Keunggulan Vendor (Stats / Trust Cards) */
+/* 10. Section Grid Keunggulan Vendor (Stats / Trust Cards) */
 .gs-vendor-stats-section {
   padding-top: clamp(2rem, 4vw, 3rem);
   padding-bottom: clamp(2.5rem, 5vw, 3.5rem);
@@ -400,7 +518,7 @@
   max-width: 200px;
 }
 
-/* 10. Mobile Responsiveness */
+/* 11. Mobile Responsiveness */
 @media (max-width: 991px) {
   .gs-hero-fullscreen {
     min-height: 85vh;
@@ -436,6 +554,15 @@
 }
 
 @media (max-width: 576px) {
+  .gs-hero-fullscreen__eyebrow {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.8rem;
+    letter-spacing: 0.05em;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
   .gs-vendor-stats-grid {
     grid-template-columns: 1fr;
     gap: 0.85rem;
