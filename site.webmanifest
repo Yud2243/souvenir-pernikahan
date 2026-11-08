@@ -1,6 +1,6 @@
 {
-  "name": "Souvenir Pernikahan",
-  "short_name": "Souvenir Pernikahan",
+  "name": "SEKATA — Souvenir Pernikahan",
+  "short_name": "SEKATA",
   "icons": [
     {
       "src": "/assets/profile/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#23472d",
-  "background_color": "#fffdf8",
+  "theme_color": "#762b16",
+  "background_color": "#faf5ee",
   "display": "standalone"
 }

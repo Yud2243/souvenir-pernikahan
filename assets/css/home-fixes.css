@@ -165,13 +165,18 @@ body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__brand-tex
 
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link.active,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle.active,
+body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link[aria-current="page"],
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__link:hover,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle:hover,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle[aria-expanded="true"] {
-  color: #dfb6a1 !important;
+  color: #ffffff !important;
   background: transparent !important;
   font-weight: 700 !important;
-  text-shadow: 0 1px 12px rgba(223, 182, 161, 0.4);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
 }
 
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle svg {
@@ -181,7 +186,7 @@ body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle 
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle.active svg,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle:hover svg,
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-dropdown__toggle[aria-expanded="true"] svg {
-  stroke: #dfb6a1 !important;
+  stroke: #ffffff !important;
 }
 
 body:has(.gs-hero-fullscreen) .gs-navbar:not(.is-scrolled) .gs-navbar__hamburger-line {
