@@ -43,17 +43,19 @@
   <meta property="og:site_name" content="SEKATA" />
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="id_ID" />
-  <meta property="og:url" content="https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-tradisional-khas-indonesia" />
-  <meta property="og:title"
-    content="Souvenir Pernikahan Tradisional Khas Indonesia: Pilihan Unik dan Penuh Makna" />
+  <meta property="og:url"
+    content="https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-tradisional-khas-indonesia" />
+  <meta property="og:title" content="Souvenir Pernikahan Tradisional Khas Indonesia: Pilihan Unik dan Penuh Makna" />
   <meta property="og:description"
     content="Inspirasi souvenir pernikahan bernuansa budaya Nusantara: kipas batik, pouch tenun lurik, besek bambu alami, panduan memilih berdasarkan tamu &amp; budget, dan tips personalisasi." />
-  <meta property="og:image" content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp" />
+  <meta property="og:image"
+    content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp" />
   <meta property="og:image:secure_url"
     content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Koleksi souvenir pernikahan tradisional khas Indonesia bernuansa etnik nusantara" />
+  <meta property="og:image:alt"
+    content="Koleksi souvenir pernikahan tradisional khas Indonesia bernuansa etnik nusantara" />
   <meta property="og:image:type" content="image/webp" />
   <meta property="article:published_time" content="2026-10-30T09:00:00+07:00" />
   <meta property="article:modified_time" content="2026-10-30T09:30:00+07:00" />
@@ -68,12 +70,13 @@
 
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-tradisional-khas-indonesia" />
-  <meta name="twitter:title"
-    content="Souvenir Pernikahan Tradisional Khas Indonesia: Pilihan Unik dan Penuh Makna" />
+  <meta name="twitter:url"
+    content="https://souvenirpernikahan.web.id/blog/souvenir-pernikahan-tradisional-khas-indonesia" />
+  <meta name="twitter:title" content="Souvenir Pernikahan Tradisional Khas Indonesia: Pilihan Unik dan Penuh Makna" />
   <meta name="twitter:description"
     content="Temukan inspirasi souvenir pernikahan tradisional khas Indonesia: kipas batik, pouch tenun, tas anyaman, dan besek bambu mini." />
-  <meta name="twitter:image" content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp" />
+  <meta name="twitter:image"
+    content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp" />
   <meta name="twitter:image:alt" content="Souvenir pernikahan tradisional khas Indonesia" />
 
   <!-- Fonts (Non-blocking) -->
@@ -443,6 +446,57 @@
       z-index: auto !important;
       width: auto !important;
     }
+    .gs-product-item-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.25rem 0 2rem;
+    }
+    .gs-product-item-text {
+      flex: 1 1 58%;
+    }
+    .gs-product-item-text p {
+      margin-bottom: 0.85rem;
+    }
+    .gs-product-item-text p:last-child {
+      margin-bottom: 0;
+    }
+    .gs-product-item-media {
+      flex: 0 0 280px;
+      max-width: 280px;
+      border-radius: var(--gs-radius-md, 12px);
+      overflow: hidden;
+      border: 1px solid #d5e5d2;
+      box-shadow: 0 4px 16px rgba(72, 24, 12, 0.07);
+      background: #faf5ee;
+    }
+    .gs-product-item-media img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gs-product-item-media:hover img {
+      transform: scale(1.03);
+    }
+    @media (max-width: 680px) {
+      .gs-product-item-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+      .gs-product-item-media {
+        flex: 1 1 auto;
+        max-width: 100%;
+        width: 100%;
+      }
+      .gs-product-item-media img {
+        aspect-ratio: 16 / 10;
+      }
+    }
   </style>
 </head>
 
@@ -454,14 +508,14 @@
       <div class="gs-container">
         <div class="gs-navbar__inner">
           <a href="/" class="gs-navbar__logo" aria-label="Souvenir Pernikahan — Beranda">
-            <img src="/assets/profile/logo-navbar-120.webp" alt="Logo SEKATA, souvenir pernikahan" class="gs-navbar__logo-img"
-              width="60" height="60" decoding="async" />
+            <img src="/assets/profile/logo-navbar-120.webp" alt="Logo SEKATA, souvenir pernikahan"
+              class="gs-navbar__logo-img" width="60" height="60" decoding="async" />
             <span class="gs-navbar__brand-text">Souvenir Pernikahan</span>
           </a>
           <div class="gs-navbar__nav" role="menubar">
             <a href="/" class="gs-navbar__link" role="menuitem">Beranda</a>
             <a href="/tentang" class="gs-navbar__link" role="menuitem">Tentang</a>
-                        <!-- Dropdown Katalog -->
+            <!-- Dropdown Katalog -->
             <div class="gs-dropdown">
               <button class="gs-dropdown__toggle" aria-haspopup="true" aria-expanded="false"
                 aria-controls="gs-dropdown-paket" id="gs-dropdown-paket-btn">
@@ -499,8 +553,7 @@
               </div>
             </div>
             <a href="/portofolio" class="gs-navbar__link" role="menuitem">Portofolio</a>
-            <a href="/blog" class="gs-navbar__link gs-navbar__link--active" role="menuitem"
-              aria-current="page">Blog</a>
+            <a href="/blog" class="gs-navbar__link gs-navbar__link--active" role="menuitem" aria-current="page">Blog</a>
           </div>
           <div class="gs-navbar__cta">
             <a href="https://wa.me/6282131087971?text=Halo%20Souvenir%20Pernikahan%2C%20saya%20ingin%20konsultasi%20souvenir%20pernikahan%20tradisional."
@@ -516,7 +569,7 @@
         <div class="gs-navbar__mobile-menu" id="gs-mobile-menu" role="menu">
           <a href="/" class="gs-navbar__mobile-link" role="menuitem">Beranda</a>
           <a href="/tentang" class="gs-navbar__mobile-link" role="menuitem">Tentang</a>
-                    <button class="gs-navbar__mobile-submenu-toggle" aria-expanded="false" aria-controls="gs-mobile-paket">
+          <button class="gs-navbar__mobile-submenu-toggle" aria-expanded="false" aria-controls="gs-mobile-paket">
             Katalog
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" aria-hidden="true">
@@ -551,7 +604,8 @@
             <ol class="gs-breadcrumb">
               <li><a href="/" class="gs-breadcrumb__item">Beranda</a></li>
               <li><a href="/blog" class="gs-breadcrumb__item">Blog</a></li>
-              <li class="gs-breadcrumb__item gs-breadcrumb__item--active" aria-current="page">Souvenir Pernikahan Tradisional Khas Indonesia</li>
+              <li class="gs-breadcrumb__item gs-breadcrumb__item--active" aria-current="page">Souvenir Pernikahan
+                Tradisional Khas Indonesia</li>
             </ol>
           </nav>
 
@@ -570,7 +624,8 @@
                   <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                     clip-rule="evenodd" />
                 </svg>
-                <strong>Penulis:</strong> <a href="/penulis" class="gs-article__author-link" title="Lihat profil Yudi Abraham">Yudi Abraham</a>
+                <strong>Penulis:</strong> <a href="/penulis" class="gs-article__author-link"
+                  title="Lihat profil Yudi Abraham">Yudi Abraham</a>
               </span>
               <span class="gs-article__meta-item">
                 <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -594,10 +649,11 @@
           <!-- Cover Image -->
           <div class="gs-article__cover" data-gs-animate="slide">
             <img src="/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp"
-              alt="Koleksi souvenir pernikahan tradisional khas Indonesia bernuansa etnik nusantara" width="1200" height="675"
-              loading="eager" />
+              alt="Koleksi souvenir pernikahan tradisional khas Indonesia bernuansa etnik nusantara berisi kipas batik, pouch lurik, besek bambu, dan tas anyaman" width="1024"
+              height="576" loading="eager" />
             <div class="gs-article__caption">
-              Koleksi souvenir pernikahan tradisional khas Nusantara: perpaduan kipas batik elegan, pouch tenun lurik, dan besek anyaman bambu alami bernilai guna tinggi.
+              Koleksi souvenir pernikahan tradisional khas Nusantara: perpaduan kipas batik elegan, pouch tenun lurik,
+              dan besek anyaman bambu alami bernilai guna tinggi.
             </div>
           </div>
 
@@ -620,9 +676,11 @@
             <div class="gs-article__toc-body" id="toc-list-body">
               <ol class="gs-article__toc-list">
                 <li><a href="#mengapa-memilih-tradisional">Mengapa Memilih Souvenir Pernikahan Tradisional?</a></li>
-                <li><a href="#pilihan-souvenir-tradisional">6 Pilihan Souvenir Pernikahan Tradisional Khas Indonesia</a></li>
+                <li><a href="#pilihan-souvenir-tradisional">6 Pilihan Souvenir Pernikahan Tradisional Khas Indonesia</a>
+                </li>
                 <li><a href="#cara-memilih-budget">Cara Memilih Souvenir Berdasarkan Jumlah Tamu dan Budget</a></li>
-                <li><a href="#personalisasi-tradisional-modern">Personalisasi Souvenir Tradisional agar Lebih Modern</a></li>
+                <li><a href="#personalisasi-tradisional-modern">Personalisasi Souvenir Tradisional agar Lebih Modern</a>
+                </li>
                 <li><a href="#faq-souvenir-tradisional">FAQ Souvenir Pernikahan Tradisional</a></li>
                 <li><a href="#kesimpulan">Temukan Souvenir Tradisional untuk Pernikahan Anda</a></li>
               </ol>
@@ -634,7 +692,13 @@
 
             <!-- Lead Paragraph -->
             <p class="gs-article__lead">
-              <strong>Souvenir pernikahan tradisional khas Indonesia</strong> adalah cendera mata yang menggunakan unsur budaya Nusantara, seperti motif batik, kain tenun, bambu, dan anyaman pandan. Beberapa pilihan yang dapat dipertimbangkan adalah kipas batik, pouch batik, tas anyaman, notebook kain tenun, serta besek bambu mini. Pilihlah berdasarkan manfaat bagi tamu, tema pernikahan, jumlah kebutuhan, dan anggaran yang tersedia (pelajari juga <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan cara memilihnya</a>). Temukan ragam koleksi kerajinan etnik pada <a href="/paket/souvenir-tradisional">Paket Souvenir Tradisional</a> kami.
+              <strong>Souvenir pernikahan tradisional khas Indonesia</strong> adalah cendera mata yang menggunakan unsur
+              budaya Nusantara, seperti motif batik, kain tenun, bambu, dan anyaman pandan. Beberapa pilihan yang dapat
+              dipertimbangkan adalah kipas batik, pouch batik, tas anyaman, notebook kain tenun, serta besek bambu mini.
+              Pilihlah berdasarkan manfaat bagi tamu, tema pernikahan, jumlah kebutuhan, dan anggaran yang tersedia
+              (pelajari juga <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan
+                cara memilihnya</a>). Temukan ragam koleksi kerajinan etnik pada <a
+                href="/paket/souvenir-tradisional">Paket Souvenir Tradisional</a> kami.
             </p>
 
             <!-- Key Takeaway Box (AEO/GEO Optimized) -->
@@ -648,87 +712,135 @@
                 Ringkasan Cepat: 5 Nilai Unggul Souvenir Tradisional
               </div>
               <p>
-                <strong>Karakteristik Utama:</strong> (1) <em>Eksplorasi Budaya:</em> Menghadirkan kekayaan motif Nusantara seperti batik, tenun lurik, dan bambu alami, (2) <em>Fungsional:</em> Memiliki kegunaan praktis sehari-hari bagi para tamu undangan, (3) <em>Ramah Lingkungan:</em> Memanfaatkan serat tumbuhan dan bahan alami yang mudah terurai, (4) <em>Estetika Modern:</em> Dapat dipadukan bersama kemasan minimalis dan aksen tipografi monogram, serta (5) <em>Berdaya Lokal:</em> Turut melestarikan kerajinan tangan UMKM pengrajin lokal Indonesia.
+                <strong>Karakteristik Utama:</strong> (1) <em>Eksplorasi Budaya:</em> Menghadirkan kekayaan motif
+                Nusantara seperti batik, tenun lurik, dan bambu alami, (2) <em>Fungsional:</em> Memiliki kegunaan
+                praktis sehari-hari bagi para tamu undangan, (3) <em>Ramah Lingkungan:</em> Memanfaatkan serat tumbuhan
+                dan bahan alami yang mudah terurai, (4) <em>Estetika Modern:</em> Dapat dipadukan bersama kemasan
+                minimalis dan aksen tipografi monogram, serta (5) <em>Berdaya Lokal:</em> Turut melestarikan kerajinan
+                tangan UMKM pengrajin lokal Indonesia.
               </p>
             </aside>
 
             <!-- Section 1 -->
             <h2 id="mengapa-memilih-tradisional">Mengapa Memilih Souvenir Pernikahan Tradisional?</h2>
             <p>
-              Souvenir tradisional menghadirkan karakter budaya Indonesia dalam sebuah perayaan pernikahan. Motif, bahan, dan bentuknya dapat disesuaikan dengan konsep acara, mulai dari adat Jawa, Sunda, Bali, hingga pernikahan modern bernuansa Nusantara.
+              Souvenir tradisional menghadirkan karakter budaya Indonesia dalam sebuah perayaan pernikahan. Motif,
+              bahan, dan bentuknya dapat disesuaikan dengan konsep acara, mulai dari adat Jawa, Sunda, Bali, hingga
+              pernikahan modern bernuansa Nusantara.
             </p>
             <p>
-              Salah satu daya tarik utamanya adalah perpaduan harmonis antara unsur tradisional dan fungsi nyata sehari-hari. Misalnya, pouch batik bisa digunakan untuk menyimpan uang koin, kartu, atau kosmetik, sedangkan tas anyaman pandan dapat dimanfaatkan kembali sebagai tas belanja praktis setelah acara resepsi selesai. Hal ini sejalan dengan prinsip cendera mata bernilai guna tinggi yang dibahas dalam <a href="/blog/souvenir-pernikahan-unik-bermanfaat">panduan souvenir pernikahan unik dan bermanfaat</a>.
+              Salah satu daya tarik utamanya adalah perpaduan harmonis antara unsur tradisional dan fungsi nyata
+              sehari-hari. Misalnya, pouch batik bisa digunakan untuk menyimpan uang koin, kartu, atau kosmetik,
+              sedangkan tas anyaman pandan dapat dimanfaatkan kembali sebagai tas belanja praktis setelah acara resepsi
+              selesai. Hal ini sejalan dengan prinsip cendera mata bernilai guna tinggi yang dibahas dalam <a
+                href="/blog/souvenir-pernikahan-unik-bermanfaat">panduan souvenir pernikahan unik dan bermanfaat</a>.
             </p>
             <p>
-              Agar tampil lebih modern dan kekinian, desain souvenir tradisional dapat dipadukan dengan palet warna netral (seperti <em>earth tone</em>, broken white, dan sage green), kartu ucapan minimalis, atau kemasan sederhana seperti tali rami dan segel lilin (<em>wax seal</em>) yang elegan.
+              Agar tampil lebih modern dan kekinian, desain souvenir tradisional dapat dipadukan dengan palet warna
+              netral (seperti <em>earth tone</em>, broken white, dan sage green), kartu ucapan minimalis, atau kemasan
+              sederhana seperti tali rami dan segel lilin (<em>wax seal</em>) yang elegan.
             </p>
 
             <!-- Section 2 -->
             <h2 id="pilihan-souvenir-tradisional">6 Pilihan Souvenir Pernikahan Tradisional Khas Indonesia</h2>
             <p>
-              Berikut adalah beberapa pilihan souvenir pernikahan tradisional khas Nusantara yang memadukan keindahan seni kriya daerah dengan fungsi praktis bagi para tamu undangan:
+              Berikut adalah beberapa pilihan souvenir pernikahan tradisional khas Nusantara yang memadukan keindahan
+              seni kriya daerah dengan fungsi praktis bagi para tamu undangan:
             </p>
 
             <!-- Item 1 -->
             <h3 id="kipas-batik-tradisional">1. Kipas Batik Tradisional</h3>
-            <p>
-              Kipas batik cocok untuk pernikahan bernuansa adat maupun acara luar ruangan (<em>outdoor / garden party</em>). Motif batik menjadi elemen visual yang khas Nusantara, sementara hembusan angin dari fungsi kipas memberi manfaat langsung dan kesegaran bagi para tamu yang hadir.
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/detail-souvenir-tradisional-pengantin.webp" alt="Dokumentasi portofolio pengerjaan asli souvenir tradisional khas nusantara" width="600" height="400" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Kipas batik cocok untuk pernikahan bernuansa adat maupun acara luar ruangan (<em>outdoor / garden
+                    party</em>). Motif batik menjadi elemen visual yang khas Nusantara, sementara hembusan angin dari fungsi
+                  kipas memberi manfaat langsung dan kesegaran bagi para tamu yang hadir.
+                </p>
+                <p>
+                  Untuk tampilan yang lebih kontemporer, pilih kombinasi warna kain batik yang selaras dengan tema dekorasi
+                  pernikahan Anda. Lengkapi dengan gagang kayu halus dan pita satin bernada senada agar terkesan rapi dan
+                  mewah.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/detail-souvenir-tradisional-pengantin.webp"
+                  alt="Dokumentasi portofolio pengerjaan asli souvenir tradisional khas nusantara" width="600"
+                  height="400" loading="lazy" />
+              </div>
             </div>
-            <p>
-              Untuk tampilan yang lebih kontemporer, pilih kombinasi warna kain batik yang selaras dengan tema dekorasi pernikahan Anda. Lengkapi dengan gagang kayu halus dan pita satin bernada senada agar terkesan rapi dan mewah.
-            </p>
 
             <!-- Item 2 -->
             <h3 id="pouch-dompet-batik">2. Pouch atau Dompet Batik &amp; Tenun</h3>
-            <p>
-              Pouch batik dan kain tenun merupakan pilihan souvenir praktis untuk menyimpan uang, kartu identitas, perlengkapan kosmetik kecil, hingga kabel pengisi daya ponsel (<em>charger pouch</em>).
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/tea-infuser-souvenir.webp" alt="Souvenir set teh herbal tabung kaca saringan emas khas tradisi nusantara" width="600" height="400" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Pouch batik dan kain tenun merupakan pilihan souvenir praktis untuk menyimpan uang, kartu identitas,
+                  perlengkapan kosmetik kecil, hingga kabel pengisi daya ponsel (<em>charger pouch</em>).
+                </p>
+                <p>
+                  Model pouch beritsleting dengan motif batik sogan atau tenun lurik dapat dipadukan bersama kemasan amplop
+                  kraft minimalis. Sebelum memesan dalam jumlah banyak, periksa ketebalan bahan kain furing bagian dalam,
+                  ukuran dimensi, kekuatan resleting, kerapian jahitan tepian, serta keseragaman motif.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/tea-infuser-souvenir.webp"
+                  alt="Souvenir set teh herbal tabung kaca saringan emas khas tradisi nusantara" width="600" height="400"
+                  loading="lazy" />
+              </div>
             </div>
-            <p>
-              Model pouch beritsleting dengan motif batik sogan atau tenun lurik dapat dipadukan bersama kemasan amplop kraft minimalis. Sebelum memesan dalam jumlah banyak, periksa ketebalan bahan kain furing bagian dalam, ukuran dimensi, kekuatan resleting, kerapian jahitan tepian, serta keseragaman motif.
-            </p>
 
             <!-- Item 3 -->
             <h3 id="tas-anyaman-pandan">3. Tas Anyaman Pandan</h3>
             <p>
-              Tas anyaman pandan menghadirkan tekstur alami khas pedesaan Nusantara yang sangat cocok untuk pernikahan bertema <em>rustic</em>, etnik tradisional, maupun <em>garden wedding</em> yang santai namun berkelas.
+              Tas anyaman pandan menghadirkan tekstur alami khas pedesaan Nusantara yang sangat cocok untuk pernikahan
+              bertema <em>rustic</em>, etnik tradisional, maupun <em>garden wedding</em> yang santai namun berkelas.
             </p>
             <p>
-              Bentuk dan ukurannya perlu disesuaikan dengan kebutuhan tamu agar mudah dijinjing. Perhatikan kerapian anyaman serat pandan, kehalusan permukaan agar tidak tersangkut pada pakaian pesta tamu, kekuatan pegangan tali, serta cara pengemasan selama proses pengiriman antarkota.
+              Bentuk dan ukurannya perlu disesuaikan dengan kebutuhan tamu agar mudah dijinjing. Perhatikan kerapian
+              anyaman serat pandan, kehalusan permukaan agar tidak tersangkut pada pakaian pesta tamu, kekuatan pegangan
+              tali, serta cara pengemasan selama proses pengiriman antarkota.
             </p>
 
             <!-- Item 4 -->
             <h3 id="notebook-sampul-tenun">4. Notebook dengan Sampul Kain Tenun</h3>
             <p>
-              Notebook bersampul kain tenun Nusantara menggabungkan unsur budaya tradisional dengan fungsi produktivitas menulis catatan kerja atau jurnal harian.
+              Notebook bersampul kain tenun Nusantara menggabungkan unsur budaya tradisional dengan fungsi produktivitas
+              menulis catatan kerja atau jurnal harian.
             </p>
             <p>
-              Motif tenun etnik dapat digunakan sebagai aksen sampul depan, menghasilkan visual yang berkarakter kuat tanpa mengurangi kesan modern dan profesional. Periksa ukuran buku (seperti format A5 atau A6 praktis), jenis kertas buku tulis (apakah bergaris atau <em>bookpaper plain</em>), serta kualitas jilid sampul sebelum menentukan pesanan final.
+              Motif tenun etnik dapat digunakan sebagai aksen sampul depan, menghasilkan visual yang berkarakter kuat
+              tanpa mengurangi kesan modern dan profesional. Periksa ukuran buku (seperti format A5 atau A6 praktis),
+              jenis kertas buku tulis (apakah bergaris atau <em>bookpaper plain</em>), serta kualitas jilid sampul
+              sebelum menentukan pesanan final.
             </p>
 
             <!-- Item 5 -->
             <h3 id="besek-bambu-mini">5. Besek Bambu Mini</h3>
             <p>
-              Besek bambu mini cocok untuk konsep souvenir bernuansa alami dan ramah lingkungan (<em>eco-friendly wedding</em>).
+              Besek bambu mini cocok untuk konsep souvenir bernuansa alami dan ramah lingkungan (<em>eco-friendly
+                wedding</em>).
             </p>
             <!-- Besek bambu natural khas nusantara -->
             <p>
-              Wadah anyaman bambu ini sangat fleksibel—dapat digunakan sebagai kemasan luar cinderamata utama atau diisi barang kecil seperti toples madu hutan, sendok kayu jati, sabun herbal, maupun kudapan tradisional. Pastikan ukuran besek presisi, anyaman bambu bersih dan tidak berbau apek, serta tutupnya pas dengan alas wadah.
+              Wadah anyaman bambu ini sangat fleksibel—dapat digunakan sebagai kemasan luar cinderamata utama atau diisi
+              barang kecil seperti toples madu hutan, sendok kayu jati, sabun herbal, maupun kudapan tradisional.
+              Pastikan ukuran besek presisi, anyaman bambu bersih dan tidak berbau apek, serta tutupnya pas dengan alas
+              wadah.
             </p>
 
             <!-- Item 6 -->
             <h3 id="gantungan-kunci-ukir">6. Gantungan Kunci Custom Ukir Nama Pengantin</h3>
             <p>
-              Gantungan kunci kayu dengan ukiran nama kedua mempelai menjadi alternatif souvenir tradisional bernuansa etnik yang personal dan ekonomis.
+              Gantungan kunci kayu dengan ukiran nama kedua mempelai menjadi alternatif souvenir tradisional bernuansa
+              etnik yang personal dan ekonomis.
             </p>
             <p>
-              Desainnya dapat dibuat sederhana dengan inisial monogram atau nama panggilan kedua pengantin beserta tanggal pernikahan menggunakan teknik grafir laser. Material kayu seperti mahoni atau jati belanda menawarkan serat alami yang hangat. Pastikan ketebalan kayu, diameter gantungan ring besi, dan kehalusan amplas sudah dikonfirmasikan sebelum proses produksi dimulai.
+              Desainnya dapat dibuat sederhana dengan inisial monogram atau nama panggilan kedua pengantin beserta
+              tanggal pernikahan menggunakan teknik grafir laser. Material kayu seperti mahoni atau jati belanda
+              menawarkan serat alami yang hangat. Pastikan ketebalan kayu, diameter gantungan ring besi, dan kehalusan
+              amplas sudah dikonfirmasikan sebelum proses produksi dimulai.
             </p>
 
             <!-- Baca Juga Box -->
@@ -741,15 +853,17 @@
                 </svg>
               </div>
               <div class="gs-article__baca-juga-content">
-                <strong>Baca Juga:</strong> Ingin mengemas souvenir tradisional agar terlihat semakin mewah dan estetik? Simak berbagai inspirasi wadah di <a
-                  href="/blog/ide-kemasan-souvenir-pernikahan">pilihan kemasan souvenir pernikahan custom yang elegan</a>.
+                <strong>Baca Juga:</strong> Ingin mengemas souvenir tradisional agar terlihat semakin mewah dan estetik?
+                Simak berbagai inspirasi wadah di <a href="/blog/ide-kemasan-souvenir-pernikahan">pilihan kemasan
+                  souvenir pernikahan custom yang elegan</a>.
               </div>
             </div>
 
             <!-- Section 3 -->
             <h2 id="cara-memilih-budget">Cara Memilih Souvenir Berdasarkan Jumlah Tamu dan Budget</h2>
             <p>
-              Sebelum memesan souvenir dalam kuantitas ratusan hingga ribuan pcs, penting untuk membandingkan kegunaan serta kecocokan produk terhadap konsep perayaan Anda:
+              Sebelum memesan souvenir dalam kuantitas ratusan hingga ribuan pcs, penting untuk membandingkan kegunaan
+              serta kecocokan produk terhadap konsep perayaan Anda:
             </p>
 
             <div class="gs-article__table-wrapper">
@@ -797,10 +911,16 @@
             </div>
 
             <p>
-              Untuk kebutuhan tamu dalam jumlah besar, pertimbangkan ukuran fisik dan kemudahan proses distribusi souvenir di meja resepsi. Produk berukuran ringkas (seperti pouch atau kipas) lebih praktis dibagikan tanpa memerlukan tas tambahan yang besar, sedangkan produk bervolume lebih besar (seperti tas anyaman atau hampers besek) memerlukan alokasi ruang penyimpanan dan penataan meja yang lebih lapang.
+              Untuk kebutuhan tamu dalam jumlah besar, pertimbangkan ukuran fisik dan kemudahan proses distribusi
+              souvenir di meja resepsi. Produk berukuran ringkas (seperti pouch atau kipas) lebih praktis dibagikan
+              tanpa memerlukan tas tambahan yang besar, sedangkan produk bervolume lebih besar (seperti tas anyaman atau
+              hampers besek) memerlukan alokasi ruang penyimpanan dan penataan meja yang lebih lapang.
             </p>
             <p>
-              Hitung alokasi anggaran secara teliti berdasarkan harga produk per unit, biaya personalisasi (seperti pelat sablon atau grafir nama), jenis kemasan pelindung, serta estimasi ongkos kirim ke alamat Anda. Pastikan selalu menyediakan cadangan aman sekitar 10%–15% sesuai panduan di <a href="/blog/cara-menghitung-jumlah-souvenir">cara menghitung kebutuhan souvenir pernikahan agar pas</a>.
+              Hitung alokasi anggaran secara teliti berdasarkan harga produk per unit, biaya personalisasi (seperti
+              pelat sablon atau grafir nama), jenis kemasan pelindung, serta estimasi ongkos kirim ke alamat Anda.
+              Pastikan selalu menyediakan cadangan aman sekitar 10%–15% sesuai panduan di <a
+                href="/blog/cara-menghitung-jumlah-souvenir">cara menghitung kebutuhan souvenir pernikahan agar pas</a>.
             </p>
 
             <!-- Callout Budgeting -->
@@ -815,39 +935,54 @@
                 Tips Efisiensi Anggaran Souvenir Tradisional
               </div>
               <p style="margin-bottom:0.5rem;">
-                Kerajinan tangan tradisional dibuat melalui proses manual oleh para pengrajin. Untuk mendapatkan efisiensi biaya terbaik:
+                Kerajinan tangan tradisional dibuat melalui proses manual oleh para pengrajin. Untuk mendapatkan
+                efisiensi biaya terbaik:
               </p>
               <ul style="margin:0;padding-left:1.25rem;font-size:0.9rem;color:#5e463f;">
-                <li>Pesan souvenir minimal 1 hingga 2 bulan sebelum hari perayaan agar tidak terkena biaya pengerjaan kilat.</li>
-                <li>Pilih kemasan kartu ucapan (<em>thank you tag</em>) gantung sebagai pengganti hardbox untuk menghemat biaya kemasan tanpa mengurangi nilai estetika.</li>
-                <li>Konsultasikan ketersediaan stok motif kain batik atau bahan bambu sejak awal agar pesanan seragam dan konsisten.</li>
+                <li>Pesan souvenir minimal 1 hingga 2 bulan sebelum hari perayaan agar tidak terkena biaya pengerjaan
+                  kilat.</li>
+                <li>Pilih kemasan kartu ucapan (<em>thank you tag</em>) gantung sebagai pengganti hardbox untuk
+                  menghemat biaya kemasan tanpa mengurangi nilai estetika.</li>
+                <li>Konsultasikan ketersediaan stok motif kain batik atau bahan bambu sejak awal agar pesanan seragam
+                  dan konsisten.</li>
               </ul>
             </div>
 
             <!-- Section 4 -->
             <h2 id="personalisasi-tradisional-modern">Personalisasi Souvenir Tradisional agar Lebih Modern</h2>
             <p>
-              Sentuhan kustomisasi (<em>custom branding</em>) dapat membuat souvenir tradisional terasa lebih personal dan eksklusif bagi para tamu tanpa menghilangkan esensi budaya aslinya.
+              Sentuhan kustomisasi (<em>custom branding</em>) dapat membuat souvenir tradisional terasa lebih personal
+              dan eksklusif bagi para tamu tanpa menghilangkan esensi budaya aslinya.
             </p>
             <p>
               Beberapa ide personalisasi yang banyak diminati pasangan modern antara lain:
             </p>
             <ul>
-              <li><strong>Monogram Grafir Laser:</strong> Mengukir inisial nama mempelai pada gagang kipas kayu atau permukaan gantungan kunci kayu dengan ketajaman garis yang presisi.</li>
-              <li><strong>Label Kulit Sintetis Deboss:</strong> Menjahitkan emblem kulit kecil berembos nama pada bagian depan pouch tenun untuk menciptakan kesan vintage premium.</li>
-              <li><strong>Kartu Ucapan &amp; Belly Band Kraft:</strong> Melingkarkan pita kertas kraft bertuliskan nama kedua mempelai dan tanggal pernikahan pada besek bambu mini.</li>
-              <li><strong>Warna Kemasan Senada:</strong> Memadukan warna pita kain atau tali goni yang senada dengan palet dekorasi gedung resepsi.</li>
+              <li><strong>Monogram Grafir Laser:</strong> Mengukir inisial nama mempelai pada gagang kipas kayu atau
+                permukaan gantungan kunci kayu dengan ketajaman garis yang presisi.</li>
+              <li><strong>Label Kulit Sintetis Deboss:</strong> Menjahitkan emblem kulit kecil berembos nama pada bagian
+                depan pouch tenun untuk menciptakan kesan vintage premium.</li>
+              <li><strong>Kartu Ucapan &amp; Belly Band Kraft:</strong> Melingkarkan pita kertas kraft bertuliskan nama
+                kedua mempelai dan tanggal pernikahan pada besek bambu mini.</li>
+              <li><strong>Warna Kemasan Senada:</strong> Memadukan warna pita kain atau tali goni yang senada dengan
+                palet dekorasi gedung resepsi.</li>
             </ul>
             <p>
-              Pastikan tipografi tulisan tetap mudah dibaca dan tidak menutupi keindahan motif utama kain atau anyaman. Sebelum masuk tahap produksi massal, mintalah lembar bukti desain (<em>digital proofing</em>) dan sampel foto asli kepada vendor. Anda dapat membaca panduan lengkapnya di <a href="/blog/personalisasi-nama-dan-tanggal-souvenir">souvenir pernikahan custom nama dan tanggal</a> serta melihat contoh hasil jadinya di galeri <a href="/portofolio">Portofolio Kami</a>.
+              Pastikan tipografi tulisan tetap mudah dibaca dan tidak menutupi keindahan motif utama kain atau anyaman.
+              Sebelum masuk tahap produksi massal, mintalah lembar bukti desain (<em>digital proofing</em>) dan sampel
+              foto asli kepada vendor. Anda dapat membaca panduan lengkapnya di <a
+                href="/blog/personalisasi-nama-dan-tanggal-souvenir">souvenir pernikahan custom nama dan tanggal</a>
+              serta melihat contoh hasil jadinya di galeri <a href="/portofolio">Portofolio Kami</a>.
             </p>
             <p>
-              Jelajahi juga <a href="/paket">katalog paket souvenir pernikahan</a> kami untuk membandingkan ragam model, material, dan harga yang pas untuk pesta Anda.
+              Jelajahi juga <a href="/paket">katalog paket souvenir pernikahan</a> kami untuk membandingkan ragam model,
+              material, dan harga yang pas untuk pesta Anda.
             </p>
 
             <!-- Section 5: FAQ -->
             <section class="gs-article__faq-wrap" id="faq-souvenir-tradisional" aria-labelledby="faq-tradisional-title">
-              <h2 class="gs-article__faq-title" id="faq-tradisional-title">Pertanyaan Umum Seputar Souvenir Pernikahan Tradisional</h2>
+              <h2 class="gs-article__faq-title" id="faq-tradisional-title">Pertanyaan Umum Seputar Souvenir Pernikahan
+                Tradisional</h2>
 
               <div class="gs-article__faq-item">
                 <button type="button" class="gs-article__faq-question" aria-expanded="false" aria-controls="faq-t-1">
@@ -858,7 +993,9 @@
                   </svg>
                 </button>
                 <div class="gs-article__faq-answer" id="faq-t-1">
-                  Sesuaikan pilihan dengan tema konsep acara (adat atau modern etnik), nilai manfaat nyata bagi tamu, estimasi anggaran per unit, total jumlah pesanan, serta kualitas kerapian material kerajinan. Bandingkan beberapa opsi sebelum memutuskan pesanan final.
+                  Sesuaikan pilihan dengan tema konsep acara (adat atau modern etnik), nilai manfaat nyata bagi tamu,
+                  estimasi anggaran per unit, total jumlah pesanan, serta kualitas kerapian material kerajinan.
+                  Bandingkan beberapa opsi sebelum memutuskan pesanan final.
                 </div>
               </div>
 
@@ -871,7 +1008,9 @@
                   </svg>
                 </button>
                 <div class="gs-article__faq-answer" id="faq-t-2">
-                  Tentu bisa, bergantung pada jenis produk dan media bahan. Nama mempelai, inisial monogram, tanggal resepsi, kartu ucapan terima kasih, serta variasi warna pita kemasan dapat disesuaikan. Diskusikan opsi personalisasi bersama penyedia sebelum mencetak.
+                  Tentu bisa, bergantung pada jenis produk dan media bahan. Nama mempelai, inisial monogram, tanggal
+                  resepsi, kartu ucapan terima kasih, serta variasi warna pita kemasan dapat disesuaikan. Diskusikan
+                  opsi personalisasi bersama penyedia sebelum mencetak.
                 </div>
               </div>
 
@@ -884,7 +1023,9 @@
                   </svg>
                 </button>
                 <div class="gs-article__faq-answer" id="faq-t-3">
-                  Sampaikan jenis produk yang diinginkan, perkiraan jumlah kuantitas kebutuhan, detail kustomisasi desain, dan kota tujuan pengiriman kepada tim Souvenir Pernikahan untuk memperoleh lembar penawaran resmi yang akurat dan transparan.
+                  Sampaikan jenis produk yang diinginkan, perkiraan jumlah kuantitas kebutuhan, detail kustomisasi
+                  desain, dan kota tujuan pengiriman kepada tim Souvenir Pernikahan untuk memperoleh lembar penawaran
+                  resmi yang akurat dan transparan.
                 </div>
               </div>
 
@@ -893,24 +1034,33 @@
             <!-- Section 6: Kesimpulan & CTA -->
             <h2 id="kesimpulan">Temukan Souvenir Tradisional untuk Pernikahan Anda</h2>
             <p>
-              Souvenir tradisional merupakan pilihan istimewa bagi pasangan yang ingin menghadirkan unsur keluhuran budaya Nusantara sekaligus memberikan cendera mata yang bermanfaat dan berkesan bagi para tamu undangan. Perencanaan yang matang dalam hal kurasi bahan, pengemasan, dan jumlah pesanan akan menghasilkan kenang-kenangan yang dibanggakan.
+              Souvenir tradisional merupakan pilihan istimewa bagi pasangan yang ingin menghadirkan unsur keluhuran
+              budaya Nusantara sekaligus memberikan cendera mata yang bermanfaat dan berkesan bagi para tamu undangan.
+              Perencanaan yang matang dalam hal kurasi bahan, pengemasan, dan jumlah pesanan akan menghasilkan
+              kenang-kenangan yang dibanggakan.
             </p>
             <p>
-              Awali persiapan cinderamata etnik Anda dari <a href="/">vendor souvenir pernikahan</a>, telusuri detail di <a href="/paket/souvenir-tradisional">Paket Souvenir Tradisional</a>, atau hubungi konsultan kami untuk meminta penawaran resmi sesuai kuantitas dan motif wastra yang Anda inginkan.
+              Awali persiapan cinderamata etnik Anda dari <a href="/">vendor souvenir pernikahan</a>, telusuri detail di
+              <a href="/paket/souvenir-tradisional">Paket Souvenir Tradisional</a>, atau hubungi konsultan kami untuk
+              meminta penawaran resmi sesuai kuantitas dan motif wastra yang Anda inginkan.
             </p>
 
             <!-- Author Bio -->
             <div class="gs-article__author-box" data-nosnippet>
               <a href="/penulis" class="gs-article__author-avatar" title="Lihat Profil Yudi Abraham">
-                <img src="/assets/images/yudi-abraham.jpg" alt="Yudi Abraham" width="68" height="68" loading="lazy" data-nosnippet/>
+                <img src="/assets/images/yudi-abraham.jpg" alt="Yudi Abraham" width="68" height="68" loading="lazy"
+                  data-nosnippet />
               </a>
               <div class="gs-article__author-info">
-                <h4><a href="/penulis" class="gs-article__author-heading-link" title="Lihat Profil Penulis">Yudi Abraham</a></h4>
+                <h4><a href="/penulis" class="gs-article__author-heading-link" title="Lihat Profil Penulis">Yudi
+                    Abraham</a></h4>
                 <span class="gs-article__author-role">Technology Writer &amp; Web Development Enthusiast</span>
                 <p>
-                  Penulis konten edukatif seputar souvenir pernikahan, tips cinderamata acara, inspirasi kemasan elegan, serta integrasi teknologi web di Souvenir Pernikahan.
+                  Penulis konten edukatif seputar souvenir pernikahan, tips cinderamata acara, inspirasi kemasan elegan,
+                  serta integrasi teknologi web di Souvenir Pernikahan.
                 </p>
-                <a href="/penulis" class="gs-article__author-more-link" title="Lihat profil dan karya tulisan Yudi Abraham">
+                <a href="/penulis" class="gs-article__author-more-link"
+                  title="Lihat profil dan karya tulisan Yudi Abraham">
                   Lihat Profil Lengkap &rarr;
                 </a>
               </div>
@@ -951,17 +1101,19 @@
             <div class="gs-article__product-rec">
               <div class="gs-article__product-rec-img">
                 <img src="/assets/images/artikel/souvenir-pernikahan-tradisional-khas-indonesia.webp"
-                  alt="Paket souvenir pernikahan tradisional etnik nusantara" width="300"
-                  height="300" loading="lazy" />
+                  alt="Paket souvenir pernikahan tradisional etnik nusantara" width="300" height="300" loading="lazy" />
               </div>
               <div class="gs-article__product-rec-info">
                 <span class="badge">Favorit Pesta Adat</span>
                 <h4>Paket Souvenir Tradisional Nusantara</h4>
-                <p>Koleksi kipas batik halus, pouch tenun lurik, besek bambu alami, dan sendok kayu jati dengan kemasan cantik siap dibagikan kepada para tamu.</p>
-                <div style="font-size:0.85rem;color:var(--gs-green-800);font-weight:600;">Personalisasi Nama Monogram &amp; Kemasan Tradisional Elegan</div>
+                <p>Koleksi kipas batik halus, pouch tenun lurik, besek bambu alami, dan sendok kayu jati dengan kemasan
+                  cantik siap dibagikan kepada para tamu.</p>
+                <div style="font-size:0.85rem;color:var(--gs-green-800);font-weight:600;">Personalisasi Nama Monogram
+                  &amp; Kemasan Tradisional Elegan</div>
               </div>
               <div class="gs-article__product-rec-action">
-                <a href="/paket/souvenir-tradisional" class="gs-button gs-button--primary gs-button--sm">Lihat Paket Tradisional</a>
+                <a href="/paket/souvenir-tradisional" class="gs-button gs-button--primary gs-button--sm">Lihat Paket
+                  Tradisional</a>
               </div>
             </div>
 
@@ -975,8 +1127,8 @@
               <!-- Related 1 -->
               <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
-                  <img src="/assets/images/artikel/souvenir-pernikahan-unik-bermanfaat-400.webp" alt="Souvenir pernikahan unik yang bermanfaat"
-                    loading="lazy" />
+                  <img src="/assets/images/artikel/souvenir-pernikahan-unik-bermanfaat-400.webp"
+                    alt="Souvenir pernikahan unik yang bermanfaat" loading="lazy" />
                 </div>
                 <div class="gs-blog-card__body">
                   <div class="gs-blog-card__meta">
@@ -985,9 +1137,11 @@
                     <time datetime="2026-10-26">26 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/souvenir-pernikahan-unik-bermanfaat">Souvenir Pernikahan Unik yang Bermanfaat untuk Tamu</a>
+                    <a href="/blog/souvenir-pernikahan-unik-bermanfaat">Souvenir Pernikahan Unik yang Bermanfaat untuk
+                      Tamu</a>
                   </h3>
-                  <p class="gs-blog-card__excerpt">Pilihan cinderamata fungsional: pouch custom, tas kanvas, tumbler hidrasi, sabun artisan, dan tips pesan custom.</p>
+                  <p class="gs-blog-card__excerpt">Pilihan cinderamata fungsional: pouch custom, tas kanvas, tumbler
+                    hidrasi, sabun artisan, dan tips pesan custom.</p>
                   <a href="/blog/souvenir-pernikahan-unik-bermanfaat" class="gs-blog-card__link">
                     Baca Selengkapnya &rarr;
                   </a>
@@ -997,8 +1151,8 @@
               <!-- Related 2 -->
               <article data-gs-animate class="gs-blog-card">
                 <div class="gs-blog-card__image">
-                  <img src="/assets/images/artikel/craft-packaging.webp" alt="Pilihan kemasan souvenir pernikahan custom yang elegan"
-                    loading="lazy" />
+                  <img src="/assets/images/artikel/craft-packaging.webp"
+                    alt="Pilihan kemasan souvenir pernikahan custom yang elegan" loading="lazy" />
                 </div>
                 <div class="gs-blog-card__body">
                   <div class="gs-blog-card__meta">
@@ -1007,9 +1161,11 @@
                     <time datetime="2026-10-05">5 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/ide-kemasan-souvenir-pernikahan">Pilihan Kemasan Souvenir Pernikahan Custom yang Elegan</a>
+                    <a href="/blog/ide-kemasan-souvenir-pernikahan">Pilihan Kemasan Souvenir Pernikahan Custom yang
+                      Elegan</a>
                   </h3>
-                  <p class="gs-blog-card__excerpt">Inspirasi hardbox satin, pouch serut kanvas, dan kraft box rustic wax seal yang estetik.</p>
+                  <p class="gs-blog-card__excerpt">Inspirasi hardbox satin, pouch serut kanvas, dan kraft box rustic wax
+                    seal yang estetik.</p>
                   <a href="/blog/ide-kemasan-souvenir-pernikahan" class="gs-blog-card__link">
                     Baca Selengkapnya &rarr;
                   </a>
@@ -1029,9 +1185,11 @@
                     <time datetime="2026-10-15">15 Okt 2026</time>
                   </div>
                   <h3 class="gs-blog-card__title">
-                    <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan cara memilihnya</a>
+                    <a href="/blog/panduan-memilih-souvenir-pernikahan">panduan jenis souvenir pernikahan dan cara
+                      memilihnya</a>
                   </h3>
-                  <p class="gs-blog-card__excerpt">Tips memilih cinderamata bernilai fungsi tinggi dan selaras tema pesta pernikahan Anda.</p>
+                  <p class="gs-blog-card__excerpt">Tips memilih cinderamata bernilai fungsi tinggi dan selaras tema
+                    pesta pernikahan Anda.</p>
                   <a href="/blog/panduan-memilih-souvenir-pernikahan" class="gs-blog-card__link">
                     Baca Selengkapnya &rarr;
                   </a>
@@ -1059,7 +1217,8 @@
             <span>SEKATA</span>
           </a>
           <p class="gs-footer__desc">
-            Penyedia souvenir pernikahan elegan, cinderamata custom berkesan, dan kemasan berkelas di Malang untuk pengiriman ke seluruh Indonesia. Dibuat dengan perhatian penuh terhadap mutu dan detail.
+            Penyedia souvenir pernikahan elegan, cinderamata custom berkesan, dan kemasan berkelas di Malang untuk
+            pengiriman ke seluruh Indonesia. Dibuat dengan perhatian penuh terhadap mutu dan detail.
           </p>
           <a href="https://maps.app.goo.gl/fQQ1reAUBefTYWb27" class="gs-footer__location-item" target="_blank"
             rel="noopener noreferrer" aria-label="Lihat lokasi Souvenir Pernikahan di Google Maps">
@@ -1067,7 +1226,8 @@
               <path
                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
             </svg>
-            <span>Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang, Kota Malang, Jawa Timur 65138, Indonesia</span>
+            <span>Jl. Band. Palmerah No.D3-35B, Cemorokandang, Kec. Kedungkandang, Kota Malang, Jawa Timur 65138,
+              Indonesia</span>
           </a>
         </div>
 
@@ -1146,7 +1306,9 @@
   <!-- Back to Top Button -->
   <button type="button" class="gs-back-to-top" id="gs-back-to-top" aria-label="Kembali ke atas">
     <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+      <path fill-rule="evenodd"
+        d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+        clip-rule="evenodd" />
     </svg>
   </button>
 
