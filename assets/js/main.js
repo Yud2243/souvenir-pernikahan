@@ -733,7 +733,11 @@
   }
 
   /* ============================================================
-     BLOG LISTING: SEARCH & CATEGORY FILTER
+     BLOG LISTING: SEARCH, CATEGORY FILTER & PROGRESSIVE LOAD
+     - Initial visible: 6 articles
+     - Step on click: +3 articles
+     - When exhausted: Button toggles to "Lihat Lebih Sedikit"
+     - When "Lihat Lebih Sedikit" clicked: resets to initial 6 articles and smooth scrolls up
      ============================================================ */
   const blogSearchInput  = document.getElementById('gs-blog-search-input');
   const blogFilterTabs   = document.querySelectorAll('.gs-blog-filter-tab');
@@ -743,17 +747,18 @@
   const blogLoadMoreBtn  = document.getElementById('gs-blog-load-more-btn');
   const blogLoadMoreWrap = document.getElementById('gs-blog-load-more-wrap');
 
-  if (blogCards.length && (blogSearchInput || blogFilterTabs.length)) {
+  if (blogCards.length && (blogSearchInput || blogFilterTabs.length || blogLoadMoreBtn)) {
+    const INITIAL_COUNT = 6;
+    const STEP_COUNT    = 3;
     let currentCategory = 'semua';
-    let searchQuery = '';
-    let mobileExpanded = false;
-    const mobileMedia = window.matchMedia('(max-width: 767px)');
+    let searchQuery     = '';
+    let visibleLimit    = INITIAL_COUNT;
 
-    function filterBlogCards() {
-      const isMobile = mobileMedia.matches;
-      let matchCount = 0;
+    function renderBlogCards() {
       const q = searchQuery.toLowerCase().trim();
+      let matchingCards = [];
 
+      // 1. Identify all matching cards
       blogCards.forEach(function (card) {
         const cat = (card.dataset.category || '').toLowerCase();
         const title = (card.querySelector('.gs-blog-card__title')?.textContent || '').toLowerCase();
@@ -763,16 +768,7 @@
         const matchesSearch = !q || title.includes(q) || excerpt.includes(q) || cat.includes(q);
 
         if (matchesCat && matchesSearch) {
-          matchCount++;
-          if (isMobile && !mobileExpanded && matchCount > 3) {
-            card.classList.add('is-hidden');
-            card.setAttribute('hidden', '');
-            card.style.setProperty('display', 'none', 'important');
-          } else {
-            card.classList.remove('is-hidden');
-            card.removeAttribute('hidden');
-            card.style.removeProperty('display');
-          }
+          matchingCards.push(card);
         } else {
           card.classList.add('is-hidden');
           card.setAttribute('hidden', '');
@@ -780,48 +776,96 @@
         }
       });
 
+      const totalMatches = matchingCards.length;
+
+      // 2. Empty state handling
       if (blogEmptyState) {
-        blogEmptyState.style.display = matchCount === 0 ? 'block' : 'none';
+        blogEmptyState.style.display = totalMatches === 0 ? 'block' : 'none';
       }
-      if (blogCountEl) {
-        var visibleCount = isMobile && !mobileExpanded ? Math.min(matchCount, 3) : matchCount;
-        if (matchCount === 0) {
-          blogCountEl.textContent = 'Tidak ada artikel yang cocok';
-        } else if (visibleCount < matchCount) {
-          blogCountEl.textContent = 'Menampilkan ' + visibleCount + ' dari ' + matchCount + ' artikel';
+
+      // 3. Slice and show matching cards
+      const countToShow = Math.min(visibleLimit, totalMatches);
+
+      matchingCards.forEach(function (card, index) {
+        if (index < countToShow) {
+          card.classList.remove('is-hidden');
+          card.removeAttribute('hidden');
+          card.style.removeProperty('display');
         } else {
-          blogCountEl.textContent = 'Menampilkan ' + matchCount + ' artikel';
+          card.classList.add('is-hidden');
+          card.setAttribute('hidden', '');
+          card.style.setProperty('display', 'none', 'important');
+        }
+      });
+
+      // 4. Update stats counter
+      if (blogCountEl) {
+        if (totalMatches === 0) {
+          blogCountEl.textContent = 'Tidak ada artikel yang cocok';
+        } else if (countToShow < totalMatches) {
+          blogCountEl.textContent = 'Menampilkan ' + countToShow + ' dari ' + totalMatches + ' artikel';
+        } else {
+          blogCountEl.textContent = 'Menampilkan seluruh ' + totalMatches + ' artikel';
         }
       }
-      if (blogLoadMoreWrap) {
-        if (isMobile && !mobileExpanded && matchCount > 3) {
-          blogLoadMoreWrap.classList.remove('is-hidden');
-          blogLoadMoreWrap.removeAttribute('hidden');
-          blogLoadMoreWrap.style.setProperty('display', 'block', 'important');
-        } else {
+
+      // 5. Update Load More / Show Less button
+      if (blogLoadMoreWrap && blogLoadMoreBtn) {
+        if (totalMatches <= INITIAL_COUNT) {
+          // If total matching is 6 or less, no button needed
           blogLoadMoreWrap.classList.add('is-hidden');
           blogLoadMoreWrap.setAttribute('hidden', '');
           blogLoadMoreWrap.style.setProperty('display', 'none', 'important');
+        } else {
+          blogLoadMoreWrap.classList.remove('is-hidden');
+          blogLoadMoreWrap.removeAttribute('hidden');
+          blogLoadMoreWrap.style.setProperty('display', 'flex', 'important');
+
+          if (countToShow < totalMatches) {
+            // Still more articles to show
+            blogLoadMoreBtn.setAttribute('data-mode', 'more');
+            blogLoadMoreBtn.setAttribute('aria-expanded', 'false');
+            blogLoadMoreBtn.innerHTML = '<span>Lihat Selengkapnya</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="M4 6l4 4 4-4" /></svg>';
+          } else {
+            // All articles displayed -> switch to "Lihat Lebih Sedikit"
+            blogLoadMoreBtn.setAttribute('data-mode', 'less');
+            blogLoadMoreBtn.setAttribute('aria-expanded', 'true');
+            blogLoadMoreBtn.innerHTML = '<span>Lihat Lebih Sedikit</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px;"><path d="M12 10l-4-4-4 4" /></svg>';
+          }
         }
       }
     }
 
+    // Button click handler
     if (blogLoadMoreBtn) {
       blogLoadMoreBtn.addEventListener('click', function () {
         this.blur();
-        mobileExpanded = true;
-        filterBlogCards();
+        const mode = this.getAttribute('data-mode') || 'more';
+        if (mode === 'more') {
+          visibleLimit += STEP_COUNT;
+          renderBlogCards();
+        } else {
+          // Mode is 'less': Reset to initial 6 and scroll smoothly up to grid
+          visibleLimit = INITIAL_COUNT;
+          renderBlogCards();
+          const targetAnchor = document.getElementById('gs-articles-title') || document.querySelector('.gs-blog-toolbar') || document.querySelector('.gs-blog-grid');
+          if (targetAnchor) {
+            targetAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       });
     }
 
+    // Search input handler
     if (blogSearchInput) {
       blogSearchInput.addEventListener('input', function () {
         searchQuery = this.value;
-        mobileExpanded = false;
-        filterBlogCards();
+        visibleLimit = INITIAL_COUNT;
+        renderBlogCards();
       });
     }
 
+    // Category tabs handler
     blogFilterTabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
         blogFilterTabs.forEach(function (t) {
@@ -831,17 +875,13 @@
         this.classList.add('active');
         this.setAttribute('aria-selected', 'true');
         currentCategory = (this.dataset.filter || 'semua').toLowerCase();
-        mobileExpanded = false;
-        filterBlogCards();
+        visibleLimit = INITIAL_COUNT;
+        renderBlogCards();
       });
     });
 
-    if (mobileMedia && typeof mobileMedia.addEventListener === 'function') {
-      mobileMedia.addEventListener('change', filterBlogCards);
-    }
-
-    // Run initial filter
-    filterBlogCards();
+    // Run initial render
+    renderBlogCards();
   }
 
   /* ============================================================

@@ -1328,7 +1328,52 @@ body > header .gs-navbar {
 }
 
 .gs-blog-load-more-wrap {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.gs-blog-load-more-wrap.is-hidden,
+.gs-blog-load-more-wrap[hidden] {
+  display: none !important;
+}
+
+#gs-blog-load-more-btn {
+  border-radius: 9999px;
+  background: var(--gs-terracotta-500, #762b16);
+  color: #ffffff;
+  padding: 0.95rem 2.5rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 16px rgba(118, 43, 22, 0.22);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-width: 240px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#gs-blog-load-more-btn:hover {
+  background: var(--gs-terracotta-600, #5e2211);
+  box-shadow: 0 8px 24px rgba(118, 43, 22, 0.35);
+  transform: translateY(-2px);
+}
+
+#gs-blog-load-more-btn:active {
+  background: var(--gs-terracotta-700, #4c1b0e);
+  transform: translateY(0) scale(0.98);
+}
+
+#gs-blog-load-more-btn svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.25s ease;
 }
 
 /* ============================================================
@@ -5232,8 +5277,8 @@ html:not(.js) [data-gs-animate] {
   }
 
   .gs-blog-load-more-wrap {
-    display: block;
-    margin-top: 1.25rem !important;
+    display: flex !important;
+    margin-top: 1.75rem !important;
   }
 
   .gs-blog-load-more-wrap.is-hidden,
@@ -5242,25 +5287,8 @@ html:not(.js) [data-gs-animate] {
   }
 
   #gs-blog-load-more-btn {
-    border-radius: 9999px !important;
-    background: #762b16 !important;
-    color: #ffffff !important;
-    padding: 0.85rem 1.5rem !important;
-    font-size: 0.92rem !important;
-    font-weight: 600 !important;
-    border: none !important;
-    box-shadow: 0 4px 14px rgba(118, 43, 22, 0.22) !important;
-    transition: all 0.2s ease !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.5rem !important;
     width: 100% !important;
-  }
-
-  #gs-blog-load-more-btn:active {
-    background: #5a1e0e !important;
-    transform: scale(0.98) !important;
+    padding: 0.85rem 1.5rem !important;
   }
 
   .gs-home-blog-more {
