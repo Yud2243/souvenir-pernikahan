@@ -121,3 +121,4 @@ def fix_tentang_design():
 if __name__ == '__main__':
     fix_all_encodings()
     fix_tentang_design()
+
