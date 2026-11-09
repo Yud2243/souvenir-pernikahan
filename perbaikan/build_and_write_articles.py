@@ -460,7 +460,7 @@ def build_article_html(art, all_arts):
             </aside>''')
 
     # Content sections
-    non_faq_sections = [s for s in art['sections'] if not s.get('is_faq') and not s.get('is_kesimpulan')]
+    non_faq_sections = [s for s in art['sections'] if not s.get('is_faq') and not s.get('is_kesimpulan') and s.get('anchor') != 'daftar-isi' and 'daftar isi' not in s.get('title', '').lower()]
     
     for s_idx, sec in enumerate(non_faq_sections):
         sec_title = clean_inline(sec['title'])
