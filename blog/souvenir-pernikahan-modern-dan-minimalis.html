@@ -433,6 +433,59 @@
       z-index: auto !important;
       width: auto !important;
     }
+    .gs-product-item-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.25rem 0 2rem;
+    }
+    .gs-product-item-text {
+      flex: 1 1 60%;
+    }
+    .gs-product-item-text p {
+      margin-bottom: 0.85rem;
+    }
+    .gs-product-item-text p:last-child {
+      margin-bottom: 0;
+    }
+    .gs-product-item-media {
+      flex: 0 0 260px;
+      max-width: 260px;
+      border-radius: var(--gs-radius-md, 12px);
+      overflow: hidden;
+      border: 1px solid #d5e5d2;
+      box-shadow: 0 4px 16px rgba(72, 24, 12, 0.07);
+      background: #faf5ee;
+    }
+    .gs-product-item-media img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gs-product-item-media:hover img {
+      transform: scale(1.03);
+    }
+    @media (max-width: 680px) {
+      .gs-product-item-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+      .gs-product-item-media {
+        flex: 1 1 auto;
+        max-width: 100%;
+        width: 100%;
+      }
+      .gs-product-item-media img {
+        aspect-ratio: 16 / 10;
+        max-height: 320px;
+        margin-inline: auto;
+      }
+    }
   </style>
 </head>
 
@@ -584,7 +637,7 @@
           <!-- Cover Image -->
           <div class="gs-article__cover" data-gs-animate="slide">
             <img src="/assets/images/artikel/souvenir-pernikahan-modern-dan-minimalis.webp"
-              alt="Koleksi souvenir pernikahan modern dan minimalis dengan desain elegan dan bersih" width="1200" height="675"
+              alt="Koleksi souvenir pernikahan modern dan minimalis custom nama berisi pouch kain, mug keramik, buku catatan, dan tote bag kanvas" width="1024" height="576"
               loading="eager" />
             <div class="gs-article__caption">
               Koleksi souvenir pernikahan modern dan minimalis: sentuhan mug keramik monokrom, pouch kain polos, dan tote bag kanvas estetis yang fungsional bagi para tamu.
@@ -665,15 +718,19 @@
 
             <!-- Item 1 -->
             <h3 id="pouch-kain-custom">1. Pouch Kain Custom</h3>
-            <p>
-              Pouch berbahan kain merupakan pilihan favorit bagi pasangan modern karena dapat langsung dimanfaatkan tamu untuk menyimpan uang koin, kartu identitas, perlengkapan makeup, maupun kabel aksesoris ponsel pribadi.
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/glass-tumbler-souvenir.webp" alt="Souvenir pernikahan botol tumbler kaca borosilikat tutup bambu minimalis modern" width="520" height="390" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Pouch berbahan kain merupakan pilihan favorit bagi pasangan modern karena dapat langsung dimanfaatkan tamu untuk menyimpan uang koin, kartu identitas, perlengkapan makeup, maupun kabel aksesoris ponsel pribadi.
+                </p>
+                <p>
+                  Model beritsleting dengan satu warna dasar (seperti abu-abu muda, sage green, atau broken white) dan label nama pengantin woven kecil di bagian sudut sangat cocok untuk menciptakan tampilan sederhana yang berkelas. Sebelum memesan, periksa jenis kain furing dalam, kehalusan rel resleting, ketelitian jahitan, dan dimensi ruang simpan.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/glass-tumbler-souvenir.webp" alt="Souvenir pernikahan botol tumbler kaca borosilikat tutup bambu minimalis modern" width="520" height="390" loading="lazy" />
+              </div>
             </div>
-            <p>
-              Model beritsleting dengan satu warna dasar (seperti abu-abu muda, sage green, atau broken white) dan label nama pengantin woven kecil di bagian sudut sangat cocok untuk menciptakan tampilan sederhana yang berkelas. Sebelum memesan, periksa jenis kain furing dalam, kehalusan rel resleting, ketelitian jahitan, dan dimensi ruang simpan.
-            </p>
 
             <!-- Item 2 -->
             <h3 id="notebook-minimalis">2. Notebook Minimalis</h3>
@@ -706,16 +763,20 @@
 
             <!-- Item 5 -->
             <h3 id="tas-kain-totebag">5. Tas Kain atau Totebag</h3>
-            <p>
-              Totebag kanvas tanpa motif ramai menawarkan nilai fungsional jangka panjang karena dapat dipakai berulang kali untuk membawa belanjaan harian, bekal kantor, hingga buku kuliah.
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/souvenir-tote-bag.webp" alt="Souvenir pernikahan totebag kain kanvas polos minimalis"
-                width="520" height="388" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Totebag kanvas tanpa motif ramai menawarkan nilai fungsional jangka panjang karena dapat dipakai berulang kali untuk membawa belanjaan harian, bekal kantor, hingga buku kuliah.
+                </p>
+                <p>
+                  Desain satu warna dasar dengan tipografi mungil di bagian tengah atas sangat cocok bagi pasangan yang mengedepankan prinsip keberlanjutan (<em>sustainable lifestyle</em>). Periksa ketebalan gramasi kain kanvas atau blacu, kekuatan jahitan tali pegangan (<em>cross-stitch</em>), serta kapasitas muatannya.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/souvenir-tote-bag.webp" alt="Souvenir pernikahan totebag kain kanvas polos minimalis"
+                  width="520" height="388" loading="lazy" />
+              </div>
             </div>
-            <p>
-              Desain satu warna dasar dengan tipografi mungil di bagian tengah atas sangat cocok bagi pasangan yang mengedepankan prinsip keberlanjutan (<em>sustainable lifestyle</em>). Periksa ketebalan gramasi kain kanvas atau blacu, kekuatan jahitan tali pegangan (<em>cross-stitch</em>), serta kapasitas muatannya.
-            </p>
 
             <!-- Baca Juga Box -->
             <div class="gs-article__baca-juga">
