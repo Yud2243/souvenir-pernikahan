@@ -1,7 +1,7 @@
 # ============================================================
 # SOUVENIR PERNIKAHAN — ROBOTS.TXT
 # Website: https://souvenirpernikahan.web.id/
-# Bisnis: Vendor Souvenir Pernikahan Unik, Elegan, Murah & Custom Nama
+# Bisnis: Vendor Souvenir Pernikahan Unik, Elegan, Berkelas & Custom Nama
 # Standar: Robots Exclusion Protocol (RFC 9309) & Search Engine Friendly
 # ============================================================
 

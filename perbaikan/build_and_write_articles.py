@@ -1242,3 +1242,4 @@ for art in parsed_articles:
     print(f"Generated: {target_file} ({len(content)} bytes)")
 
 print("All 4 article files written successfully!")
+
