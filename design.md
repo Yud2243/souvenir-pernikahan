@@ -260,7 +260,6 @@ greens-souvenir/
 │   ├── checklist-pemesanan-souvenir-pernikahan.html
 │   ├── ide-kemasan-souvenir-pernikahan.html
 │   ├── panduan-memilih-souvenir-pernikahan.html
-│   ├── panduan-souvenir-perusahaan.html
 │   └── personalisasi-nama-dan-tanggal-souvenir.html
 ├── 404.html
 ├── kebijakan-privasi.html
