@@ -426,6 +426,59 @@
       z-index: auto !important;
       width: auto !important;
     }
+    .gs-product-item-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.25rem 0 2rem;
+    }
+    .gs-product-item-text {
+      flex: 1 1 60%;
+    }
+    .gs-product-item-text p {
+      margin-bottom: 0.85rem;
+    }
+    .gs-product-item-text p:last-child {
+      margin-bottom: 0;
+    }
+    .gs-product-item-media {
+      flex: 0 0 240px;
+      max-width: 240px;
+      border-radius: var(--gs-radius-md, 12px);
+      overflow: hidden;
+      border: 1px solid #d5e5d2;
+      box-shadow: 0 4px 16px rgba(72, 24, 12, 0.07);
+      background: #faf5ee;
+    }
+    .gs-product-item-media img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gs-product-item-media:hover img {
+      transform: scale(1.03);
+    }
+    @media (max-width: 680px) {
+      .gs-product-item-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+      .gs-product-item-media {
+        flex: 1 1 auto;
+        max-width: 100%;
+        width: 100%;
+      }
+      .gs-product-item-media img {
+        aspect-ratio: 1 / 1;
+        max-height: 320px;
+        margin-inline: auto;
+      }
+    }
   </style>
 </head>
 
@@ -657,16 +710,19 @@
             </p>
 
             <h3 id="rangka-bambu-halus">2. Rangka dan Mekanisme Lipat Bambu/Kayu</h3>
-            <p>
-              Bilah rangka umumnya terbuat dari bambu apus pilihan atau kayu cendana ringan. Pastikan seluruh bilah telah diamplas halus tanpa serat tajam yang berisiko melukai tangan.
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/kipas-batik-souvenir.webp" alt="Souvenir pernikahan kipas batik lipat rangka bambu halus"
-                width="520" height="390" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Bilah rangka umumnya terbuat dari bambu apus pilihan atau kayu cendana ringan. Pastikan seluruh bilah telah diamplas halus tanpa serat tajam yang berisiko melukai tangan.
+                </p>
+                <p>
+                  Mekanisme baut atau keling poros lipat harus kokoh namun tetap lancar digerakkan saat dibuka dan ditutup berkali-kali. Kerapian penataan kain batik motif klasik pada bilah bambu menghasilkan cinderamata yang estetis dan tahan lama.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/detail-kipas-batik-lipat.webp" alt="Souvenir pernikahan kipas batik lipat tradisional dengan bilah rangka bambu halus dan motif batik floral sogan cokelat klasik" width="800" height="800" loading="lazy" />
+              </div>
             </div>
-            <p>
-              Mekanisme baut atau keling poros lipat harus kokoh namun tetap lancar digerakkan saat dibuka dan ditutup berkali-kali.
-            </p>
 
             <h3 id="dimensi-kipas">3. Ukuran dan Model Lipat</h3>
             <p>
@@ -720,7 +776,7 @@
                     <td>Konsistensi kerapian lem antarkipas, kapasitas stok bahan, estimasi waktu packing.</td>
                   </tr>
                   <tr>
-                    <td><strong>Anggaran Terbatas (Ekonomis)</strong></td>
+                    <td><strong>Alokasi Anggaran Efisien</strong></td>
                     <td>Kipas lipat motif batik kombinasi kemasan plastik bening berlabel nama custom.</td>
                     <td>Kekuatan sambungan kain, fungsi kelancaran lipatan, kejelasan kartu terima kasih.</td>
                   </tr>
