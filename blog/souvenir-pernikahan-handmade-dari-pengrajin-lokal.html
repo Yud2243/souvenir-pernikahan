@@ -51,9 +51,9 @@
   <meta property="og:image" content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-handmade-dari-pengrajin-lokal.webp" />
   <meta property="og:image:secure_url"
     content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-handmade-dari-pengrajin-lokal.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Koleksi souvenir pernikahan handmade buatan pengrajin lokal Nusantara" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="576" />
+  <meta property="og:image:alt" content="Koleksi souvenir pernikahan handmade dari pengrajin lokal berupa tas anyaman pandan, besek bambu mini, pouch batik, dan gantungan kunci kayu" />
   <meta property="og:image:type" content="image/webp" />
   <meta property="article:published_time" content="2026-10-30T09:45:00+07:00" />
   <meta property="article:modified_time" content="2026-10-30T09:55:00+07:00" />
@@ -74,7 +74,7 @@
   <meta name="twitter:description"
     content="Temukan ide souvenir pernikahan handmade buatan perajin lokal: anyaman pandan, besek bambu, pouch batik, dan gantungan kunci ukir." />
   <meta name="twitter:image" content="https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-handmade-dari-pengrajin-lokal.webp" />
-  <meta name="twitter:image:alt" content="Souvenir pernikahan handmade dari pengrajin lokal" />
+  <meta name="twitter:image:alt" content="Koleksi souvenir pernikahan handmade dari pengrajin lokal berupa tas anyaman pandan, besek bambu mini, pouch batik, dan gantungan kunci kayu" />
 
   <!-- Fonts (Non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -271,8 +271,8 @@
       "image": {
         "@type": "ImageObject",
         "url": "https://souvenirpernikahan.web.id/assets/images/artikel/souvenir-pernikahan-handmade-dari-pengrajin-lokal.webp",
-        "width": 1200,
-        "height": 675
+        "width": 1024,
+        "height": 576
       },
       "datePublished": "2026-10-30T09:45:00+07:00",
       "dateModified": "2026-10-30T09:55:00+07:00",
@@ -434,6 +434,59 @@
       z-index: auto !important;
       width: auto !important;
     }
+    .gs-product-item-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 1.25rem 0 2rem;
+    }
+    .gs-product-item-text {
+      flex: 1 1 60%;
+    }
+    .gs-product-item-text p {
+      margin-bottom: 0.85rem;
+    }
+    .gs-product-item-text p:last-child {
+      margin-bottom: 0;
+    }
+    .gs-product-item-media {
+      flex: 0 0 240px;
+      max-width: 240px;
+      border-radius: var(--gs-radius-md, 12px);
+      overflow: hidden;
+      border: 1px solid #d5e5d2;
+      box-shadow: 0 4px 16px rgba(72, 24, 12, 0.07);
+      background: #faf5ee;
+    }
+    .gs-product-item-media img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gs-product-item-media:hover img {
+      transform: scale(1.03);
+    }
+    @media (max-width: 680px) {
+      .gs-product-item-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+      .gs-product-item-media {
+        flex: 1 1 auto;
+        max-width: 100%;
+        width: 100%;
+      }
+      .gs-product-item-media img {
+        aspect-ratio: 1 / 1;
+        max-height: 320px;
+        margin-inline: auto;
+      }
+    }
   </style>
 </head>
 
@@ -585,10 +638,10 @@
           <!-- Cover Image -->
           <div class="gs-article__cover" data-gs-animate="slide">
             <img src="/assets/images/artikel/souvenir-pernikahan-handmade-dari-pengrajin-lokal.webp"
-              alt="Koleksi souvenir pernikahan handmade buatan pengrajin lokal Nusantara" width="1200" height="675"
+              alt="Koleksi souvenir pernikahan handmade dari pengrajin lokal berupa tas anyaman pandan, besek bambu mini, pouch batik, dan gantungan kunci kayu" width="1024" height="576"
               loading="eager" />
             <div class="gs-article__caption">
-              Koleksi karya kriya souvenir pernikahan buatan tangan pengrajin lokal: perpaduan tas anyaman pandan alami, pouch batik halus, gantungan kunci kayu ukir, dan kerajinan bambu tradisional.
+              Koleksi karya kriya souvenir pernikahan buatan tangan pengrajin lokal: perpaduan tas anyaman pandan alami, besek bambu mini, pouch batik halus, dan gantungan kunci kayu ukir.
             </div>
           </div>
 
@@ -663,47 +716,67 @@
 
             <!-- Item 1 -->
             <h3 id="tas-anyaman-pandan">1. Tas Anyaman Pandan</h3>
-            <p>
-              Serat tanaman pandan berduri yang diolah melalui perendaman, penjemuran, dan penganyaman manual dapat dibentuk menjadi tas belanja bertekstur alami.
-            </p>
-            <p>
-              Periksa kerapian anyaman serat, kekuatan sambungan jahitan tali pegangan, dan keseragaman dimensi jadi. Tas anyaman pandan memberikan manfaat jangka panjang bagi tamu karena dapat dipakai kembali untuk aktivitas harian melalui pilihan <a href="/blog/souvenir-pernikahan-ramah-lingkungan">souvenir pernikahan ramah lingkungan</a>.
-            </p>
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Serat tanaman pandan berduri yang diolah melalui perendaman, penjemuran, dan penganyaman manual dapat dibentuk menjadi tas belanja bertekstur alami.
+                </p>
+                <p>
+                  Periksa kerapian anyaman serat, kekuatan sambungan jahitan tali pegangan, dan keseragaman dimensi jadi. Tas anyaman pandan memberikan manfaat jangka panjang bagi tamu karena dapat dipakai kembali untuk aktivitas harian melalui pilihan <a href="/blog/souvenir-pernikahan-ramah-lingkungan">souvenir pernikahan ramah lingkungan</a>.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/handmade-tas-anyaman-pandan.webp" alt="Souvenir pernikahan tas anyaman pandan alami buatan pengrajin lokal ramah lingkungan dengan tali kepang kuat" width="800" height="800" loading="lazy" />
+              </div>
+            </div>
 
             <!-- Item 2 -->
             <h3 id="besek-bambu-mini">2. Besek Bambu Mini</h3>
-            <p>
-              Besek memanfaatkan keterampilan anyaman bambu yang telah menjadi warisan tradisi turun-temurun di pedesaan Indonesia.
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/honey-souvenir.webp" alt="Souvenir madu hutan murni jar heksagonal karya peternak lokal" width="600" height="400" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Besek memanfaatkan keterampilan anyaman bambu yang telah menjadi warisan tradisi turun-temurun di pedesaan Indonesia.
+                </p>
+                <p>
+                  Untuk kebutuhan souvenir, perhatikan ketepatan ukuran tutup besek, kehalusan bilah bambu agar tidak melukai tangan, serta perlindungan kemasan kardus selama pengiriman ke alamat resepsi Anda.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/handmade-besek-bambu-mini.webp" alt="Souvenir pernikahan besek bambu mini anyaman tradisional khas pengrajin lokal untuk kemasan rustic dan natural" width="800" height="800" loading="lazy" />
+              </div>
             </div>
-            <p>
-              Untuk kebutuhan souvenir, perhatikan ketepatan ukuran tutup besek, kehalusan bilah bambu agar tidak melukai tangan, serta perlindungan kemasan kardus selama pengiriman ke alamat resepsi Anda.
-            </p>
 
             <!-- Item 3 -->
             <h3 id="pouch-batik-dompet">3. Pouch Batik atau Dompet Kain</h3>
-            <p>
-              Pouch memungkinkan perpaduan jahitan rapi dengan kekayaan motif batik cap maupun tenun tradisional daerah.
-            </p>
-            <!-- Pouch batik karya perajin -->
-            <p>
-              Detail penting yang perlu diperiksa antara lain kualitas tarikan resleting, lapisan kain furing bagian dalam, presisi ukuran, dan keselarasan motif kain. Pouch ini sangat fleksibel dijadikan tempat koin, kartu identitas, maupun perlengkapan kosmetik.
-            </p>
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Pouch memungkinkan perpaduan jahitan rapi dengan kekayaan motif batik cap maupun tenun tradisional daerah.
+                </p>
+                <p>
+                  Detail penting yang perlu diperiksa antara lain kualitas tarikan resleting, lapisan kain furing bagian dalam, presisi ukuran, dan keselarasan motif kain. Pouch ini sangat fleksibel dijadikan tempat koin, kartu identitas, maupun perlengkapan kosmetik.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/handmade-pouch-batik-lurik.webp" alt="Souvenir dompet pouch batik lurik tradisional pengrajin lokal dengan resleting logam emas elegan" width="800" height="800" loading="lazy" />
+              </div>
+            </div>
 
             <!-- Item 4 -->
             <h3 id="gantungan-kunci-ukir">4. Gantungan Kunci Kayu Ukir Nama</h3>
-            <p>
-              Gantungan kunci kayu dengan nama kedua mempelai menjadi souvenir personal yang ringkas dan fungsional.
-            </p>
-            <div style="margin:1.25rem 0;border-radius:var(--gs-radius-md);overflow:hidden;border:1px solid #d5e5d2;">
-              <img src="/assets/images/artikel/coaster-souvenir.webp" alt="Souvenir tatakan dan kerajinan kayu karya pengrajin lokal"
-                width="600" height="400" loading="lazy" style="width:100%;height:auto;display:block;" />
+            <div class="gs-product-item-row">
+              <div class="gs-product-item-text">
+                <p>
+                  Gantungan kunci kayu dengan nama kedua mempelai menjadi souvenir personal yang ringkas dan fungsional.
+                </p>
+                <p>
+                  Pastikan jenis material kayu yang digunakan (seperti mahoni atau jati), kehalusan amplas permukaan, dan keterbacaan ukiran nama. Gantungan kunci ini sangat praktis dibagikan tanpa memakan banyak tempat di meja tamu.
+                </p>
+              </div>
+              <div class="gs-product-item-media">
+                <img src="/assets/images/artikel/handmade-gantungan-kunci-kayu.webp" alt="Souvenir pernikahan gantungan kunci kayu grafir bunga dan strap kulit buatan tangan pengrajin lokal" width="800" height="800" loading="lazy" />
+              </div>
             </div>
-            <p>
-              Pastikan jenis material kayu yang digunakan (seperti mahoni atau jati), kehalusan amplas permukaan, dan keterbacaan ukiran nama. Gantungan kunci ini sangat praktis dibagikan tanpa memakan banyak tempat di meja tamu.
-            </p>
 
             <!-- Baca Juga Box -->
             <div class="gs-article__baca-juga">
