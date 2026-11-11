@@ -223,6 +223,11 @@
   line-height: 1.5;
 }
 
+.detail-specs-list .spec-price {
+  font-weight: 700;
+  color: var(--gs-terracotta-dark, #762b16);
+}
+
 @media (max-width: 575px) {
   .detail-specs-list li {
     flex-direction: column;
@@ -534,6 +539,14 @@
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--gs-text-muted, #5e463f);
+}
+
+.related-card .rel-price,
+.rel-price {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gs-terracotta-dark, #762b16);
+  white-space: nowrap;
 }
 
 .related-card .rel-action {
