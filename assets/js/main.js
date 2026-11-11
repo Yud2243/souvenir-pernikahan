@@ -216,9 +216,48 @@
     const loadMoreBtn = loadMoreWrap ? (loadMoreWrap.querySelector('#gs-load-more-btn') || loadMoreWrap.querySelector('button')) : null;
     const emptyState = section ? (section.querySelector('#gs-empty-state') || section.querySelector('.gs-empty-state')) : null;
 
+    // Storage key unik untuk menyimpan posisi scroll & status katalog
+    const storageKey = 'gs_catalog_pos_' + (grid.id || window.location.pathname);
+
+    // Ambil state yang tersimpan (jika pengunjung baru saja melihat produk dan menekan Back)
+    let savedState = null;
+    try {
+      const raw = sessionStorage.getItem(storageKey);
+      if (raw) {
+        savedState = JSON.parse(raw);
+        // Kadaluarsa jika lebih dari 3 jam
+        if (Date.now() - (savedState.timestamp || 0) > 3 * 3600 * 1000) {
+          savedState = null;
+          sessionStorage.removeItem(storageKey);
+        }
+      }
+    } catch (err) {
+      savedState = null;
+    }
+
     let currentFilter = 'semua';
     let visibleCountMobile = STEP_MOBILE; // 4, 8, 12, ...
     let visibleCountDesktop = INITIAL_DESKTOP; // 6, 9, 12, 15, ...
+
+    // Pulihkan filter & jumlah item tampil jika ada state sebelumnya
+    if (savedState) {
+      if (typeof savedState.visibleCountMobile === 'number' && savedState.visibleCountMobile >= STEP_MOBILE) {
+        visibleCountMobile = savedState.visibleCountMobile;
+      }
+      if (typeof savedState.visibleCountDesktop === 'number' && savedState.visibleCountDesktop >= INITIAL_DESKTOP) {
+        visibleCountDesktop = savedState.visibleCountDesktop;
+      }
+      if (savedState.currentFilter) {
+        currentFilter = savedState.currentFilter;
+        if (filterTabs.length) {
+          filterTabs.forEach(function (t) {
+            const matches = (t.dataset.filter || 'semua') === currentFilter;
+            t.classList.toggle('active', matches);
+            t.setAttribute('aria-pressed', String(matches));
+          });
+        }
+      }
+    }
 
     function updateDisplay() {
       const isMobile = mobileMedia.matches;
@@ -333,6 +372,32 @@
       }
     }
 
+    // Fungsi menyimpan posisi scroll & status katalog sebelum berpindah halaman
+    function saveCatalogState(clickedHref) {
+      try {
+        const state = {
+          scrollY: window.scrollY || window.pageYOffset || 0,
+          visibleCountMobile: visibleCountMobile,
+          visibleCountDesktop: visibleCountDesktop,
+          currentFilter: currentFilter,
+          lastClickedUrl: clickedHref || '',
+          timestamp: Date.now()
+        };
+        sessionStorage.setItem(storageKey, JSON.stringify(state));
+      } catch (err) {}
+    }
+
+    // Tangkap klik produk agar posisi scroll dan kartu tersimpan sebelum buka detail
+    grid.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) {
+        const href = link.getAttribute('href') || '';
+        if (href.includes('/produk/') || link.closest('.gs-card')) {
+          saveCatalogState(href);
+        }
+      }
+    });
+
     if (loadMoreBtn) {
       loadMoreBtn.addEventListener('click', function () {
         this.blur();
@@ -341,6 +406,7 @@
           const action = loadMoreBtn.getAttribute('data-action');
           if (action === 'close') {
             visibleCountMobile = STEP_MOBILE;
+            sessionStorage.removeItem(storageKey);
             updateDisplay();
             window.requestAnimationFrame(function () {
               grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -348,11 +414,13 @@
           } else {
             visibleCountMobile += STEP_MOBILE;
             updateDisplay();
+            saveCatalogState('');
           }
         } else {
           const action = loadMoreBtn.getAttribute('data-action');
           if (action === 'desktop-collapse') {
             visibleCountDesktop = INITIAL_DESKTOP;
+            sessionStorage.removeItem(storageKey);
             updateDisplay();
             window.requestAnimationFrame(function () {
               grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -360,6 +428,7 @@
           } else {
             visibleCountDesktop += STEP_DESKTOP;
             updateDisplay();
+            saveCatalogState('');
           }
         }
       });
@@ -371,6 +440,7 @@
           currentFilter = this.dataset.filter || 'semua';
           visibleCountMobile = STEP_MOBILE;
           visibleCountDesktop = INITIAL_DESKTOP;
+          sessionStorage.removeItem(storageKey);
 
           filterTabs.forEach(function (t) {
             t.classList.remove('active');
@@ -394,7 +464,51 @@
       });
     }
 
+    // Render tampilan kartu awal (dengan jumlah kartu yang dipulihkan jika ada)
     updateDisplay();
+
+    // Pulihkan posisi scroll secara presisi jika ada savedState
+    if (savedState && typeof savedState.scrollY === 'number' && savedState.scrollY > 0) {
+      if ('scrollRestoration' in history) {
+        try {
+          history.scrollRestoration = 'manual';
+        } catch (e) {}
+      }
+
+      function restoreScroll() {
+        if (!savedState) return;
+        const targetY = savedState.scrollY;
+        if (typeof targetY === 'number' && targetY > 0) {
+          window.scrollTo({
+            top: targetY,
+            behavior: 'instant'
+          });
+        }
+
+        // Pastikan kartu produk yang baru dikunjungi berada tepat dalam viewport
+        if (savedState.lastClickedUrl) {
+          const targetLink = grid.querySelector(`a[href="${savedState.lastClickedUrl}"]`);
+          const targetCard = targetLink ? targetLink.closest('.gs-card') : null;
+          if (targetCard) {
+            const rect = targetCard.getBoundingClientRect();
+            const inView = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+            if (!inView) {
+              targetCard.scrollIntoView({ behavior: 'instant', block: 'center' });
+            }
+          }
+        }
+      }
+
+      // Eksekusi pemulihan scroll bertahap untuk mengantisipasi layout render
+      restoreScroll();
+      window.requestAnimationFrame(restoreScroll);
+      setTimeout(restoreScroll, 60);
+      setTimeout(restoreScroll, 160);
+
+      window.addEventListener('pageshow', function (event) {
+        restoreScroll();
+      });
+    }
   }
 
   // Inisialisasi grid katalog paket
@@ -1236,5 +1350,17 @@
 
     renderAuthorDisplay(true);
   }
+
+  /* ============================================================
+     PDP BACK LINK NAVIGATION: Seamless history back to catalog
+     ============================================================ */
+  document.querySelectorAll('.pdp-back-link').forEach(function (backLink) {
+    backLink.addEventListener('click', function (e) {
+      if (window.history.length > 1 && document.referrer && (document.referrer.includes('/paket') || document.referrer.includes('souvenir'))) {
+        e.preventDefault();
+        window.history.back();
+      }
+    });
+  });
 
 })();
