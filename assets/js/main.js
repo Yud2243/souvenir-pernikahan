@@ -1137,55 +1137,104 @@
   });
 
   /* ============================================================
-     AUTHOR PAGE: LOAD MORE (Mobile Only)
+     AUTHOR PAGE: LOAD MORE / TUTUP ARTIKEL (Responsive Grid)
      ============================================================ */
   const authorGrid = document.getElementById('gs-author-articles-grid');
-  const authorMoreBtn = document.getElementById('gs-author-more-btn') || document.getElementById('gs-author-load-more-btn');
+  const authorMoreBtn = document.getElementById('gs-author-load-more-btn') || document.getElementById('gs-author-more-btn');
+  const authorMoreWrap = document.getElementById('gs-author-load-more-wrap') || document.getElementById('gs-author-articles-actions');
 
   if (authorGrid && authorMoreBtn) {
     const cards = Array.from(authorGrid.querySelectorAll('.gs-author-post-card'));
-    const INITIAL_VISIBLE = 6;
-    const totalRemaining = cards.length - INITIAL_VISIBLE;
+    const total = cards.length;
 
-    function applyMobileAuthorLimits() {
-      const isMobile = window.innerWidth <= 768;
-      const isExpanded = authorMoreBtn.getAttribute('aria-expanded') === 'true';
-
-      cards.forEach(function (card, idx) {
-        if (isMobile && !isExpanded && idx >= INITIAL_VISIBLE) {
-          card.classList.add('is-hidden-mobile');
-        } else {
-          card.classList.remove('is-hidden-mobile');
-        }
-      });
+    // Sync total article stat if present
+    const statEl = document.getElementById('gs-author-stat-articles');
+    if (statEl && total) {
+      statEl.textContent = String(total);
     }
 
-    applyMobileAuthorLimits();
-    window.addEventListener('resize', applyMobileAuthorLimits, { passive: true });
+    function getInitialLimit() {
+      if (window.innerWidth >= 1100) return 8; // 2 rows of 4
+      if (window.innerWidth >= 820) return 6;  // 2 rows of 3
+      if (window.innerWidth >= 540) return 6;  // 3 rows of 2
+      return 4;                                // 4 rows of 1
+    }
 
-    authorMoreBtn.addEventListener('click', function () {
-      const isExpanded = this.getAttribute('aria-expanded') === 'true';
-      const textSpan = this.querySelector('.gs-author-more-btn__text, .gs-btn-load-more__text');
+    let isExpanded = false;
 
-      if (isExpanded) {
-        this.setAttribute('aria-expanded', 'false');
-        this.classList.remove('is-expanded');
-        if (textSpan) textSpan.textContent = 'Lihat Selengkapnya (' + totalRemaining + ' Artikel Lainnya)';
-        cards.forEach(function (card, idx) {
-          if (idx >= INITIAL_VISIBLE) {
-            card.classList.add('is-hidden-mobile');
-          }
-        });
-        authorGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        this.setAttribute('aria-expanded', 'true');
-        this.classList.add('is-expanded');
-        if (textSpan) textSpan.textContent = 'Tutup Sebagian';
-        cards.forEach(function (card) {
+    function renderAuthorDisplay(isInitialLoad) {
+      const limit = getInitialLimit();
+
+      if (total <= limit) {
+        if (authorMoreWrap) authorMoreWrap.style.display = 'none';
+        cards.forEach(card => {
+          card.classList.remove('is-hidden');
           card.classList.remove('is-hidden-mobile');
         });
+        return;
+      }
+
+      if (authorMoreWrap) authorMoreWrap.style.display = 'flex';
+
+      const btnText = authorMoreBtn.querySelector('.gs-author-more-btn__text, .gs-btn-load-more__text');
+
+      if (isExpanded) {
+        authorMoreBtn.classList.add('is-expanded');
+        authorMoreBtn.setAttribute('aria-expanded', 'true');
+        authorMoreBtn.setAttribute('aria-label', 'Tutup artikel tambahan');
+        if (btnText) btnText.textContent = 'Tutup Sebagian';
+
+        cards.forEach((card, idx) => {
+          const wasHidden = card.classList.contains('is-hidden') || card.classList.contains('is-hidden-mobile');
+          card.classList.remove('is-hidden');
+          card.classList.remove('is-hidden-mobile');
+          if (!isInitialLoad && wasHidden) {
+            card.classList.add('is-revealed');
+          }
+        });
+      } else {
+        authorMoreBtn.classList.remove('is-expanded');
+        authorMoreBtn.setAttribute('aria-expanded', 'false');
+        authorMoreBtn.setAttribute('aria-label', 'Lihat artikel lainnya');
+        const remaining = total - limit;
+        if (btnText) btnText.textContent = 'Lihat Selengkapnya (' + remaining + ' Artikel Lainnya)';
+
+        cards.forEach((card, idx) => {
+          if (idx < limit) {
+            card.classList.remove('is-hidden');
+            card.classList.remove('is-hidden-mobile');
+          } else {
+            card.classList.add('is-hidden');
+            card.classList.remove('is-revealed');
+          }
+        });
+      }
+    }
+
+    // Toggle click handler
+    authorMoreBtn.addEventListener('click', function () {
+      this.blur();
+      isExpanded = !isExpanded;
+      renderAuthorDisplay(false);
+
+      if (!isExpanded) {
+        const heading = document.getElementById('articles-heading') || authorGrid;
+        if (heading) {
+          heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     });
+
+    // Handle screen resize when collapsed so row completeness is preserved
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+      if (!isExpanded) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => renderAuthorDisplay(true), 150);
+      }
+    }, { passive: true });
+
+    renderAuthorDisplay(true);
   }
 
 })();
