@@ -6549,34 +6549,36 @@ html:not(.js) [data-gs-animate] {
 }
 
 
+/* Badge Artikel Terbaru */
 .gs-blog-card__badge-new {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 3;
-  background: linear-gradient(135deg, #b25032 0%, #762b16 100%);
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  z-index: 3 !important;
+  background: linear-gradient(135deg, #b25032 0%, #762b16 100%) !important;
   color: #ffffff !important;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  box-shadow: 0 4px 12px rgba(118, 43, 22, 0.35);
-  line-height: 1.2;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  font-size: clamp(0.6rem, 1.8vw, 0.68rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  padding: 0.32rem 0.75rem !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 2px 8px rgba(118, 43, 22, 0.35) !important;
+  line-height: 1.2 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  white-space: nowrap !important;
 }
 
 .gs-badge-pulse {
-  width: 7px;
-  height: 7px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  display: inline-block;
+  width: 6px !important;
+  height: 6px !important;
+  background-color: #ffffff !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
   box-shadow: 0 0 0 rgba(255, 255, 255, 0.7);
-  animation: gsPulse 2s infinite;
+  animation: gsPulse 2s infinite !important;
 }
 
 @keyframes gsPulse {
