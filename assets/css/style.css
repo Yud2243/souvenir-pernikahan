@@ -4380,6 +4380,77 @@ body > header .gs-navbar {
 }
 
 /* ============================================================
+   CONTINUOUS MARQUEE TESTIMONIALS (Bergerak terus-menerus ke kiri)
+   ============================================================ */
+.gs-testi-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0 2rem;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+}
+
+.gs-testi-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: gsTestiScroll 65s linear infinite;
+  will-change: transform;
+}
+
+.gs-testi-marquee-wrapper:hover .gs-testi-marquee-track,
+.gs-testi-marquee-wrapper:active .gs-testi-marquee-track,
+.gs-testi-marquee-wrapper:focus-within .gs-testi-marquee-track {
+  animation-play-state: paused;
+}
+
+.gs-testi-group {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.gs-testi-group .gs-testimonial-card {
+  width: 380px;
+  max-width: 85vw;
+  flex: 0 0 380px;
+  padding: 2rem 1.75rem;
+  box-sizing: border-box;
+}
+
+@keyframes gsTestiScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .gs-testi-marquee-wrapper {
+    padding: 0.5rem 0 1.5rem;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 2.5%, #000 97.5%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 2.5%, #000 97.5%, transparent 100%);
+  }
+  .gs-testi-group .gs-testimonial-card {
+    width: 310px;
+    flex: 0 0 310px;
+    padding: 1.6rem 1.35rem;
+  }
+  .gs-testi-marquee-track {
+    animation-duration: 48s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gs-testi-marquee-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}
+
+/* ============================================================
    ANIMATED CONTENT — Scroll Reveal (React Bits inspired)
    Classes: gs-ac, gs-ac--slide, gs-ac--blur, gs-ac--stagger
    State: .is-visible (added by IntersectionObserver in main.js)

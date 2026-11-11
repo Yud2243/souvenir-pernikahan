@@ -1087,7 +1087,6 @@
   }
 
   setupHorizontalSlider('gs-home-product-slider', 'gs-home-product-track', 'gs-home-product-dots');
-  setupHorizontalSlider('gs-home-testi-slider', 'gs-home-testi-track', 'gs-home-testi-dots');
 
   /* ============================================================
      MOBILE VIEW SWITCHER (Grid vs Slide Mode)
