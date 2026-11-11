@@ -200,16 +200,19 @@ def sync_blog_html(articles_data):
             feat_img = art['featured_image']
             feat_alt = art['featured_alt']
             # update img src & alt inside this card
-            # match <img ... />
             def replace_img(img_m):
                 attrs = img_m.group(1)
                 attrs = re.sub(r'src=["\'][^"\']+["\']', f'src="{feat_img}"', attrs)
                 attrs = re.sub(r'alt=["\'][^"\']*["\']', f'alt="{feat_alt}"', attrs)
-                return f'<img {attrs.strip()} />'
+                return f'<img {attrs.strip().rstrip("/").strip()} />'
 
             card_content = re.sub(r'<img\b([^>]+)>', replace_img, card_content, count=1)
-            # sanitize any 'ekonomis' in card
+            # update title inside h2
+            card_content = re.sub(r'(<h2\b[^>]*class="[^"]*gs-blog-card__title[^"]*"[^>]*>\s*<a\b[^>]*>).*?(</a>\s*</h2>)',
+                                  rf'\g<1>{art["title"]}\g<2>', card_content, flags=re.DOTALL)
+            # sanitize any 'ekonomis' or 'murah' in card
             card_content = re.sub(r'\bekonomis\b', 'terjangkau', card_content, flags=re.IGNORECASE)
+            card_content = re.sub(r'\bmurah\b', 'terjangkau', card_content, flags=re.IGNORECASE)
         return card_content
 
     html = re.sub(r'<article\b[^>]*class="[^"]*gs-blog-card[^"]*"[^>]*>.*?</article>', 
@@ -276,15 +279,18 @@ def sync_penulis_html(articles_data):
                 attrs = img_m.group(1)
                 attrs = re.sub(r'src=["\'][^"\']+["\']', f'src="{feat_img}"', attrs)
                 attrs = re.sub(r'alt=["\'][^"\']*["\']', f'alt="{feat_alt}"', attrs)
-                return f'<img {attrs.strip()} />'
+                return f'<img {attrs.strip().rstrip("/").strip()} />'
             card_content = re.sub(r'<img\b([^>]+)>', replace_img, card_content, count=1)
+            # update title inside h4
+            card_content = re.sub(r'(<h4\b[^>]*class="[^"]*gs-author-post-title[^"]*"[^>]*>).*?(</h4>)',
+                                  rf'\g<1>{art["title"]}\g<2>', card_content, flags=re.DOTALL)
         return card_content
 
-    html = re.sub(r'<a\b[^>]*class="gs-author-post-card"[^>]*>.*?</a>', 
+    html = re.sub(r'<a\b[^>]*class="[^"]*gs-author-post-card[^"]*"[^>]*>.*?</a>', 
                   update_penulis_card, html, flags=re.DOTALL)
 
     # Check which articles are in penulis.html
-    existing_slugs = re.findall(r'href=["\'](?:/blog/)?([^"\']+)["\'][^>]*class="gs-author-post-card"', html)
+    existing_slugs = re.findall(r'href=["\'](?:/blog/)?([^"\']+)["\'][^>]*class="[^"]*gs-author-post-card[^"]*"', html)
     existing_slugs_set = set(s.replace('.html', '') for s in existing_slugs)
 
     # Add missing cards to grid
@@ -331,8 +337,22 @@ def sync_penulis_html(articles_data):
                 new_cards_str += new_card
 
         if new_cards_str:
-            html = html[:grid_m.start()] + header + body + new_cards_str + "\n              " + footer + html[grid_m.end():]
-            print(f"Added missing articles to penulis.html grid")
+            body = body + new_cards_str
+
+        # Deduplicate cards in grid
+        all_cards = re.findall(r'(?:<!--[^>]*-->\s*)?<a\b[^>]*class="[^"]*gs-author-post-card[^"]*"[^>]*>.*?</a>', body, re.DOTALL)
+        seen = set()
+        deduped = []
+        for c in all_cards:
+            sm = re.search(r'href=["\'](?:/blog/|blog/)?([^"\']+)["\']', c)
+            if sm:
+                slg = sm.group(1).replace('.html', '').replace('/blog/', '').replace('blog/', '')
+                if slg not in seen:
+                    seen.add(slg)
+                    deduped.append(c.strip())
+        
+        new_body = "\n\n                " + "\n\n                ".join(deduped) + "\n              "
+        html = html[:grid_m.start()] + header + new_body + footer + html[grid_m.end():]
 
     with open('penulis.html', 'w', encoding='utf-8') as f:
         f.write(html)
@@ -361,7 +381,7 @@ def sync_index_html(articles_data):
                 attrs = img_m.group(1)
                 attrs = re.sub(r'src=["\'][^"\']+["\']', f'src="{feat_img}"', attrs)
                 attrs = re.sub(r'alt=["\'][^"\']*["\']', f'alt="{feat_alt}"', attrs)
-                return f'<img {attrs.strip()} />'
+                return f'<img {attrs.strip().rstrip("/").strip()} />'
             card_content = re.sub(r'<img\b([^>]+)>', replace_img, card_content, count=1)
         return card_content
 
@@ -441,7 +461,7 @@ def sync_related_cards(articles_data):
                     attrs = img_m.group(1)
                     attrs = re.sub(r'src=["\'][^"\']+["\']', f'src="{feat_img}"', attrs)
                     attrs = re.sub(r'alt=["\'][^"\']*["\']', f'alt="{feat_alt}"', attrs)
-                    return f'<img {attrs.strip()} />'
+                    return f'<img {attrs.strip().rstrip("/").strip()} />'
                 card_html = re.sub(r'<img\b([^>]+)>', replace_img, card_html, count=1)
                 # sanitize any forbidden words in card excerpt/topic
                 card_html = re.sub(r'\bekonomis\b', 'terjangkau', card_html, flags=re.IGNORECASE)
