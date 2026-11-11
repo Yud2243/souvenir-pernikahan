@@ -2502,7 +2502,8 @@ body > header .gs-navbar {
 /* ============================================================
    21. ARTICLE & BLOG COMPONENTS
    ============================================================ */
-.gs-article-section {
+.gs-article-section,
+.gs-pdp-section {
   padding-top: clamp(0.75rem, 1.5vw, 1.25rem) !important;
 }
 

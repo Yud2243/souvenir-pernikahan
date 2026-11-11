@@ -38,13 +38,13 @@
 
 /* PDP Layout Container */
 .gs-pdp-section {
-  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: clamp(0.75rem, 1.5vw, 1.25rem) !important;
   padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
   background: var(--gs-cream, #fdfefb);
 }
 
 .gs-pdp-breadcrumb {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
