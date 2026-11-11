@@ -35,6 +35,9 @@
   RewriteRule ^paket/souvenir-pernikahan/?$ /paket/souvenir-tradisional [R=301,L]
   RewriteRule ^paket/souvenir-perusahaan/?$ /paket/souvenir-modern [R=301,L]
 
+  # 7b. Route /images/ to /assets/images/
+  RewriteRule ^images/(.*)$ assets/images/$1 [L]
+
   # 8. Internal Rewrite: Map extensionless clean URLs to .html if the file exists
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f [OR]

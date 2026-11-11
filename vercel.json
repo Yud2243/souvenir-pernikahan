@@ -75,6 +75,10 @@
   ],
   "rewrites": [
     {
+      "source": "/images/:path*",
+      "destination": "/assets/images/:path*"
+    },
+    {
       "source": "/blog",
       "destination": "/blog.html"
     },
