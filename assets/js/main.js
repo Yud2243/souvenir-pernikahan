@@ -1136,4 +1136,56 @@
     });
   });
 
+  /* ============================================================
+     AUTHOR PAGE: LOAD MORE (Mobile Only)
+     ============================================================ */
+  const authorGrid = document.getElementById('gs-author-articles-grid');
+  const authorMoreBtn = document.getElementById('gs-author-more-btn') || document.getElementById('gs-author-load-more-btn');
+
+  if (authorGrid && authorMoreBtn) {
+    const cards = Array.from(authorGrid.querySelectorAll('.gs-author-post-card'));
+    const INITIAL_VISIBLE = 6;
+    const totalRemaining = cards.length - INITIAL_VISIBLE;
+
+    function applyMobileAuthorLimits() {
+      const isMobile = window.innerWidth <= 768;
+      const isExpanded = authorMoreBtn.getAttribute('aria-expanded') === 'true';
+
+      cards.forEach(function (card, idx) {
+        if (isMobile && !isExpanded && idx >= INITIAL_VISIBLE) {
+          card.classList.add('is-hidden-mobile');
+        } else {
+          card.classList.remove('is-hidden-mobile');
+        }
+      });
+    }
+
+    applyMobileAuthorLimits();
+    window.addEventListener('resize', applyMobileAuthorLimits, { passive: true });
+
+    authorMoreBtn.addEventListener('click', function () {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const textSpan = this.querySelector('.gs-author-more-btn__text, .gs-btn-load-more__text');
+
+      if (isExpanded) {
+        this.setAttribute('aria-expanded', 'false');
+        this.classList.remove('is-expanded');
+        if (textSpan) textSpan.textContent = 'Lihat Selengkapnya (' + totalRemaining + ' Artikel Lainnya)';
+        cards.forEach(function (card, idx) {
+          if (idx >= INITIAL_VISIBLE) {
+            card.classList.add('is-hidden-mobile');
+          }
+        });
+        authorGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        this.setAttribute('aria-expanded', 'true');
+        this.classList.add('is-expanded');
+        if (textSpan) textSpan.textContent = 'Tutup Sebagian';
+        cards.forEach(function (card) {
+          card.classList.remove('is-hidden-mobile');
+        });
+      }
+    });
+  }
+
 })();

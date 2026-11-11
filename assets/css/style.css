@@ -5808,10 +5808,20 @@ html:not(.js) [data-gs-animate] {
 }
 
 .gs-author-articles-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
-  padding-top: 0.25rem;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .gs-author-articles-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding-top: 0.25rem;
+  }
+
+  .gs-author-post-card.is-hidden-mobile {
+    display: none !important;
+  }
 }
 
 .gs-author-more-btn {
