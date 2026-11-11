@@ -2352,7 +2352,7 @@ body > header .gs-navbar {
   /* Default fallback background image */
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/hero-souvenir.webp");
+    url("../images/hero-souvenir.webp");
 }
 
 .gs-page-hero::before {
@@ -2409,31 +2409,31 @@ body > header .gs-navbar {
 .gs-page-hero--portofolio {
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/craft-packaging.webp");
+    url("../images/portofolio/detail-kemasan-souvenir-pernikahan.webp");
 }
 
 .gs-page-hero--tentang {
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/hero-wedding.webp");
+    url("../images/hero-wedding.webp");
 }
 
 .gs-page-hero--paket {
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/hero-souvenir.webp");
+    url("../images/hero-souvenir.webp");
 }
 
 .gs-page-hero--paket-pernikahan {
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/souvenir-lilin-aroma.webp");
+    url("../images/produk/tradisional/souvenir-lilin-aroma.webp");
 }
 
 .gs-page-hero--paket-perusahaan {
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/souvenir-seminar-kit.webp");
+    url("../images/produk/modern/souvenir-seminar-kit.webp");
 }
 
 .gs-page-hero--blog {
@@ -2445,7 +2445,7 @@ body > header .gs-navbar {
 .gs-page-hero--kebijakan {
   background-image:
     linear-gradient(rgba(45, 15, 8, 0.72), rgba(30, 10, 5, 0.78)),
-    url("../images/artikel/linen-handkerchief-souvenir.webp");
+    url("../images/hero-souvenir.webp");
 }
 
 /* ============================================================

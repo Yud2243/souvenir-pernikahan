@@ -11,3 +11,11 @@ Direktori ini memisahkan foto-foto produk ke dalam dua kategori utama:
    - **Simpan foto produk modern baru di folder ini:** `assets/images/produk/modern/` (atau `images/produk/modern/`)
 
 Format gambar yang direkomendasikan: `.webp` (rasio 4:3 atau 1:1, lebar minimum 600px - 1200px) untuk kecepatan loading optimal.
+
+## Panduan Pengelolaan & Pemisahan Foto:
+1. **Pemisahan Total dengan Foto Artikel:**
+   - Seluruh halaman produk (`produk/*.html`), paket katalog (`paket/*.html`, `paket.html`), dan komponen kartu produk di beranda **hanya** boleh memuat foto dari folder `assets/images/produk/`.
+   - Jangan pernah menghubungkan file produk ke folder `assets/images/artikel/`.
+2. **Kemandirian Berkas (Decoupled Assets):**
+   - Jika suatu produk dan artikel menggunakan basis visual yang serupa, berkas disimpan terpisah secara independen di folder masing-masing.
+   - Perubahan, penggantian, atau optimasi foto produk tidak akan berdampak pada foto artikel, dan sebaliknya.
