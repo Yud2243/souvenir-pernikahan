@@ -748,6 +748,35 @@
   const blogLoadMoreWrap = document.getElementById('gs-blog-load-more-wrap');
 
   if (blogCards.length && (blogSearchInput || blogFilterTabs.length || blogLoadMoreBtn)) {
+    // Dynamic 'Artikel Terbaru' badge manager: ensures only articles with the latest date show the badge
+    function syncLatestArticleBadges() {
+      let maxDate = '';
+      blogCards.forEach(function (card) {
+        const dt = card.dataset.date || card.querySelector('time[datetime]')?.getAttribute('datetime') || '';
+        if (dt && dt > maxDate) {
+          maxDate = dt;
+        }
+      });
+      blogCards.forEach(function (card) {
+        const dt = card.dataset.date || card.querySelector('time[datetime]')?.getAttribute('datetime') || '';
+        const imgWrap = card.querySelector('.gs-blog-card__image');
+        let badgeNew = card.querySelector('.gs-blog-card__badge-new');
+        if (dt && dt === maxDate) {
+          if (!badgeNew && imgWrap) {
+            badgeNew = document.createElement('span');
+            badgeNew.className = 'gs-blog-card__badge-new';
+            badgeNew.innerHTML = '<span class="gs-badge-pulse" aria-hidden="true"></span>Artikel Terbaru';
+            imgWrap.appendChild(badgeNew);
+          }
+        } else {
+          if (badgeNew) {
+            badgeNew.remove();
+          }
+        }
+      });
+    }
+    syncLatestArticleBadges();
+
     const INITIAL_COUNT = 6;
     const STEP_COUNT    = 3;
     let currentCategory = 'semua';
